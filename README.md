@@ -1,17 +1,10 @@
-# .dotfiles
-
-Configuration for [Arch Linux](https://archlinux.org/) with [Hyprland](https://hyprland.org/)
-
-[<kbd>Tokyonight-Moon</kbd>](https://github.com/Fausto-Korpsvart/Tokyo-Night-GTK-Theme) | b | c
---- | --- | ---
-a | b | c
-
+# <img src="assets/header.png" alt="launcher" width="50%"/>
 
 ## 🎨 Impressions
 
-## <img src="assets/arch-linux.png" alt="launcher" width="7.5%"/> Setting up a fresh Arch Linux
+## <img src="assets/arch-linux.png" alt="launcher" width="5%"/> Setting up a fresh Arch Linux
 
-<details><summary><b>Show instructions</b></summary>
+<details><summary><b>Show installation instructions</b></summary>
 
 <br>
 
@@ -29,13 +22,36 @@ archinstall
 After rebooting and logging into your user, a [AUR Helper](https://wiki.archlinux.org/title/AUR_helpers) must be installed. Here, we use [Yay](https://aur.archlinux.org/packages/yay).
 
 ```sh
-sudo pacman -S base-devel git
+sudo pacman -S base-devel git vim
 cd /opt
 sudo git clone https://aur.archlinux.org/yay.git
 sudo chown -R USERNAME:USERNAME ./yay
 cd yay
 makepkg -si
 ```
+
 </details>
 
-## Configuring Hyprland
+At first, the [pacman package manager](https://wiki.archlinux.org/title/pacman) needs to be prettied up.
+
+```sh
+sudo vim /etc/pacman.conf
+
+# Uncomment the following
+ParallelDownloads = 10
+Color
+
+# Add the following (must be under [options])
+ILoveCandy
+```
+
+## 💻 Configuring Hyprland
+
+[Installation of Hyprland](https://wiki.hyprland.org/Getting-Started/Installation/) via [Yay](https://aur.archlinux.org/packages/yay). [Kitty](https://sw.kovidgoyal.net/kitty/) is the default terminal application, that can be left out if a different application is used.
+
+```sh
+sudo pacman -Sy kitty
+yay -Sy hyprland-git
+
+Hyprland
+```
