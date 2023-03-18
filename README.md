@@ -1,5 +1,7 @@
 # <img src="assets/header.png" alt="launcher" width="50%"/>
 
+<a href="https://git.io/typing-svg"><img src="https://readme-typing-svg.demolab.com?font=Fira+Code&pause=1000&color=F7D924&center=true&vCenter=true&width=435&lines=work+in+progress+..." alt="Typing SVG" /></a>
+
 ## 🎨 Impressions
 
 ## <img src="assets/arch-linux.png" alt="launcher" width="5%"/> Setting up a fresh Arch Linux
