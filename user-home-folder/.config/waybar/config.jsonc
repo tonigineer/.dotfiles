@@ -182,6 +182,7 @@
         "pulseaudio",
         "tray",
         "clock",
+        "custom/gamemode",
         "custom/wallpaper",
         "custom/power"
     ],
@@ -344,6 +345,14 @@
     //     "return-type": "json",
     //     "on-click": "~/.scripts/screenshot_full"
     // },
+    "custom/gamemode": {
+        "format": "{}",
+        "exec": "echo '{\"text\":\"󰸉\",\"tooltip\":\"Enable | Disable Gamemode.\"}'",
+        "return-type": "json",
+        // "interval": 1,
+        "on-click": "~/.config/hypr/scripts/gamemode.sh",
+        // "on-click-right": "~/.config/waybar/scripts/change_wallpaper previous"
+    },
     "custom/wallpaper": {
         "format": "{}",
         "exec": "echo '{\"text\":\"󰸉\",\"tooltip\":\"Shuffle Wallpaper.\"}'",

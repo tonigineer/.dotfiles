@@ -5,7 +5,6 @@ swww_exec=~/.config/waybar/scripts/swww
 # Start deamon if needed
 $swww_exec query || $swww_exec init
 
-
 array[0]="--transition-fps 60 --transition-type random --transition-duration 2"
 array[1]="--transition-fps 60 --transition-type grow --transition-pos 0.925,0.977 --transition-duration 2"
 

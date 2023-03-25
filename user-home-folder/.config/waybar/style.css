@@ -89,6 +89,7 @@
 #custom-ss,
 #custom-spotify-metadata,
 #custom-wallpaper,
+#custom-gamemode,
 #custom-weather {
   background-color: @surface0;
   color: @text;
@@ -425,6 +426,15 @@
 #custom-ss {
   color: @mauve;
   padding-right: 1.5rem;
+}
+
+#custom-gamemode {
+  color: @mauve;
+  border-top-left-radius: 0;
+  border-bottom-left-radius: 0;
+  /* padding-left: 8px; */
+  /* padding-right: 1.20rem; */
+  margin-right: 0px;
 }
 
 /* Wallpaper */

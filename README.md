@@ -62,7 +62,7 @@ Install all dependencies:
 
 ```sh
 # MISSING theme, font, cursor, icons
-yay -Sy warbar-hyprland-git nemo pulseaudio pulseaudio-bluetooth pavucontrol fish alacritty tree exa neovim
+yay -Sy warbar-hyprland-git nemo pulseaudio pulseaudio-bluetooth pavucontrol fish alacritty tree exa neovim xdg-user-dir way-displays neofetch
 ```
 
 Copy `.dotfiles` and all the other stuff.
@@ -76,8 +76,10 @@ Final configuration steps.
 ```sh
 # Set default terminal in nemo
 gsettings set org.cinnamon.desktop.default-applications.terminal exec alacritty
-```
 
+# Set up common user folder - https://command-not-found.com/xdg-user-dir
+xdg-user-dirs-update
+```
 
 ## Customization explanation
 
@@ -165,21 +167,77 @@ vim /etc/bluetooth/main.conf
 
 </details>
 
+## Fixes and more
 
+Some applications need further fixes. Especially, `fractional scaling` on [Wayland](https://pointieststick.com/2022/12/16/this-week-in-kde-wayland-fractional-scaling-oh-and-we-also-fixed-multi-screen/) does not work for every application so well. An application looks kind of blurry and/or some does not apply a 4K resolution, e.g., not available in [Steam](https://wiki.archlinux.org/title/steam) games.
 
-## Gimmicks
-TODO TODO TODO
+<details><summary><b>Spotify (not solved yet)</b></summary>
+
+</details>
+
+<details><summary><b>Steam</b></summary>
+
+> Btw, great [tutorial](https://steamcommunity.com/sharedfiles/filedetails/?l=german&id=1787799592) on how to set up gaming on [Steam](https://wiki.archlinux.org/title/steam).
+
+### Missing 4K resolution
+
+Currently, there is no cure for [Steam](https://wiki.archlinux.org/title/steam). The only thing I came up with, is to set the scaling back to `1` via:
+
 ```sh
-pacman -Sy cava neofetch htop
+way-displays -s SCALE "DP-1" 1
+```
+There is a button on the [Waybar](https://github.com/Alexays/Waybar) to activate `gamemode`. This script also takes care of some Hyprland stuff. Further information can be found within the script [itself](/user-home-folder/.config/hypr/scripts/gamemode.sh).
 
-    ### Display configuration 
+### Gamemod
 
-    ```sh
-    sudo pacman -Sy way-displays
-    ```
+[Gamemode](https://github.com/FeralInteractive/gamemode) can be used to get more performance for games.
 
-    https://github.com/alex-courtis/way-displays
+```sh
+gamemodedrun supertuxkart
+```
 
-    create config from default and edit as needed
+### cpupower
 
-    call way-displays to apply config, think must be done every start
+To get all tests passed in `gamemoded -t`, [cpupower](https://wiki.archlinux.org/title/CPU_frequency_scaling#cpupower) can be used to adapt governor.
+
+```sh
+sudo vim `/etc/default/cpupower`
+```
+
+```vim
+# Define CPUs governor
+# valid governors: ondemand, performance, powersave, conservative, userspace.
+governor='ondemand'
+```
+
+[cpupower](https://wiki.archlinux.org/title/CPU_frequency_scaling#cpupower) service must be started/enabled afterwards.
+
+```sh
+systemctl start cpupower.service
+# or
+systemctl enable cpupower.service
+```
+
+> I didn't go for `performance`, because the cooling was working at max. I think, `ondemand` should suffice.
+
+</details>
+
+<details><summary><b>way-displays</b></summary>
+
+The use of [way-displays](https://github.com/alex-courtis/way-displays) is currently only needed to easily switch the `fractional scaling` and arrange two monitors correctly with scaling. If those things are fixed within [Hyprland](https://hyprland.org/)/[Wayland](https://wayland.freedesktop.org/), this tool is obsolete.
+
+> [Command line documentation](https://github.com/alex-courtis/way-displays/blob/master/doc/CONFIGURATION.md#command-line)
+
+</details>
+
+<details><summary><b>Visual Studio Code</b></summary>
+
+Visual Studi Code can be started with the following arguments ([source](https://www.reddit.com/r/Fedora/comments/wpkws3/blurry_vscode_on_wayland_fractional_scaling/)):
+
+```sh
+code --enable-features=UseOzonePlatform,WaylandWindowDecorations --ozone-platform=wayland
+```
+
+> Set command line arguments to `/usr/share/applications/code.desktop`.
+
+</details>
