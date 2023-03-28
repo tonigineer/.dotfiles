@@ -11,10 +11,10 @@ AUR_PACKAGES=$(yay -Qu | sed -z 's/\n/\\n/g; s/..$//')  # add \n as linebreak to
 if [ "$AUR" = 0 ]; then
     echo '{"text": "󰕥", "tooltip": "System is up to date"}'
 else
-    echo '{"text": " '${AUR}'", "tooltip": "'${AUR_PACKAGES}'"}'
+    echo '{"text": "  '${AUR}'", "tooltip": "'${AUR_PACKAGES}'"}'
 fi
 
 # If the parameter is "update", update all services
 if [ "$1" = "update" ]; then
-    alacritty --title "update-aur" -e sh -c "yay -Qu && yay -Syu"
+    alacritty --title "aur-update float" -e sh -c "yay -Qu && yay -Syu"
 fi

@@ -21,7 +21,7 @@ link_dir(){
             return
         else
             mv ${TARGET_DIR} ${TARGET_DIR}_backup
-            echo -e "\e[91m${HOME_DIR}\e[0m was backuped into \e[91m${TARGET_DIR}_backup\e[0m."
+            echo -e "\e[91m${TARGET_DIR}\e[0m was backuped into \e[91m${TARGET_DIR}_backup\e[0m."
             rm -rf ${TARGET_DIR}
         fi
     fi
@@ -31,7 +31,7 @@ link_dir(){
 
 # // ------ Link additional dirs ------ //
 for dir in "${ADDITIONAL_DIRS[@]}"; do
-    SOURCE_DIR=$PWD/$DOTS_DIR/$dir
+    SOURCE_DIR=$DOTS_DIR/$dir
     TARGET_DIR=~/$dir
 
     link_dir $SOURCE_DIR $TARGET_DIR
@@ -40,7 +40,7 @@ done
 
 # // ------ Link folder in ~/.config ------ //
 for folder in $(\ls $DOTS_DIR/.config); do
-    SOURCE_DIR=$PWD/$DOTS_DIR/.config/$folder
+    SOURCE_DIR=$DOTS_DIR/.config/$folder
     TARGET_DIR=~/.config/$folder
 
     link_dir $SOURCE_DIR $TARGET_DIR

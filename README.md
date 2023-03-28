@@ -2,6 +2,11 @@
 
 <a href="https://git.io/typing-svg"><img src="https://readme-typing-svg.demolab.com?font=Fira+Code&pause=1000&color=F7D924&center=true&vCenter=true&width=435&lines=work+in+progress+..." alt="Typing SVG" /></a>
 
+<div align="center">
+<img src="https://img.shields.io/github/last-commit/tonigineer/.dotfiles?style=for-the-badge&logo=github&color=a6da95&logoColor=D9E0EE&labelColor=302D41"/>
+<img src="https://img.shields.io/github/repo-size/tonigineer/.dotfiles?style=for-the-badge&logo=dropbox&color=7dc4e4&logoColor=D9E0EE&labelColor=302D41"/>
+</div>
+
 ## 🎨 Impressions
 
 ## <img src="assets/arch-linux.png" alt="launcher" width="5%"/> Setting up a fresh Arch Linux
@@ -13,7 +18,7 @@
 After booting into the Live Environment use [archinstall](https://wiki.archlinux.org/title/archinstall) or do it manually with the [installation guide](https://wiki.archlinux.org/title/installation_guide).
 
 ```sh
-pacman -Sy archlinux-keyring
+pacman -Sy archlinux-keyring  # nay be needed? not sure anymore.
 pacman -Sy archinstall
 
 archinstall
@@ -68,7 +73,7 @@ yay -Sy warbar-hyprland-git nemo pulseaudio pulseaudio-bluetooth pavucontrol fis
 Copy `.dotfiles` and all the other stuff.
 
 ```sh
-
+/user-home-folder/.tools/link_configuration.sh
 ```
 
 Final configuration steps.
@@ -241,3 +246,21 @@ code --enable-features=UseOzonePlatform,WaylandWindowDecorations --ozone-platfor
 > Set command line arguments to `/usr/share/applications/code.desktop`.
 
 </details>
+
+
+
+
+todfo
+
+
+sudo pacman -Sy xfce4
+xfce4-appearance-settings > hier kann man auch noch themes setzen
+
+yay -Sy swaylock-effects-git
+
+
+
+
+https://github.com/khaneliman/dotfiles/blob/main/dots/linux/hyprland/home/.config/hypr/windowrules.conf
+https://github.com/SolDoesTech/hyprland
+https://github.com/PROxZIMA/.dotfiles/blob/master/.config/hypr/hyprland.conf

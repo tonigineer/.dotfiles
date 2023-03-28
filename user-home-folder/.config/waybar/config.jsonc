@@ -6,7 +6,7 @@
     "position": "top",
     "output": ["DP-1", "DP-2"],     // ["DP-1", "DP-2"],
     // "gtk-layer-shell": "false",
-    "height": 48,                   // to be removed for auto height
+    "height": 50,                   // to be removed for auto height
     // "width": 2560,               // to be removed for auto height
     "spacing": 0,                   // Module gaps, here adjusted in the css
     "margin-top": 0,
@@ -25,8 +25,7 @@
         "memory",
         "temperature",
         "disk",
-        "custom/updates",
-        "custom/updates_aur"
+        "custom/system-updates"
     ],
 
     "custom/launcher": {
@@ -34,8 +33,8 @@
         "tooltip": true,
         "exec": "echo '{\"text\":\" \",\"tooltip\":\"Drun | Run\"}'",
         "return-type": "json",
-        "on-click": "pkill wofi || wofi --show drun -n",
-        "on-click-right": "pkill wofi || wofi --show run -n"
+        "on-click": "pkill rofi || rofi -show drun -n",
+        "on-click-right": "pkill rofi || rofi -show run -n"
     },
     "wlr/workspaces": {
         "format": "",
@@ -60,22 +59,18 @@
         "interval": 2
     },
     "temperature": {
-        // "thermal-zone": 2,
-        // "hwmon-path": "/sys/class/hwmon/hwmon2/temp1_input",
-        // "critical-threshold": 40,
-        // "format-critical": "{icon} {temperatureC}°C",
-        // "format": "{icon} {temperatureC}°C",
-        // "format-icons": [
-        //     "",
-        //     "",
-        //     ""
-        // ],
+        "thermal-zone": 2,
+        "hwmon-path": "/sys/class/hwmon/hwmon2/temp1_input",
+        "critical-threshold": 50,
+        "format-critical": "{icon} {temperatureC}°C",
+        "format": "{icon} {temperatureC}°C",
+        "format-icons": [
+            "",
+            "",
+            ""
+        ],
         "tooltip": true,
-        "on-click": "alacritty -e htop",
-        // "interval": 2
-        "critical-threshold": 70,
-        "format-critical": "{temperatureC}°C ",
-        "format": "{temperatureC}°C "
+        "on-click": "alacritty -e htop"
     },
     "disk": {
         "format": " {percentage_used}% ({free})",
@@ -83,116 +78,64 @@
         "on-click": "nemo",
         "interval": 2
     },
-    // "custom/updates": {
-    //     "format": "{}",
-    //     "exec": "~/.config/waybar/scripts/update_package_manager official",
-    //     "on-click": "~/.config/waybar/scripts/update_package_manager official update",
-    //     "interval": 300,
-    //     "tooltip": true
-    //     // "tooltip-format": "{}",
-    //     // "exec-tooltip": "~/.scripts/updates tooltip"
-    // },
-
-    "custom/updates_aur": {
+    "custom/system-updates": {
         "format": "{}",
-        "exec": "~/.config/waybar/scripts/update_package_manager",
+        "exec": "~/.config/waybar/scripts/system-updates.sh",
         "return-type": "json",
-        "on-click": "~/.config/waybar/scripts/update_package_manager update",
+        "on-click": "~/.config/waybar/scripts/system-updates.sh update",
         "interval": 300,
         "tooltip": true
-        // "tooltip-format": "{}",
-        // "exec-tooltip": "~/.scripts/updates tooltip"
     },
 
 
     // =============================================
     //                    CENTER                    
     // =============================================
-    "modules-center": [
-        "custom/spotify-metadata"
-    ],
-
-
-
-    // "custom/music": {
-    //     "format": "{icon}{}",
-    //     "format-icons": {
-    //         // "Playing": " ", // Uncomment if not using the dynamic script
-    //         "Paused": " ",
-    //         "Stopped": "&#x202d;ﭥ " // This stop symbol is RTL. So &#x202d; is left-to-right override.
-    //     },
-    //     "escape": true,
-    //     "tooltip": true,
-    //     "exec": "~/.config/hypr/scripts/caway -b 10 -e",
-    //     "return-type": "json",
-    //     "on-click": "playerctl play-pause",
-    //     "on-scroll-up": "playerctl previous",
-    //     "on-scroll-down": "playerctl next",
-    //     "on-click-right": "g4music",
-    //     "max-length": 35
-    // },
-    "custom/spotify-metadata": {
-        "format": " {}",
-        "max-length": 60,
-        "interval": 30,
-        "return-type": "json",
-        "exec": "~/.config/waybar/scripts/spotify_metadata",
-        "on-click": "playerctl -p spotify play-pause",
-        "on-click-right": "killall spotify",
-        "on-scroll-up": "playerctl -p spotify next",
-        "on-scroll-down": "playerctl -p spotify previous",
-        "signal": 5,
-        "smooth-scrolling-threshold": 1.0
-    },
-    // "custom/spotify": {
-    //     "format": "{icon} {}",
-    //     "escape": true,
-    //     "return-type": "json",
-    //     "max-length": 40,
-    //     // "interval": 1, // Remove this if your script is endless and write in loop
-    //     "on-click": "playerctl -p spotify play-pause",
-    //     "on-click-right": "killall spotify",
-    //     "smooth-scrolling-threshold": 10, // This value was tested using a trackpad, it should be lowered if using a mouse.
-    //     "on-scroll-up" : "playerctl -p spotify next",
-    //     "on-scroll-down" : "playerctl -p spotify previous",
-    //     "exec": "$HOME/.config/waybar/mediaplayer.py 2> /dev/null", // Script in resources/custom_modules folder
-    //     "exec-if": "pgrep spotify"
-    // },
-
-
-    // =============================================
-    //                  RIGHT SIDE                  
-    // =============================================
-    // "modules-right": [
-    //     "network",
-    //     "pulseaudio",
-    //     "backlight",
-    //     "battery",
-    //     "custom/notifications",
-    //     "tray",
-    //     "clock",
-    //     "custom/weather",
-    //     "custom/cycle_wall",
-    //     "custom/clipboard",
-    //     "custom/power",
-    //     "custom/custom"
+    // "modules-center": [
+    //     // "hyprland/window",
+    //     // "custom/spotify-metadata"
     // ],
-    "modules-right": [
-        "network",
-        "pulseaudio",
-        "tray",
-        "clock",
-        "custom/gamemode",
-        "custom/wallpaper",
-        "custom/power"
-    ],
 
-
+    // Currently problems when no window selected, background still there
+    // https://github.com/Alexays/Waybar/issues/1934
     // "hyprland/window": {
     //     "format": "{}",
     //     "separate-outputs": true,
     //     "max-length": 35
     // },
+    // "custom/spotify-metadata": {
+    //     "format": " {}",
+    //     "max-length": 60,
+    //     "interval": 30,
+    //     "return-type": "json",
+    //     "exec": "~/.config/waybar/scripts/spotify_metadata.sh",
+    //     "on-click": "playerctl -p spotify play-pause",
+    //     "on-click-right": "killall spotify",
+    //     "on-scroll-up": "playerctl -p spotify next",
+    //     "on-scroll-down": "playerctl -p spotify previous",
+    //     "signal": 5,
+    //     "smooth-scrolling-threshold": 1.0
+    // },
+    // TODO: Implement symbols     //         // "Playing": " ", // Uncomment if not using the dynamic script
+    //         "Paused": " ",
+    //         "Stopped": "&#x202d;ﭥ " // This stop symbol is RTL. So &#x202d; is left-to-right override.
+    //     },
+
+
+    // =============================================
+    //                  RIGHT SIDE                  
+    // =============================================
+    "modules-right": [
+        "network",
+        "pulseaudio",
+        "clock",
+        "tray",
+        "custom/speaker",
+        "custom/gamemode",
+        "custom/wallpaper",
+        "custom/power"
+    ],
+
     "network": {
         // "interface": "wlp2*", // (Optional) To force the use of this interface
         "format": "󰑩 {bandwidthTotalBytes}",
@@ -215,7 +158,7 @@
         "interval": 2
     },
     "pulseaudio": {
-        // "scroll-step": 1, // %, can be a float
+        "scroll-step": 2, // %, can be a float
         "format": "{icon} {volume}%", // {format_source}
         "format-bluetooth": "{icon} {volume}%", // {format_source}
         "format-bluetooth-muted": "", // {format_source}
@@ -236,49 +179,88 @@
         },
         "on-click": "pavucontrol"
     },
-    // "backlight": {
-    //     // "device": "acpi_video1",
-    //     "format": "{icon} {percent}%",
-    //     "format-icons": [
-    //         "",
-    //         "",
-    //         "",
-    //         "",
-    //         "",
-    //         "",
-    //         "",
-    //         "",
-    //         ""
-    //     ],
-    //     "on-scroll-up": "light -A 1",
-    //     "on-scroll-down": "light -U 1",
-    //     "interval": 2
+   
+
+    "tray": {
+        "icon-size": 15,
+        "spacing": 15
+    },
+    "clock": {
+        "format": " {:%H:%M} ",
+        "format-alt": " {:%A, %d. %B, %Y (%R)} ",
+        "tooltip-format": "<tt><small>{calendar}</small></tt>",
+        "calendar": {
+                    "mode"          : "year",
+                    "mode-mon-col"  : 3,
+                    "weeks-pos"     : "right",
+                    "on-scroll"     : 1,
+                    "on-click-right": "mode",
+                    "format": {
+                              "months":     "<span color='#9ece6a'><b>{}</b></span>",
+                              "days":       "<span color='#7aa2f7'><b>{}</b></span>",
+                              "weeks":      "<span color='#ad8ee6'><b>W{}</b></span>",
+                              "weekdays":   "<span color='#e0af68'><b>{}</b></span>",
+                              "today":      "<span color='#f7768e'><b><u>{}</u></b></span>"
+                              }
+                    },
+        "actions":  {
+                    "on-click-right": "mode",
+                    "on-click-forward": "tz_up",
+                    "on-click-backward": "tz_down",
+                    "on-scroll-up": "shift_up",
+                    "on-scroll-down": "shift_down"
+                    }
+    },
+    "custom/speaker": {
+        "format": "{}",
+        "exec": "~/.config/hypr/scripts/schrammelband.sh status",
+        "return-type": "json",
+        "on-click": "~/.config/hypr/scripts/schrammelband.sh connect",
+        "interval": 5
+    },
+    "custom/gamemode": {
+        "format": "{}",
+        "exec": "echo '{\"text\":\"\",\"tooltip\":\"Enable | Disable Gamemode.\"}'",
+        "return-type": "json",
+        "on-click": "~/.config/hypr/scripts/gamemode.sh",
+        "interval": 5
+    },
+    "custom/wallpaper": {
+        "format": "{}",
+        "exec": "echo '{\"text\":\"󰸉\",\"tooltip\":\"Shuffle Wallpaper.\"}'",
+        "return-type": "json",
+        "on-click": "~/.config/hypr/scripts/change_wallpaper.sh next",
+        "interval": 5
+    },
+
+    "custom/power": {
+        "format": "{}",
+        "exec": "echo '{\"text\":\"⏻\",\"tooltip\":\"Launch wlogout\"}'",
+        "return-type": "json",
+        "on-click": "wlogout"
+    }
+}
+
+
+// TODO
+
+    // "custom/custom": {
+    //     "format": "{}",
+    //     "exec": "~/.scripts/tools/expand arrow-icon",
+    //     "on-click": "~/.scripts/tools/expand_toolbar",
+    //     "return-type": "json"
+    // }
+    // "custom/weather": {
+    //     "tooltip": true,
+    //     "format": "{}",
+    //     "exec": "~/.scripts/tools/expand weather",
+    //     "return-type": "json"
     // },
-    // "battery": {
-    //     "states": {
-    //         "good": 100,
-    //         "warning": 30,
-    //         "critical": 10
-    //     },
-    //     "format": "{icon} {capacity}%",
-    //     "format-charging": " {capacity}%",
-    //     "format-plugged": " {capacity}%",
-    //     "format-alt": "{icon} {time}",
-    //     // "format-good": "", // An empty format will hide the module
-    //     "format-full": " {capacity}%",
-    //     "format-icons": [
-    //         "",
-    //         "",
-    //         "",
-    //         "",
-    //         "",
-    //         "",
-    //         "",
-    //         "",
-    //         "",
-    //         ""
-    //     ],
-    //     "interval": 2
+    // "custom/ss": {
+    //     "format": "{}",
+    //     "exec": "~/./scripts/tools/expand ss-icon",
+    //     "return-type": "json",
+    //     "on-click": "~/.scripts/screenshot_full"
     // },
     // "custom/notifications": {
     //     "tooltip": false,
@@ -296,96 +278,3 @@
     //     "on-click-right": "swaync-client -d -sw",
     //     "escape": true
     // },
-    "tray": {
-        "icon-size": 15,
-        "spacing": 15
-    },
-    "clock": {
-        "format": " {:%H:%M} ",
-        "format-alt": " {:%A, %d. %B, %Y (%R)} ",
-        "tooltip-format": "<tt><small>{calendar}</small></tt>",
-        "calendar": {
-                    "mode"          : "year",
-                    "mode-mon-col"  : 3,
-                    "weeks-pos"     : "right",
-                    "on-scroll"     : 1,
-                    "on-click-right": "mode",
-                    "format": {
-                              "months":     "<span color='#ffead3'><b>{}</b></span>",
-                              "days":       "<span color='#ecc6d9'><b>{}</b></span>",
-                              "weeks":      "<span color='#99ffdd'><b>W{}</b></span>",
-                              "weekdays":   "<span color='#ffcc66'><b>{}</b></span>",
-                              "today":      "<span color='#ff6699'><b><u>{}</u></b></span>"
-                              }
-                    },
-        "actions":  {
-                    "on-click-right": "mode",
-                    "on-click-forward": "tz_up",
-                    "on-click-backward": "tz_down",
-                    "on-scroll-up": "shift_up",
-                    "on-scroll-down": "shift_down"
-                    }
-    },
-    // "idle_inhibitor": {
-    //     "format": "{icon}",
-    //     "format-icons": {
-    //         "activated": "",
-    //         "deactivated": ""
-    //     }
-    // },
-    // "custom/weather": {
-    //     "tooltip": true,
-    //     "format": "{}",
-    //     "exec": "~/.scripts/tools/expand weather",
-    //     "return-type": "json"
-    // },
-    // "custom/ss": {
-    //     "format": "{}",
-    //     "exec": "~/./scripts/tools/expand ss-icon",
-    //     "return-type": "json",
-    //     "on-click": "~/.scripts/screenshot_full"
-    // },
-    "custom/gamemode": {
-        "format": "{}",
-        "exec": "echo '{\"text\":\"󰸉\",\"tooltip\":\"Enable | Disable Gamemode.\"}'",
-        "return-type": "json",
-        // "interval": 1,
-        "on-click": "~/.config/hypr/scripts/gamemode.sh",
-        // "on-click-right": "~/.config/waybar/scripts/change_wallpaper previous"
-    },
-    "custom/wallpaper": {
-        "format": "{}",
-        "exec": "echo '{\"text\":\"󰸉\",\"tooltip\":\"Shuffle Wallpaper.\"}'",
-        "return-type": "json",
-        // "interval": 1,
-        "on-click": "~/.config/waybar/scripts/change_wallpaper next",
-        // "on-click-right": "~/.config/waybar/scripts/change_wallpaper previous"
-    },
-    // "custom/clipboard": {
-    //     "format": "{}",
-    //     "exec": "~/.scripts/tools/expand clipboard",
-    //     "return-type": "json",
-    //     // Here "-l top_right -x -15 -y 10" doesn't matter as '-n' mode is used
-    //     // Window position is managed in Hyperland config's windowrulev2
-    //     "on-click": "pkill tofi || cliphist list | gamemoderun tofi -c ~/.config/tofi/tofi.clip.conf | cliphist decode | wl-copy",
-    //     "on-click-middle": "rm -f ~/.cache/cliphist/db",
-    //     "on-click-right": "pkill tofi || cliphist list | gamemoderun tofi -c ~/.config/tofi/tofi.clip.conf | cliphist delete",
-    //     // "on-click": "pkill wofi || cliphist list | wofi --dmenu -p clippick -l top_right -x -15 -y 10 -n | cliphist decode | wl-copy",
-    //     // "on-click-middle": "rm -f ~/.cache/cliphist/db",
-    //     // "on-click-right": "pkill wofi || cliphist list | wofi --dmenu -p clippick -l top_right -x -15 -y 10 -n | cliphist delete",
-    //     "escape": true
-    // },
-    "custom/power": {
-        "format": "{}",
-        "exec": "echo '{\"text\":\"⏻\",\"tooltip\":\"Launch Power Menu\"}'",
-        "return-type": "json",
-        "on-click": "~/.config/waybar/scripts/power_menu menu"
-    },
-
-    // "custom/custom": {
-    //     "format": "{}",
-    //     "exec": "~/.scripts/tools/expand arrow-icon",
-    //     "on-click": "~/.scripts/tools/expand_toolbar",
-    //     "return-type": "json"
-    // }
-}
