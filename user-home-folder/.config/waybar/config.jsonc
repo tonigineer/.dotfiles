@@ -128,9 +128,9 @@
     "modules-right": [
         "network",
         "pulseaudio",
+        "custom/speaker",
         "clock",
         "tray",
-        "custom/speaker",
         "custom/gamemode",
         "custom/wallpaper",
         "custom/power"
@@ -158,11 +158,11 @@
         "interval": 2
     },
     "pulseaudio": {
-        "scroll-step": 2, // %, can be a float
-        "format": "{icon} {volume}%", // {format_source}
+        "scroll-step": 2,                       // %, can be a float
+        "format": "{icon} {volume}%",           // {format_source}
         "format-bluetooth": "{icon} {volume}%", // {format_source}
-        "format-bluetooth-muted": "", // {format_source}
-        "format-muted": "", // {format_source}
+        "format-bluetooth-muted": "",          // {format_source}
+        "format-muted": "",                    // {format_source}
         "format-source": "{volume}% ",
         "format-source-muted": "",
         "format-icons": {
@@ -179,8 +179,13 @@
         },
         "on-click": "pavucontrol"
     },
-   
-
+    "custom/speaker": {
+        "format": "{}",
+        "exec": "~/.config/hypr/scripts/schrammelband.sh status",
+        "return-type": "json",
+        "on-click": "~/.config/hypr/scripts/schrammelband.sh connect",
+        "interval": 5
+    },
     "tray": {
         "icon-size": 15,
         "spacing": 15
@@ -211,25 +216,19 @@
                     "on-scroll-down": "shift_down"
                     }
     },
-    "custom/speaker": {
-        "format": "{}",
-        "exec": "~/.config/hypr/scripts/schrammelband.sh status",
-        "return-type": "json",
-        "on-click": "~/.config/hypr/scripts/schrammelband.sh connect",
-        "interval": 5
-    },
     "custom/gamemode": {
         "format": "{}",
-        "exec": "echo '{\"text\":\"\",\"tooltip\":\"Enable | Disable Gamemode.\"}'",
+        "exec": "echo '{\"text\":\"\",\"tooltip\":\"<b>Enable</b> | Disable Gamemode\"}'",
         "return-type": "json",
         "on-click": "~/.config/hypr/scripts/gamemode.sh",
         "interval": 5
     },
     "custom/wallpaper": {
         "format": "{}",
-        "exec": "echo '{\"text\":\"󰸉\",\"tooltip\":\"Shuffle Wallpaper.\"}'",
+        "exec": "~/.config/hypr/scripts/change-wallpaper.sh tooltip",
         "return-type": "json",
-        "on-click": "~/.config/hypr/scripts/change_wallpaper.sh next",
+        "on-click": "~/.config/hypr/scripts/change-wallpaper.sh next",
+        "on-click-right": "~/.config/hypr/scripts/change-wallpaper.sh prev",
         "interval": 5
     },
 

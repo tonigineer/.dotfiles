@@ -5,6 +5,12 @@
     "keybind" : "u"
 },
 {
+    "label" : "lock",
+    "action" : "swaylock",
+    "text" : "(L)ock",
+    "keybind" : "l"
+},
+{
     "label" : "reboot",
     "action" : "systemctl reboot",
     "text" : "(R)eboot",
@@ -15,4 +21,16 @@
     "action" : "systemctl poweroff",
     "text" : "(S)hutdown",
     "keybind" : "s"
+},
+{
+    "label" : "hibernate",
+    "action" : "systemctl hibernate",
+    "text" : "(H)ibernate",
+    "keybind" : "h"
+},
+{
+    "label" : "logout",
+    "action" : "loginctl terminate-user $USER",
+    "text" : "L(o)gout",
+    "keybind" : "o"
 }

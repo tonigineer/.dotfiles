@@ -1,8 +1,9 @@
 @define-color surface0              rgba(22, 25, 37, 0.9);
 @define-color surface1              rgba(22, 25, 37, 0.3);
-@define-color surface3              rgba(57, 65, 97, 1);
+@define-color surface3              rgba(57, 65, 97, 1.0);
 
-@define-color hyprland_green        #94E2D5;
+@define-color hyprland_blue         rgba(51, 204, 255, 0.93);
+@define-color hyprland_green        rgba( 0, 255, 153, 0.93);
 
 @define-color tokio_night_black     #32344a;
 @define-color tokio_night_red       #f7768e;
