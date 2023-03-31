@@ -80,9 +80,9 @@
     },
     "custom/system-updates": {
         "format": "{}",
-        "exec": "~/.config/waybar/scripts/system-updates.sh",
+        "exec": "~/.local/bin/system-updates.sh",
         "return-type": "json",
-        "on-click": "~/.config/waybar/scripts/system-updates.sh update",
+        "on-click": "~/.local/bin/system-updates.sh update",
         "interval": 300,
         "tooltip": true
     },
@@ -108,7 +108,7 @@
         "max-length": 60,
         "interval": 30,
         "return-type": "json",
-        "exec": "~/.config/waybar/scripts/spotify-metadata.sh",
+        "exec": "~/.local/bin/spotify-metadata.sh",
         "on-click": "playerctl -p spotify play-pause",
         "on-click-right": "killall spotify",
         "on-scroll-up": "playerctl -p spotify next",
@@ -181,9 +181,9 @@
     },
     "custom/speaker": {
         "format": "{}",
-        "exec": "~/.config/hypr/scripts/schrammelband.sh status",
+        "exec": "~/.local/bin/schrammelband.sh status",
         "return-type": "json",
-        "on-click": "~/.config/hypr/scripts/schrammelband.sh connect",
+        "on-click": "~/.local/bin/schrammelband.sh connect",
         "interval": 5
     },
     "tray": {
@@ -220,15 +220,15 @@
         "format": "{}",
         "exec": "echo '{\"text\":\"\",\"tooltip\":\"<b>Enable</b> | Disable Gamemode\"}'",
         "return-type": "json",
-        "on-click": "~/.config/hypr/scripts/gamemode.sh",
+        "on-click": "~/.local/bin/gamemode.sh",
         "interval": 5
     },
     "custom/wallpaper": {
         "format": "{}",
-        "exec": "~/.config/hypr/scripts/change-wallpaper.sh tooltip",
+        "exec": "~/.local/bin/change-wallpaper.sh tooltip",
         "return-type": "json",
-        "on-click": "~/.config/hypr/scripts/change-wallpaper.sh next",
-        "on-click-right": "~/.config/hypr/scripts/change-wallpaper.sh prev",
+        "on-click": "~/.local/bin/change-wallpaper.sh next",
+        "on-click-right": "~/.local/bin/change-wallpaper.sh prev",
         "interval": 5
     },
 

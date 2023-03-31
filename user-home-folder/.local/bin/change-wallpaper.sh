@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 
-SWWW=~/.config/hypr/scripts/swww
+SWWW=~/.local/bin/swww
 WALLPAPER_DIR=~/.config/hypr/backgrounds/animated
 
 # Create tooltips
