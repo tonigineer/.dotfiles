@@ -91,10 +91,10 @@
     // =============================================
     //                    CENTER                    
     // =============================================
-    // "modules-center": [
-    //     // "hyprland/window",
-    //     // "custom/spotify-metadata"
-    // ],
+    "modules-center": [
+        "custom/spotify-metadata",
+    ],
+    // "hyprland/window"
 
     // Currently problems when no window selected, background still there
     // https://github.com/Alexays/Waybar/issues/1934
@@ -103,19 +103,19 @@
     //     "separate-outputs": true,
     //     "max-length": 35
     // },
-    // "custom/spotify-metadata": {
-    //     "format": " {}",
-    //     "max-length": 60,
-    //     "interval": 30,
-    //     "return-type": "json",
-    //     "exec": "~/.config/waybar/scripts/spotify_metadata.sh",
-    //     "on-click": "playerctl -p spotify play-pause",
-    //     "on-click-right": "killall spotify",
-    //     "on-scroll-up": "playerctl -p spotify next",
-    //     "on-scroll-down": "playerctl -p spotify previous",
-    //     "signal": 5,
-    //     "smooth-scrolling-threshold": 1.0
-    // },
+    "custom/spotify-metadata": {
+        "format": "{}",
+        "max-length": 60,
+        "interval": 30,
+        "return-type": "json",
+        "exec": "~/.config/waybar/scripts/spotify-metadata.sh",
+        "on-click": "playerctl -p spotify play-pause",
+        "on-click-right": "killall spotify",
+        "on-scroll-up": "playerctl -p spotify next",
+        "on-scroll-down": "playerctl -p spotify previous",
+        "signal": 5,
+        "smooth-scrolling-threshold": 1.0
+    },
     // TODO: Implement symbols     //         // "Playing": " ", // Uncomment if not using the dynamic script
     //         "Paused": " ",
     //         "Stopped": "&#x202d;ﭥ " // This stop symbol is RTL. So &#x202d; is left-to-right override.

@@ -15,8 +15,8 @@ for f in "${wallpaper_avail[@]}"; do
     filename="${f##*/}"
     if [ "$filename" = "$wallpaper_current" ]; then
         filename="<b> $filename</b>"
-        wallpaper_prev=${wallpaper_avail[$(( i - 1 % $wallpaper_number))]}
-        wallpaper_next=${wallpaper_avail[$(( i + 1% $wallpaper_number))]}
+        wallpaper_prev=${wallpaper_avail[$(( (i - 1) % $wallpaper_number))]}
+        wallpaper_next=${wallpaper_avail[$(( (i + 1) % $wallpaper_number))]}
     else
         filename=" $filename"
     fi
@@ -51,10 +51,12 @@ animation=${array[$index]}
 # Apply wallpaper
 if [ "$1" = "next" ]; then
     $SWWW img $wallpaper_next $animation
+    applied_wallpaper="${wallpaper_next##*/}"
 fi
 
 if [ "$1" = "prev" ]; then
     $SWWW img $wallpaper_prev $animation
+    applied_wallpaper="${wallpaper_prev##*/}"
 fi
 
 if [ "$1" = "reset" ]; then
@@ -66,4 +68,9 @@ if [ "$1" = "reset" ]; then
         fi
     done
     $SWWW img $random_file $animation
+    applied_wallpaper="${random_file##*/}"
+fi
+
+if [ ! "$2" = "silent" ]; then
+    dunstify -i icons8-wallpaper-64 "Wallpaper updated" "Changed to $applied_wallpaper" -a Waybar -u low -t 5000
 fi

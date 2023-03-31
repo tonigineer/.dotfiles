@@ -180,15 +180,19 @@ div * {
 
 
 /* Center modules - definition */
-#window {
+/* #window {
     color: @tokio_night_green;
     padding-left: 15px;
     padding-right: 15px;
-}
+} */
 /* Currently the background is shown, when empty! */
 
 #custom-spotify-metadata {
-    color: @mauve;
+    border: solid 2px;
+    border-color: @hyprland_blue;
+    color: @catppuccin_rosewater;
+    padding-left: 15px;
+    padding-right: 15px;
 }
 
 

@@ -245,6 +245,14 @@ code --enable-features=UseOzonePlatform,WaylandWindowDecorations --ozone-platfor
 
 > Set command line arguments to `/usr/share/applications/code.desktop`.
 
+```sh
+sed -i 's/code --unity-launch %F/code --enable-features=UseOzonePlatform,WaylandWindowDecorations --ozone-platform=wayland/' /usr/share/applications/code.desktop
+```
+
+!update revert changes!!!
+
+sudo sed
+
 </details>
 
 
@@ -259,8 +267,22 @@ xfce4-appearance-settings > hier kann man auch noch themes setzen
 yay -Sy swaylock-effects-git
 
 
+screenshots
+yay -Sy grim-git slurp-git wl-clipboard
+yay -Sy imv-git  # image viewer
 
+
+
+IMG=~/Pictures/Screenshots/$(date +'Screenshot_%Y-%m-%d_%H-%M-%S.png') && grim -g "$(slurp)" $IMG && wl-copy < $IMG && notify-send "Screenshot" "Saved & Copied";
 
 https://github.com/khaneliman/dotfiles/blob/main/dots/linux/hyprland/home/.config/hypr/windowrules.conf
 https://github.com/SolDoesTech/hyprland
 https://github.com/PROxZIMA/.dotfiles/blob/master/.config/hypr/hyprland.conf
+
+
+pamixer muss fuer notifyu-voliume script mit installiert werden
+
+
+
+discord.desktop in uar/share.applic ...
+--enable-features=UseOzonePlatform --ozone-platform=wayland

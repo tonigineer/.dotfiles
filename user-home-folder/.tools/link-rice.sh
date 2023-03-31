@@ -8,6 +8,8 @@ ADDITIONAL_DIRS=(
     .tools
     .gtkrc-2.0
     .Xresources
+    .local/bin
+    .local/share/icons/dunst
 )
 
 # // ------ Sub-functions ----- //
