@@ -4,7 +4,7 @@
 
 <div align="center">
     <img src="https://img.shields.io/github/last-commit/tonigineer/.dotfiles?style=for-the-badge&logo=github&color=a6da95&logoColor=D9E0EE&labelColor=302D41"/>
-    <img src="https://img.shields.io/github/repo-size/tonigineer/.dotfiles?style=for-the-badge&logo=dropbox&color=7dc4e4&logoColor=D9E0EE&labelColor=302D41"/>
+    <img src="https://img.shields.io/github/repo-size/tonigineer/.dotfiles?style=for-the-badge&logo=dropbox&color=7dc4e4&logoColor=D9E0EE&labelColor=302D41"/><br>
     <a href="https://git.io/typing-svg"><img src="https://readme-typing-svg.demolab.com?font=Fira+Code&pause=1000&color=F7D924&center=true&vCenter=true&width=435&lines=work+in+progress+..." alt="Typing SVG" /></a>
 </div>
 
@@ -21,17 +21,17 @@
 <details open>
 <summary><b>🔬 Display</b></summary>
 
-- Display Server: [Wayland](https://wiki.archlinux.org/title/Wayland)
-- Compositor: [Hyprland](https://hyprland.org/)
-- Bar: [Waybar](https://github.com/Alexays/Waybar)
+🔹 Display Server: [Wayland](https://wiki.archlinux.org/title/Wayland)
+🔹 Compositor: [Hyprland](https://hyprland.org/)
+🔹 Bar: [Waybar](https://github.com/Alexays/Waybar)
 </details>
 
 <details open>
 <summary><b>🌈 Appearance</b></summary>
 
-- Color scheme: [Tokyonight-Dark-BL-LB](https://github.com/Fausto-Korpsvart/Tokyo-Night-GTK-Theme)
-- Cursor: [Catppuccin-Mocha-Light-Cursors](https://github.com/catppuccin/cursors)
-- Icons: [Win 11 icon theme](https://www.gnome-look.org/p/1546069)
+🔸 Color scheme: [Tokyonight-Dark-BL-LB](https://github.com/Fausto-Korpsvart/Tokyo-Night-GTK-Theme)
+🔸 Cursor: [Catppuccin-Mocha-Light-Cursors](https://github.com/catppuccin/cursors)
+🔸 Icons: [Win 11 icon theme](https://www.gnome-look.org/p/1546069)
 </details>
 
 <details open>
@@ -45,42 +45,32 @@
 
 ## 🥼 Installation
 
-> **Note**: The following installation instructions may be tailored strongly towards my needs. Therefore I recommend to refer to the official [installation guide]() and general [recommendations](https://wiki.archlinux.org/title/General_recommendations).
-
-```sh
-pacman -Sy archlinux-keyring  # nay be needed? not sure anymore.
-pacman -Sy archinstall
-
-archinstall
-
-# Configure your installation and proceed.
-```
-
 <details>
-<summary><img src="assets/arch-linux.png" alt="launcher" width="3%"/> Setting up a fresh Arch Linux</summary>
+<summary><img src="assets/arch-linux.png" alt="launcher" width="3%"/> Setting up a fresh Arch Linux</summary><br>
 
 After booting into the Live Environment use [archinstall](https://wiki.archlinux.org/title/archinstall) or do it manually with the [installation guide](https://wiki.archlinux.org/title/installation_guide).
 
+> **Note**: It is highly recommended to refer to the official [installation guide](https://wiki.archlinux.org/title/archinstall) and [general recommendations](https://wiki.archlinux.org/title/General_recommendations).
 
-
-After rebooting and logging into your user, a [AUR Helper](https://wiki.archlinux.org/title/AUR_helpers) must be installed. Here, we use [Yay](https://aur.archlinux.org/packages/yay).
-
+```sh
+pacman -Sy archlinux-keyring  # may be needed? not sure anymore.
+pacman -Sy archinstall
+archinstall  # configure installation and wait for it
+```
 </details>
 
 At first, the [pacman package manager](https://wiki.archlinux.org/title/pacman) needs to be prettied up.
 
 ```sh
 sudo vim /etc/pacman.conf
-
 # Uncomment the following
 ParallelDownloads = 10
 Color
-
 # Add the following (must be under [options])
 ILoveCandy
 ```
 
-Installation of an [AUR Helper](https://wiki.archlinux.org/title/AUR_helpers), here [Yay](https://aur.archlinux.org/packages/yay):
+Installation of an [AUR Helper](https://wiki.archlinux.org/title/AUR_helpers), here [Yay](https://aur.archlinux.org/packages/yay).
 
 ```sh
 sudo pacman -S base-devel git vim
@@ -96,7 +86,6 @@ makepkg -si
 ```sh
 sudo pacman -Sy kitty
 yay -Sy hyprland-git
-
 Hyprland  # start Hpyrland from the tty
 ```
 
@@ -127,7 +116,7 @@ gsettings set org.cinnamon.desktop.default-applications.terminal exec alacritty
 xdg-user-dirs-update
 ```
 
-## Customization explanation
+## ⚙ Customization explanation
 
 Collection of how to customize the look of the Rice, mostly intended to be a reminder to myself.
 
@@ -213,7 +202,7 @@ vim /etc/bluetooth/main.conf
 
 </details>
 
-## Fixes and more
+## 🛠️ Fixes and more
 
 Some applications need further fixes. Especially, `fractional scaling` on [Wayland](https://pointieststick.com/2022/12/16/this-week-in-kde-wayland-fractional-scaling-oh-and-we-also-fixed-multi-screen/) does not work for every application so well. An application looks kind of blurry and/or some does not apply a 4K resolution, e.g., not available in [Steam](https://wiki.archlinux.org/title/steam) games.
 
