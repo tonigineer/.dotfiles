@@ -1,21 +1,51 @@
-# <img src="assets/header.png" alt="launcher" width="50%"/>
-
-<a href="https://git.io/typing-svg"><img src="https://readme-typing-svg.demolab.com?font=Fira+Code&pause=1000&color=F7D924&center=true&vCenter=true&width=435&lines=work+in+progress+..." alt="Typing SVG" /></a>
-
 <div align="center">
-<img src="https://img.shields.io/github/last-commit/tonigineer/.dotfiles?style=for-the-badge&logo=github&color=a6da95&logoColor=D9E0EE&labelColor=302D41"/>
-<img src="https://img.shields.io/github/repo-size/tonigineer/.dotfiles?style=for-the-badge&logo=dropbox&color=7dc4e4&logoColor=D9E0EE&labelColor=302D41"/>
+    <img src="assets/header.png" alt="launcher" width="50%"/>
 </div>
 
-## 🎨 Impressions
+<div align="center">
+    <img src="https://img.shields.io/github/last-commit/tonigineer/.dotfiles?style=for-the-badge&logo=github&color=a6da95&logoColor=D9E0EE&labelColor=302D41"/>
+    <img src="https://img.shields.io/github/repo-size/tonigineer/.dotfiles?style=for-the-badge&logo=dropbox&color=7dc4e4&logoColor=D9E0EE&labelColor=302D41"/>
+    <a href="https://git.io/typing-svg"><img src="https://readme-typing-svg.demolab.com?font=Fira+Code&pause=1000&color=F7D924&center=true&vCenter=true&width=435&lines=work+in+progress+..." alt="Typing SVG" /></a>
+</div>
 
-## <img src="assets/arch-linux.png" alt="launcher" width="5%"/> Setting up a fresh Arch Linux
+## 🎨 Impressions 
 
-<details><summary><b>Show installation instructions</b></summary>
+<p align="center">
+    <kbd>
+        <img alt="just-wallpaper-with-waybar" src="./assets/waybar.png"/>
+    </kbd>
+</p>
 
-<br>
+## 📖 Overview
 
-After booting into the Live Environment use [archinstall](https://wiki.archlinux.org/title/archinstall) or do it manually with the [installation guide](https://wiki.archlinux.org/title/installation_guide).
+<details open>
+<summary><b>🔬 Display</b></summary>
+
+- Display Server: [Wayland](https://wiki.archlinux.org/title/Wayland)
+- Compositor: [Hyprland](https://hyprland.org/)
+- Bar: [Waybar](https://github.com/Alexays/Waybar)
+</details>
+
+<details open>
+<summary><b>🌈 Appearance</b></summary>
+
+- Color scheme: [Tokyonight-Dark-BL-LB](https://github.com/Fausto-Korpsvart/Tokyo-Night-GTK-Theme)
+- Cursor: [Catppuccin-Mocha-Light-Cursors](https://github.com/catppuccin/cursors)
+- Icons: [Win 11 icon theme](https://www.gnome-look.org/p/1546069)
+</details>
+
+<details open>
+<summary><b>💾 Applications</b></summary>
+</details>
+
+<details open>
+<summary><b>🚗 Ricing</b></summary>
+</details>
+
+
+## 🥼 Installation
+
+> **Note**: The following installation instructions may be tailored strongly towards my needs. Therefore I recommend to refer to the official [installation guide]() and general [recommendations](https://wiki.archlinux.org/title/General_recommendations).
 
 ```sh
 pacman -Sy archlinux-keyring  # nay be needed? not sure anymore.
@@ -26,16 +56,14 @@ archinstall
 # Configure your installation and proceed.
 ```
 
-After rebooting and logging into your user, a [AUR Helper](https://wiki.archlinux.org/title/AUR_helpers) must be installed. Here, we use [Yay](https://aur.archlinux.org/packages/yay).
+<details>
+<summary><img src="assets/arch-linux.png" alt="launcher" width="3%"/> Setting up a fresh Arch Linux</summary>
 
-```sh
-sudo pacman -S base-devel git vim
-cd /opt
-sudo git clone https://aur.archlinux.org/yay.git
-sudo chown -R USERNAME:USERNAME ./yay
-cd yay
-makepkg -si
-```
+After booting into the Live Environment use [archinstall](https://wiki.archlinux.org/title/archinstall) or do it manually with the [installation guide](https://wiki.archlinux.org/title/installation_guide).
+
+
+
+After rebooting and logging into your user, a [AUR Helper](https://wiki.archlinux.org/title/AUR_helpers) must be installed. Here, we use [Yay](https://aur.archlinux.org/packages/yay).
 
 </details>
 
@@ -52,7 +80,16 @@ Color
 ILoveCandy
 ```
 
-## 💻 Configuring Hyprland
+Installation of an [AUR Helper](https://wiki.archlinux.org/title/AUR_helpers), here [Yay](https://aur.archlinux.org/packages/yay):
+
+```sh
+sudo pacman -S base-devel git vim
+cd /opt
+sudo git clone https://aur.archlinux.org/yay.git
+sudo chown -R USERNAME:USERNAME ./yay
+cd yay
+makepkg -si
+```
 
 [Installation](https://wiki.hyprland.org/Getting-Started/Installation/) of [Hyprland](https://hyprland.org/) via [Yay](https://aur.archlinux.org/packages/yay). [Kitty](https://sw.kovidgoyal.net/kitty/) is the default terminal application, that can be launch by `MOD + Q`.
 
@@ -66,19 +103,23 @@ Hyprland  # start Hpyrland from the tty
 Install all dependencies:
 
 ```sh
-# MISSING theme, font, cursor, icons
+# TODO: HERE PACKAGE FILE NEEDED
 yay -Sy warbar-hyprland-git nemo pulseaudio pulseaudio-bluetooth pavucontrol fish alacritty tree exa neovim xdg-user-dir way-displays neofetch
 ```
 
-Copy `.dotfiles` and all the other stuff.
+Link files and do all the other stuff needed.
 
 ```sh
-/user-home-folder/.tools/link_configuration.sh
+cd Downloads
+git clone https://github.com/tonigineer/.dotfiles.git
+cd .dotfiles
+./install.sh
 ```
 
 Final configuration steps.
 
 ```sh
+# TODO: must be moved into installation script
 # Set default terminal in nemo
 gsettings set org.cinnamon.desktop.default-applications.terminal exec alacritty
 

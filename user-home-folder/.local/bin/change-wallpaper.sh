@@ -1,10 +1,10 @@
 #!/usr/bin/env bash
 
 SWWW=~/.local/bin/swww
-WALLPAPER_DIR=~/.config/hypr/backgrounds/animated
+WALLPAPER_DIR=~/.local/share/backgrounds/animated
 
 # Create tooltips
-wallpaper_current=$($SWWW query | grep -oP '(?<=").*(?=")')
+wallpaper_current=$($SWWW query | grep -oP '(?<=").*(?=")' | head -1)
 
 wallpaper_avail=($WALLPAPER_DIR/*)
 wallpaper_number=${#wallpaper_avail[@]}
@@ -51,12 +51,12 @@ animation=${array[$index]}
 # Apply wallpaper
 if [ "$1" = "next" ]; then
     $SWWW img $wallpaper_next $animation
-    applied_wallpaper="${wallpaper_next##*/}"
+    wallpaper_selected="${wallpaper_next##*/}"
 fi
 
 if [ "$1" = "prev" ]; then
     $SWWW img $wallpaper_prev $animation
-    applied_wallpaper="${wallpaper_prev##*/}"
+    wallpaper_selected="${wallpaper_prev##*/}"
 fi
 
 if [ "$1" = "reset" ]; then
@@ -68,9 +68,9 @@ if [ "$1" = "reset" ]; then
         fi
     done
     $SWWW img $random_file $animation
-    applied_wallpaper="${random_file##*/}"
+    wallpaper_selected="${random_file##*/}"
 fi
 
 if [ ! "$2" = "silent" ]; then
-    dunstify -i icons8-wallpaper-64 "Wallpaper updated" "Changed to $applied_wallpaper" -a Waybar -u low -t 5000
+    dunstify -i icons8-wallpaper-64 "Wallpaper updated" "Changed to $wallpaper_selected" -a Waybar -u low -t 5000
 fi
