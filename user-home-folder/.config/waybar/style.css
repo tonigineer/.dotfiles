@@ -32,6 +32,7 @@ tooltip label {
 #temperature,
 #disk,
 #custom-system-updates,
+#custom-temp,
 
 /* Center modules */
 #custom-spotify-metadata,
@@ -117,6 +118,26 @@ div * {
     padding-right: 5px;
 }
 
+#custom-temp {
+    border: solid 2px;
+    border-left: 0px;
+    border-right: 0px;
+    border-color: @hyprland_blue;
+    border-radius: 0px;
+    color: @tokio_night_blue;
+    margin-right: 0px;
+    padding-left: 5px;
+    padding-right: 5px;
+}
+
+#custom-temp.load {
+    color: @tokio_night_yellow;
+}
+
+#custom-temp.critical {
+    color: @tokio_night_red;
+}
+
 #memory {
     border: solid 2px;
     border-left: 0px;
@@ -124,30 +145,6 @@ div * {
     border-color: @hyprland_blue;
     border-radius: 0px;
     color: @tokio_night_blue;
-    margin-right: 0px;
-    padding-left: 5px;
-    padding-right: 5px;
-}
-
-#temperature {
-    border: solid 2px;
-    border-left: 0px;
-    border-right: 0px;
-    border-color: @hyprland_blue;
-    border-radius: 0px;
-    color: @tokio_night_blue;
-    margin-right: 0px;
-    padding-left: 5px;
-    padding-right: 5px;
-}
-
-#temperature.critical {
-    border: solid 2px;
-    border-left: 0px;
-    border-right: 0px;
-    border-color: @hyprland_blue;
-    border-radius: 0px;
-    color: @tokio_night_red;
     margin-right: 0px;
     padding-left: 5px;
     padding-right: 5px;
@@ -165,11 +162,10 @@ div * {
     padding-right: 1rem;
 }
 
-
 #custom-system-updates {
     background-color: @surface1;
     border: solid 2px;
-    border-color: @hyprland_green;
+    border-color: @hyprland_blue;
     color: @tokio_night_magenta;
     padding-top: 0px;
     padding-bottom: 0px;
@@ -189,7 +185,7 @@ div * {
 
 #custom-spotify-metadata {
     border: solid 2px;
-    border-color: @hyprland_blue;
+    border-color: @hyprland_green;
     color: @catppuccin_rosewater;
     padding-left: 15px;
     padding-right: 15px;

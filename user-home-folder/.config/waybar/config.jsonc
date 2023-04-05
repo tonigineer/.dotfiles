@@ -22,8 +22,8 @@
         "custom/launcher",
         "wlr/workspaces",
         "cpu",
+        "custom/temp",
         "memory",
-        "temperature",
         "disk",
         "custom/system-updates"
     ],
@@ -31,7 +31,7 @@
     "custom/launcher": {
         "format": "{}",
         "tooltip": true,
-        "exec": "echo '{\"text\":\" \",\"tooltip\":\"Drun | Run\"}'",
+        "exec": "echo '{\"text\":\" \",\"tooltip\":\"Rofi\"}'",
         "return-type": "json",
         "on-click": "pkill rofi || rofi -show drun -n",
         "on-click-right": "pkill rofi || rofi -show run -n"
@@ -49,34 +49,28 @@
     "cpu": {
         "format": " {usage}%",
         "tooltip": true,
-        "on-click": "alacritty -e htop",
+        "on-click": "alacritty --title \"btop float\" -e sh -c \"btop\"",
+        "interval": 2
+    },
+    "custom/temp": {
+        "format": "{}",
+        "tooltip": true,
+        "exec": "~/.local/bin/diagnostic.sh cpu-temp",
+        "return-type": "json",
+        "on-click": "alacritty --title \"btop float\" -e sh -c \"btop\"",
         "interval": 2
     },
     "memory": {
         "format": " {}%",
         "tooltip": true,
-        "on-click": "alacritty -e htop",
+        "on-click": "alacritty --title \"btop float\" -e sh -c \"btop\"",
         "interval": 2
-    },
-    "temperature": {
-        "thermal-zone": 2,
-        "hwmon-path": "/sys/class/hwmon/hwmon2/temp1_input",
-        "critical-threshold": 50,
-        "format-critical": "{icon} {temperatureC}°C",
-        "format": "{icon} {temperatureC}°C",
-        "format-icons": [
-            "",
-            "",
-            ""
-        ],
-        "tooltip": true,
-        "on-click": "alacritty -e htop"
     },
     "disk": {
-        "format": " {percentage_used}% ({free})",
+        "format": " {percentage_used}%",  //  ({free})
         "tooltip": true,
-        "on-click": "nemo",
-        "interval": 2
+        "on-click": "thunar /",
+        "interval": 300
     },
     "custom/system-updates": {
         "format": "{}",
@@ -86,7 +80,6 @@
         "interval": 300,
         "tooltip": true
     },
-
 
     // =============================================
     //                    CENTER                    

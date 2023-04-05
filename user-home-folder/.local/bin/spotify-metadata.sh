@@ -8,7 +8,7 @@ album=$(playerctl -p spotify metadata xesam:album)
 # Modify strings to avoid errors
 artist="${artist/&/"&amp;"}"
 title="${title/&/"&amp;"}"
-album="${album/&/"&amp;"}"X
+album="${album/&/"&amp;"}"
 
 if [[ -z $status ]] 
 then

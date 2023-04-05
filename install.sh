@@ -10,6 +10,7 @@ ADDITIONAL_DIRS=(
     .local/bin
     .local/share/backgrounds
     .local/share/icons/dunst
+    .local/share/sounds
 )
 
 # // ------ Sub-functions ----- //

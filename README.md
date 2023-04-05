@@ -89,19 +89,19 @@ yay -Sy hyprland-git
 Hyprland  # start Hpyrland from the tty
 ```
 
-Install all dependencies:
-
-```sh
-# TODO: HERE PACKAGE FILE NEEDED
-yay -Sy warbar-hyprland-git nemo pulseaudio pulseaudio-bluetooth pavucontrol fish alacritty tree exa neovim xdg-user-dir way-displays neofetch
-```
-
-Link files and do all the other stuff needed.
+Clone repository and install all dependencies.
 
 ```sh
 cd Downloads
 git clone https://github.com/tonigineer/.dotfiles.git
 cd .dotfiles
+
+yay -S - < packages.lst
+```
+
+Link files and do all the other stuff needed.
+
+```sh
 ./install.sh
 ```
 
@@ -162,7 +162,7 @@ sudo pacman -Syu pulseaudio pulseaudio-bluetooth pavucontrol
 pulseaudio --start
 ```
 
-> Use `pavucontrol` to start PulseAudio GUI.
+> **Note:** Use `pavucontrol` to start PulseAudio GUI.
 
 </details>
 
@@ -171,7 +171,7 @@ pulseaudio --start
 How to configure Bluetooth:
 
 ```sh
-pacman -Syu bluez bluez-utils
+sudo pacman -Syu bluez bluez-utils
 
 lsmod | grep btusb  # check if bluetooth module is loaded (should appear on list)
 modprobe btusb # exec if not loaded

@@ -2,8 +2,6 @@
 
 # https://github.com/lukePeavey/quotable
 
-quote=""
-
 # Sometime no quote is retrieved, therefor the while loop.
 while [ -z "$quote" ]
 do

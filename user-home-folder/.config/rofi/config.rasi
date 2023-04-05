@@ -1,5 +1,5 @@
 * {
-    font:           "CaskaydiaCove Nerd Font SemiLight 16";
+    font:           "CaskaydiaCove Nerd Font SemiBold 12";
 
     background:     #1a1b26CC;
     background-alt: #32344aFF;
@@ -29,8 +29,8 @@ window {
     location:                    center;
     anchor:                      center;
     fullscreen:                  false;
-    width:                       40%;
-    height:                      42%;
+    width:                       30%;
+    height:                      27%;
     x-offset:                    0px;
     y-offset:                    0px;
 
@@ -50,7 +50,7 @@ mainbox {
     enabled:                     true;
     spacing:                     0px;
     margin:                      0px;
-    padding:                     20px;
+    padding:                     10px;
     border:                      0px solid;
     border-radius:               0px 0px 0px 0px;
     border-color:                @foreground;
