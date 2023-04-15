@@ -10,11 +10,12 @@
 
 ## 🎨 Impressions
 
-<p align="center">
-    <kbd>
-        <img alt="just-wallpaper-with-waybar" src="./assets/waybar.png"/>
-    </kbd>
-</p>
+<center><kbd><img alt="just-wallpaper-with-waybar" src="./assets/impression-wallpaper-change.png" style="width: 600px;"/></kbd></center><center><kbd><img alt="just-wallpaper-with-waybar" src="./assets/impression-rofi.png" style="width: 600px;"/></kbd></center>
+
+<!-- <p align="center"> -->
+
+
+<!-- </p> -->
 
 ## 🔥 To Do's
 
