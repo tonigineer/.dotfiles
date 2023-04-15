@@ -25,32 +25,47 @@
 <details open>
 <summary><b>🔬 Display</b></summary>
 
+>
+<!-- Get some vertical space -->
+<center>
+
 🔹 Display Server: [Wayland](https://wiki.archlinux.org/title/Wayland)
 🔹 Compositor: [Hyprland](https://hyprland.org/)
 🔹 Bar: [Waybar](https://github.com/Alexays/Waybar)
+</center>
 </details>
 
-<details open>
-<summary><b>🌈 Appearance</b></summary>
+<details open><summary><b>🌈 Appearance</b></summary>
+
+>
+<!-- Get some vertical space -->
 
 🔸 Color scheme: [Tokyonight-Dark-BL-LB](https://github.com/Fausto-Korpsvart/Tokyo-Night-GTK-Theme)
 🔸 Cursor: [Catppuccin-Mocha-Light-Cursors](https://github.com/catppuccin/cursors)
 🔸 Icons: [Win 11 icon theme](https://www.gnome-look.org/p/1546069)
 </details>
 
-<details open>
-<summary><b>💾 Applications</b></summary>
+<details open><summary><b>💾 Applications</b></summary>
+
+>
+<!-- Get some vertical space -->
+
 </details>
 
-<details open>
-<summary><b>🚗 Ricing</b></summary>
+<details open><summary><b>🚗 Ricing</b></summary>
+
+>
+<!-- Get some vertical space -->
+
 </details>
 
 
 ## 🥼 Installation
 
-<details>
-<summary><img src="assets/arch-linux.png" alt="launcher" width="3%"/> Setting up a fresh Arch Linux</summary><br>
+<details><summary><img src="assets/arch-linux.png" alt="launcher" width="3%"/> Setting up a fresh Arch Linux</summary>
+
+>
+<!-- Get some vertical space -->
 
 After booting into the Live Environment use [archinstall](https://wiki.archlinux.org/title/archinstall) or do it manually with the [installation guide](https://wiki.archlinux.org/title/installation_guide).
 
@@ -61,6 +76,7 @@ pacman -Sy archlinux-keyring  # may be needed? not sure anymore.
 pacman -Sy archinstall
 archinstall  # configure installation and wait for it
 ```
+w
 </details>
 
 At first, the [pacman package manager](https://wiki.archlinux.org/title/pacman) needs to be prettied up.
@@ -122,9 +138,12 @@ xdg-user-dirs-update
 
 ## ⚙ Customization explanation
 
-Collection of how to customize the look of the Rice, mostly intended to be a reminder to myself.
+Trying to explain, how to change the general look of this Rice. This is kind of a reminder/wiki for myself.
 
 <details><summary><b>Fonts</b></summary>
+
+>
+<!-- Get some vertical space -->
 
 Fonts can be installed via [Yay](https://aur.archlinux.org/packages/yay) directly from the [AUR](https://aur.archlinux.org/). For example: [Split Package Details - nerd-fonts (any)](https://archlinux.org/packages/community/any/nerd-fonts/)
 
@@ -133,18 +152,21 @@ yay -Sy otf-cascadia-code-nerd
 fc-cache -v  # to update fonts.
 ```
 
-Installed fonts can be found via
+Installed fonts can be found via:
 
 ```sh
-[toni@archlinux ~]$ fc-list | grep Cas*
-/u/s/f/O/Caskaydia Cove Nerd Font Complete Bold Italic.otf: CaskaydiaCove Nerd Font:style=Bold Italic
+fc-list | grep Cas*
+Caskaydia Cove Nerd Font Complete Bold Italic.otf: CaskaydiaCove Nerd Font:style=Bold Italic
 ```
 
-> **CaskaydiaCove Nerd Font** is th name of the font, that needs to be used in configuration files.
+> **Note**: In the example above `CaskaydiaCove Nerd Font` is th name of the font, that needs to be used in configuration files.
 
 </details>
 
 <details><summary><b>Themes, Icons, Cursor</b></summary>
+
+>
+<!-- Get some vertical space -->
 
 The `/scripts/apply_theme.sh` from this repo can be used to apply a downloaded theme.
 
@@ -157,22 +179,14 @@ sh /scripts/apply_theme.sh theme THEME-NAME
 
 </details>
 
-<details><summary><b>Sound</b></summary>
+## 🛠️ Fixes, settings and more
 
-Getting sound set up:
-
-```sh
-sudo pacman -Syu pulseaudio pulseaudio-bluetooth pavucontrol
-pulseaudio --start
-```
-
-> **Note:** Use `pavucontrol` to start PulseAudio GUI.
-
-</details>
+Some applications need further fixes. Especially, `fractional scaling` on [Wayland](https://pointieststick.com/2022/12/16/this-week-in-kde-wayland-fractional-scaling-oh-and-we-also-fixed-multi-screen/) does not work for every application so well. An application looks kind of blurry and/or some does not apply a 4K resolution, e.g., not available in [Steam](https://wiki.archlinux.org/title/steam) games.
 
 <details><summary><b>Bluetooth</b></summary>
 
-<div style="padding-left:2.5%;padding-top:2%">
+>
+<!-- Get some vertical space -->
 
 How to configure Bluetooth:
 
@@ -206,27 +220,12 @@ Enable autostart bluetooth by uncommenting `AutoEnable=true` in
 vim /etc/bluetooth/main.conf
 ```
 
-
-
 </details>
-
-<details><summary><b>way-displays</b></summary>
-
-<div style="padding-left:2.5%;padding-top:2%">
-
-> **Note**: The use of [way-displays](https://github.com/alex-courtis/way-displays) is currently only needed to easily switch the `fractional scaling` and arrange two monitors correctly with scaling (Hyprland does in wrong order). If those things are fixed within [Hyprland](https://hyprland.org/)/[Wayland](https://wayland.freedesktop.org/), this tool is obsolete.
-
-[Command line documentation](https://github.com/alex-courtis/way-displays/blob/master/doc/CONFIGURATION.md#command-line)
-
-</details>
-
-## 🛠️ Fixes and more
-
-Some applications need further fixes. Especially, `fractional scaling` on [Wayland](https://pointieststick.com/2022/12/16/this-week-in-kde-wayland-fractional-scaling-oh-and-we-also-fixed-multi-screen/) does not work for every application so well. An application looks kind of blurry and/or some does not apply a 4K resolution, e.g., not available in [Steam](https://wiki.archlinux.org/title/steam) games.
 
 <details><summary><b>Discord</b></summary>
 
-<div style="padding-left:2.5%;padding-top:2%">
+>
+<!-- Get some vertical space -->
 
 > **Note**: It's the same as with `Visual Studio Code` down below.
 
@@ -247,9 +246,10 @@ sudo sed -i 's/discord --unity-launch %F/discord --enable-features=UseOzonePlatf
 
 <details><summary><b>Spotify</b></summary>
 
-<div style="padding-left:2.5%;padding-top:2%">
+>
+<!-- Get some vertical space -->
 
-Run get rid of a blurred [Spotify](https://aur.archlinux.org/packages/spotify) on [Wayland](https://wayland.freedesktop.org/), install the following:
+To get rid of a blurred [Spotify](https://aur.archlinux.org/packages/spotify) on [Wayland](https://wayland.freedesktop.org/), install the following:
 
 ```sh
 yay -S spotify-blur-me-not
@@ -257,9 +257,26 @@ yay -S spotify-blur-me-not
 
 </details>
 
+<details><summary><b>Sound</b></summary>
+
+>
+<!-- Get some vertical space -->
+
+Getting sound set up:
+
+```sh
+sudo pacman -Syu pulseaudio pulseaudio-bluetooth pavucontrol
+pulseaudio --start
+```
+
+> **Note:** Use `pavucontrol` to start PulseAudio GUI.
+
+</details>
+
 <details><summary><b>Steam</b></summary>
 
-<div style="padding-left:2.5%;padding-top:2%">
+>
+<!-- Get some vertical space -->
 
 > **Note**: First of all, great [tutorial](https://steamcommunity.com/sharedfiles/filedetails/?l=german&id=1787799592) on how to set up gaming on [Steam](https://wiki.archlinux.org/title/steam).
 
@@ -270,6 +287,7 @@ Currently, there is no cure for [Steam](https://wiki.archlinux.org/title/steam).
 ```sh
 way-displays -s SCALE "DP-1" 1
 ```
+
 There is a button on the [Waybar](https://github.com/Alexays/Waybar) to activate `gamemode`. This script also takes care of some Hyprland stuff. Further information can be found within the script [itself](/user-home-folder/.config/hypr/scripts/gamemode.sh).
 
 ### Gamemod
@@ -308,7 +326,8 @@ systemctl enable cpupower.service
 
 <details><summary><b>Visual Studio Code</b></summary>
 
-<div style="padding-left:2.5%;padding-top:2%">
+>
+<!-- Get some vertical space -->
 
 To get rid of the [blurred Visual Studi Code](https://www.reddit.com/r/Fedora/comments/wpkws3/blurry_vscode_on_wayland_fractional_scaling/) on [Wayland](https://wayland.freedesktop.org/), start with the following arguments:
 
@@ -322,7 +341,17 @@ Here a command line to edit `/usr/share/applications/code.desktop` accordingly:
 sudo sed -i 's/code --unity-launch %F/code --enable-features=UseOzonePlatform,WaylandWindowDecorations --ozone-platform=wayland/' /usr/share/applications/code.desktop
 ```
 
-> **Note**: Changes are to `code.desktop` are always reverted after updates.
+> **Note**: Changes to `code.desktop` are always reverted with updates.
 
-</div>
+</details>
+
+<details><summary><b>way-displays</b></summary>
+
+>
+<!-- Get some vertical space -->
+
+> **Note**: The use of [way-displays](https://github.com/alex-courtis/way-displays) is currently only needed to easily switch the `fractional scaling` and arrange two monitors correctly with scaling (Hyprland does in wrong order). If those things are fixed within [Hyprland](https://hyprland.org/)/[Wayland](https://wayland.freedesktop.org/), this tool is obsolete.
+
+[Command line documentation](https://github.com/alex-courtis/way-displays/blob/master/doc/CONFIGURATION.md#command-line)
+
 </details>
