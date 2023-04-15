@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 
 if [ $1 = "cpu-temp" ]; then
-    CPU_TEMP=$(expr $(cat /sys/class/thermal/thermal_zone*/temp | sed -n '2 p') / 1000)
+    CPU_TEMP=$(expr $(cat /sys/class/thermal/thermal_zone*/temp | sort -nr | sed -n '1 p') / 1000)
 
     if [ "$CPU_TEMP" -ge "65" ]; then
         TEMP_CLASS="critical"

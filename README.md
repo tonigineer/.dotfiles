@@ -8,13 +8,17 @@
     <a href="https://git.io/typing-svg"><img src="https://readme-typing-svg.demolab.com?font=Fira+Code&pause=1000&color=F7D924&center=true&vCenter=true&width=435&lines=work+in+progress+..." alt="Typing SVG" /></a>
 </div>
 
-## 🎨 Impressions 
+## 🎨 Impressions
 
 <p align="center">
     <kbd>
         <img alt="just-wallpaper-with-waybar" src="./assets/waybar.png"/>
     </kbd>
 </p>
+
+## 🔥 To Do's
+
+- [ ] Parsing Spotify metadata via script is quite heavy on the processor (5% additional load, wtf)
 
 ## 📖 Overview
 
@@ -168,10 +172,12 @@ pulseaudio --start
 
 <details><summary><b>Bluetooth</b></summary>
 
+<div style="padding-left:2.5%;padding-top:2%">
+
 How to configure Bluetooth:
 
 ```sh
-sudo pacman -Syu bluez bluez-utils
+sudo pacman -S bluez bluez-utils
 
 lsmod | grep btusb  # check if bluetooth module is loaded (should appear on list)
 modprobe btusb # exec if not loaded
@@ -194,11 +200,23 @@ pair <MAC-ADDRESS>
 connect <MAC-ADDRESS>
 ```
 
-Enable autostart bluetooth by uncommenting AutoEnable=true in
+Enable autostart bluetooth by uncommenting `AutoEnable=true` in
 
 ```sh
 vim /etc/bluetooth/main.conf
 ```
+
+
+
+</details>
+
+<details><summary><b>way-displays</b></summary>
+
+<div style="padding-left:2.5%;padding-top:2%">
+
+> **Note**: The use of [way-displays](https://github.com/alex-courtis/way-displays) is currently only needed to easily switch the `fractional scaling` and arrange two monitors correctly with scaling (Hyprland does in wrong order). If those things are fixed within [Hyprland](https://hyprland.org/)/[Wayland](https://wayland.freedesktop.org/), this tool is obsolete.
+
+[Command line documentation](https://github.com/alex-courtis/way-displays/blob/master/doc/CONFIGURATION.md#command-line)
 
 </details>
 
@@ -206,13 +224,44 @@ vim /etc/bluetooth/main.conf
 
 Some applications need further fixes. Especially, `fractional scaling` on [Wayland](https://pointieststick.com/2022/12/16/this-week-in-kde-wayland-fractional-scaling-oh-and-we-also-fixed-multi-screen/) does not work for every application so well. An application looks kind of blurry and/or some does not apply a 4K resolution, e.g., not available in [Steam](https://wiki.archlinux.org/title/steam) games.
 
-<details><summary><b>Spotify (not solved yet)</b></summary>
+<details><summary><b>Discord</b></summary>
+
+<div style="padding-left:2.5%;padding-top:2%">
+
+> **Note**: It's the same as with `Visual Studio Code` down below.
+
+To get rid blurred Discord on [Wayland](https://wayland.freedesktop.org/), start with following arguments:
+
+```sh
+discord --enable-features=UseOzonePlatform --ozone-platform=wayland
+```
+
+Here a command line to edit `/usr/share/applications/discord.desktop` accordingly:
+
+```sh
+# Not sure anymore if --unit-launch is by default in discord.desktop
+sudo sed -i 's/discord --unity-launch %F/discord --enable-features=UseOzonePlatform --ozone-platform=wayland/' /usr/share/applications/discord.desktop
+```
+
+</details>
+
+<details><summary><b>Spotify</b></summary>
+
+<div style="padding-left:2.5%;padding-top:2%">
+
+Run get rid of a blurred [Spotify](https://aur.archlinux.org/packages/spotify) on [Wayland](https://wayland.freedesktop.org/), install the following:
+
+```sh
+yay -S spotify-blur-me-not
+```
 
 </details>
 
 <details><summary><b>Steam</b></summary>
 
-> Btw, great [tutorial](https://steamcommunity.com/sharedfiles/filedetails/?l=german&id=1787799592) on how to set up gaming on [Steam](https://wiki.archlinux.org/title/steam).
+<div style="padding-left:2.5%;padding-top:2%">
+
+> **Note**: First of all, great [tutorial](https://steamcommunity.com/sharedfiles/filedetails/?l=german&id=1787799592) on how to set up gaming on [Steam](https://wiki.archlinux.org/title/steam).
 
 ### Missing 4K resolution
 
@@ -257,62 +306,23 @@ systemctl enable cpupower.service
 
 </details>
 
-<details><summary><b>way-displays</b></summary>
-
-The use of [way-displays](https://github.com/alex-courtis/way-displays) is currently only needed to easily switch the `fractional scaling` and arrange two monitors correctly with scaling. If those things are fixed within [Hyprland](https://hyprland.org/)/[Wayland](https://wayland.freedesktop.org/), this tool is obsolete.
-
-> [Command line documentation](https://github.com/alex-courtis/way-displays/blob/master/doc/CONFIGURATION.md#command-line)
-
-</details>
-
 <details><summary><b>Visual Studio Code</b></summary>
 
-Visual Studi Code can be started with the following arguments ([source](https://www.reddit.com/r/Fedora/comments/wpkws3/blurry_vscode_on_wayland_fractional_scaling/)):
+<div style="padding-left:2.5%;padding-top:2%">
+
+To get rid of the [blurred Visual Studi Code](https://www.reddit.com/r/Fedora/comments/wpkws3/blurry_vscode_on_wayland_fractional_scaling/) on [Wayland](https://wayland.freedesktop.org/), start with the following arguments:
 
 ```sh
 code --enable-features=UseOzonePlatform,WaylandWindowDecorations --ozone-platform=wayland
 ```
 
-> Set command line arguments to `/usr/share/applications/code.desktop`.
+Here a command line to edit `/usr/share/applications/code.desktop` accordingly:
 
 ```sh
-sed -i 's/code --unity-launch %F/code --enable-features=UseOzonePlatform,WaylandWindowDecorations --ozone-platform=wayland/' /usr/share/applications/code.desktop
+sudo sed -i 's/code --unity-launch %F/code --enable-features=UseOzonePlatform,WaylandWindowDecorations --ozone-platform=wayland/' /usr/share/applications/code.desktop
 ```
 
-!update revert changes!!!
+> **Note**: Changes are to `code.desktop` are always reverted after updates.
 
-sudo sed
-
+</div>
 </details>
-
-
-
-
-todfo
-
-
-sudo pacman -Sy xfce4
-xfce4-appearance-settings > hier kann man auch noch themes setzen
-
-yay -Sy swaylock-effects-git
-
-
-screenshots
-yay -Sy grim-git slurp-git wl-clipboard
-yay -Sy imv-git  # image viewer
-
-
-
-IMG=~/Pictures/Screenshots/$(date +'Screenshot_%Y-%m-%d_%H-%M-%S.png') && grim -g "$(slurp)" $IMG && wl-copy < $IMG && notify-send "Screenshot" "Saved & Copied";
-
-https://github.com/khaneliman/dotfiles/blob/main/dots/linux/hyprland/home/.config/hypr/windowrules.conf
-https://github.com/SolDoesTech/hyprland
-https://github.com/PROxZIMA/.dotfiles/blob/master/.config/hypr/hyprland.conf
-
-
-pamixer muss fuer notifyu-voliume script mit installiert werden
-
-
-
-discord.desktop in uar/share.applic ...
---enable-features=UseOzonePlatform --ozone-platform=wayland

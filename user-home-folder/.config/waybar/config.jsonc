@@ -172,13 +172,13 @@
         },
         "on-click": "pavucontrol"
     },
-    "custom/speaker": {
-        "format": "{}",
-        "exec": "~/.local/bin/schrammelband.sh status",
-        "return-type": "json",
-        "on-click": "~/.local/bin/schrammelband.sh connect",
-        "interval": 5
-    },
+    // "custom/speaker": {
+    //     "format": "{}",
+    //     "exec": "~/.local/bin/schrammelband.sh status",
+    //     "return-type": "json",
+    //     "on-click": "~/.local/bin/schrammelband.sh connect",
+    //     "interval": 5
+    // },
     "tray": {
         "icon-size": 15,
         "spacing": 15
@@ -188,8 +188,8 @@
         "format-alt": " {:%A, %d. %B, %Y (%R)} ",
         "tooltip-format": "<tt><small>{calendar}</small></tt>",
         "calendar": {
-                    "mode"          : "year",
-                    "mode-mon-col"  : 3,
+                    "mode"          : "month",
+                    "mode-mon-col"  : 1,
                     "weeks-pos"     : "right",
                     "on-scroll"     : 1,
                     "on-click-right": "mode",

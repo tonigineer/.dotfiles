@@ -1,9 +1,9 @@
 * {
-    font:           "CaskaydiaCove Nerd Font SemiBold 12";
+    font:           "CaskaydiaCove Nerd Font SemiBold 13";
 
     background:     #1a1b26CC;
     background-alt: #32344aFF;
-    foreground:     #a9b1d6;
+    foreground:     #787c99;
     selected:       #449dab;
     active:         #ad8ee6;
     urgent:         #e0af68;
