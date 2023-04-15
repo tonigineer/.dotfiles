@@ -10,7 +10,7 @@
 
 ## 🎨 Impressions
 
-<center><kbd><img alt="just-wallpaper-with-waybar" src="./assets/impression-wallpaper-change.png" style="width: 600px;"/></kbd></center><center><kbd><img alt="just-wallpaper-with-waybar" src="./assets/impression-rofi.png" style="width: 600px;"/></kbd></center>
+<center><kbd><img alt="just-wallpaper-with-waybar" src="./assets/impression-wallpaper-change.png" style="width: 300px;"/></kbd></center><center><kbd><img alt="just-wallpaper-with-waybar" src="./assets/impression-rofi.png" style="width: 300px;"/></kbd></center>
 
 <!-- <p align="center"> -->
 
