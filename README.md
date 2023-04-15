@@ -10,12 +10,9 @@
 
 ## 🎨 Impressions
 
-<center><kbd><img alt="just-wallpaper-with-waybar" src="./assets/impression-wallpaper-change.png" style="width: 300px;"/></kbd></center><center><kbd><img alt="just-wallpaper-with-waybar" src="./assets/impression-rofi.png" style="width: 300px;"/></kbd></center>
-
-<!-- <p align="center"> -->
-
-
-<!-- </p> -->
+<p align="center">
+<center><kbd><img alt="just-wallpaper-with-waybar" src="./assets/impression-wallpaper-change.png" style="width: 400px;"/></kbd></center><center><kbd><img alt="just-wallpaper-with-waybar" src="./assets/impression-rofi.png" style="width: 400px;"/></kbd></center>
+</p>
 
 ## 🔥 To Do's
 
