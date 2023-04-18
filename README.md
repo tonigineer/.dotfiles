@@ -3,16 +3,17 @@
 </div>
 
 <div align="center">
-    <img src="https://img.shields.io/github/last-commit/tonigineer/.dotfiles?style=for-the-badge&logo=github&color=a6da95&logoColor=D9E0EE&labelColor=302D41"/>
-    <img src="https://img.shields.io/github/repo-size/tonigineer/.dotfiles?style=for-the-badge&logo=dropbox&color=7dc4e4&logoColor=D9E0EE&labelColor=302D41"/><br>
-    <a href="https://git.io/typing-svg"><img src="https://readme-typing-svg.demolab.com?font=Fira+Code&pause=1000&color=F7D924&center=true&vCenter=true&width=435&lines=work+in+progress+..." alt="Typing SVG" /></a>
+<img src="https://img.shields.io/github/last-commit/tonigineer/.dotfiles?style=for-the-badge&logo=github&color=a6da95&logoColor=D9E0EE&labelColor=302D41"/>
+<img src="https://img.shields.io/github/repo-size/tonigineer/.dotfiles?style=for-the-badge&logo=dropbox&color=7dc4e4&logoColor=D9E0EE&labelColor=302D41"/><br>
+<a href="https://git.io/typing-svg"><img src="https://readme-typing-svg.demolab.com?font=Fira+Code&pause=1000&color=F7D924&center=true&vCenter=true&width=435&lines=work+in+progress+..." alt="Typing SVG" /></a>
 </div>
 
 ## 🎨 Impressions
 
-<p align="center">
-<center><kbd><img alt="just-wallpaper-with-waybar" src="./assets/impression-wallpaper.png" style="width: 600px;"/></kbd></center><center><kbd><img alt="just-wallpaper-with-rofi" src="./assets/impression-rofi.png" style="width: 600px;"/></kbd></center>
-</p>
+<div align="center">
+<kbd><img alt="just-wallpaper-with-waybar" src="./assets/impressions-wallpaper.png" style="width: 600px;"/></kbd>
+<kbd><img alt="just-wallpaper-with-rofi" src="./assets/impressions-rofi.png" style="width: 600px;"/></kbd>
+</div>
 
 ## 🔥 To Do's
 
