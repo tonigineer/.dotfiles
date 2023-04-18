@@ -11,7 +11,7 @@
 ## 🎨 Impressions
 
 <p align="center">
-<center><kbd><img alt="just-wallpaper-with-waybar" src="./assets/impression-wallpaper.png" style="width: 400px;"/></kbd></center><center><kbd><img alt="just-wallpaper-with-rofi" src="./assets/impression-rofi.png" style="width: 400px;"/></kbd></center>
+<center><kbd><img alt="just-wallpaper-with-waybar" src="./assets/impression-wallpaper.png" style="width: 600px;"/></kbd></center><center><kbd><img alt="just-wallpaper-with-rofi" src="./assets/impression-rofi.png" style="width: 600px;"/></kbd></center>
 </p>
 
 ## 🔥 To Do's
