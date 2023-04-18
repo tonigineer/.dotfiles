@@ -11,12 +11,12 @@
 ## 🎨 Impressions
 
 <p align="center">
-<center><kbd><img alt="just-wallpaper-with-waybar" src="./assets/impression-wallpaper-change.png" style="width: 400px;"/></kbd></center><center><kbd><img alt="just-wallpaper-with-waybar" src="./assets/impression-rofi.png" style="width: 400px;"/></kbd></center>
+<center><kbd><img alt="just-wallpaper-with-waybar" src="./assets/impression-wallpaper.png" style="width: 400px;"/></kbd></center><center><kbd><img alt="just-wallpaper-with-rofi" src="./assets/impression-rofi.png" style="width: 400px;"/></kbd></center>
 </p>
 
 ## 🔥 To Do's
 
-- [ ] Parsing Spotify metadata via script is quite heavy on the processor (5% additional load, wtf)
+- [ ] Include cava into Spotify meta data
 
 ## 📖 Overview
 

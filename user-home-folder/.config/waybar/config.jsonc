@@ -37,23 +37,29 @@
         "on-click-right": "pkill rofi || rofi -show run -n"
     },
     "wlr/workspaces": {
-        "format": "",
+        // "format": "{name}: {icons}",
         "format-icons": {
-            "active": "",
-            "default": ""
+            // "1": "",
+            // "2": "",
+            // "3": "",
+            // "4": "",
+            // "5": "",
+            // "focused": "",
+            // "default": ""
         },
+        "sort-by-number": true,
         "on-scroll-up": "hyprctl dispatch workspace e-1",
         "on-scroll-down": "hyprctl dispatch workspace e+1",
         "on-click": "activate"
     },
     "cpu": {
-        "format": " {usage}%",
+        "format": " <span color=\"#f5e0dc\">{usage}%</span>",
         "tooltip": true,
         "on-click": "alacritty --title \"btop float\" -e sh -c \"btop\"",
         "interval": 2
     },
     "custom/temp": {
-        "format": "{}",
+        "format": "{} <span color=\"#f5e0dc\">{percentage}°C</span>",
         "tooltip": true,
         "exec": "~/.local/bin/diagnostic.sh cpu-temp",
         "return-type": "json",
@@ -61,13 +67,13 @@
         "interval": 2
     },
     "memory": {
-        "format": " {}%",
+        "format": " <span color=\"#f5e0dc\">{}%</span>",
         "tooltip": true,
         "on-click": "alacritty --title \"btop float\" -e sh -c \"btop\"",
         "interval": 2
     },
     "disk": {
-        "format": " {percentage_used}%",  //  ({free})
+        "format": " <span color=\"#f5e0dc\">{percentage_used}%</span>",  //  ({free})
         "tooltip": true,
         "on-click": "thunar /",
         "interval": 300
@@ -85,7 +91,7 @@
     //                    CENTER                    
     // =============================================
     "modules-center": [
-        "custom/spotify-metadata",
+        "custom/spotify-metadata"
     ],
     // "hyprland/window"
 
@@ -97,22 +103,18 @@
     //     "max-length": 35
     // },
     "custom/spotify-metadata": {
-        "format": "{}",
+        "format": "  <span color=\"#f5e0dc\">{}</span>",
         "max-length": 60,
-        "interval": 30,
+        "interval": 1,
         "return-type": "json",
         "exec": "~/.local/bin/spotify-metadata.sh",
         "on-click": "playerctl -p spotify play-pause",
         "on-click-right": "killall spotify",
         "on-scroll-up": "playerctl -p spotify next",
         "on-scroll-down": "playerctl -p spotify previous",
-        "signal": 5,
-        "smooth-scrolling-threshold": 1.0
+        // "signal": 1
+        // "smooth-scrolling-threshold": 1.0
     },
-    // TODO: Implement symbols     //         // "Playing": " ", // Uncomment if not using the dynamic script
-    //         "Paused": " ",
-    //         "Stopped": "&#x202d;ﭥ " // This stop symbol is RTL. So &#x202d; is left-to-right override.
-    //     },
 
 
     // =============================================
@@ -124,17 +126,16 @@
         "custom/speaker",
         "clock",
         "tray",
-        "custom/gamemode",
         "custom/wallpaper",
         "custom/power"
     ],
 
     "network": {
         // "interface": "wlp2*", // (Optional) To force the use of this interface
-        "format": "󰑩 {bandwidthTotalBytes}",
+        "format": "󰑩 <span color=\"#f5e0dc\">{bandwidthTotalBytes}</span>",
         "format-disconnected": "{icon} No Internet",
         "format-linked": " {ifname} (No IP)",
-        "format-alt": "  {bandwidthUpBytes} |   {bandwidthDownBytes}",
+        "format-alt": "  <span color=\"#f5e0dc\">{bandwidthUpBytes}</span> |   <span color=\"#f5e0dc\">{bandwidthDownBytes}</span>",
         "tooltip-format": "{ifname}: {ipaddr}/{cidr}  {gwaddr}",
         "tooltip-format-wifi": "{icon} {essid} ({signalStrength}%)",
         "tooltip-format-ethernet": "{icon} {ipaddr}/{cidr}",
@@ -148,12 +149,12 @@
                 "直"
             ]
         },
-        "interval": 2
+        "interval": 1
     },
     "pulseaudio": {
         "scroll-step": 2,                       // %, can be a float
-        "format": "{icon} {volume}%",           // {format_source}
-        "format-bluetooth": "{icon} {volume}%", // {format_source}
+        "format": "{icon} <span color=\"#f5e0dc\">{volume}%</span>",           // {format_source}
+        "format-bluetooth": "{icon} <span color=\"#f5e0dc\">{volume}%</span>", // {format_source}
         "format-bluetooth-muted": "",          // {format_source}
         "format-muted": "",                    // {format_source}
         "format-source": "{volume}% ",
@@ -180,12 +181,12 @@
     //     "interval": 5
     // },
     "tray": {
-        "icon-size": 15,
-        "spacing": 15
+        "icon-size": 18,
+        "spacing": 18
     },
     "clock": {
-        "format": " {:%H:%M} ",
-        "format-alt": " {:%A, %d. %B, %Y (%R)} ",
+        "format": " <span color=\"#f5e0dc\">{:%H:%M} </span>",
+        "format-alt": " <span color=\"#f5e0dc\">{:%A, %d. %B, %Y} </span>",
         "tooltip-format": "<tt><small>{calendar}</small></tt>",
         "calendar": {
                     "mode"          : "month",
@@ -209,13 +210,13 @@
                     "on-scroll-down": "shift_down"
                     }
     },
-    "custom/gamemode": {
-        "format": "{}",
-        "exec": "echo '{\"text\":\"\",\"tooltip\":\"<b>Enable</b> | Disable Gamemode\"}'",
-        "return-type": "json",
-        "on-click": "~/.local/bin/gamemode.sh",
-        "interval": 5
-    },
+    // "custom/gamemode": {
+    //     "format": "{}",
+    //     "exec": "echo '{\"text\":\"\",\"tooltip\":\"<b>Enable</b> | Disable Gamemode\"}'",
+    //     "return-type": "json",
+    //     "on-click": "~/.local/bin/gamemode.sh",
+    //     "interval": 5
+    // },
     "custom/wallpaper": {
         "format": "{}",
         "exec": "~/.local/bin/change-wallpaper.sh tooltip",

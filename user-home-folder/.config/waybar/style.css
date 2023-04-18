@@ -60,7 +60,7 @@ div * {
 
 /* Left modules - definition */
 #custom-launcher {
-    background-color: @surface1;
+    /* background-color: @surface1; */
     border: solid 2px;
     border-color: @tokio_night_white;
     color: @tokio_night_green;
@@ -70,11 +70,10 @@ div * {
 }
 
 #workspaces {
-    border: solid 2px;
+    border: solid 3px;
     border-color: @tokio_night_black;
     padding-left: 5px;
     padding-right: 5px;
-    
 }
 
 #workspaces * {
@@ -95,8 +94,8 @@ div * {
 #workspaces button.active {
     animation: gradient_f 10s ease-in-out infinite;
     background: radial-gradient(circle,
-        @tokio_night_blue 0%,
-        @tokio_night_yellow 50%,
+        @tokio_night_white 0%,
+        @tokio_night_blue 50%,
         @tokio_night_magenta 100%
     );
     background-size: 400% 400%;
@@ -108,23 +107,23 @@ div * {
 }
 
 #cpu {
-    border: solid 2px;
+    border: solid 3px;
     border-right: 0px;
     border-color: @tokio_night_black;
     border-top-right-radius: 0;
     border-bottom-right-radius: 0;
-    color: @tokio_night_blue;
+    color: @tokio_night_cyan;
     margin-right: 0px;
     padding-right: 5px;
 }
 
 #custom-temp {
-    border: solid 2px;
+    border: solid 3px;
     border-left: 0px;
     border-right: 0px;
     border-color: @tokio_night_black;
     border-radius: 0px;
-    color: @tokio_night_blue;
+    color: @tokio_night_cyan;
     margin-right: 0px;
     padding-left: 5px;
     padding-right: 5px;
@@ -139,31 +138,31 @@ div * {
 }
 
 #memory {
-    border: solid 2px;
+    border: solid 3px;
     border-left: 0px;
     border-right: 0px;
     border-color: @tokio_night_black;
     border-radius: 0px;
-    color: @tokio_night_blue;
+    color: @tokio_night_green;
     margin-right: 0px;
     padding-left: 5px;
     padding-right: 5px;
 }
 
 #disk {
-    border: solid 2px;
+    border: solid 3px;
     border-left: 0px;
     border-color: @tokio_night_black;
     border-top-left-radius: 0;
     border-bottom-left-radius: 0;
-    color: @tokio_night_yellow;
+    color: @tokio_night_white;
 
     padding-left: 5px;
     padding-right: 1rem;
 }
 
 #custom-system-updates {
-    background-color: @surface1;
+    /* background-color: @surface1; */
     border: solid 2px;
     border-color: @tokio_night_white;
     color: @tokio_night_magenta;
@@ -186,7 +185,7 @@ div * {
 #custom-spotify-metadata {
     border: solid 2px;
     border-color: @tokio_night_white;
-    color: @tokio_night_cyan;
+    color: @tokio_night_green;
     padding-left: 15px;
     padding-right: 15px;
 }
@@ -194,48 +193,35 @@ div * {
 
 /* Right modules - definition */
 #network {
-    border: solid 2px;
+    border: solid 3px;
     border-right: 0px;
     border-color: @tokio_night_black;
     border-top-right-radius: 0;
     border-bottom-right-radius: 0;
-    color: @tokio_night_blue;
+    color: @tokio_night_green;
     margin-right: 0px;
     padding-right: 0px;
 }
 
 #pulseaudio {
-    border: solid 2px;
+    border: solid 3px;
     border-left: 0px;
     border-right: 0px;
     border-color: @tokio_night_black;
     border-radius: 0;
-    color: @tokio_night_magenta;
+    color: @tokio_night_blue;
     margin-right: 0px;
     padding-left: 10px;
     padding-right: 10px;
   }
 
-#custom-speaker {
-    border: solid 2px;
-    border-left: 0px;
-    border-right: 0px;
-    border-color: @tokio_night_black;
-    border-radius: 0;
-    color: @tokio_night_magenta;
-    font-size: 18px;
-    margin-right: 0px;
-    padding-left: 0px;
-    padding-right: 15px;
-}
-
 #clock {
-    border: solid 2px;
+    border: solid 3px;
     border-left: 0px;
     border-color: @tokio_night_black;
     border-top-left-radius: 0;
     border-bottom-left-radius: 0;
-    color: @tokio_night_yellow;
+    color: @tokio_night_white;
 
     padding-left: 0px;
     padding-right: 0px;
@@ -243,10 +229,13 @@ div * {
 }
 
 #tray {
-    background-color: @surface1;
+    /* background-color: @surface1; */
     border: solid 2px;
+    border-right: 0px;
+    border-top-right-radius: 0px;
+    border-bottom-right-radius: 0px;
     border-color:@tokio_night_white;
-    margin-right: 10px;
+    margin-right: 0px;
 }
 
 /* https://github.com/Alexays/Waybar/wiki/Module:-Tray */
@@ -265,9 +254,9 @@ div * {
     color: @tokio_night_white;
 } */
 
-#custom-gamemode {
+/* #custom-gamemode {
   color: @tokio_night_white;
-  border: solid 2px;
+  border: solid 3px;
   border-right: 0px;
   border-color: @tokio_night_black;
   border-top-right-radius: 0;
@@ -275,13 +264,13 @@ div * {
   font-size: 20px;
   margin-right: 0px;
   padding-right: 15px;
-}
+} */
 
 #custom-wallpaper {
     border: solid 2px;
-    border-left: 0px;
+    border-left: dashed 0px;
     border-right: 0px;
-    border-color: @tokio_night_black;
+    border-color: @tokio_night_white;
     border-radius: 0px;
     color: @tokio_night_yellow;
     font-size: 20px;
@@ -291,7 +280,7 @@ div * {
 #custom-power {
     border: solid 2px;
     border-left: 0px;
-    border-color: @tokio_night_black;
+    border-color: @tokio_night_white;
     border-top-left-radius: 0;
     border-bottom-left-radius: 0;
     color: @tokio_night_red;
