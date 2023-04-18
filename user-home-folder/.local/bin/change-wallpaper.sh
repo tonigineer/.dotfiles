@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 
 SWWW=~/.local/bin/swww
-WALLPAPER_DIR=~/.local/share/backgrounds/animated
+WALLPAPER_DIR=~/.local/share/backgrounds/.loop
 
 # Create tooltips
 wallpaper_current=$($SWWW query | grep -oP '(?<=").*(?=")' | head -1)
@@ -72,5 +72,5 @@ if [ "$1" = "reset" ]; then
 fi
 
 if [ ! "$2" = "silent" ]; then
-    dunstify -i icons8-wallpaper-64 "Wallpaper updated" "Changed to $wallpaper_selected" -a Waybar -u low -t 5000
+    dunstify -i icons8-wallpaper-64 "Wallpaper updated" "Changed to $wallpaper_selected" -a Waybar -u low -t 1500
 fi

@@ -30,7 +30,7 @@ window {
     anchor:                      center;
     fullscreen:                  false;
     width:                       30%;
-    height:                      27%;
+    height:                      31%;
     x-offset:                    0px;
     y-offset:                    0px;
 

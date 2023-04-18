@@ -7,8 +7,10 @@ imv-git
 nemo
 neofetch
 neovim
+obs-studio-git
 pamixer
 pavucontrol
+pipewire-git
 pulseaudio
 pulseaudio-bluetooth
 slurp-git
@@ -20,3 +22,4 @@ waybar-hyprland-git
 way-displays
 wl-clipboard
 xdg-user-dir
+xdg-desktop-portal-hyprland-git

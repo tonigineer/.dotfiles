@@ -120,4 +120,4 @@ set -g __fish_git_prompt_color_branch_end F9E2AF  # #F9E2AF
 # ==================================
 #             AUTOSTART
 # ==================================
-# nitch
+neofetch
