@@ -13,6 +13,7 @@
 <div align="center">
 <kbd><img alt="just-wallpaper-with-waybar" src="./assets/impressions-wallpaper.png" style="width: 600px;"/></kbd>
 <kbd><img alt="just-wallpaper-with-rofi" src="./assets/impressions-rofi.png" style="width: 600px;"/></kbd>
+<kbd><img alt="short-workflow" src="./assets/short-workflow.gif" style="width: 600px;"/></kbd>
 </div>
 
 ## 🔥 To Do's

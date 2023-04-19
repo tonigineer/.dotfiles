@@ -46,6 +46,9 @@ if type -q exa
     alias lla "exa -la --icons --no-user --group-directories-first  --time-style long-iso -T -L2"
 end
 
+# these alias overwrite the default command!
+alias peaclock="peaclock --config-dir ~/.config/peaclock"
+alias cmatrix="cmatrix -srab"
 
 # ==================================
 #             OH-MY-FISH
