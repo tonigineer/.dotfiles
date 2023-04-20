@@ -2,9 +2,7 @@
 
 status=$(playerctl -p spotify status)
 
-if [[ -z $status ]] 
-then
-   # spotify is dead, we should die too.
+if [[ -z $status ]]; then
    exit
 fi
 
