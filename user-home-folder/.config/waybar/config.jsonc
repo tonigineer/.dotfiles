@@ -217,10 +217,10 @@
     // },
     "custom/wallpaper": {
         "format": "{}",
-        "exec": "~/.local/bin/change-wallpaper.sh tooltip",
+        "exec": "~/.local/bin/change-wallpaper tooltip",
         "return-type": "json",
-        "on-click": "~/.local/bin/change-wallpaper.sh next",
-        "on-click-right": "~/.local/bin/change-wallpaper.sh prev",
+        "on-click": "~/.local/bin/change-wallpaper next",
+        "on-click-right": "~/.local/bin/change-wallpaper prev",
         "interval": 5
     },
 
