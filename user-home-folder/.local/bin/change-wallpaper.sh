@@ -42,8 +42,11 @@ fi
 $SWWW query || $SWWW init
 
 # Select randomly an animation
-array[0]="--transition-fps 60 --transition-type random --transition-duration 2"
-array[1]="--transition-fps 60 --transition-type grow --transition-pos 0.925,0.977 --transition-duration 2"
+#array[0]="--transition-fps 60 --transition-type random --transition-duration 2"
+#array[1]="--transition-fps 60 --transition-type grow --transition-pos 0.925,0.977 --transition-duration 2"
+array[0]="--transition-fps 144 --transition-duration 1.75 --transition-type grow --transition-pos 0.925,0.977 --transition-bezier 0.43,1.19,1,0.4"
+array[1]="--transition-fps 144 --transition-duration 1.75 --transition-type grow --transition-pos 0.075,0.977 --transition-bezier 0.43,1.19,1,0.4"
+
 size=${#array[@]}
 index=$(($RANDOM % $size))
 animation=${array[$index]}

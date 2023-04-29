@@ -11,7 +11,7 @@ window {
 button {
     background-color: #32344a;
     border-style: solid;
-    border-width: 4px;
+    border-width: 6px;
     border-radius: 16px;
     margin: 20px;
     background-repeat: no-repeat;
@@ -20,12 +20,22 @@ button {
     background-size: 25%;
 }
 
-button:focus,
+button:focus {
+    border-color: #e0af68;
+    border-radius: 35px;
+}
+
 button:active {
     border-color: #e0af68;
+    border-radius: 35px;
 }
 button:hover {
     border-color: #f7768e;
+    border-width: 6px;
+    border-radius: 35px;
+    /* animation: gradient_f 20s ease-in infinite;
+    transition: all 0.3s cubic-bezier(.55,0.0,.28,1.682); */
+    background-size: 30%;
 }
 
 #lock {

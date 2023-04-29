@@ -107,13 +107,11 @@
         "max-length": 60,
         "interval": 1,
         "return-type": "json",
-        "exec": "~/.local/bin/spotify-metadata.sh",
+        "exec": "~/.local/bin/spotify-metadata",
         "on-click": "playerctl -p spotify play-pause",
         "on-click-right": "killall spotify",
         "on-scroll-up": "playerctl -p spotify next",
-        "on-scroll-down": "playerctl -p spotify previous",
-        // "signal": 1
-        // "smooth-scrolling-threshold": 1.0
+        "on-scroll-down": "playerctl -p spotify previous"
     },
 
 
