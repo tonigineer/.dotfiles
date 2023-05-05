@@ -156,7 +156,7 @@
     },
     "tray": {
         "icon-size": 18,
-        "spacing": 0
+        "spacing": 10
     },
     "pulseaudio": {
         "scroll-step": 2,

@@ -238,8 +238,7 @@ discord --enable-features=UseOzonePlatform --ozone-platform=wayland
 Here a command line to edit `/usr/share/applications/discord.desktop` accordingly:
 
 ```sh
-# Not sure anymore if --unit-launch is by default in discord.desktop
-sudo sed -i 's/discord --unity-launch %F/discord --enable-features=UseOzonePlatform --ozone-platform=wayland/' /usr/share/applications/discord.desktop
+sudo sed -i 's+Exec=/usr/bin/discord+Exec=/usr/bin/discord --enable-features=UseOzonePlatform --ozone-platform=wayland' /usr/share/applications/discord.desktop
 ```
 
 </details>
