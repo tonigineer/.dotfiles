@@ -4,11 +4,11 @@
     // =============================================
     "layer": "top",
     "position": "top",
-    "output": ["DP-1", "DP-2"],     // ["DP-1", "DP-2"],
+    // "output": ["DP-1", "DP-2"],
     // "gtk-layer-shell": "false",
-    "height": 50,                   // to be removed for auto height
-    // "width": 2560,               // to be removed for auto height
-    "spacing": 0,                   // Module gaps, here adjusted in the css
+    // "height": 50,  // to be removed for auto
+    // "width": 2560,  // to be removed for auto
+    "spacing": 0,
     "margin-top": 0,
     "margin-bottom":0,
     "margin-left": 10,
@@ -29,10 +29,8 @@
     ],
 
     "custom/launcher": {
-        "format": "{}",
-        "tooltip": true,
-        "exec": "echo '{\"text\":\" \",\"tooltip\":\"Rofi\"}'",
-        "return-type": "json",
+        "format": " ",
+        "tooltip": false,
         "on-click": "pkill rofi || rofi -show drun -n",
         "on-click-right": "pkill rofi || rofi -show run -n"
     },
@@ -44,8 +42,8 @@
             // "3": "",
             // "4": "",
             // "5": "",
-            // "focused": "",
-            // "default": ""
+            "focused": "",
+            "default": ""
         },
         "sort-by-number": true,
         "on-scroll-up": "hyprctl dispatch workspace e-1",
@@ -53,13 +51,13 @@
         "on-click": "activate"
     },
     "cpu": {
-        "format": "󰻠 <span color=\"#f5e0dc\">{usage}%</span>",
+        "format": "<span size='large' rise='-1pt'>󰻠</span> <span color=\"#f5e0dc\">{usage}%</span>",
         "tooltip": true,
         "on-click": "alacritty --title \"btop float\" -e sh -c \"btop\"",
         "interval": 2
     },
     "custom/temp": {
-        "format": "{} <span color=\"#f5e0dc\">{percentage}°C</span>",
+        "format": "{} <span color='#f5e0dc'>{percentage}°C</span>",
         "tooltip": true,
         "exec": "~/.local/bin/diagnostic cpu-temp",
         "return-type": "json",
@@ -67,13 +65,13 @@
         "interval": 2
     },
     "memory": {
-        "format": "󰘚 <span color=\"#f5e0dc\">{}%</span>",
+        "format": "󰘚 <span color='#f5e0dc'>{}%</span>",
         "tooltip": true,
         "on-click": "alacritty --title \"btop float\" -e sh -c \"btop\"",
         "interval": 2
     },
     "disk": {
-        "format": " <span color=\"#f5e0dc\">{percentage_used}%</span>",  //  ({free})
+        "format": " <span color='#f5e0dc'>{percentage_used}%</span>",  //  ({free})
         "tooltip": true,
         "on-click": "thunar /",
         "interval": 300
@@ -93,7 +91,9 @@
     "modules-center": [
         "custom/spotify-metadata"
     ],
-    // "hyprland/window"
+
+    // "hyprland/window",
+
 
     // Currently problems when no window selected, background still there
     // https://github.com/Alexays/Waybar/issues/1934
@@ -103,7 +103,7 @@
     //     "max-length": 35
     // },
     "custom/spotify-metadata": {
-        "format": "  <span color=\"#f5e0dc\">{}</span>",
+        "format": "<span size='large' rise='-1pt'></span>  <span color='#f5e0dc'>{}</span>",
         "max-length": 60,
         "interval": 1,
         "return-type": "json",
@@ -120,41 +120,50 @@
     // =============================================
     "modules-right": [
         "network",
-        "pulseaudio",
-        "custom/speaker",
-        "clock",
-        "tray",
         "custom/wallpaper",
+        "tray",
+        "pulseaudio",
+        "clock",
         "custom/power"
     ],
 
     "network": {
         // "interface": "wlp2*", // (Optional) To force the use of this interface
-        "format": "{icon} <span color=\"#f5e0dc\">{bandwidthTotalBytes}</span>",
+        "format": "<span color=\"#f5e0dc\">{bandwidthTotalBytes}</span> {icon} ",
         "format-disconnected": "{icon} No Internet",
         "format-linked": " {ifname} (No IP)",
-        "format-alt": "  <span color=\"#f5e0dc\">{bandwidthUpBytes}</span> |   <span color=\"#f5e0dc\">{bandwidthDownBytes}</span>",
+        "format-alt": "󰦘 <span color=\"#f5e0dc\">{bandwidthUpBytes}</span> <span color=\"#787c99\">|</span> 󰦗 <span color=\"#f5e0dc\">{bandwidthDownBytes}</span>",
         "tooltip-format": "{ifname}: {ipaddr}/{cidr}  {gwaddr}",
         "tooltip-format-wifi": "{icon} {essid} ({signalStrength}%)",
         "tooltip-format-ethernet": "{icon} {ipaddr}/{cidr}",
         "tooltip-format-disconnected": "{icon} Disconnected",
         "on-click-right": "nm-connection-editor",
         "format-icons": {
-            "ethernet": "󰈀",
+            "ethernet": "󰌚",
             "disconnected": "⚠",
-            "wifi": [
-                "睊",
-                "直"
-            ]
+            "wifi": [""]
         },
         "interval": 1
     },
+    "custom/wallpaper": {
+        "format": "{}",
+        "exec": "~/.local/bin/change-wallpaper tooltip",
+        "return-type": "json",
+        "on-click": "~/.local/bin/change-wallpaper next",
+        "on-click-middle": "~/local/bin/change-wallpaper folder",
+        "on-click-right": "~/.local/bin/change-wallpaper prev",
+        "interval": 5
+    },
+    "tray": {
+        "icon-size": 18,
+        "spacing": 0
+    },
     "pulseaudio": {
-        "scroll-step": 2,                       // %, can be a float
-        "format": "{icon} <span color=\"#f5e0dc\">{volume}%</span>",           // {format_source}
-        "format-bluetooth": "{icon} <span color=\"#f5e0dc\">{volume}%</span>", // {format_source}
-        "format-bluetooth-muted": "󰥰",          // {format_source}
-        "format-muted": "",                    // {format_source}
+        "scroll-step": 2,
+        "format": "{icon} <span color='#f5e0dc'>{volume}%</span>",
+        "format-bluetooth": "<span size='large' rise='-1pt'>{icon}</span> <span color='#f5e0dc'>{volume}%</span>",
+        "format-bluetooth-muted": "󰥰",
+        "format-muted": "",
         "format-source": "{volume}% ",
         "format-source-muted": "",
         "format-icons": {
@@ -163,28 +172,13 @@
             "phone": "",
             "portable": "",
             "car": " ",
-            "default": [
-                "",
-                "",
-                ""
-            ]
+            "default": ["󰕿", "", "", "", ""]
         },
         "on-click": "pavucontrol"
     },
-    // "custom/speaker": {
-    //     "format": "{}",
-    //     "exec": "~/.local/bin/schrammelband.sh status",
-    //     "return-type": "json",
-    //     "on-click": "~/.local/bin/schrammelband.sh connect",
-    //     "interval": 5
-    // },
-    "tray": {
-        "icon-size": 18,
-        "spacing": 18
-    },
     "clock": {
-        "format": " <span color=\"#f5e0dc\">{:%H:%M} </span>",
-        "format-alt": " <span color=\"#f5e0dc\">{:%A, %d. %B, %Y} </span>",
+        "format": "<span size='large' rise='-1pt'>󰦖 </span><span color='#f5e0dc'>{:%H:%M} </span>",
+        "format-alt": "󰸘 <span color='#f5e0dc'>{:%A, %d. %B %Y} </span>",
         "tooltip-format": "<tt><small>{calendar}</small></tt>",
         "calendar": {
                     "mode"          : "month",
@@ -208,64 +202,9 @@
                     "on-scroll-down": "shift_down"
                     }
     },
-    // "custom/gamemode": {
-    //     "format": "{}",
-    //     "exec": "echo '{\"text\":\"\",\"tooltip\":\"<b>Enable</b> | Disable Gamemode\"}'",
-    //     "return-type": "json",
-    //     "on-click": "~/.local/bin/gamemode.sh",
-    //     "interval": 5
-    // },
-    "custom/wallpaper": {
-        "format": "{}",
-        "exec": "~/.local/bin/change-wallpaper tooltip",
-        "return-type": "json",
-        "on-click": "~/.local/bin/change-wallpaper next",
-        "on-click-right": "~/.local/bin/change-wallpaper prev",
-        "interval": 5
-    },
-
     "custom/power": {
-        "format": "{}",
-        "exec": "echo '{\"text\":\"⏻\",\"tooltip\":\"Launch wlogout\"}'",
-        "return-type": "json",
+        "format": "<span rise='5pt'>⏻</span>",
+        "tooltip": false,
         "on-click": "wlogout"
     }
 }
-
-
-// TODO
-
-    // "custom/custom": {
-    //     "format": "{}",
-    //     "exec": "~/.scripts/tools/expand arrow-icon",
-    //     "on-click": "~/.scripts/tools/expand_toolbar",
-    //     "return-type": "json"
-    // }
-    // "custom/weather": {
-    //     "tooltip": true,
-    //     "format": "{}",
-    //     "exec": "~/.scripts/tools/expand weather",
-    //     "return-type": "json"
-    // },
-    // "custom/ss": {
-    //     "format": "{}",
-    //     "exec": "~/./scripts/tools/expand ss-icon",
-    //     "return-type": "json",
-    //     "on-click": "~/.scripts/screenshot_full"
-    // },
-    // "custom/notifications": {
-    //     "tooltip": false,
-    //     "format": "{icon}",
-    //     "format-icons": {
-    //         "notification": "<span foreground='red'><sup></sup></span>",
-    //         "none": "",
-    //         "dnd-notification": "<span foreground='red'><sup></sup></span>",
-    //         "dnd-none": ""
-    //     },
-    //     "return-type": "json",
-    //     "exec-if": "which swaync-client",
-    //     "exec": "swaync-client -swb",
-    //     "on-click": "swaync-client -t -sw",
-    //     "on-click-right": "swaync-client -d -sw",
-    //     "escape": true
-    // },

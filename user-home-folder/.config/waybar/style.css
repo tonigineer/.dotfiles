@@ -63,7 +63,7 @@ div * {
     /* background-color: @surface1; */
     border: solid 2px;
     border-color: @tokio_night_white;
-    color: @tokio_night_green;
+    color: @tokio_night_red;
     padding-top: 0px;
     padding-bottom: 0px;
     padding-right: 10px;
@@ -191,8 +191,14 @@ div * {
     color: @tokio_night_green;
     padding-left: 15px;
     padding-right: 15px;
+    /* background: rgb(148, 226, 213); */
+    /* background: linear-gradient(52deg, rgba(148, 226, 213, 1) 0%, rgba(137, 220, 235, 1) 19%, rgba(116, 199, 236, 1) 43%, rgba(137, 180, 250, 1) 56%, rgba(180, 190, 254, 1) 80%, rgba(186, 187, 241, 1) 100%); */
+    /* background-size: 300% 300%; */
+    /* text-shadow: 0px 0px 5px rgba(0, 0, 0, 0.377); */
+    /* animation: gradient 15s ease infinite; */
+    /* font-weight: bold; */
+    /* color: #fff; */
 }
-
 
 /* Right modules - definition */
 #network {
@@ -206,28 +212,14 @@ div * {
     padding-right: 0px;
 }
 
-#pulseaudio {
+#custom-wallpaper {
     border: solid 3px;
-    border-left: 0px;
-    border-right: 0px;
-    border-color: @tokio_night_black;
-    border-radius: 0;
-    color: @tokio_night_blue;
-    margin-right: 0px;
-    padding-left: 10px;
-    padding-right: 10px;
-  }
-
-#clock {
-    border: solid 3px;
+    border-left: dashed 0px;
     border-left: 0px;
     border-color: @tokio_night_black;
-    border-top-left-radius: 0;
-    border-bottom-left-radius: 0;
-    color: @tokio_night_white;
-
-    padding-left: 0px;
-    padding-right: 0px;
+    border-top-left-radius: 0px;
+    border-bottom-left-radius: 0px;
+    color: @tokio_night_yellow;
     margin-right: 10px;
 }
 
@@ -238,46 +230,31 @@ div * {
     border-top-right-radius: 0px;
     border-bottom-right-radius: 0px;
     border-color:@tokio_night_white;
-    margin-right: 0px;
+    margin-right: -10px;
 }
 
-/* https://github.com/Alexays/Waybar/wiki/Module:-Tray */
-/* Did get it working yet. */
-/* #tray.menu {
-    color: @tokio_night_white;
-    background: transparent;
-}
-#tray.passive {
-
-}
-#tray.active {
-    color: @tokio_night_white;
-}
-#tray.needs-attention {
-    color: @tokio_night_white;
-} */
-
-/* #custom-gamemode {
-  color: @tokio_night_white;
-  border: solid 3px;
-  border-right: 0px;
-  border-color: @tokio_night_black;
-  border-top-right-radius: 0;
-  border-bottom-right-radius: 0;
-  font-size: 20px;
-  margin-right: 0px;
-  padding-right: 15px;
-} */
-
-#custom-wallpaper {
+#pulseaudio {
     border: solid 2px;
-    border-left: dashed 0px;
+    border-left: 0px;
     border-right: 0px;
     border-color: @tokio_night_white;
-    border-radius: 0px;
-    color: @tokio_night_yellow;
-    font-size: 20px;
+    border-radius: 0;
+    color: @tokio_night_blue;
     margin-right: 0px;
+    padding-left: 10px;
+    padding-right: 10px;
+}
+
+#clock {
+    border: solid 2px;
+    border-left: 0px;
+    border-right: 0px;
+    border-color: @tokio_night_white;
+    border-radius: 0;
+    color: @tokio_night_white;
+    padding-left: 0px;
+    padding-right: 0px;
+    margin-right: -5px;
 }
 
 #custom-power {
@@ -287,57 +264,6 @@ div * {
     border-top-left-radius: 0;
     border-bottom-left-radius: 0;
     color: @tokio_night_red;
-    font-size: 20px;
     margin-right: 0px;
     padding-right: 15px;
 }
-
-
-
-/* TODO ----------------------------*/
-
-
-/* #custom-spotify-metadata.low {
-  background: rgb(148, 226, 213);
-  background: linear-gradient(52deg, rgba(148, 226, 213, 1) 0%, rgba(137, 220, 235, 1) 19%, rgba(116, 199, 236, 1) 43%, rgba(137, 180, 250, 1) 56%, rgba(180, 190, 254, 1) 80%, rgba(186, 187, 241, 1) 100%);
-  background-size: 300% 300%;
-  text-shadow: 0px 0px 5px rgba(0, 0, 0, 0.377);
-  animation: gradient 15s ease infinite;
-  font-weight: bold;
-  color: #fff;
-}
-
-#custom-spotify-metadata.random {
-  background: rgb(148, 226, 213);
-  background: radial-gradient(circle, rgba(148, 226, 213, 1) 0%, rgba(156, 227, 191, 1) 21%, rgba(249, 226, 175, 1) 34%, rgba(158, 227, 186, 1) 35%, rgba(163, 227, 169, 1) 59%, rgba(148, 226, 213, 1) 74%, rgba(164, 227, 167, 1) 74%, rgba(166, 227, 161, 1) 100%);
-  background-size: 400% 400%;
-  animation: gradient_f 4s ease infinite;
-  text-shadow: 0px 0px 5px rgba(0, 0, 0, 0.377);
-  font-weight: bold;
-  color: #fff;
-}
-
-#custom-spotify.critical {
-  background: rgb(235, 160, 172);
-  background: linear-gradient(52deg, rgba(235, 160, 172, 1) 0%, rgba(243, 139, 168, 1) 30%, rgba(231, 130, 132, 1) 48%, rgba(250, 179, 135, 1) 77%, rgba(249, 226, 175, 1) 100%);
-  background-size: 300% 300%;
-  animation: gradient 15s cubic-bezier(.55, -0.68, .48, 1.68) infinite;
-  text-shadow: 0px 0px 5px rgba(0, 0, 0, 0.377);
-  font-weight: bold;
-  color: #fff;
-}
-
-#custom-spotify-metadata.Playing {
-  background: rgb(137, 180, 250);
-  background: radial-gradient(circle, rgba(137, 180, 250, 120) 0%, rgba(142, 179, 250, 120) 6%, rgba(148, 226, 213, 1) 14%, rgba(147, 178, 250, 1) 14%, rgba(155, 176, 249, 1) 18%, rgba(245, 194, 231, 1) 28%, rgba(158, 175, 249, 1) 28%, rgba(181, 170, 248, 1) 58%, rgba(205, 214, 244, 1) 69%, rgba(186, 169, 248, 1) 69%, rgba(195, 167, 247, 1) 72%, rgba(137, 220, 235, 1) 73%, rgba(198, 167, 247, 1) 78%, rgba(203, 166, 247, 1) 100%);
-  background-size: 400% 400%;
-  animation: gradient_f 9s cubic-bezier(.72, .39, .21, 1) infinite;
-  text-shadow: 0px 0px 5px rgba(0, 0, 0, 0.377);
-  font-weight: bold;
-  color: #fff;
-}
-
-#custom-spotify-metadata.Paused,
-#custom-spotify-metadata.Stopped {
-  background: @surface0;
-} */
