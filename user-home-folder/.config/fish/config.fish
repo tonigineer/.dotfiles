@@ -20,17 +20,21 @@ alias g git
 command -qv nvim && alias vim nvim
 alias v vim
 
-if type -q tty-clock
-    alias clock="tty-clock -c -C 3"
-end
+# if type -q tty-clock
+#     alias clock="tty-clock -c -C 3"
+# end
 
-if type -q cmatrix
-    alias matrix="cmatrix -ab -C red"
-end
+# if type -q cmatrix
+#     alias matrix="cmatrix -ab -C red"
+# end
 
-if type -q peaclock
-    alias clock_binary="peaclock --config ~/.peaclock/config/binary"
-end
+# if type -q peaclock
+#     alias clock_binary="peaclock --config ~/.peaclock/config/binary"
+# end
+
+# # these alias overwrite the default command!
+# alias peaclock="peaclock --config-dir ~/.config/peaclock"
+# alias cmatrix="cmatrix -srab"
 
 set -gx EDITOR nvim
 
@@ -45,10 +49,6 @@ if type -q exa
     alias ll "exa -l --icons --no-user --group-directories-first  --time-style long-iso -T -L2"
     alias lla "exa -la --icons --no-user --group-directories-first  --time-style long-iso -T -L2"
 end
-
-# these alias overwrite the default command!
-alias peaclock="peaclock --config-dir ~/.config/peaclock"
-alias cmatrix="cmatrix -srab"
 
 # ==================================
 #             OH-MY-FISH
@@ -114,7 +114,7 @@ set -g __fish_git_prompt_showcolorhints yes
 set -g __fish_git_prompt_show_informative_status no
 set -g __fish_git_prompt_char_stateseparator ''
 
-set -g __fish_git_prompt_char_branch_begin '  '
+set -g __fish_git_prompt_char_branch_begin '  '
 set -g __fish_git_prompt_char_branch_end ' '
 set -g __fish_git_prompt_color_branch_begin E06C75  # #E06C75
 set -g __fish_git_prompt_color_branch_end F9E2AF  # #F9E2AF

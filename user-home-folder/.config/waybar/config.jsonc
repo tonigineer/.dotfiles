@@ -53,7 +53,7 @@
         "on-click": "activate"
     },
     "cpu": {
-        "format": " <span color=\"#f5e0dc\">{usage}%</span>",
+        "format": "󰻠 <span color=\"#f5e0dc\">{usage}%</span>",
         "tooltip": true,
         "on-click": "alacritty --title \"btop float\" -e sh -c \"btop\"",
         "interval": 2
@@ -61,13 +61,13 @@
     "custom/temp": {
         "format": "{} <span color=\"#f5e0dc\">{percentage}°C</span>",
         "tooltip": true,
-        "exec": "~/.local/bin/diagnostic.sh cpu-temp",
+        "exec": "~/.local/bin/diagnostic cpu-temp",
         "return-type": "json",
         "on-click": "alacritty --title \"btop float\" -e sh -c \"btop\"",
         "interval": 2
     },
     "memory": {
-        "format": " <span color=\"#f5e0dc\">{}%</span>",
+        "format": "󰘚 <span color=\"#f5e0dc\">{}%</span>",
         "tooltip": true,
         "on-click": "alacritty --title \"btop float\" -e sh -c \"btop\"",
         "interval": 2
@@ -80,9 +80,9 @@
     },
     "custom/system-updates": {
         "format": "{}",
-        "exec": "~/.local/bin/system-updates.sh",
+        "exec": "~/.local/bin/system-updates",
         "return-type": "json",
-        "on-click": "~/.local/bin/system-updates.sh update",
+        "on-click": "~/.local/bin/system-updates update",
         "interval": 300,
         "tooltip": true
     },
@@ -130,7 +130,7 @@
 
     "network": {
         // "interface": "wlp2*", // (Optional) To force the use of this interface
-        "format": "󰑩 <span color=\"#f5e0dc\">{bandwidthTotalBytes}</span>",
+        "format": "{icon} <span color=\"#f5e0dc\">{bandwidthTotalBytes}</span>",
         "format-disconnected": "{icon} No Internet",
         "format-linked": " {ifname} (No IP)",
         "format-alt": "  <span color=\"#f5e0dc\">{bandwidthUpBytes}</span> |   <span color=\"#f5e0dc\">{bandwidthDownBytes}</span>",
@@ -140,7 +140,7 @@
         "tooltip-format-disconnected": "{icon} Disconnected",
         "on-click-right": "nm-connection-editor",
         "format-icons": {
-            "ethernet": "",
+            "ethernet": "󰈀",
             "disconnected": "⚠",
             "wifi": [
                 "睊",
@@ -153,13 +153,13 @@
         "scroll-step": 2,                       // %, can be a float
         "format": "{icon} <span color=\"#f5e0dc\">{volume}%</span>",           // {format_source}
         "format-bluetooth": "{icon} <span color=\"#f5e0dc\">{volume}%</span>", // {format_source}
-        "format-bluetooth-muted": "",          // {format_source}
+        "format-bluetooth-muted": "󰥰",          // {format_source}
         "format-muted": "",                    // {format_source}
         "format-source": "{volume}% ",
         "format-source-muted": "",
         "format-icons": {
-            "headphone": "",
-            "headset": "",
+            "headphone": "󰋋",
+            "headset": "󰋎",
             "phone": "",
             "portable": "",
             "car": " ",

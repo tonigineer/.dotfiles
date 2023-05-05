@@ -1,5 +1,9 @@
 #!/usr/bin/env bash
 
+if [ "$2" = "silent" ]; then
+    SILENT="silent"
+fi
+
 SWWW=~/.local/bin/swww
 WALLPAPER_DIR=~/.local/share/backgrounds/.loop
 
@@ -54,17 +58,18 @@ animation=${array[$index]}
 # Apply wallpaper
 function apply_wallpaper() {
     current_workspace=$(hyprctl activewindow | grep workspace | grep -oP '(?<=workspace: ).*(?= )')
-    hyprctl dispatch workspace special
+    if [ "$SILENT" = "silent" ]; then
+        $SWWW img $wallpaper_selected $animation
+    else
+        hyprctl dispatch workspace 9
 
-    $SWWW img $wallpaper_selected $animation
-    if [ ! "$2" = "silent" ]; then
+        $SWWW img $wallpaper_selected $animation
         dunstify -i icons8-wallpaper-64 "Wallpaper updated" "Changed to ${wallpaper_selected##*/}" -a Waybar -u low -t 1500
-    fi
 
-    sleep_duration=$(grep -oP '(?<=--transition-duration ).*(?= --transition-type)' <<< "$animation")
-    sleep $sleep_duration
-    hyprctl dispatch workspace 9  # BUG: hyprctl cannot change to last workspace, therefore another must be selected first
-    hyprctl dispatch workspace $current_workspace
+        sleep_duration=$(grep -oP '(?<=--transition-duration ).*(?= --transition-type)' <<< "$animation")
+        sleep $sleep_duration
+        hyprctl dispatch workspace $current_workspace
+    fi
 }
 
 if [ "$1" = "next" ]; then

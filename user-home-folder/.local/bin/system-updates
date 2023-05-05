@@ -9,9 +9,9 @@ AUR_PACKAGES=$(yay -Qu | sed -z 's/\n/\\n/g; s/..$//')  # add \n as linebreak to
 
 # Show number of updates for certain service
 if [ "$AUR" = 0 ]; then
-    echo '{"text": "󰕥", "tooltip": "System is up to date"}'
+    echo '{"text": "󰏗 <span color=\"#f5e0dc\"></span>", "class": "none", "tooltip": "System is up to date"}'
 else
-    echo '{"text": "  '${AUR}'", "tooltip": "'${AUR_PACKAGES}'"}'
+    echo '{"text": "󱧕  <span color=\"#f5e0dc\">'${AUR}'</span>", "class": "updates", "tooltip": "'${AUR_PACKAGES}'"}'
 fi
 
 # If the parameter is "update", update all services
