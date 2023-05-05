@@ -51,7 +51,7 @@
         "on-click": "activate"
     },
     "cpu": {
-        "format": "<span size='large' rise='-1pt'>󰻠</span> <span color=\"#f5e0dc\">{usage}%</span>",
+        "format": "<span color=\"#ad8ee6\" size='large' rise='-1pt'>󰻠</span> <span color=\"#f5e0dc\">{usage}%</span>",
         "tooltip": true,
         "on-click": "alacritty --title \"btop float\" -e sh -c \"btop\"",
         "interval": 2
@@ -81,7 +81,7 @@
         "exec": "~/.local/bin/system-updates",
         "return-type": "json",
         "on-click": "~/.local/bin/system-updates update",
-        "interval": 300,
+        "interval": 120,
         "tooltip": true
     },
 
