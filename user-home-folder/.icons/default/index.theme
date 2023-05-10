@@ -1,5 +1,3 @@
-# This file is written by LXAppearance. Do not edit.
 [Icon Theme]
 Name=Default
-Comment=Default Cursor Theme
-Inherits=Catppuccin-Mocha-Light-Cursors
+Inherits=volantes_light_cursors
