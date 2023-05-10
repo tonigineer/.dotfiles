@@ -71,12 +71,12 @@ After booting into the Live Environment use [archinstall](https://wiki.archlinux
 
 > **Note**: It is highly recommended to refer to the official [installation guide](https://wiki.archlinux.org/title/archinstall) and [general recommendations](https://wiki.archlinux.org/title/General_recommendations).
 
+> **Note**: Without a wired connection, [iwctl](https://man.archlinux.org/man/community/iwd/iwctl.1.en) can be used within the Live Environment to connect to a wireless connection. After a reboot, [nmwli](https://man.archlinux.org/man/nmcli.1.en) can be used.
+
 ```sh
 pacman -Sy archlinux-keyring  # may be needed? not sure anymore.
-pacman -Sy archinstall
-archinstall  # configure installation and wait for it
+archinstall  # configure `minimal` installation
 ```
-w
 </details>
 
 At first, the [pacman package manager](https://wiki.archlinux.org/title/pacman) needs to be prettied up.
@@ -116,7 +116,7 @@ cd Downloads
 git clone https://github.com/tonigineer/.dotfiles.git
 cd .dotfiles
 
-yay -S - < packages.lst
+yay -S --answerclean None --answerdiff None --needed - < packages.lst
 ```
 
 Link files and do all the other stuff needed.

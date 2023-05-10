@@ -4,14 +4,17 @@ SCRIPT_DIR=$( cd -- "$( dirname -- "${BASH_SOURCE[0]}" )" &> /dev/null && pwd )
 DOTS_DIR=$SCRIPT_DIR/user-home-folder  # remove last part of path
 
 ADDITIONAL_DIRS=(
+    .bash_profile
     .icons/default/index.theme
-    .gtkrc-2.0
-    .Xresources
     .local/bin
     .local/share/backgrounds
     .local/share/icons/dunst
     .local/share/sounds
 )
+
+# make sure directories exist for additional_dirs
+mkdir -p ~/.icons/default
+mkdir -p ~/.local/share/icons
 
 # // ------ Sub-functions ----- //
 link_dir(){
