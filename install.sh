@@ -1,5 +1,23 @@
 #!/usr/bin/env bash
 
+
+# // ------ Installation ------ //
+
+# Needed packages
+yay -S --answerclean None --answerdiff None --needed - < packages.lst
+
+# Fonts
+yay -S --needed ttf-terminus-nerd ttf-cascadia-code-nerd
+fc-cache -v
+
+# Appearance stuff
+xdg-user-dirs-update
+
+# om-my-fish for fish shell
+# curl https://raw.githubusercontent.com/oh-my-fish/oh-my-fish/master/bin/install | fish
+
+
+# // ------ Link all configuration files ------ //
 SCRIPT_DIR=$( cd -- "$( dirname -- "${BASH_SOURCE[0]}" )" &> /dev/null && pwd )
 DOTS_DIR=$SCRIPT_DIR/user-home-folder  # remove last part of path
 
@@ -12,11 +30,10 @@ ADDITIONAL_DIRS=(
     .local/share/sounds
 )
 
-# make sure directories exist for additional_dirs
 mkdir -p ~/.icons/default
 mkdir -p ~/.local/share/icons
 
-# // ------ Sub-functions ----- //
+# Sub-functions
 link_dir(){
    SOURCE_DIR=$1
    TARGET_DIR=$2
@@ -35,7 +52,7 @@ link_dir(){
     echo -e "Simlink for \e[92m${SOURCE_DIR}\e[0m to \e[92m${TARGET_DIR}\e[0m was created."
 }
 
-# // ------ Link additional dirs ------ //
+# Link additional dirs
 for dir in "${ADDITIONAL_DIRS[@]}"; do
     SOURCE_DIR=$DOTS_DIR/$dir
     TARGET_DIR=~/$dir
@@ -43,7 +60,7 @@ for dir in "${ADDITIONAL_DIRS[@]}"; do
     link_dir $SOURCE_DIR $TARGET_DIR
 done
 
-# // ------ Link folder in ~/.config ------ //
+# Link folder in ~/.config
 for folder in $(\ls $DOTS_DIR/.config); do
     SOURCE_DIR=$DOTS_DIR/.config/$folder
     TARGET_DIR=~/.config/$folder
