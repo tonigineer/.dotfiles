@@ -101,87 +101,66 @@ cd yay
 makepkg -si
 ```
 
-[Installation](https://wiki.hyprland.org/Getting-Started/Installation/) of [Hyprland](https://hyprland.org/) via [Yay](https://aur.archlinux.org/packages/yay). [Kitty](https://sw.kovidgoyal.net/kitty/) is the default terminal application, that can be launch by `MOD + Q`.
+<!-- [Installation](https://wiki.hyprland.org/Getting-Started/Installation/) of [Hyprland](https://hyprland.org/) via [Yay](https://aur.archlinux.org/packages/yay). [Kitty](https://sw.kovidgoyal.net/kitty/) is the default terminal application, that can be launch by `MOD + Q`.
 
 ```sh
 sudo pacman -Sy kitty
 yay -Sy hyprland-git
 Hyprland  # start Hpyrland from the tty
-```
+``` -->
 
-Clone repository and install all dependencies.
+Clone repository and run installation script
 
 ```sh
 cd Downloads
 git clone https://github.com/tonigineer/.dotfiles.git
 cd .dotfiles
 
-yay -S --answerclean None --answerdiff None --needed - < packages.lst
-```
-
-Link files and do all the other stuff needed.
-
-```sh
 ./install.sh
 ```
 
-Final configuration steps.
+Manual steps to finish installation
+
+> **Note**: Automate as well ;)
 
 ```sh
-# TODO: must be moved into installation script
-# Set default terminal in nemo
-gsettings set org.cinnamon.desktop.default-applications.terminal exec alacritty
+# Install oh-my-fish for fish
+curl https://raw.githubusercontent.com/oh-my-fish/oh-my-fish/master/bin/install | fish
 
-# Set up common user folder - https://command-not-found.com/xdg-user-dir
-xdg-user-dirs-update
+# Within fish install theme
+omf install kawasaki
 ```
-
-## ⚙ Customization explanation
-
-Trying to explain, how to change the general look of this Rice. This is kind of a reminder/wiki for myself.
-
-<details><summary><b>Fonts</b></summary>
-
->
-<!-- Get some vertical space -->
-
-Fonts can be installed via [Yay](https://aur.archlinux.org/packages/yay) directly from the [AUR](https://aur.archlinux.org/). For example: [Split Package Details - nerd-fonts (any)](https://archlinux.org/packages/community/any/nerd-fonts/)
-
-```sh
-yay -Sy otf-cascadia-code-nerd
-fc-cache -v  # to update fonts.
-```
-
-Installed fonts can be found via:
-
-```sh
-fc-list | grep Cas*
-Caskaydia Cove Nerd Font Complete Bold Italic.otf: CaskaydiaCove Nerd Font:style=Bold Italic
-```
-
-> **Note**: In the example above `CaskaydiaCove Nerd Font` is th name of the font, that needs to be used in configuration files.
-
-</details>
-
-<details><summary><b>Themes, Icons, Cursor</b></summary>
-
->
-<!-- Get some vertical space -->
-
-The `/scripts/apply_theme.sh` from this repo can be used to apply a downloaded theme.
-
-```sh
-yay -Sy plank-theme-tokyo-night
-
-sh /scripts/apply_theme.sh theme list  # shows all installed themes
-sh /scripts/apply_theme.sh theme THEME-NAME
-```
-
-</details>
 
 ## 🛠️ Fixes, settings and more
 
 Some applications need further fixes. Especially, `fractional scaling` on [Wayland](https://pointieststick.com/2022/12/16/this-week-in-kde-wayland-fractional-scaling-oh-and-we-also-fixed-multi-screen/) does not work for every application so well. An application looks kind of blurry and/or some does not apply a 4K resolution, e.g., not available in [Steam](https://wiki.archlinux.org/title/steam) games.
+
+> **Note**: This section serves as kind of a wiki to myself.
+
+<details><summary><b>Appearance</b></summary>
+
+>
+<!-- Get some vertical space -->
+
+Here is a step by step guide to install everything needed for all the stuff regarding the appearance.
+
+Application of all the *theme-ing* is done with in [hyprland.conf](user-home-folder/.config/hypr/hyprland.conf)
+
+```sh
+# Cursor
+wget https://ppload-com.s3.eu-central-1.amazonaws.com/data/files/1580555858/volantes-light-cursors.tar.gz?response-content-disposition=attachment%3B%2520volantes-light-cursors.tar.gz&X-Amz-Content-Sha256=UNSIGNED-PAYLOAD&X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=AKIATLQUPBWASZL2ZPWI%2F20230510%2Feu-central-1%2Fs3%2Faws4_request&X-Amz-Date=20230510T195654Z&X-Amz-SignedHeaders=host&X-Amz-Expires=3600&X-Amz-Signature=05e90bdedabd8bcdfbe5616832d02c00183420b4739acb977a0ff24673bb9f49
+
+tar -zxvf volantes-light-cursors.tar.gz
+sudo cp -r ~/Downloads/volantes_light_cursors /usr/share/icons
+rm -rf volantes_light_cursors
+
+# Icons
+
+# Theme
+yay -S plank-theme-tokyo-night
+```
+
+</details>
 
 <details><summary><b>Bluetooth</b></summary>
 
@@ -240,6 +219,29 @@ Here a command line to edit `/usr/share/applications/discord.desktop` accordingl
 ```sh
 sudo sed -i 's+Exec=/usr/bin/discord+Exec=/usr/bin/discord --enable-features=UseOzonePlatform --ozone-platform=wayland' /usr/share/applications/discord.desktop
 ```
+
+</details>
+
+<details><summary><b>Fonts</b></summary>
+
+>
+<!-- Get some vertical space -->
+
+Fonts can be installed via [Yay](https://aur.archlinux.org/packages/yay) directly from the [AUR](https://aur.archlinux.org/). For example: [Split Package Details - nerd-fonts (any)](https://archlinux.org/packages/community/any/nerd-fonts/)
+
+```sh
+yay -Sy otf-cascadia-code-nerd
+fc-cache -v  # to update fonts.
+```
+
+Installed fonts can be found via:
+
+```sh
+fc-list | grep Cas*
+Caskaydia Cove Nerd Font Complete Bold Italic.otf: CaskaydiaCove Nerd Font:style=Bold Italic
+```
+
+> **Note**: In the example above `CaskaydiaCove Nerd Font` is th name of the font, that needs to be used in configuration files.
 
 </details>
 

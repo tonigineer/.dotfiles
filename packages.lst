@@ -6,7 +6,7 @@ fish
 grim-git
 imv-git
 neofetch
-neovim
+neovim-git
 pamixer
 pavucontrol
 pulseaudio
@@ -19,6 +19,7 @@ tree
 visual-studio-code-bin
 waybar-hyprland-git
 way-displays
+wget
 wl-clipboard
 wlogout-git
 xdg-user-dirs
