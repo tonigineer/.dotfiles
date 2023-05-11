@@ -19,4 +19,3 @@ vim.keymap.set('n', 'x', '"_x')  -- prevent ctrl+x to exit vim (old habit too)
 
 -- Delete a word backwards
 vim.keymap.set('n', 'dw', 'vb"_d')
-

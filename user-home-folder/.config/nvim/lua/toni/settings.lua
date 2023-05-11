@@ -6,8 +6,9 @@ vim.opt.fileencoding = 'utf-8'
 
 vim.wo.number = true
 vim.wo.relativenumber = true
-vim.o.noswapfile = true
 
+
+vim.opt.swapfile = false
 vim.opt.title = true
 vim.opt.autoindent = true
 vim.opt.smartindent = true
@@ -33,7 +34,7 @@ vim.opt.backspace = { 'start', 'eol', 'indent' }
 vim.opt.path:append { '**' } -- Finding files - Search down into subfolders
 vim.opt.wildignore:append { '*/node_modules/*' }
 
-vim.opt.cursorline = true
+vim.opt.cursorline = false
 vim.opt.winblend = 0
 vim.opt.wildoptions = 'pum'
 vim.opt.pumblend = 5
