@@ -208,7 +208,7 @@
         "format-icons": ["", "", "", "", "", "", "", ""],
         "format-time": "{H}h{M}m",
         "format-charging": "<span  color='#9ece6a' rise='0pt'> {icon} </span><span color='#f5e0dc'> {capacity}%</span>",
-        "format-full": "<span font='Font Awesome 5 Free'></span>  <span font='Font Awesome 5 Free 11'>{icon}</span>  Charged",
+        "format-full": "<span  color='#9ece6a' rise='0pt'></span>",
         "interval": 30,
         "states": {
             "warning": 30,
