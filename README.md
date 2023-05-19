@@ -41,8 +41,8 @@
 <!-- Get some vertical space -->
 
 🔸 Color scheme: [Tokyonight-Dark-BL-LB](https://github.com/Fausto-Korpsvart/Tokyo-Night-GTK-Theme)
-🔸 Cursor: [Catppuccin-Mocha-Light-Cursors](https://github.com/catppuccin/cursors)
-🔸 Icons: [Win 11 icon theme](https://www.gnome-look.org/p/1546069)
+🔸 Cursor: [Volantes Cursors Light](https://github.com/varlesh/volantes-cursors)
+🔸 Icons: [Tokyonight-Moon](https://github.com/Fausto-Korpsvart/Tokyo-Night-GTK-Theme/tree/master/icons)
 </details>
 
 <details open><summary><b>💾 Applications</b></summary>
@@ -163,8 +163,7 @@ sudo cp -r Tokyo-Night-GTK-Theme/themes/Tokyonight-Dark-BL-LB /usr/share/themes
 sudo cp -r Tokyo-Night-GTK-Theme/themes/Tokyonight-Dark-BL-LB/gtk-4.0 ~/.config
 
 # Post-install
-rm -rf volantes_light_cursors
-rm -rf Tokyo-Night-GTK-Theme
+rm -rf volantes_light_cursors Tokyo-Night-GTK-Theme
 ```
 
 </details>

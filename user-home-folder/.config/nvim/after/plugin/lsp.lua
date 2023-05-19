@@ -41,12 +41,23 @@ vim.api.nvim_set_keymap('n', '<leader>dd', '<cmd>Telescope diagnostics<CR>', { n
 
 -- Show virtual text editor
 vim.diagnostic.config({
-    virtual_text = {
-        -- source = "always",  -- Or "if_many"
-        prefix = '●', -- Could be '■', '▎', 'x'
-    },
+    -- virtual_text = {
+    --     source = "always",  -- Or "if_many"
+    --     prefix = '●', -- Could be '■', '▎', 'x'
+    -- },
     severity_sort = true,
-        float = {
+    float = {
         source = "always",  -- Or "if_many"
     },
 })
+
+require'lspconfig'.lua_ls.setup {
+    settings = {
+      Lua = {
+        diagnostics = {
+          -- Get the language server to recognize the `vim` global
+          globals = {'vim'},
+        },
+      },
+    },
+  }

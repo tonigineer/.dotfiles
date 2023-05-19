@@ -14,15 +14,15 @@ fc-cache -v
 xdg-user-dirs-update
 
 # Appearance stuff
-# - Cursor
+cd ~/Downloads
 wget https://ppload-com.s3.eu-central-1.amazonaws.com/data/files/1580555858/volantes-light-cursors.tar.gz?response-content-disposition=attachment%3B%2520volantes-light-cursors.tar.gz&X-Amz-Content-Sha256=UNSIGNED-PAYLOAD&X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=AKIATLQUPBWASZL2ZPWI%2F20230510%2Feu-central-1%2Fs3%2Faws4_request&X-Amz-Date=20230510T195654Z&X-Amz-SignedHeaders=host&X-Amz-Expires=3600&X-Amz-Signature=05e90bdedabd8bcdfbe5616832d02c00183420b4739acb977a0ff24673bb9f49
 tar -zxvf volantes-light-cursors.tar.gz
+git clone https://github.com/Fausto-Korpsvart/Tokyo-Night-GTK-Theme
 sudo cp -r ~/Downloads/volantes_light_cursors /usr/share/icons
-rm -rf volantes_light_cursors
-# - Icons
-
-# - Theme
-yay -S plank-theme-tokyo-night
+sudo cp -r Tokyo-Night-GTK-Theme/icons/Tokyonight-Moon /usr/share/icons
+sudo cp -r Tokyo-Night-GTK-Theme/themes/Tokyonight-Dark-BL-LB /usr/share/themes
+sudo cp -r Tokyo-Night-GTK-Theme/themes/Tokyonight-Dark-BL-LB/gtk-4.0 ~/.config
+rm -rf volantes_light_cursors Tokyo-Night-GTK-Theme
 
 # Settings
 gsettings set org.cinnamon.desktop.default-applications.terminal exec alacritty
