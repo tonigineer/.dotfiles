@@ -120,10 +120,11 @@
     // =============================================
     "modules-right": [
         "network",
-        "custom/wallpaper",
         "tray",
+        "custom/wallpaper",
         "pulseaudio",
         "clock",
+        "battery",
         "custom/power"
     ],
 
@@ -145,6 +146,10 @@
         },
         "interval": 1
     },
+    "tray": {
+        "icon-size": 18,
+        "spacing": 10
+    },
     "custom/wallpaper": {
         "format": "{}",
         "exec": "~/.local/bin/change-wallpaper tooltip",
@@ -153,10 +158,6 @@
         "on-click-middle": "~/local/bin/change-wallpaper folder",
         "on-click-right": "~/.local/bin/change-wallpaper prev",
         "interval": 5
-    },
-    "tray": {
-        "icon-size": 18,
-        "spacing": 10
     },
     "pulseaudio": {
         "scroll-step": 2,
@@ -201,6 +202,20 @@
                     "on-scroll-up": "shift_up",
                     "on-scroll-down": "shift_down"
                     }
+    },
+    "battery": {
+        "format": "<span  rise='0pt'>{icon} </span><span color='#f5e0dc'> {capacity}%</span>",
+        "format-icons": ["", "", "", "", "", "", "", ""],
+        "format-time": "{H}h{M}m",
+        "format-charging": "<span  color='#9ece6a' rise='0pt'> {icon} </span><span color='#f5e0dc'> {capacity}%</span>",
+        "format-full": "<span font='Font Awesome 5 Free'></span>  <span font='Font Awesome 5 Free 11'>{icon}</span>  Charged",
+        "interval": 30,
+        "states": {
+            "warning": 30,
+            "critical": 15
+        },
+        "tooltip": true,
+        "on-click": ""
     },
     "custom/power": {
         "format": "<span rise='5pt'>⏻</span>",

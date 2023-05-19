@@ -40,12 +40,11 @@ tooltip label {
 
 /* Right modules */
 #network,
-#pulseaudio,
-#custom-speaker,
-#clock,
-#tray,
-#custom-gamemode,
 #custom-wallpaper,
+#tray,
+#pulseaudio,
+#clock,
+#battery,
 #custom-power,
 
 div * {
@@ -213,27 +212,29 @@ div * {
     /* min-width: 100px; */
 }
 
-#custom-wallpaper {
-    border: solid 3px;
-    border-left: 0px;
-    border-right: 0px;
-    border-color: @tokio_night_black;
-    border-radius: 0px;
-    color: @tokio_night_yellow;
-    margin-left: 0px;
-    padding-left: 10px;
-    margin-right: 0px;
-}
-
 #tray {
     /* background-color: @surface1; */
     border: solid 3px;
+    border-radius: 0px;
+    border-left: 0px;
+    border-right: 0px;
+    border-color:@tokio_night_black;
+    margin-left: 0px;
+    margin-right: 0px;
+    padding-left: 12.5px;
+    padding-right: 0px;
+}
+
+#custom-wallpaper {
+    border: solid 3px;
+    border-color: @tokio_night_black;
     border-left: 0px;
     border-top-left-radius: 0px;
     border-bottom-left-radius: 0px;
-    border-color:@tokio_night_black;
+    color: @tokio_night_yellow;
     margin-left: 0px;
-    padding-left: 5px;
+    margin-right: 10px;
+    padding-left: 12.5px;
 }
 
 #pulseaudio {
@@ -259,6 +260,27 @@ div * {
     padding-right: 0px;
     margin-right: -5px;
 }
+
+#battery {
+    border: solid 2px;
+    border-left: 0px;
+    border-right: 0px;
+    border-color: @tokio_night_white;
+    border-radius: 0;
+    color: @tokio_night_white;
+    padding-left: 10px;
+    padding-right: 5px;
+    margin-right: 0px;
+}
+
+#battery.warning {
+    color: @tokio_night_yellow;
+}
+
+#battery.critical {
+    color: @tokio_night_red;
+}
+
 
 #custom-power {
     border: solid 2px;
