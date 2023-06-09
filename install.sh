@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 
 if [ ! -d ~/.config ]; then
-    echo -e "\e[91mDirectory ~/.config does not exist, but was created.\e[0m."
+    echo -e "\e[91mDirectory ~/.config does not exist, but was created.\e[0m"
     mkdir ~/.config
 fi
 
@@ -17,7 +17,9 @@ install_basics() {
     fc-cache -v &> /dev/null
 
     echo -e " \e[95m->\e[0m Installing Oh-My-Fish"
-    curl https://raw.githubusercontent.com/oh-my-fish/oh-my-fish/master/bin/install | fish -c exit
+    git clone https://github.com/oh-my-fish/oh-my-fish
+    cd oh-my-fish && bin/install --offline && cd ..
+    rm -rf oh-my-fish
     fish -c "omf install kawasaki"
 
     echo -e " \e[95m->\e[0m Miscellaneous stuff"
