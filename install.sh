@@ -1,29 +1,15 @@
 #!/usr/bin/env bash
 
 if [ ! -d ~/.config ]; then
-    echo -e "\e[91mDirectory ~/.config does not exist, somethings fishy here.\e[0m${TARGET_DIR}\e[0m."
-    exit 1
+    echo -e "\e[91mDirectory ~/.config does not exist, but was created.\e[0m."
+    mkdir ~/.config
 fi
 
 SCRIPT_DIR=$( cd -- "$( dirname -- "${BASH_SOURCE[0]}" )" &> /dev/null && pwd )
 cd $SCRIPT_DIR
 
-# exit 0
 
-# // ------ Installation ------ //
-# Needed packages
-# yay -S --answerclean None --answerdiff None --needed - < packages.lst
-# # Fonts
-# yay -S --needed ttf-terminus-nerd ttf-cascadia-code-nerd
-# fc-cache -v
-
-# # Folder
-# xdg-user-dirs-update
-
-# # Settings
-# gsettings set org.cinnamon.desktop.default-applications.terminal exec alacritty
-
-installation() {
+install_basics() {
     echo -e "\e[95m**\e[0m  Installing basic \e[93m${DOTS_DIR}\e[0m"
     yay -S --answerclean None --answerdiff None --needed - < basics.lst
 
@@ -31,15 +17,20 @@ installation() {
     fc-cache -v &> /dev/null
 
     echo -e " \e[95m->\e[0m Installing Oh-My-Fish"
-    curl https://raw.githubusercontent.com/oh-my-fish/oh-my-fish/master/bin/install | fish
+    curl https://raw.githubusercontent.com/oh-my-fish/oh-my-fish/master/bin/install | fish -c exit
     fish -c "omf install kawasaki"
 
     echo -e " \e[95m->\e[0m Miscellaneous stuff"
     xdg-user-dirs-update
-    gsettings set org.cinnamon.desktop.default-applications.terminal exec alacritty
+}
 
-
+install_hyprland() {
     echo -e "\e[95m**\e[0m  Installing Hyprland Rice \e[93m${DOTS_DIR}\e[0m"
+    gsettings set org.cinnamon.desktop.default-applications.terminal exec alacritty
+}
+
+install_neovim() {
+
 }
 
 create_symlink() {
