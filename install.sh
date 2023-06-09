@@ -1,82 +1,131 @@
 #!/usr/bin/env bash
 
+if [ ! -d ~/.config ]; then
+    echo -e "\e[91mDirectory ~/.config does not exist, somethings fishy here.\e[0m${TARGET_DIR}\e[0m."
+    exit 1
+fi
+
+SCRIPT_DIR=$( cd -- "$( dirname -- "${BASH_SOURCE[0]}" )" &> /dev/null && pwd )
+cd $SCRIPT_DIR
+
+# exit 0
 
 # // ------ Installation ------ //
-
 # Needed packages
-yay -S --answerclean None --answerdiff None --needed - < packages.lst
+# yay -S --answerclean None --answerdiff None --needed - < packages.lst
+# # Fonts
+# yay -S --needed ttf-terminus-nerd ttf-cascadia-code-nerd
+# fc-cache -v
 
-# Fonts
-yay -S --needed ttf-terminus-nerd ttf-cascadia-code-nerd
-fc-cache -v
+# # Folder
+# xdg-user-dirs-update
 
-# Folder
-xdg-user-dirs-update
+# # Settings
+# gsettings set org.cinnamon.desktop.default-applications.terminal exec alacritty
 
-# Appearance stuff
-cd ~/Downloads
-wget https://ppload-com.s3.eu-central-1.amazonaws.com/data/files/1580555858/volantes-light-cursors.tar.gz?response-content-disposition=attachment%3B%2520volantes-light-cursors.tar.gz&X-Amz-Content-Sha256=UNSIGNED-PAYLOAD&X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=AKIATLQUPBWASZL2ZPWI%2F20230510%2Feu-central-1%2Fs3%2Faws4_request&X-Amz-Date=20230510T195654Z&X-Amz-SignedHeaders=host&X-Amz-Expires=3600&X-Amz-Signature=05e90bdedabd8bcdfbe5616832d02c00183420b4739acb977a0ff24673bb9f49
-tar -zxvf volantes-light-cursors.tar.gz
-git clone https://github.com/Fausto-Korpsvart/Tokyo-Night-GTK-Theme
-sudo cp -r ~/Downloads/volantes_light_cursors /usr/share/icons
-sudo cp -r Tokyo-Night-GTK-Theme/icons/Tokyonight-Moon /usr/share/icons
-sudo cp -r Tokyo-Night-GTK-Theme/themes/Tokyonight-Dark-BL-LB /usr/share/themes
-sudo cp -r Tokyo-Night-GTK-Theme/themes/Tokyonight-Dark-BL-LB/gtk-4.0 ~/.config
-rm -rf volantes_light_cursors Tokyo-Night-GTK-Theme
+installation() {
+    echo -e "\e[95m**\e[0m  Installing basic \e[93m${DOTS_DIR}\e[0m"
+    yay -S --answerclean None --answerdiff None --needed - < basics.lst
 
-# Settings
-gsettings set org.cinnamon.desktop.default-applications.terminal exec alacritty
+    echo -e " \e[95m->\e[0m Caching fonts"
+    fc-cache -v &> /dev/null
+
+    echo -e " \e[95m->\e[0m Installing Oh-My-Fish"
+    curl https://raw.githubusercontent.com/oh-my-fish/oh-my-fish/master/bin/install | fish
+    fish -c "omf install kawasaki"
+
+    echo -e " \e[95m->\e[0m Miscellaneous stuff"
+    xdg-user-dirs-update
+    gsettings set org.cinnamon.desktop.default-applications.terminal exec alacritty
 
 
-# // ------ Link all configuration files ------ //
-SCRIPT_DIR=$( cd -- "$( dirname -- "${BASH_SOURCE[0]}" )" &> /dev/null && pwd )
-DOTS_DIR=$SCRIPT_DIR/user-home-folder  # remove last part of path
+    echo -e "\e[95m**\e[0m  Installing Hyprland Rice \e[93m${DOTS_DIR}\e[0m"
+}
 
-ADDITIONAL_DIRS=(
-    .bash_profile
-    .icons/default/index.theme
-    .local/bin
-    .local/share/backgrounds
-    .local/share/icons/dunst
-    .local/share/sounds
-)
-
-mkdir -p ~/.icons/default
-mkdir -p ~/.local/share/icons
-
-# Sub-functions
-link_dir(){
+create_symlink() {
    SOURCE_DIR=$1
    TARGET_DIR=$2
 
-    if [[ -e "$TARGET_DIR" ]]; then
-        if [[ -L "$TARGET_DIR" ]]; then
-            echo -e "\e[93m${SOURCE_DIR}\e[0m is already linked to \e[93m${TARGET_DIR}\e[0m."
-            return
+    # Check actual files or folder are present
+    if [[ (-f "$TARGET_DIR" || -d "$TARGET_DIR") && ! -L "$TARGET_DIR" ]]; then
+        mv ${TARGET_DIR} ${TARGET_DIR}_backup
+        echo -e "    \e[91m${TARGET_DIR} \e[0m was backuped into \e[91m${TARGET_DIR}_backup\e[0m."
+        rm -rf ${TARGET_DIR}
+    fi
+
+    if [[ -L "$TARGET_DIR" ]]; then
+        if [ ! "$(readlink -- "$TARGET_DIR")" = "$SOURCE_DIR" ]; then
+            echo -e "    \e[91m!\e[0m Symlink for \e[93m${SOURCE_DIR}\e[0m exists, but from different target."
+            rm ${TARGET_DIR}
         else
-            mv ${TARGET_DIR} ${TARGET_DIR}_backup
-            echo -e "\e[91m${TARGET_DIR}\e[0m was backuped into \e[91m${TARGET_DIR}_backup\e[0m."
-            rm -rf ${TARGET_DIR}
+            echo -e "    \e[93m${SOURCE_DIR}\e[0m is already linked to \e[93m${TARGET_DIR}\e[0m."
+            return
         fi
     fi
+    echo -e "    Symlink for \e[92m${SOURCE_DIR}\e[0m to \e[92m${TARGET_DIR}\e[0m was created."
     ln -s $SOURCE_DIR $TARGET_DIR
-    echo -e "Simlink for \e[92m${SOURCE_DIR}\e[0m to \e[92m${TARGET_DIR}\e[0m was created."
 }
 
-# Link additional dirs
-for dir in "${ADDITIONAL_DIRS[@]}"; do
-    SOURCE_DIR=$DOTS_DIR/$dir
-    TARGET_DIR=~/$dir
+link_configuration() {
+    SCRIPT_DIR=$( cd -- "$( dirname -- "${BASH_SOURCE[0]}" )" &> /dev/null && pwd )
+    DOTS_DIR=$SCRIPT_DIR/home
 
-    link_dir $SOURCE_DIR $TARGET_DIR
-done
+    echo -e "\e[95m**\e[0m  Symlinking files from \e[93m${DOTS_DIR}\e[0m"
 
-# Link folder in ~/.config
-for folder in $(\ls $DOTS_DIR/.config); do
-    SOURCE_DIR=$DOTS_DIR/.config/$folder
-    TARGET_DIR=~/.config/$folder
+    # # Link folder in ~/.config
+    echo -e " \e[95m->\e[0m Folder within \e[93m/home/$(whoami)/.config\e[0m"
+    for folder in $(\ls $DOTS_DIR/.config); do
+        SOURCE_DIR=$DOTS_DIR/.config/$folder
+        TARGET_DIR=~/.config/$folder
 
-    link_dir $SOURCE_DIR $TARGET_DIR
-done
+        create_symlink $SOURCE_DIR $TARGET_DIR
+    done
+
+    # Link additional dirs
+    echo -e " \e[95m->\e[0m Additional files and folders within \e[93m/home/$(whoami)\e[0m"
+    ADDITIONAL_DIRS=(
+        .bash_profile
+        .icons/default/index.theme
+        .local/bin
+        .local/share/backgrounds
+        .local/share/icons/dunst
+        .local/share/sounds
+    )
+
+    for dir in "${ADDITIONAL_DIRS[@]}"; do
+        mkdir -p $dir
+        SOURCE_DIR=$DOTS_DIR/$dir
+        TARGET_DIR=~/$dir
+
+        create_symlink $SOURCE_DIR $TARGET_DIR
+    done
+}
+
+apply_themes() {
+    echo -e "\e[95m**\e[0m  Install theme, icons and cursor"
+
+    # Cursor
+    echo -e " \e[95m->\e[0m Installing dependencies"
+    sudo pacman -S make inkscape xorg-xcursorgen --needed
+
+    git clone https://github.com/varlesh/volantes-cursors.git
+    cd volantes-cursors
+    echo -e " \e[95m->\e[0m Building ..."
+    make build &> /dev/null
+    sudo make install
+    cd $SCRIPT_DIR
+    rm -rf volantes-cursors
+
+    # Theme and icons
+    git clone https://github.com/Fausto-Korpsvart/Tokyo-Night-GTK-Theme
+    sudo cp -r Tokyo-Night-GTK-Theme/icons/Tokyonight-Moon /usr/share/icons
+    sudo cp -r Tokyo-Night-GTK-Theme/themes/Tokyonight-Dark-BL-LB /usr/share/themes
+    sudo cp -r Tokyo-Night-GTK-Theme/themes/Tokyonight-Dark-BL-LB/gtk-4.0 ~/.config
+    rm -rf Tokyo-Night-GTK-Theme
+}
+
+installation
+# link_configuration
+# apply_themes
 
 exit 0

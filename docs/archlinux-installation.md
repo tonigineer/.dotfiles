@@ -7,9 +7,6 @@ Installing Arch Linux using the live system booted from an installation medium. 
 - [Installation of Arch Linux](#installation-of-arch-linux)
   - [Table of Contents](#table-of-contents)
   - [Installation](#installation)
-  - [Desktop and window manager](#desktop-and-window-manager)
-    - [Set autologin](#set-autologin)
-    - [Get default configuration](#get-default-configuration)
 
 ## Installation
 
@@ -29,7 +26,7 @@ Permanently change layout later, see [here (last comment).](https://unix.stackex
 ls /sys/firmware/efi/efivars  # If directory exists, EFI is supported.
 ```
 
-<details><summary><b>Show partitioning</b></summary>
+<details><summary><b>Show partitioning example</b></summary>
 
 - Check disks
 
@@ -95,7 +92,7 @@ mount /dev/sda3 /mnt/home
 
 ```bash
 pacman -Sy archlinux-keyring
-pacstrap -i /mnt base linux-lts linux-lts-headers linux-firmware networkmanager sudo grub vim alacritty xorg-server xterm ttf-dejavu
+pacstrap -i /mnt base linux-lts linux-lts-headers linux-firmware networkmanager sudo grub vim
 ```
 
 4. Generate file system table
@@ -168,47 +165,4 @@ systemctl enable NetworkManager
 exit
 umount -a
 reboot
-```
-
-## Desktop and window manager
-
-Installation of [Light DM](https://wiki.archlinux.org/title/LightDM) and [Qtile](http://www.qtile.org/) as Window Manger. [Qtile](http://www.qtile.org/) comes with a great [documentation](https://wiki.archlinux.org/title/Qtile).
-
-```bash
-pacman -Sy lightdm qtile
-# TODO: Below needed here?
-sudo pacman -Syu python-psutil
-sudo pacman -Rc pacman-contrib  # check update widget `qtile`
-```
-
-Enable [LightDM](https://wiki.archlinux.org/title/LightDM)
-
-```bash
-systemctl enable lightdm.service
-```
-
->Reboot computer ...
-
-### Set autologin
-
-Uncomment and set `autologin-user=toni` and `autologin-session=qtile`:
-
-```bash
-vim /etc/lightdm/lightdm.conf
-```
-
-Add `autologin` to user
-
-```bash
-groupadd -r autologin
-gpasswd -a toni autologin
-```
-
-### Get default configuration
-
-Configuration file should be present after installation.
-
-```bash
-mkdir -p ~/.config/qtile/
-cp /usr/share/doc/qtile_dir/default_config.py ~/.config/qtile/config.py
 ```

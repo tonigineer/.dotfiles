@@ -1,13 +1,8 @@
-alacritty
 blueman-git
 brillo
 dunst-git
-exa
-fish
 grim-git
 imv-git
-neofetch
-neovim-git
 pamixer
 pavucontrol
 pulseaudio
@@ -16,12 +11,9 @@ slurp-git
 spotify
 spotify-blur-me-not
 swaylock-effects-git
-tree
 visual-studio-code-bin
 waybar-hyprland-git
 way-displays
-wget
 wl-clipboard
 wlogout-git
-xdg-user-dirs
 xdg-desktop-portal-hyprland-git

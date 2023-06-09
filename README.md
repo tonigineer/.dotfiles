@@ -67,16 +67,12 @@
 >
 <!-- Get some vertical space -->
 
-After booting into the Live Environment use [archinstall](https://wiki.archlinux.org/title/archinstall) or do it manually with the [installation guide](https://wiki.archlinux.org/title/installation_guide).
+After booting into the Live Environment, go either with my sparse [Installation Guide](/docs/archlinux-installation.md) or just use [archinstall](https://wiki.archlinux.org/title/archinstall).
 
-> **Note**: It is highly recommended to refer to the official [installation guide](https://wiki.archlinux.org/title/archinstall) and [general recommendations](https://wiki.archlinux.org/title/General_recommendations).
+> **Note**: It is highly recommended to refer to the official [Installation Guide](https://wiki.archlinux.org/title/installation_guide) and [General Recommendations](https://wiki.archlinux.org/title/General_recommendations).
+>
+> **Hint**: Without a wired connection, [iwctl](https://man.archlinux.org/man/community/iwd/iwctl.1.en) can be used within the Live Environment to connect to a wireless connection. After a reboot, [nmwli](https://man.archlinux.org/man/nmcli.1.en) can be used.
 
-> **Note**: Without a wired connection, [iwctl](https://man.archlinux.org/man/community/iwd/iwctl.1.en) can be used within the Live Environment to connect to a wireless connection. After a reboot, [nmwli](https://man.archlinux.org/man/nmcli.1.en) can be used.
-
-```sh
-pacman -Sy archlinux-keyring  # may be needed? not sure anymore.
-archinstall  # configure `minimal` installation
-```
 </details>
 
 At first, the [pacman package manager](https://wiki.archlinux.org/title/pacman) needs to be prettied up.
@@ -112,23 +108,8 @@ Hyprland  # start Hpyrland from the tty
 Clone repository and run installation script
 
 ```sh
-cd Downloads
-git clone https://github.com/tonigineer/.dotfiles.git
-cd .dotfiles
-
-./install.sh
-```
-
-Manual steps to finish installation
-
-> **Note**: Automate as well ;)
-
-```sh
-# Install oh-my-fish for fish
-curl https://raw.githubusercontent.com/oh-my-fish/oh-my-fish/master/bin/install | fish
-
-# Within fish install theme
-omf install kawasaki
+git clone https://github.com/tonigineer/.dotfiles.git ~/Engineering/Hyprland-Rice
+~/Engineering/Hyprland-Rice/install.sh
 ```
 
 ## 🛠️ Fixes, settings and more
