@@ -3,7 +3,7 @@
 ## Install dependencies
 
 ```sh
-sudo pacman -S npm fd ripgrep
+sudo pacman -S npm fd ripgrep unzip
 ```
 
 ## Key mapping

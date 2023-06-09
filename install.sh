@@ -25,12 +25,20 @@ install_basics() {
 }
 
 install_hyprland() {
-    echo -e "\e[95m**\e[0m  Installing Hyprland Rice \e[93m${DOTS_DIR}\e[0m"
+    echo -e "\e[95m**\e[0m  Installing Hyprland Rice\e[93m${DOTS_DIR}\e[0m"
+    yay -S --answerclean None --answerdiff None --needed - < rice.lst
+
     gsettings set org.cinnamon.desktop.default-applications.terminal exec alacritty
 }
 
 install_neovim() {
+    echo -e "\e[95m**\e[0m  Installing Neovim\e[93m${DOTS_DIR}\e[0m"
+}
 
+install_tools() {
+    echo -e "\e[95m**\e[0m  Installing Tools\e[93m${DOTS_DIR}\e[0m"
+    # spotify  # must be build from source
+    # spotify-blur-me-not
 }
 
 create_symlink() {
@@ -84,9 +92,9 @@ link_configuration() {
     )
 
     for dir in "${ADDITIONAL_DIRS[@]}"; do
-        mkdir -p $dir
         SOURCE_DIR=$DOTS_DIR/$dir
         TARGET_DIR=~/$dir
+        mkdir -p $TARGET_DIR
 
         create_symlink $SOURCE_DIR $TARGET_DIR
     done
@@ -115,8 +123,9 @@ apply_themes() {
     rm -rf Tokyo-Night-GTK-Theme
 }
 
-installation
-# link_configuration
-# apply_themes
-
-exit 0
+install_basics
+install_hyprland
+install_tools
+install_neovim
+link_configuration
+apply_themes
