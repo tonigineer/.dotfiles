@@ -93,10 +93,11 @@ link_configuration() {
         .local/share/sounds
     )
 
+    mkdir -p .icons/default/ .local/share/backgrounds .local/share/icons/
+
     for dir in "${ADDITIONAL_DIRS[@]}"; do
         SOURCE_DIR=$DOTS_DIR/$dir
         TARGET_DIR=~/$dir
-        mkdir -p $TARGET_DIR
 
         create_symlink $SOURCE_DIR $TARGET_DIR
     done
@@ -123,6 +124,12 @@ apply_themes() {
     sudo cp -r Tokyo-Night-GTK-Theme/themes/Tokyonight-Dark-BL-LB /usr/share/themes
     sudo cp -r Tokyo-Night-GTK-Theme/themes/Tokyonight-Dark-BL-LB/gtk-4.0 ~/.config
     rm -rf Tokyo-Night-GTK-Theme
+
+    if [ ! -d ~/.local/share/backgrounds/.loop ]; then
+        echo -e "\e[95m**\e[0m  Setting first wallpaper for background loop"
+        mkdir -p ~/.local/share/backgrounds/.loop
+        cp -r ~/.local/share/backgrounds/animated/cyberpunk-night.gif ~/.local/share/backgrounds/.loop
+    fi
 }
 
 install_basics
