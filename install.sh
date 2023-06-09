@@ -18,7 +18,7 @@ install_basics() {
 
     echo -e " \e[95m->\e[0m Installing Oh-My-Fish"
     git clone https://github.com/oh-my-fish/oh-my-fish
-    cd oh-my-fish && bin/install --offline && cd ..
+    oh-my-fish/bin/install --offline
     rm -rf oh-my-fish
     fish -c "omf install kawasaki"
 
@@ -93,7 +93,7 @@ link_configuration() {
         .local/share/sounds
     )
 
-    mkdir -p .icons/default/ .local/share/backgrounds .local/share/icons/
+    mkdir -p ~/.icons/default/ ~/.local/share/backgrounds ~/.local/share/icons/
 
     for dir in "${ADDITIONAL_DIRS[@]}"; do
         SOURCE_DIR=$DOTS_DIR/$dir
