@@ -29,8 +29,6 @@ install_basics() {
 install_hyprland() {
     echo -e "\e[95m**\e[0m  Installing Hyprland Rice\e[93m${DOTS_DIR}\e[0m"
     yay -S --answerclean None --answerdiff None --needed - < rice.lst
-
-    gsettings set org.cinnamon.desktop.default-applications.terminal exec alacritty
 }
 
 install_neovim() {
@@ -41,6 +39,13 @@ install_tools() {
     echo -e "\e[95m**\e[0m  Installing Tools\e[93m${DOTS_DIR}\e[0m"
     # spotify  # must be build from source
     # spotify-blur-me-not
+}
+
+install_fancy() {
+    echo -e "\e[95m**\e[0m  Youtube via MPV\e[93m${DOTS_DIR}\e[0m"
+    yay -S yt-dlp mpv
+    # NOTES:    https://github.com/mps-youtube/yewtube/issues/1143#issue-792680370
+                https://www.linuxfordevices.com/tutorials/linux/watch-youtube-videos-on-mpv-player
 }
 
 create_symlink() {
@@ -101,6 +106,9 @@ link_configuration() {
 
         create_symlink $SOURCE_DIR $TARGET_DIR
     done
+
+    echo -e " \e[95m->\e[0m Adding ~/.local/bin to PATH\e[93m/home/$(whoami)\e[0m"
+    export PATH=$PATH:~/.local/bin
 }
 
 apply_themes() {
@@ -138,3 +146,7 @@ install_tools
 install_neovim
 link_configuration
 apply_themes
+
+
+# NEEDED?
+gsettings set org.cinnamon.desktop.default-applications.terminal exec alacritty
