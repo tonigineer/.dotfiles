@@ -3,6 +3,7 @@
 if [ "$1" = "music" ]; then
     urls=(
         "https://www.youtube.com/watch?v=MVPTGNGiI-4&ab_channel=LofiGirl"
+        "https://www.youtube.com/watch?v=g6hY7dB54bc&t=1s"
         "https://www.youtube.com/watch?v=cCTaiJZAZak"
     )
 fi

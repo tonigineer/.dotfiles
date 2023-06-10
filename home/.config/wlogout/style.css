@@ -1,15 +1,16 @@
 * {
     background-image: none;
+
     font-family: CaskaydiaCove Nerd Font;
     font-size: 20px;
 }
 
 window {
-    background-color: #1a1b26;
+    background-color: rgba(255,255,255,0);
 }
 
 button {
-    background-color: #32344a;
+    background-color: rgba(26,27,38,0.8);
     border-style: solid;
     border-width: 6px;
     border-radius: 16px;
