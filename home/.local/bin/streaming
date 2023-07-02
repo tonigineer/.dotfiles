@@ -2,9 +2,13 @@
 
 if [ "$1" = "music" ]; then
     urls=(
-        "https://www.youtube.com/watch?v=MVPTGNGiI-4&ab_channel=LofiGirl"
-        "https://www.youtube.com/watch?v=g6hY7dB54bc&t=1s"
+        "https://www.youtube.com/watch?v=LxQWv-p5BMQ"
+        "https://www.youtube.com/watch?v=SFS5Z2UNMps"
+        "https://www.youtube.com/watch?v=D1zR9DkYgu4"
+        "https://www.youtube.com/watch?v=fKvdh98KKSs"
+        "https://www.youtube.com/watch?v=g6hY7dB54bc"
         "https://www.youtube.com/watch?v=cCTaiJZAZak"
+        # "https://www.youtube.com/watch?v=MVPTGNGiI-4&ab_channel=LofiGirl"  # currently offline
     )
 fi
 

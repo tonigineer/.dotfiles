@@ -146,7 +146,3 @@ install_tools
 install_neovim
 link_configuration
 apply_themes
-
-
-# NEEDED?
-gsettings set org.cinnamon.desktop.default-applications.terminal exec alacritty

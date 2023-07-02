@@ -15,7 +15,8 @@ ALIGN: TOP
 # The default ORDER is simply the order in which the displays are discovered.
 # Define your own.
 ORDER:
-  #- 'DP-2'
+  - 'DP-1'
+  - 'DP-2'
   #- 'monitor description'
   #- 'HDMI-1'
 

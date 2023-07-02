@@ -1,9 +1,11 @@
 blueman-git
 brillo
+btop
 dunst-git
 grim-git
 hyprland-git
 imv-git
+mpv
 pamixer
 pavucontrol
 pulseaudio
@@ -12,8 +14,10 @@ rofi-lbonn-wayland-only-git
 slurp-git
 swaylock-effects-git
 thunar
+thunar-volman
 visual-studio-code-bin
 waybar-hyprland-git
 way-displays
 wl-clipboard
 wlogout-git
+yt-dlp
