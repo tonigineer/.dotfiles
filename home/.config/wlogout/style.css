@@ -1,88 +1,71 @@
-* {
-    background-image: none;
-
-    font-family: CaskaydiaCove Nerd Font;
-    font-size: 20px;
-}
-
 window {
-    background-color: rgba(255,255,255,0);
+    font-family: CaskaydiaCove Nerd Font, monospace;
+    font-size: 18pt;
+    background-color: rgba(17, 17, 27, .88);
 }
 
 button {
-    background-color: rgba(26,27,38,0.8);
-    border-style: solid;
-    border-width: 6px;
-    border-radius: 16px;
-    margin: 20px;
     background-repeat: no-repeat;
     background-position: center;
-    padding-top: 30px;
     background-size: 25%;
+    text-shadow: none;
+    border-radius: 20px 20px 20px 20px;
+    background-color: rgba(17, 17, 27, 0.0);
+    color: #ad8ee6;
+    margin: 20px;
+    margin-top: 175px;
+    margin-bottom: 175px;
+    /* transition: box-shadow 0.2s ease-in-out, background-color 0.2s ease-in-out; */
 }
 
 button:focus {
-    border-color: #e0af68;
-    border-radius: 35px;
+
+    background-color: rgba(17, 17, 27, 0.0);
+    background-size: 50%;
 }
 
 button:active {
-    border-color: #e0af68;
-    border-radius: 35px;
+    background-color: rgba(17, 17, 27, 0.0);
+    background-size: 25%;
 }
+
 button:hover {
-    border-color: #f7768e;
-    border-width: 6px;
-    border-radius: 35px;
-    /* animation: gradient_f 20s ease-in infinite;
-    transition: all 0.3s cubic-bezier(.55,0.0,.28,1.682); */
-    background-size: 30%;
+    background-color: rgba(17, 17, 27, 0.0);
+    background-size: 50%;
 }
 
 #lock {
-    background-image: image(
-        url("/usr/share/wlogout/icons/lock.png"),
-        url("/usr/local/share/wlogout/icons/lock.png")
-    );
-    color: #ad8ee6;
+    background-image: image(url("/home/toni/.config/wlogout/icons/lock.png"));
+    /* background-size: 70%; */
 }
-
-#suspend {
-    background-image: image(
-        url("/usr/share/wlogout/icons/suspend.png"),
-        url("/usr/local/share/wlogout/icons/suspend.png")
-    );
-    color: #ad8ee6;
-}
-
-#shutdown {
-    background-image: image(
-        url("/usr/share/wlogout/icons/shutdown.png"),
-        url("/usr/local/share/wlogout/icons/shutdown.png")
-    );
-    color: #ad8ee6;
-}
-
-#reboot {
-    background-image: image(
-        url("/usr/share/wlogout/icons/reboot.png"),
-        url("/usr/local/share/wlogout/icons/reboot.png")
-    );
-    color: #ad8ee6;
-}
+/* #lock:focus {
+    background-image: image(url("/home/toni/.config/wlogout/icons/lock-hover.png"));
+} */
 
 #logout {
-    background-image: image(
-        url("/usr/share/wlogout/icons/logout.png"),
-        url("/usr/local/share/wlogout/icons/logout.png")
-    );
-    color: #ad8ee6;
+    background-image: image(url("/home/toni/.config/wlogout/icons/logout.png"));
 }
+/* #logout:focus {
+    background-image: image(url("/home/toni/.config/wlogout/icons/logout-hover.png"));
+} */
 
-#hibernate {
-    background-image: image(
-        url("/usr/share/wlogout/icons/hibernate.png"),
-        url("/usr/local/share/wlogout/icons/hibernate.png")
-    );
-    color: #ad8ee6;
+#suspend {
+    background-image: image(url("/home/toni/.config/wlogout/icons/sleep.png"));
+} 
+/* #suspend:focus {
+    background-image: image(url("/home/toni/.config/wlogout/icons/sleep-hover.png"));
+} */
+
+#shutdown {
+    background-image: image(url("/home/toni/.config/wlogout/icons/power.png"));
 }
+/* #shutdown:focus {
+    background-image: image(url("/home/toni/.config/wlogout/icons/power-hover.png"));
+} */
+
+#reboot {
+    background-image: image(url("/home/toni/.config/wlogout/icons/restart.png"));
+}
+/* #reboot:focus {
+    background-image: image(url("/home/toni/.config/wlogout/icons/restart-hover.png"));
+} */

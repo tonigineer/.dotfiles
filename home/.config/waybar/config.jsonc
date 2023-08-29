@@ -220,6 +220,6 @@
     "custom/power": {
         "format": "<span rise='5pt'>⏻</span>",
         "tooltip": false,
-        "on-click": "wlogout"
+        "on-click": "wlogout -b 5"
     }
 }

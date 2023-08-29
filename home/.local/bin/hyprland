@@ -18,4 +18,8 @@ export XKB_DEFAULT_OPTIONS=compose:menu,level3:ralt_switch
 
 export PATH=$PATH:~/.local/bin
 
+# mount Engineering from windows partition
+# echo "Mounting `Engineering` from windows partition ..."
+# sudo udisksctl mount -b $(sudo fdisk -l | grep 1.8T | cut -d' ' -f1)
+
 exec Hyprland > /dev/null
