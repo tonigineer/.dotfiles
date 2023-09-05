@@ -34,22 +34,48 @@
         "on-click": "pkill rofi || rofi -show drun -n",
         "on-click-right": "pkill rofi || rofi -show run -n"
     },
+    //  
     "wlr/workspaces": {
-        // "format": "{name}: {icons}",
-        "format-icons": {
-            // "1": "",
-            // "2": "",
-            // "3": "",
-            // "4": "",
-            // "5": "",
-            "focused": "",
-            "default": ""
-        },
-        "sort-by-number": true,
+        "format": "{icon} <span color='#f5e0dc' size='small' rise='-5pt'>{name}</span>",
         "on-scroll-up": "hyprctl dispatch workspace e-1",
         "on-scroll-down": "hyprctl dispatch workspace e+1",
-        "on-click": "activate"
+        "on-click": "activate",
+        "format-icons": {
+          "1": "",
+          "2": "󰘐",
+          "3": "",
+          "4": "󰙯",
+          "5": "",
+          "urgent": "",
+        //   "active": "",
+        //   "default": ""
+          "9": "",
+        },
+        "persistent_workspaces": {
+            "1": [],
+            "2": [],
+            "3": [],
+            "4": [],
+            "5": []
+        },
+        "sort-by-number": true
     },
+    // "wlr/workspaces": {
+    //     // "format": "{name}: {icons}",
+    //     "format-icons": {
+    //         "1": "",
+    //         "2": "",
+    //         "3": "",
+    //         "4": "",
+    //         "5": "",
+    //         "focused": "",
+    //         "default": ""
+    //     },
+    //     "sort-by-number": true,
+    //     "on-scroll-up": "hyprctl dispatch workspace e-1",
+    //     "on-scroll-down": "hyprctl dispatch workspace e+1",
+    //     "on-click": "activate"
+    // },
     "cpu": {
         "format": "<span color=\"#ad8ee6\" size='large' rise='-1pt'>󰻠</span> <span color=\"#f5e0dc\">{usage}%</span>",
         "tooltip": true,
