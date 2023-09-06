@@ -96,15 +96,16 @@ div * {
     transition: all 0.1s cubic-bezier(0, 0, 0, 0);  /*Needed to remove short blink of inactive becoming workspace. */
 }
 
+#workspaces button:hover {
+    color: @tokio_night_green;
+    background-color: @surface0;
+    border: solid 1px;
+}
+
 #workspaces button.active {
     animation: gradient_f 10s ease-in-out infinite;
     color: @tokio_night_red;
     border: solid 1px;
-    border-radius: 10px;
-    padding-left: 8px;
-    padding-right: 8px;
-    margin-top: 0px;
-    margin-bottom: 0px;
     border-color: @tokio_night_black;
     background: radial-gradient(circle,
         @tokio_night_white 0%,
@@ -117,18 +118,6 @@ div * {
 
 #workspaces button.persistent {
     color: @tokio_night_black;
-}
-
-#workspaces button:hover {
-    color: @tokio_night_green;
-    background-color: @surface0;
-    border: solid 0px;
-        border: solid 1px;
-    border-radius: 10px;
-    padding-left: 8px;
-    padding-right: 8px;
-    margin-top: 0px;
-    margin-bottom: 0px;
 }
 
 #cpu {

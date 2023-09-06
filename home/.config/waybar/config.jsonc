@@ -4,6 +4,7 @@
     // =============================================
     "layer": "top",
     "position": "top",
+    // "output": "!DP-2",
     // "output": ["DP-1", "DP-2"],
     // "gtk-layer-shell": "false",
     // "height": 50,  // to be removed for auto
@@ -20,7 +21,7 @@
     // =============================================
     "modules-left": [
         "custom/launcher",
-        "wlr/workspaces",
+        "hyprland/workspaces",
         "cpu",
         "custom/temp",
         "memory",
@@ -35,7 +36,7 @@
         "on-click-right": "pkill rofi || rofi -show run -n"
     },
     //  
-    "wlr/workspaces": {
+    "hyprland/workspaces": {
         "format": "{icon} <span color='#f5e0dc' size='small' rise='-5pt'>{name}</span>",
         "on-scroll-up": "hyprctl dispatch workspace e-1",
         "on-scroll-down": "hyprctl dispatch workspace e+1",
@@ -46,36 +47,27 @@
           "3": "",
           "4": "󰙯",
           "5": "",
-          "urgent": "",
-        //   "active": "",
-        //   "default": ""
+          "6": "󰓓",
+          "7": "󰗃",
+          "8": "",
           "9": "",
+          "urgent": "",
+          //   "active": "",
+          //   "default": ""
         },
-        "persistent_workspaces": {
-            "1": [],
-            "2": [],
-            "3": [],
-            "4": [],
-            "5": []
-        },
-        "sort-by-number": true
+        // does not work currently, should be shown even when empty,
+        // but all windows are shown with color from
+        // #workspaces button.persistent in `style.css`
+        // "persistent_workspaces": {
+        //     "1": [],
+        //     "2": [],
+        //     "3": [],
+        //     "4": [],
+        //     "5": []
+        // },
+        "sort-by-number": true,
+        "active-only": false
     },
-    // "wlr/workspaces": {
-    //     // "format": "{name}: {icons}",
-    //     "format-icons": {
-    //         "1": "",
-    //         "2": "",
-    //         "3": "",
-    //         "4": "",
-    //         "5": "",
-    //         "focused": "",
-    //         "default": ""
-    //     },
-    //     "sort-by-number": true,
-    //     "on-scroll-up": "hyprctl dispatch workspace e-1",
-    //     "on-scroll-down": "hyprctl dispatch workspace e+1",
-    //     "on-click": "activate"
-    // },
     "cpu": {
         "format": "<span color=\"#ad8ee6\" size='large' rise='-1pt'>󰻠</span> <span color=\"#f5e0dc\">{usage}%</span>",
         "tooltip": true,

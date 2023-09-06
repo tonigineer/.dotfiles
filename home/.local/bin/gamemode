@@ -11,6 +11,7 @@ if [ $HYPRGAMEMODE = 1 ] ; then
 
     # kill application for wallpaper
     pkill swww
+    pkill waybar
 
     # disable fancy hyprland stuff
     hyprctl --batch "\
