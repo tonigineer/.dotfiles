@@ -1,3 +1,9 @@
+// TODO: Button for monitor changing; Button for gamemode and indication
+//
+//
+//
+
+
 {
     // =============================================
     //              General settings                
@@ -35,7 +41,6 @@
         "on-click": "pkill rofi || rofi -show drun -n",
         "on-click-right": "pkill rofi || rofi -show run -n"
     },
-    //  
     "hyprland/workspaces": {
         "format": "{icon} <span color='#f5e0dc' size='small' rise='-5pt'>{name}</span>",
         "on-scroll-up": "hyprctl dispatch workspace e-1",
@@ -99,7 +104,7 @@
         "exec": "~/.local/bin/system-updates",
         "return-type": "json",
         "on-click": "~/.local/bin/system-updates update",
-        "interval": 120,
+        "interval": 30,
         "tooltip": true
     },
 

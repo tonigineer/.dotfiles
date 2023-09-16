@@ -4,6 +4,8 @@ if [ ! -f /etc/arch-release ]; then
     echo {"text": " ?", "tooltip": "You are not using , btw!"}
 fi
 
+yay -Syy > /dev/null 2>&1
+
 AUR=$(yay -Qu | wc -l)
 AUR_PACKAGES=$(yay -Qu | sed -z 's/\n/\\n/g; s/..$//')  # add \n as linebreak to have a list in the tooltip
 
@@ -16,5 +18,5 @@ fi
 
 # If the parameter is "update", update all services
 if [ "$1" = "update" ]; then
-    alacritty --title "aur-update float" -e sh -c "yay -Qu && yay -Syu"
+    alacritty --title "aur-update float" -e sh -c "yay -Qu && yay -Syyu"
 fi
