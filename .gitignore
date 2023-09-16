@@ -10,6 +10,8 @@ packer_compiled.lua
 .vscode
 .hypothesis
 
+shaders
+
 
 # Specific files
 **/peaclock/history

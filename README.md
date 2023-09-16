@@ -318,13 +318,3 @@ sudo sed -i 's/code --unity-launch %F/code --enable-features=UseOzonePlatform,Wa
 > **Note**: Changes to `code.desktop` are always reverted with updates.
 
 </details>
-
-<details><summary><b>way-displays</b></summary>
-
->
-<!-- Get some vertical space -->
-
-> [!NOTE]
-> While using multiple monitors with scaling in Hyprland, does not work correctly (monitors are not merge together corrently). Therefore, [way-displays](https://github.com/alex-courtis/way-displays) is used to handle it. [Command line documentation](https://github.com/alex-courtis/way-displays/blob/master/doc/CONFIGURATION.md#command-line)
-
-</details>
