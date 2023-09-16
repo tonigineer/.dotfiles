@@ -5,8 +5,9 @@
 <div align="center">
 <img src="https://img.shields.io/github/last-commit/tonigineer/.dotfiles?style=for-the-badge&logo=github&color=a6da95&logoColor=D9E0EE&labelColor=302D41"/>
 <img src="https://img.shields.io/github/repo-size/tonigineer/.dotfiles?style=for-the-badge&logo=dropbox&color=7dc4e4&logoColor=D9E0EE&labelColor=302D41"/><br>
-<a href="https://git.io/typing-svg"><img src="https://readme-typing-svg.demolab.com?font=Fira+Code&pause=1000&color=F7D924&center=true&vCenter=true&width=435&lines=work+in+progress+..." alt="Typing SVG" /></a>
 </div>
+
+## 💭 Thoughts and prayers
 
 > [!IMPORTANT]
 > Currently, [spotify-blur-me-not](https://aur.archlinux.org/packages/spotify-blur-me-not) and the fix for [Visual Studio Code](#🛠️-fixes-settings-and-more) does not work.
@@ -26,12 +27,10 @@
 
 >
 <!-- Get some vertical space -->
-<center>
 
-🔹 Display Server: [Wayland](https://wiki.archlinux.org/title/Wayland)
-🔹 Compositor: [Hyprland](https://hyprland.org/)
-🔹 Bar: [Waybar](https://github.com/Alexays/Waybar)
-</center>
+➖ Display Server: [Wayland](https://wiki.archlinux.org/title/Wayland)
+🔺 Compositor: [Hyprland](https://hyprland.org/)
+🔺 Bar: [Waybar](https://github.com/Alexays/Waybar)
 </details>
 
 <details open><summary><b>🌈 Appearance</b></summary>
@@ -39,25 +38,10 @@
 >
 <!-- Get some vertical space -->
 
-🔸 Color scheme: [Tokyonight-Dark-BL-LB](https://github.com/Fausto-Korpsvart/Tokyo-Night-GTK-Theme)
-🔸 Cursor: [Volantes Cursors Light](https://github.com/varlesh/volantes-cursors)
-🔸 Icons: [Tokyonight-Moon](https://github.com/Fausto-Korpsvart/Tokyo-Night-GTK-Theme/tree/master/icons)
+➖ Color scheme: [Tokyonight-Dark-BL-LB](https://github.com/Fausto-Korpsvart/Tokyo-Night-GTK-Theme)
+🔺 Cursor: [Volantes Cursors Light](https://github.com/varlesh/volantes-cursors)
+🔺 Icons: [Tokyonight-Moon](https://github.com/Fausto-Korpsvart/Tokyo-Night-GTK-Theme/tree/master/icons)
 </details>
-
-<details open><summary><b>💾 Applications</b></summary>
-
->
-<!-- Get some vertical space -->
-
-</details>
-
-<details open><summary><b>🚗 Ricing</b></summary>
-
->
-<!-- Get some vertical space -->
-
-</details>
-
 
 ## 🥼 Installation
 
