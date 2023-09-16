@@ -8,6 +8,9 @@
 <a href="https://git.io/typing-svg"><img src="https://readme-typing-svg.demolab.com?font=Fira+Code&pause=1000&color=F7D924&center=true&vCenter=true&width=435&lines=work+in+progress+..." alt="Typing SVG" /></a>
 </div>
 
+> [!IMPORTANT]
+> Currently, [spotify-blur-me-not](https://aur.archlinux.org/packages/spotify-blur-me-not) and the fix for [Visual Studio Code](#🛠️-fixes-settings-and-more) does not work.
+
 ## 🎨 Impressions
 
 <div align="center">
@@ -15,10 +18,6 @@
 <kbd><img alt="just-wallpaper-with-rofi" src="./assets/impressions-rofi.png" style="width: 600px;"/></kbd>
 <kbd><img alt="short-workflow" src="./assets/short-workflow.gif" style="width: 600px;"/></kbd>
 </div>
-
-## 🔥 To Do's
-
-- [ ] Include cava into Spotify meta data
 
 ## 📖 Overview
 
@@ -69,9 +68,11 @@
 
 After booting into the Live Environment, go either with my sparse [Installation Guide](/docs/archlinux-installation.md) or just use [archinstall](https://wiki.archlinux.org/title/archinstall).
 
-> **Note**: It is highly recommended to refer to the official [Installation Guide](https://wiki.archlinux.org/title/installation_guide) and [General Recommendations](https://wiki.archlinux.org/title/General_recommendations).
->
-> **Hint**: Without a wired connection, [iwctl](https://man.archlinux.org/man/community/iwd/iwctl.1.en) can be used within the Live Environment to connect to a wireless connection. After a reboot, [nmwli](https://man.archlinux.org/man/nmcli.1.en) can be used.
+> [!IMPORTANT]
+> It is highly recommended to refer to the official [Installation Guide](https://wiki.archlinux.org/title/installation_guide) and [General Recommendations](https://wiki.archlinux.org/title/General_recommendations).
+
+> [!NOTE]
+>  Without a wired connection, [iwctl](https://man.archlinux.org/man/community/iwd/iwctl.1.en) can be used within the Live Environment to connect to a wireless connection. After a reboot, [nmwli](https://man.archlinux.org/man/nmcli.1.en) can be used.
 
 </details>
 
@@ -116,7 +117,8 @@ git clone https://github.com/tonigineer/.dotfiles.git ~/Engineering/Hyprland-Ric
 
 Some applications need further fixes. Especially, `fractional scaling` on [Wayland](https://pointieststick.com/2022/12/16/this-week-in-kde-wayland-fractional-scaling-oh-and-we-also-fixed-multi-screen/) does not work for every application so well. An application looks kind of blurry and/or some does not apply a 4K resolution, e.g., not available in [Steam](https://wiki.archlinux.org/title/steam) games.
 
-> **Note**: This section serves as kind of a wiki to myself.
+> [!NOTE]
+> This section serves as kind of a wiki to myself.
 
 <details><summary><b>Appearance</b></summary>
 
