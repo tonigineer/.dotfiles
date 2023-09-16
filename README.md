@@ -324,8 +324,7 @@ sudo sed -i 's/code --unity-launch %F/code --enable-features=UseOzonePlatform,Wa
 >
 <!-- Get some vertical space -->
 
-> **Note**: The use of [way-displays](https://github.com/alex-courtis/way-displays) is currently only needed to easily switch the `fractional scaling` and arrange two monitors correctly with scaling (Hyprland does in wrong order). If those things are fixed within [Hyprland](https://hyprland.org/)/[Wayland](https://wayland.freedesktop.org/), this tool is obsolete.
-
-[Command line documentation](https://github.com/alex-courtis/way-displays/blob/master/doc/CONFIGURATION.md#command-line)
+> [!NOTE]
+> While using multiple monitors with scaling in Hyprland, does not work correctly (monitors are not merge together corrently). Therefore, [way-displays](https://github.com/alex-courtis/way-displays) is used to handle it. [Command line documentation](https://github.com/alex-courtis/way-displays/blob/master/doc/CONFIGURATION.md#command-line)
 
 </details>
