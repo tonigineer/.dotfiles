@@ -12,6 +12,8 @@
 > [!IMPORTANT]
 > Currently, [spotify-blur-me-not](https://aur.archlinux.org/packages/spotify-blur-me-not) and the fix for [Visual Studio Code](#🛠️-fixes-settings-and-more) does not work.
 
+- [ ] lite-xl still blury, no plugins installed yet
+
 ## 🎨 Impressions
 
 <div align="center">
