@@ -7,7 +7,7 @@
 ; mode = normal
 
 # Accepts only non-negative values.
-; framerate = 60
+; framerate = 144
 
 # 'autosens' will attempt to decrease sensitivity if the bars peak. 1 = on, 0 = off
 # new as of 0.6.0 autosens of low values (dynamic range)
@@ -22,7 +22,7 @@
 # The number of bars (0-200). 0 sets it to auto (fill up console).
 # Bars' width and space between bars in number of characters.
 ; bars = 0
-bar_width = 1
+bar_width = 2
 bar_spacing = 1
 
 
@@ -108,6 +108,20 @@ bar_spacing = 1
 
 
 
+# sdl window size and position. -1,-1 is centered.
+; sdl_width = 1000
+; sdl_height = 500
+; sdl_x = -1
+; sdl_y= -1
+
+
+# enable alacritty synchronized updates. 1 = on, 0 = off
+# removes flickering in alacritty terminal emeulator.
+# defaults to off since the behaviour in other terminal emulators is unknown
+alacritty_sync = 1
+
+
+
 [color]
 
 # Colors can be one of seven predefined: black, blue, cyan, green, magenta, red, white, yellow.
@@ -121,13 +135,23 @@ bar_spacing = 1
 # Gradient mode, only hex defined colors (and thereby ncurses mode) are supported,
 # background must also be defined in hex  or remain commented out. 1 = on, 0 = off.
 # You can define as many as 8 different colors. They range from bottom to top of screen
- gradient = 1
- gradient_count = 5
+gradient = 1
+gradient_count = 5
 gradient_color_1 = '#81aaa1'
 gradient_color_2 = '#8daf87'
 gradient_color_3 = '#C67D7A'
 gradient_color_4 = '#C6A572'
 gradient_color_5 = '#ddc7a1'
+
+
+gradient = 1
+gradient_count = 6
+gradient_color_1 = '#3e8fb0'
+gradient_color_2 = '#9ccfd8'
+gradient_color_3 = '#c4a7e7'
+gradient_color_4 = '#ea9a97'
+gradient_color_5 = '#f6c177'
+gradient_color_6 = '#eb6f92'
 
 
 #gradient_color_1 = '#7575a3'
