@@ -91,6 +91,7 @@ link_configuration() {
     echo -e " \e[95m->\e[0m Additional files and folders within \e[93m/home/$(whoami)\e[0m"
     ADDITIONAL_DIRS=(
         .bash_profile
+        .zshrc
         .icons/default/index.theme
         .local/bin
         .local/share/backgrounds

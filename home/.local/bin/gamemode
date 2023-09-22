@@ -6,12 +6,12 @@ HYPRGAMEMODE=$(hyprctl getoption animations:enabled | sed -n '2p' | awk '{print 
 if [ $HYPRGAMEMODE = 1 ] ; then
 
     # with scaling other than 1, no 4K resolution available in steam
-    way-displays -s SCALE "DP-1" 1
-    # way-displays -s DISABLED "DP-2"
+    hyprctl keyword monitor DP-1,prefered@60,0x0,1
+    hyprctl keyword monitor DP-2,disable
 
     # kill application for wallpaper
-    pkill swww
-    pkill waybar
+    # pkill swww
+    # pkill waybar
 
     # disable fancy hyprland stuff
     hyprctl --batch "\
@@ -26,6 +26,6 @@ if [ $HYPRGAMEMODE = 1 ] ; then
     exit
 fi
 
-way-displays -s SCALE "DP-1" 2
-# way-displays -s DISABLED "DP-2"
+# hyprctl keyword monitor DP-1,prefered@60,0x0,2
+# hyprctl keyword monitor DP-2,disable
 hyprctl reload && notify-send --icon="icons8-game-controller-80" --expire-time=3000 'Hyprland' '\nGamemode deactivated!'
