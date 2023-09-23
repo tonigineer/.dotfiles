@@ -1,10 +1,10 @@
 set fish_greeting ""
 
-if status --is-login
-    if test (tty) = /dev/tty1
-        exec ~/.local/bin/hyprland -- -keeptty # or start sway or whatever
-    end
-end
+#if status --is-login
+#    if test (tty) = /dev/tty1
+#        exec ~/.local/bin/hyprland -- -keeptty # or start sway or whatever
+#    end
+#end
 
 fish_vi_key_bindings
 
@@ -136,4 +136,4 @@ set -g theme_color_status_rw A6ADC8                     #A6ADC8
 # ==================================
 #             AUTOSTART
 # ==================================
-neofetch
+# neofetch
