@@ -14,6 +14,10 @@ require("lazy").setup {
             build = function () vim.cmd(":TSUpdate") end
         },
         --[[ Lsp UI ]]    "stevearc/dressing.nvim",
+        {
+            'windwp/nvim-autopairs',
+            event = "InsertEnter",
+        },
 
     -- ======================
     --         VANITY        

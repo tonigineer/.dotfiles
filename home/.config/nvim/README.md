@@ -46,11 +46,11 @@ fc-cache -fv
 
 ## Get configuration
 
-Clone configuration to system
+Run the following script from the repository:
 
 ```sh
-cd ~/.config
-git clone https://github.com/tonigineer/nvim.git
+util/install_nvim.sh
+# Dependencies are installed without question!
 ```
 
 Run `nvim` and see the result.

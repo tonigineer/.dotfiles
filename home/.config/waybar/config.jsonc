@@ -104,7 +104,7 @@
         "exec": "~/.local/bin/system-updates",
         "return-type": "json",
         "on-click": "~/.local/bin/system-updates update",
-        "interval": 30,
+        "interval": 300,
         "tooltip": true
     },
 

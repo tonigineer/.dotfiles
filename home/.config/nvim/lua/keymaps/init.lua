@@ -3,3 +3,4 @@ local function config(module)
 end
 
 config("telescope")
+config("oldhabits")

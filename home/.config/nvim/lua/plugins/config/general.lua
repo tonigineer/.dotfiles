@@ -21,3 +21,35 @@ global.netrw_liststyle=3
 global.netrw_bufsettings="noma nomod nu nobl nowrap ro"
 
 -- [[ Context ]]
+options.colorcolumn = ""
+options.number = true
+options.relativenumber = true
+options.scrolloff = 8
+options.signcolumn = "yes"
+
+-- [[ Filetypes ]]
+options.encoding = "utf8"
+
+-- [[ Theme ]]
+options.syntax = "ON"
+options.termguicolors = true
+
+-- [[ Search ]]
+options.ignorecase = true
+options.smartcase = true
+options.incsearch = true
+options.hlsearch = false
+
+-- [[ Whitespace ]]
+options.expandtab = false
+options.shiftwidth = 4
+options.softtabstop = 4
+options.tabstop = 4
+options.fillchars:append { eob = " " }
+
+-- [[ Splits ]]
+options.splitright = false
+options.splitbelow = false
+
+-- [[ Mouse ]]
+options.mouse = ""
