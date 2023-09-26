@@ -1,9 +1,12 @@
-[submodule "fish"]
+[submodule "home/.config/fish"]
 	path = home/.config/fish
 	url = https://github.com/tonigineer/fish.git
-[submodule "zsh"]
+	branch = main
+[submodule "home/.config/zsh"]
 	path = home/.config/zsh
 	url = https://github.com/tonigineer/zsh.git
-[submodule "nvim"]
+	branch = main
+[submodule "home/.config/nvim"]
 	path = home/.config/nvim
 	url = https://github.com/tonigineer/nvim.git
+	branch = main
