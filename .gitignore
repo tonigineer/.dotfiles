@@ -16,3 +16,4 @@ shaders
 # Specific files
 **/peaclock/history
 **/backgrounds/.loop
+home/.config/btop/btop.log

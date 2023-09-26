@@ -44,6 +44,7 @@ tooltip label {
 #tray,
 #pulseaudio,
 #clock,
+#backlight,
 #battery,
 #custom-power,
 
@@ -103,7 +104,7 @@ div * {
 }
 
 #workspaces button.active {
-    animation: gradient_f 10s ease-in-out infinite;
+    /* animation: gradient_f 10s ease-in-out infinite; */
     color: @tokio_night_red;
     border: solid 1px;
     border-color: @tokio_night_black;
@@ -275,6 +276,19 @@ div * {
     padding-right: 0px;
     margin-right: -5px;
 }
+
+#backlight {
+    border: solid 2px;
+    border-left: 0px;
+    border-right: 0px;
+    border-color: @tokio_night_white;
+    border-radius: 0;
+    color: @tokio_night_white;
+    padding-left: 0px;
+    padding-right: 0px;
+    margin-right: 0px;
+}
+
 
 #battery {
     border: solid 2px;
