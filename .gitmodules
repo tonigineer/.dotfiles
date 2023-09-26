@@ -1,0 +1,9 @@
+[submodule "fish"]
+	path = home/.config/fish
+	url = https://github.com/tonigineer/fish.git
+[submodule "zsh"]
+	path = home/.config/zsh
+	url = https://github.com/tonigineer/zsh.git
+[submodule "nvim"]
+	path = home/.config/nvim
+	url = https://github.com/tonigineer/nvim.git
