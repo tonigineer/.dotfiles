@@ -1,11 +1,15 @@
 alacritty
+cargo
+curl
 exa
 fish
-neofetch
-thunar
 inetutils
+iwd
+networkmanager
+net-tools
 ttf-terminus-nerd
 ttf-cascadia-code-nerd
 tree
+unzip
 wget
 xdg-user-dirs
