@@ -3,13 +3,17 @@ cargo
 curl
 exa
 fish
+grim-git
 inetutils
 iwd
 networkmanager
 net-tools
+pamixer
+slurp-git
 ttf-terminus-nerd
 ttf-cascadia-code-nerd
 tree
 unzip
 wget
+wl-clipboard
 xdg-user-dirs

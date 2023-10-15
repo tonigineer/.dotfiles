@@ -82,7 +82,7 @@
     "custom/temp": {
         "format": "{} <span color='#f5e0dc'>{percentage}°C</span>",
         "tooltip": true,
-        "exec": "~/.local/bin/diagnostic cpu-temp",
+        "exec": "~/.local/bin/diagnostic.sh cpu-temp",
         "return-type": "json",
         "on-click": "alacritty --title \"btop float\" -e sh -c \"btop\"",
         "interval": 2
@@ -101,10 +101,10 @@
     },
     "custom/system-updates": {
         "format": "{}",
-        "exec": "~/.local/bin/system-updates",
+        "exec": "~/.local/bin/system-updates.sh",
         "return-type": "json",
-        "on-click": "~/.local/bin/system-updates update",
-        "interval": 300,
+        "on-click": "~/.local/bin/system-updates.sh update",
+        "interval": 60,
         "tooltip": true
     },
 
@@ -175,11 +175,11 @@
     },
     "custom/wallpaper": {
         "format": "{}",
-        "exec": "~/.local/bin/change-wallpaper tooltip",
+        "exec": "~/.local/bin/change-wallpaper.sh tooltip",
         "return-type": "json",
-        "on-click": "~/.local/bin/change-wallpaper next",
-        "on-click-middle": "~/local/bin/change-wallpaper folder",
-        "on-click-right": "~/.local/bin/change-wallpaper prev",
+        "on-click": "~/.local/bin/change-wallpaper.sh next",
+        "on-click-middle": "~/local/bin/change-wallpaper.sh folder",
+        "on-click-right": "~/.local/bin/change-wallpaper.sh prev",
         "interval": 5
     },
     "pulseaudio": {
