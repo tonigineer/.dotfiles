@@ -1,6 +1,3 @@
-
-
-/* Right modules - definition */
 #network {
     border: solid 3px;
     border-right: 0px;
@@ -74,7 +71,6 @@
     margin-right: 0px;
 }
 
-
 #battery {
     border: solid 2px;
     border-left: 0px;
@@ -94,7 +90,6 @@
 #battery.critical {
     color: @tokio_night_red;
 }
-
 
 #custom-power {
     border: solid 2px;

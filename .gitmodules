@@ -1,7 +1,3 @@
-[submodule "home/.config/fish"]
-	path = home/.config/fish
-	url = https://github.com/tonigineer/fish.git
-	branch = main
 [submodule "home/.config/zsh"]
 	path = home/.config/zsh
 	url = https://github.com/tonigineer/zsh.git

@@ -7,11 +7,6 @@
 <img src="https://img.shields.io/github/repo-size/tonigineer/.dotfiles?style=for-the-badge&logo=dropbox&color=7dc4e4&logoColor=D9E0EE&labelColor=302D41"/><br>
 </div>
 
-## 💭 Thoughts and prayers
-
-- [ ] *VS Code*, *Spotify*, *Lite-XL*, *Discord* are all blurred, because of fractional scaling (using 4K). But the previous [fix](https://github.com/signalapp/Signal-Desktop/issues/5869) does not work anymore. Also [spotify-blur-me-not](https://aur.archlinux.org/packages/spotify-blur-me-not) does not work anymore.
-- [ ] For changing wallpaper, [swww](https://github.com/Horus645/swww) is used which also does not work anymore
-
 ## 🎨 Impressions
 
 <div align="center">

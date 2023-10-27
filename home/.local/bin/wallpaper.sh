@@ -73,7 +73,6 @@ fi
 
 if [ "$1" = "reset" ]; then
 	reset_daemon
-	apply_wall "${wallpaper_avail[0]}" "$2"
 fi
 
 if [ "$1" = "next" ]; then
