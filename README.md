@@ -95,8 +95,8 @@ Hyprland  # start Hpyrland from the tty
 Clone repository and run installation script
 
 ```sh
-git clone https://github.com/tonigineer/.dotfiles.git ~/Engineering/Hyprland-Rice
-~/Engineering/Hyprland-Rice/install.sh
+git clone --recurse-submodules https://github.com/tonigineer/.dotfiles.git ~/.dotfiles
+~/.dotfiles/scripts/install.sh
 ```
 
 ## 🛠️ Fixes, settings and more
