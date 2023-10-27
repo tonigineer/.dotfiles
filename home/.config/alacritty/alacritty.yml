@@ -44,8 +44,7 @@ window:
   #
   # Window opacity as a floating point number from `0.0` to `1.0`.
   # The value `0.0` is completely transparent and `1.0` is opaque.
-  opacity: 0.95  # Ubuntu
-  # opacity: 0.85  # Arch
+  opacity: 0.95
 
   # Window decorations
   #
@@ -114,18 +113,9 @@ font:
     #
     # Default:
     #   - (macOS) Menlo
-      # - (Linux/BSD) monospace
+    # - (Linux/BSD) monospace
     #   - (Windows) Consolas
-    # family: Source Code Pro
-    # family: CodeNewRoman Nerd Font
-    # family: RobotoMono Nerd Font
-    # family: Hack
     family: JetBrainsMono Nerd Font Mono
-    # family: UbuntuMono Nerd Font
-    # family: Monofur Nerd Font
-    # family: Terminess Nerd Font
-    # famliy: CaskaydiaCove Nerd Font Mono
-    # family: Mononoki Nerd Font
 
     # The `style` can be specified to pick a specific face.
     style: Regular
@@ -136,16 +126,7 @@ font:
     #
     # If the bold family is not specified, it will fall back to the
     # value specified for the normal font.
-    # family: Source Code Pro
-    # family: CodeNewRoman Nerd Font
-    # family: RobotoMono Nerd Font
-    # family: Hack
     family: JetBrainsMono Nerd Font Mono
-    # family: UbuntuMono Nerd Font
-    # family: Monofur Nerd Font
-    # family: Terminess Nerd Font
-    # famliy: CaskaydiaCove Nerd Font Propo
-    # family: Mononoki Nerd Font
 
     # The `style` can be specified to pick a specific face.
     style: Bold
@@ -156,16 +137,7 @@ font:
     #
     # If the italic family is not specified, it will fall back to the
     # value specified for the normal font.
-    # family: Source Code Pro
-    # family: CodeNewRoman Nerd Font
-    # family: RobotoMono Nerd Font
-    # family: Hack
     family: JetBrainsMono Nerd Font Mono
-    # family: UbuntuMono Nerd Font
-    # family: Monofuritalic Nerd Font Mono
-    # family: Terminess Nerd Font
-    # famliy: CaskaydiaCove Nerd Font Propo
-    # family: Mononoki Nerd Font
 
     # The `style` can be specified to pick a specific face.
     style: Italic
@@ -176,16 +148,7 @@ font:
     #
     # If the bold italic family is not specified, it will fall back to the
     # value specified for the normal font.
-    # family: Source Code Pro
-    # family: CodeNewRoman Nerd Font
-    # family: RobotoMono Nerd Font
-    # family: Hack
     family: JetBrainsMono Nerd Font Mono
-    # family: UbuntuMono Nerd Font
-    # family: Monofuritalic Nerd Font Mono
-    # family: Terminess Nerd Font
-    # famliy: CaskaydiaCove Nerd Font Propo
-    # family: Mononoki Nerd Font
 
     # The `style` can be specified to pick a specific face.
     style: Bold Italic
@@ -225,19 +188,16 @@ font:
 # If `true`, bold text is drawn using the bright color variants.
 draw_bold_text_with_bright_colors: true
 
-
 schemes:
   # Tokyo Night theme, based on both:
   #   https://github.com/ghifarit53/tokyonight-vim
   #   https://github.com/enkia/tokyo-night-vscode-theme
 
   tokyo-night: &tokyo-night
-    # Default colors
     primary:
       background: '#1a1b26'
       foreground: '#a9b1d6'
 
-    # Normal colors
     normal:
       black:   '#32344a'
       red:     '#f7768e'
@@ -248,7 +208,6 @@ schemes:
       cyan:    '#449dab'
       white:   '#787c99'
 
-    # Bright colors
     bright:
       black:   '#444b6a'
       red:     '#ff7a93'
@@ -260,12 +219,10 @@ schemes:
       white:   '#acb0d0'
 
   tokyo-night-storm: &tokyo-night-storm
-    # Default colors
     primary:
       background: '#24283b'
       foreground: '#a9b1d6'
 
-    # Normal colors
     normal:
       black:   '#32344a'
       red:     '#f7768e'
@@ -276,7 +233,6 @@ schemes:
       cyan:    '#449dab'
       white:   '#9699a8'
 
-    # Bright colors
     bright:
       black:   '#444b6a'
       red:     '#ff7a93'
@@ -288,93 +244,6 @@ schemes:
       white:   '#acb0d0'
 
 colors: *tokyo-night
-
-# colors:
-#     primary:
-#         background: "#1E1E2E" # base
-#         foreground: "#CDD6F4" # text
-#         background: '#1d1f21'
-#         foreground: '#D8DEE9'
-#         # Bright and dim foreground colors
-#         dim_foreground: "#CDD6F4" # text
-#         bright_foreground: "#CDD6F4" # text
-
-#     # Cursor colors
-#     cursor:
-#         text: "#1E1E2E" # base
-#         cursor: "#F5E0DC" # rosewater
-#     vi_mode_cursor:
-#         text: "#1E1E2E" # base
-#         cursor: "#B4BEFE" # lavender
-
-#     # Search colors
-#     search:
-#         matches:
-#             foreground: "#1E1E2E" # base
-#             background: "#A6ADC8" # subtext0
-#         focused_match:
-#             foreground: "#1E1E2E" # base
-#             background: "#A6E3A1" # green
-#         footer_bar:
-#             foreground: "#1E1E2E" # base
-#             background: "#A6ADC8" # subtext0
-
-#     # Keyboard regex hints
-#     hints:
-#         start:
-#             foreground: "#1E1E2E" # base
-#             background: "#F9E2AF" # yellow
-#         end:
-#             foreground: "#1E1E2E" # base
-#             background: "#A6ADC8" # subtext0
-
-#     # Selection colors
-#     selection:
-#         text: "#1E1E2E" # base
-#         background: "#F5E0DC" # rosewater
-
-#     # Normal colors
-#     normal:
-#         black: "#45475A" # surface1
-#         red: "#F38BA8" # red
-#         green: "#A6E3A1" # green
-#         yellow: "#F9E2AF" # yellow
-#         blue: "#89B4FA" # blue
-#         magenta: "#F5C2E7" # pink
-#         cyan: "#94E2D5" # teal
-#         white: "#BAC2DE" # subtext1
-
-#     # Bright colors
-#     bright:
-#         black: "#585B70" # surface2
-#         red: "#F38BA8" # red
-#         green: "#A6E3A1" # green
-#         yellow: "#F9E2AF" # yellow
-#         blue: "#89B4FA" # blue
-#         magenta: "#F5C2E7" # pink
-#         cyan: "#94E2D5" # teal
-#         white: "#A6ADC8" # subtext0
-
-#     # Dim colors
-#     dim:
-#         black: "#45475A" # surface1
-#         red: "#F38BA8" # red
-#         green: "#A6E3A1" # green
-#         yellow: "#F9E2AF" # yellow
-#         blue: "#89B4FA" # blue
-#         magenta: "#F5C2E7" # pink
-#         cyan: "#94E2D5" # teal
-#         white: "#BAC2DE" # subtext1
-
-#     indexed_colors:
-#         - { index: 16, color: "#FAB387" }
-#         - { index: 17, color: "#F5E0DC" }
-
-
-
-#######################################
-##       END OF COLOR SCHEMES        ##
-#######################################
 
 # Visual Bell
 #
@@ -402,30 +271,30 @@ colors: *tokyo-night
 #  duration: 0
 #  color: '#ffffff'
 
-#selection:
+selection:
   #semantic_escape_chars: ",│`|:\"' ()[]{}<>\t"
 
   # When set to `true`, selected text will be copied to the primary clipboard.
-  #save_to_clipboard: false
+  save_to_clipboard: true
 
 # Allow terminal applications to change Alacritty's window title.
 #dynamic_title: true
 
-cursor:
-  # Cursor style
-  #
-  # Values for `style`:
-  #   - ▇ Block
-  #   - _ Underline
-  #   - | Beam
-  style: Underline
+# cursor:
+#   # Cursor style
+#   #
+#   # Values for `style`:
+#   #   - ▇ Block
+#   #   - _ Underline
+#   #   - | Beam
+#   style: Underline
 
-  # If this is `true`, the cursor will be rendered as a hollow box when the
-  # window is not focused.
-  #unfocused_hollow: true
+#   # If this is `true`, the cursor will be rendered as a hollow box when the
+#   # window is not focused.
+#   unfocused_hollow: true
 
-# Live config reload (changes require restart)
-#live_config_reload: true
+# # Live config reload (changes require restart)
+live_config_reload: true
 
 # Shell
 #
@@ -437,7 +306,7 @@ cursor:
 #   - (Linux/BSD) user login shell
 #   - (Windows) powershell
 shell:
-  program: /bin/fish
+  program: /bin/zsh
   args:
     - --login
 
@@ -484,7 +353,7 @@ shell:
   # Record all characters and escape sequences as test data.
   #ref_test: false
 
-#mouse:
+mouse:
   # Click settings
   #
   # The `double_click` and `triple_click` settings control the time
@@ -494,7 +363,7 @@ shell:
   #triple_click: { threshold: 300 }
 
   # If this is `true`, the cursor is temporarily hidden when typing.
-  #hide_when_typing: false
+  hide_when_typing: true
 
   #url:
     # URL launcher

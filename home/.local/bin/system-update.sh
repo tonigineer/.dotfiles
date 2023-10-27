@@ -4,7 +4,7 @@ if [ ! -f /etc/arch-release ]; then
 	echo {"text": " ?", "tooltip": "You are not using , btw!"}
 fi
 
-yay -Syy >/dev/null 2>&1
+yay -Sy >/dev/null 2>&1
 
 AUR=$(yay -Qu | wc -l)
 AUR_PACKAGES=$(yay -Qu | sed -z 's/\n/\\n/g; s/..$//') # add \n as linebreak to have a list in the tooltip

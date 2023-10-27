@@ -101,9 +101,9 @@
     },
     "custom/system-updates": {
         "format": "{}",
-        "exec": "~/.local/bin/system-updates.sh",
+        "exec": "~/.local/bin/system-update.sh",
         "return-type": "json",
-        "on-click": "~/.local/bin/system-updates.sh update",
+        "on-click": "~/.local/bin/system-update.sh update",
         "interval": 60,
         "tooltip": true
     },

@@ -4,7 +4,7 @@
 [[ -d "$HOME/.cargo/bin" ]] && PATH="$HOME/.cargo/bin:$PATH"
 
 [[ -f ~/.bashrc ]] && . ~/.bashrc
+[[ -f ~/.bash_aliases ]] && . ~/.bash_aliases
 [[ -f ~/.cargo/env ]] && . ~/.cargo/env
-[[ -f ~/.config/zsh/alias.zsh ]] && . ~/.config/zsh/alias.zsh
 
-[[ $(tty) == '/dev/tty1' && ! $DISPLAY ]] && exec bash ~/.local/bin/hyprland
+# [[ $(tty) == '/dev/tty1' && ! $DISPLAY ]] && exec bash ~/.local/bin/hyprland
