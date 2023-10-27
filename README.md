@@ -9,8 +9,8 @@
 
 ## 💭 Thoughts and prayers
 
-- [ ] VS Code, Spotify, Lite-XL, Discord are all blurred, because of fractional scaling. But the fix with `code --enable-features=UseOzonePlatform,WaylandWindowDecorations --ozone-platform=wayland` does not work anymore. Also [spotify-blur-me-not](https://aur.archlinux.org/packages/spotify-blur-me-not) does not work.
-- [ ] [swww](https://github.com/Horus645/swww) for changing wallpaper does also not work anymore
+- [ ] *VS Code*, *Spotify*, *Lite-XL*, *Discord* are all blurred, because of fractional scaling (using 4K). But the previous [fix](https://github.com/signalapp/Signal-Desktop/issues/5869) does not work anymore. Also [spotify-blur-me-not](https://aur.archlinux.org/packages/spotify-blur-me-not) does not work anymore.
+- [ ] For changing wallpaper, [swww](https://github.com/Horus645/swww) is used which also does not work anymore
 
 ## 🎨 Impressions
 
@@ -42,6 +42,16 @@
 🔺 Cursor: [Volantes Cursors Light](https://github.com/varlesh/volantes-cursors)
 🔺 Icons: [Tokyonight-Moon](https://github.com/Fausto-Korpsvart/Tokyo-Night-GTK-Theme/tree/master/icons)
 </details>
+
+<details open><summary><b>📐 Configuration</b></summary>
+
+>
+<!-- Get some vertical space -->
+
+➖ Shell: [ZSH](https://github.com/tonigineer/zsh)
+🔺 Editor: [Neovim](https://github.com/tonigineer/nvim)
+</details>
+
 
 ## 🥼 Installation
 
@@ -97,9 +107,9 @@ git clone --recurse-submodules https://github.com/tonigineer/.dotfiles.git ~/.do
 ~/.dotfiles/scripts/install.sh
 ```
 
-## 🛠️ Fixes, settings and more
+## 🛠️ Miscellaneous
 
-This section aims to be a little repair book for myself.
+Just some stuff to remember.
 
 <details><summary><b>Bluetooth</b></summary>
 
