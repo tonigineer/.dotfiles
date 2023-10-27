@@ -1,30 +1,18 @@
-// TODO: Button for monitor changing; Button for gamemode and indication
-//
-//
-//
-
-
 {
-    // =============================================
-    //              General settings                
-    // =============================================
     "layer": "top",
     "position": "top",
-    // "output": "!DP-2",
-    // "output": ["DP-1", "DP-2"],
-    // "gtk-layer-shell": "false",
-    // "height": 50,  // to be removed for auto
-    // "width": 2560,  // to be removed for auto
     "spacing": 0,
     "margin-top": 0,
     "margin-bottom":0,
     "margin-left": 10,
     "margin-right": 10,
 
+    "include": [
+        "~/.config/waybar/modules-left.jsonc",
+        "~/.config/waybar/modules-center.jsonc",
+        "~/.config/waybar/modules-right.jsonc"
+    ],
 
-    // =============================================
-    //                  LEFT SIDE                   
-    // =============================================
     "modules-left": [
         "custom/launcher",
         "hyprland/workspaces",
@@ -35,112 +23,11 @@
         "custom/system-updates"
     ],
 
-    "custom/launcher": {
-        "format": " ",
-        "tooltip": false,
-        "on-click": "pkill rofi || rofi -show drun -n",
-        "on-click-right": "pkill rofi || rofi -show run -n"
-    },
-    "hyprland/workspaces": {
-        "format": "{icon} <span color='#f5e0dc' size='small' rise='-5pt'>{name}</span>",
-        "on-scroll-up": "hyprctl dispatch workspace e-1",
-        "on-scroll-down": "hyprctl dispatch workspace e+1",
-        "on-click": "activate",
-        "format-icons": {
-          "1": "",
-          "2": "󰘐",
-          "3": "",
-          "4": "󰙯",
-          "5": "",
-          "6": "󰓓",
-          "7": "󰗃",
-          "8": "",
-          "9": "󰷛",
-          "urgent": ""
-          //   "active": "",
-          //   "default": ""
-        },
-        // does not work currently, should be shown even when empty,
-        // but all windows are shown with color from
-        // #workspaces button.persistent in `style.css`
-        // "persistent_workspaces": {
-        //     "1": [],
-        //     "2": [],
-        //     "3": [],
-        //     "4": [],
-        //     "5": []
-        // },
-        "sort-by-number": true,
-        "active-only": false
-    },
-    "cpu": {
-        "format": "<span color=\"#ad8ee6\" size='large' rise='-1pt'>󰻠</span> <span color=\"#f5e0dc\">{usage}%</span>",
-        "tooltip": true,
-        "on-click": "alacritty --title \"btop float\" -e sh -c \"btop\"",
-        "interval": 2
-    },
-    "custom/temp": {
-        "format": "{} <span color='#f5e0dc'>{percentage}°C</span>",
-        "tooltip": true,
-        "exec": "~/.local/bin/diagnostic.sh cpu-temp",
-        "return-type": "json",
-        "on-click": "alacritty --title \"btop float\" -e sh -c \"btop\"",
-        "interval": 2
-    },
-    "memory": {
-        "format": "󰘚 <span color='#f5e0dc'>{}%</span>",
-        "tooltip": true,
-        "on-click": "alacritty --title \"btop float\" -e sh -c \"btop\"",
-        "interval": 2
-    },
-    "disk": {
-        "format": " <span color='#f5e0dc'>{percentage_used}%</span>",  //  ({free})
-        "tooltip": true,
-        "on-click": "thunar /",
-        "interval": 300
-    },
-    "custom/system-updates": {
-        "format": "{}",
-        "exec": "~/.local/bin/system-update.sh",
-        "return-type": "json",
-        "on-click": "~/.local/bin/system-update.sh update",
-        "interval": 60,
-        "tooltip": true
-    },
-
-    // =============================================
-    //                    CENTER                    
-    // =============================================
     "modules-center": [
+        // "hyprland/window",
         "custom/spotify-metadata"
     ],
 
-    // "hyprland/window",
-
-
-    // Currently problems when no window selected, background still there
-    // https://github.com/Alexays/Waybar/issues/1934
-    // "hyprland/window": {
-    //     "format": "{}",
-    //     "separate-outputs": true,
-    //     "max-length": 35
-    // },
-    "custom/spotify-metadata": {
-        "format": "<span size='large' rise='-1pt'></span>  <span color='#f5e0dc'>{}</span>",
-        "max-length": 60,
-        "interval": 1,
-        "return-type": "json",
-        "exec": "~/.local/bin/spotify-metadata",
-        "on-click": "playerctl -p spotify play-pause",
-        "on-click-right": "killall spotify",
-        "on-scroll-up": "playerctl -p spotify next",
-        "on-scroll-down": "playerctl -p spotify previous"
-    },
-
-
-    // =============================================
-    //                  RIGHT SIDE                  
-    // =============================================
     "modules-right": [
         "network",
         "tray",
@@ -150,107 +37,5 @@
         "backlight",
         "battery",
         "custom/power"
-    ],
-    "network": {
-        // "interface": "wlp2*", // (Optional) To force the use of this interface
-        "format": "<span color=\"#f5e0dc\">{bandwidthTotalBytes}</span> {icon} ",
-        "format-disconnected": "{icon} No Internet",
-        "format-linked": " {ifname} (No IP)",
-        "format-alt": "󰦘 <span color=\"#f5e0dc\">{bandwidthUpBytes}</span> <span color=\"#787c99\">|</span> 󰦗 <span color=\"#f5e0dc\">{bandwidthDownBytes}</span>",
-        "tooltip-format": "{ifname}: {ipaddr}/{cidr}  {gwaddr}",
-        "tooltip-format-wifi": "{icon}  {essid} ⌜{signalStrength}%⌟",
-        "tooltip-format-ethernet": "{icon} {ipaddr}/{cidr}",
-        "tooltip-format-disconnected": "{icon} Disconnected",
-        "on-click-right": "nmtui",
-        "format-icons": {
-            "ethernet": "󰌚",
-            "disconnected": "⚠",
-            "wifi": [""]
-        },
-        "interval": 1
-    },
-    "tray": {
-        "icon-size": 18,
-        "spacing": 10
-    },
-    "custom/wallpaper": {
-        "format": "{}",
-        "exec": "~/.local/bin/change-wallpaper.sh tooltip",
-        "return-type": "json",
-        "on-click": "~/.local/bin/change-wallpaper.sh next",
-        "on-click-middle": "~/local/bin/change-wallpaper.sh folder",
-        "on-click-right": "~/.local/bin/change-wallpaper.sh prev",
-        "interval": 5
-    },
-    "pulseaudio": {
-        "scroll-step": 2,
-        "format": "{icon} <span color='#f5e0dc'>{volume}%</span>",
-        "format-bluetooth": "<span size='large' rise='-1pt'>{icon}</span> <span color='#f5e0dc'>{volume}%</span>",
-        "format-bluetooth-muted": "󰥰",
-        "format-muted": "",
-        "format-source": "{volume}% ",
-        "format-source-muted": "",
-        "format-icons": {
-            "headphone": "󰋋",
-            "headset": "󰋎",
-            "phone": "",
-            "portable": "",
-            "car": " ",
-            "default": ["󰕿", "", "", "", ""]
-        },
-        "on-click": "pavucontrol"
-    },
-    "backlight": {
-        "tooltip": false,
-        "device": "intel_backlight",
-        "format": " {icon}<span color=\"#f5e0dc\">{percent}%</span>",
-        "format-icons": [" ", " ", " ", " ", " ", " ", " ", " ", " "],
-    },
-    "clock": {
-        "format": "<span size='large' rise='-1pt'>󰦖 </span><span color='#f5e0dc'>{:%H:%M} </span>",
-        "format-alt": "󰸘 <span color='#f5e0dc'>{:%A, %d. %B %Y} </span>",
-        "tooltip-format": "<tt><small>{calendar}</small></tt>",
-        "calendar": {
-            "mode"          : "month",
-            "mode-mon-col"  : 1,
-            "weeks-pos"     : "right",
-            "on-scroll"     : 1,
-            "on-click-right": "mode",
-            "format": {
-                "months":     "<span color='#9ece6a'><b>{}</b></span>",
-                "days":       "<span color='#7aa2f7'><b>{}</b></span>",
-                "weeks":      "<span color='#ad8ee6'><b>W{}</b></span>",
-                "weekdays":   "<span color='#e0af68'><b>{}</b></span>",
-                "today":      "<span color='#f7768e'><b><u>{}</u></b></span>"
-            },
-            "weeks": "{:%U}"
-        },
-        "actions":  {
-            "on-click-right": "mode",
-            "on-click-forward": "tz_up",
-            "on-click-backward": "tz_down",
-            "on-scroll-up": "shift_up",
-            "on-scroll-down": "shift_down"
-        },
-    },
-    "battery": {
-        "format": "<span  rise='0pt'>{icon} </span><span color='#f5e0dc'> {time}</span>",
-        "format-icons": ["", "", "", "", "", "", "", ""],
-        "format-time": "{H}h{M}m",
-        "format-charging": "<span  color='#9ece6a' rise='0pt'> {icon} </span><span color='#f5e0dc'> {capacity}%</span>",
-        "format-full": "<span  color='#9ece6a' rise='0pt'></span>",
-        "interval": 30,
-        "states": {
-            "warning": 30,
-            "critical": 15
-        },
-        "tooltip": true,
-        "tooltip-format": "󰂑 ⌜{capacity}%⌟ 󱄇 ⌜{power} W⌟",
-        "on-click": ""
-    },
-    "custom/power": {
-        "format": "<span rise='5pt'>⏻</span>",
-        "tooltip": false,
-        "on-click": "wlogout -b 5"
-    }
+    ]
 }

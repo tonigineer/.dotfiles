@@ -1,0 +1,26 @@
+#window {
+    border: solid 2px;
+    border-color: @tokio_night_white;
+    color: @tokio_night_red;
+    padding-top: 0px;
+    padding-bottom: 0px;
+    padding-left: 15px;
+    padding-right: 10px;
+    margin-right: 0px;
+}
+
+window#waybar.empty #window {
+    opacity: 0;
+    /* 
+    https://github.com/Alexays/Waybar/issues/1934
+    https://github.com/Alexays/Waybar/pull/2196#issuecomment-1636629990
+    */
+}
+
+#custom-spotify-metadata {
+    border: solid 2px;
+    border-color: @tokio_night_white;
+    color: @tokio_night_green;
+    padding-left: 15px;
+    padding-right: 15px;
+}

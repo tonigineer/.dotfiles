@@ -1,16 +1,10 @@
 @import "css/colors.css";
 @import "css/gradients.css";
 
-* {
-    border: none;
-    border-radius: 0;
-    font-family: 'CaskaydiaCove Nerd Font', monospace;
-    font-size: 16px;
-    min-height: 0;
-}
-
 #waybar {
     background: transparent;
+    font-family: 'CaskaydiaCove Nerd Font', monospace;
+    font-size: 16px;
 }
 
 tooltip {
@@ -22,7 +16,6 @@ tooltip {
 tooltip label {
     color: #f5e0dc;
 }
-/* TODO: Round corners still have a background :( */
 
 /* Left modules */
 #custom-launcher,
@@ -35,8 +28,8 @@ tooltip label {
 #custom-temp,
 
 /* Center modules */
+#window,
 #custom-spotify-metadata,
-#window,  /* Currently the background is shown, when empty! */
 
 /* Right modules */
 #network,
@@ -57,267 +50,9 @@ div * {
     margin-right: 10px;
 }
 
+@import "style-left.css";
 
-/* Left modules - definition */
-#custom-launcher {
-    /* background-color: @surface1; */
-    border: solid 2px;
-    border-color: @tokio_night_white;
-    color: @tokio_night_blue;
-    padding-top: 0px;
-    padding-bottom: 0px;
-    padding-right: 10px;
-}
+@import "style-center.css";
 
-#workspaces {
-    border: solid 3px;
-    border-color: @tokio_night_black;
-    padding-left: 5px;
-    padding-right: 5px;
-}
+@import "style-right.css";
 
-#workspaces * {
-    font-size: 16px;
-}
-
-#workspaces button {
-    color: @tokio_night_cyan;
-    border: solid 1px;
-    border-radius: 10px;
-    padding-left: 8px;
-    padding-right: 8px;
-    padding-top: 0px;
-    padding-bottom: 0px;
-    border-color: @surface0;
-    min-height: 14px;
-    min-width: 14px;
-    margin: 5px 0px;
-    margin-top: 0px;
-    margin-bottom: 0px;
-    transition: all 0.1s cubic-bezier(0, 0, 0, 0);  /*Needed to remove short blink of inactive becoming workspace. */
-}
-
-#workspaces button:hover {
-    color: @tokio_night_green;
-    background-color: @surface0;
-    border: solid 1px;
-}
-
-#workspaces button.active {
-    /* animation: gradient_f 10s ease-in-out infinite; */
-    color: @tokio_night_red;
-    border: solid 1px;
-    border-color: @tokio_night_black;
-    background: radial-gradient(circle,
-        @tokio_night_white 0%,
-        @tokio_night_black 50%,
-        @tokio_night_white 100%
-    );
-    background-size: 400% 400%;
-    transition: all 0.25s cubic-bezier(.55, -0.68, .48, 1.682);
-}
-
-#workspaces button.persistent {
-    color: @tokio_night_black;
-}
-
-#cpu {
-    border: solid 3px;
-    border-right: 0px;
-    border-color: @tokio_night_black;
-    border-top-right-radius: 0;
-    border-bottom-right-radius: 0;
-    color: @tokio_night_cyan;
-    margin-right: 0px;
-    padding-right: 5px;
-}
-
-#custom-temp {
-    border: solid 3px;
-    border-left: 0px;
-    border-right: 0px;
-    border-color: @tokio_night_black;
-    border-radius: 0px;
-    color: @tokio_night_cyan;
-    margin-right: 0px;
-    padding-left: 5px;
-    padding-right: 5px;
-}
-
-#custom-temp.load {
-    color: @tokio_night_yellow;
-}
-
-#custom-temp.critical {
-    color: @tokio_night_red;
-}
-
-#memory {
-    border: solid 3px;
-    border-left: 0px;
-    border-right: 0px;
-    border-color: @tokio_night_black;
-    border-radius: 0px;
-    color: @tokio_night_green;
-    margin-right: 0px;
-    padding-left: 5px;
-    padding-right: 5px;
-}
-
-#disk {
-    border: solid 3px;
-    border-left: 0px;
-    border-color: @tokio_night_black;
-    border-top-left-radius: 0;
-    border-bottom-left-radius: 0;
-    color: @tokio_night_white;
-
-    padding-left: 5px;
-    padding-right: 1rem;
-}
-
-#custom-system-updates {
-    /* background-color: @surface1; */
-    border: solid 2px;
-    border-color: @tokio_night_white;
-    color: @tokio_night_red;
-    padding-top: 0px;
-    padding-bottom: 0px;
-    padding-left: 15px;
-    padding-right: 10px;
-    margin-right: 0px;
-}
-
-#custom-system-updates.none {
-    color: @tokio_night_green;
-}
-
-/* Center modules - definition */
-/* #window {
-    color: @tokio_night_green;
-    padding-left: 15px;
-    padding-right: 15px;
-} */
-/* Currently the background is shown, when empty! */
-
-#custom-spotify-metadata {
-    border: solid 2px;
-    border-color: @tokio_night_white;
-    color: @tokio_night_green;
-    padding-left: 15px;
-    padding-right: 15px;
-    /* background: rgb(148, 226, 213); */
-    /* background: linear-gradient(52deg, rgba(148, 226, 213, 1) 0%, rgba(137, 220, 235, 1) 19%, rgba(116, 199, 236, 1) 43%, rgba(137, 180, 250, 1) 56%, rgba(180, 190, 254, 1) 80%, rgba(186, 187, 241, 1) 100%); */
-    /* background-size: 300% 300%; */
-    /* text-shadow: 0px 0px 5px rgba(0, 0, 0, 0.377); */
-    /* animation: gradient 15s ease infinite; */
-    /* font-weight: bold; */
-    /* color: #fff; */
-}
-
-/* Right modules - definition */
-#network {
-    border: solid 3px;
-    border-right: 0px;
-    border-color: @tokio_night_black;
-    border-top-right-radius: 0;
-    border-bottom-right-radius: 0;
-    color: @tokio_night_green;
-    margin-right: 0px;
-    padding-right: 0px;
-    /* min-width: 100px; */
-}
-
-#tray {
-    /* background-color: @surface1; */
-    border: solid 3px;
-    border-radius: 0px;
-    border-left: 0px;
-    border-right: 0px;
-    border-color:@tokio_night_black;
-    margin-left: 0px;
-    margin-right: 0px;
-    padding-left: 12.5px;
-    padding-right: 0px;
-}
-
-#custom-wallpaper {
-    border: solid 3px;
-    border-color: @tokio_night_black;
-    border-left: 0px;
-    border-top-left-radius: 0px;
-    border-bottom-left-radius: 0px;
-    color: @tokio_night_yellow;
-    margin-left: 0px;
-    margin-right: 10px;
-    padding-left: 12.5px;
-}
-
-#pulseaudio {
-    border: solid 2px;
-    border-right: 0px;
-    border-color: @tokio_night_white;
-    border-top-right-radius: 0;
-    border-bottom-right-radius: 0;
-    color: @tokio_night_blue;
-    margin-right: 0px;
-    padding-left: 10px;
-    padding-right: 15px;
-}
-
-#clock {
-    border: solid 2px;
-    border-left: 0px;
-    border-right: 0px;
-    border-color: @tokio_night_white;
-    border-radius: 0;
-    color: @tokio_night_white;
-    padding-left: 0px;
-    padding-right: 0px;
-    margin-right: -5px;
-}
-
-#backlight {
-    border: solid 2px;
-    border-left: 0px;
-    border-right: 0px;
-    border-color: @tokio_night_white;
-    border-radius: 0;
-    color: @tokio_night_white;
-    padding-left: 0px;
-    padding-right: 0px;
-    margin-right: 0px;
-}
-
-
-#battery {
-    border: solid 2px;
-    border-left: 0px;
-    border-right: 0px;
-    border-color: @tokio_night_white;
-    border-radius: 0;
-    color: @tokio_night_white;
-    padding-left: 10px;
-    padding-right: 5px;
-    margin-right: 0px;
-}
-
-#battery.warning {
-    color: @tokio_night_yellow;
-}
-
-#battery.critical {
-    color: @tokio_night_red;
-}
-
-
-#custom-power {
-    border: solid 2px;
-    border-left: 0px;
-    border-color: @tokio_night_white;
-    border-top-left-radius: 0;
-    border-bottom-left-radius: 0;
-    color: @tokio_night_red;
-    margin-right: 0px;
-    padding-right: 15px;
-}

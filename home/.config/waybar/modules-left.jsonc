@@ -1,0 +1,62 @@
+{
+    "custom/launcher": {
+        "format": " ",
+        "tooltip": false,
+        "on-click": "pkill rofi || rofi -show drun -n",
+        "on-click-right": "pkill rofi || rofi -show run -n"
+    },
+    "hyprland/workspaces": {
+        "format": "{icon} <span color='#f5e0dc' size='small' rise='-5pt'>{name}</span>",
+        "on-scroll-up": "hyprctl dispatch workspace e-1",
+        "on-scroll-down": "hyprctl dispatch workspace e+1",
+        "on-click": "activate",
+        "format-icons": {
+        "1": "",
+        "2": "󰘐",
+        "3": "",
+        "4": "󰙯",
+        "5": "",
+        "6": "󰓓",
+        "7": "󰗃",
+        "8": "",
+        "9": "󰷛",
+        "urgent": ""
+        },
+        "sort-by-number": true,
+        "active-only": false
+    },
+    "cpu": {
+        "format": "<span color=\"#ad8ee6\" size='large' rise='-1pt'>󰻠</span> <span color=\"#f5e0dc\">{usage}%</span>",
+        "tooltip": true,
+        "on-click": "alacritty --title \"btop float\" -e sh -c \"btop\"",
+        "interval": 2
+    },
+    "custom/temp": {
+        "format": "{} <span color='#f5e0dc'>{percentage}°C</span>",
+        "tooltip": true,
+        "exec": "~/.local/bin/diagnostic.sh cpu-temp",
+        "return-type": "json",
+        "on-click": "alacritty --title \"btop float\" -e sh -c \"btop\"",
+        "interval": 2
+    },
+    "memory": {
+        "format": "󰘚 <span color='#f5e0dc'>{}%</span>",
+        "tooltip": true,
+        "on-click": "alacritty --title \"btop float\" -e sh -c \"btop\"",
+        "interval": 2
+    },
+    "disk": {
+        "format": " <span color='#f5e0dc'>{percentage_used}%</span>",  //  ({free})
+        "tooltip": true,
+        "on-click": "thunar /",
+        "interval": 300
+    },
+    "custom/system-updates": {
+        "format": "{}",
+        "exec": "~/.local/bin/updates.sh",
+        "return-type": "json",
+        "on-click": "~/.local/bin/updates.sh update",
+        "interval": 60,
+        "tooltip": true
+    },
+}

@@ -8,7 +8,6 @@ source "$REPO_DIR/scripts/coloring.sh"
 TASKS=(
 	"bluetooth"
 	"nerdfonts"
-	"swww"
 	"thunar"
 )
 
@@ -40,19 +39,6 @@ function fnc_nerdfonts() {
 	fi
 }
 
-function fnc_swww() {
-	if [[ "$1" = "status" ]]; then
-		[[ -f "/usr/bin/swww" ]] && echo "" || echo ""
-	fi
-
-	if [[ "$1" = "install" ]]; then
-		git clone https://github.com/Horus645/swww /tmp/swww &&
-			cd /tmp/swww && cargo build --release &&
-			sudo mv /tmp/swww/target/release/swww /usr/bin/
-		rm -rf /tmp/swww
-	fi
-}
-
 function fnc_thunar() {
 	if [[ "$1" = "status" ]]; then
 		[[ ! "$(yay -Q | grep thunar-volman)" = "" ]] && echo "" || echo ""
@@ -60,7 +46,7 @@ function fnc_thunar() {
 	fi
 
 	if [[ "$1" = "install" ]]; then
-		yay -S thunar thunar-volman gvfs-git xdg-user-dirs
+		yay -S thunar thunar-volman gvfs-git xdg-user-dirs tumbler
 		xdg-user-dirs-update
 	fi
 }

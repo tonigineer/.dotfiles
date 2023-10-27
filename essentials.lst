@@ -3,10 +3,13 @@ bluez
 bluez-utils
 cargo
 curl
+dunst
 eza
 grim-git
 inetutils
 iwd
+mirage
+mpv
 networkmanager
 net-tools
 pamixer

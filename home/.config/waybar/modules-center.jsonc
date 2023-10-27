@@ -1,0 +1,18 @@
+{
+    "hyprland/window": {
+        "format": "{}",
+        "separate-outputs": true,
+        "max-length": 35
+    },
+    "custom/spotify-metadata": {
+        "format": "<span size='large' rise='-1pt'></span>  <span color='#f5e0dc'>{}</span>",
+        "max-length": 60,
+        "interval": 1,
+        "return-type": "json",
+        "exec": "~/.local/bin/spotify.sh",
+        "on-click": "playerctl -p spotify play-pause",
+        "on-click-right": "killall spotify",
+        "on-scroll-up": "playerctl -p spotify next",
+        "on-scroll-down": "playerctl -p spotify previous"
+    }
+}

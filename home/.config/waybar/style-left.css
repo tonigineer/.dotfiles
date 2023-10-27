@@ -1,0 +1,133 @@
+/* Left modules - definition */
+#custom-launcher {
+    /* background-color: @surface1; */
+    border: solid 2px;
+    border-color: @tokio_night_white;
+    color: @tokio_night_blue;
+    padding-top: 0px;
+    padding-bottom: 0px;
+    padding-right: 10px;
+}
+
+#workspaces {
+    border: solid 3px;
+    border-color: @tokio_night_black;
+    padding-left: 5px;
+    padding-right: 5px;
+}
+
+#workspaces * {
+    font-size: 16px;
+}
+
+#workspaces button {
+    color: @tokio_night_cyan;
+    border: solid 1px;
+    border-radius: 10px;
+    padding-left: 8px;
+    padding-right: 8px;
+    padding-top: 0px;
+    padding-bottom: 0px;
+    border-color: @surface0;
+    min-height: 14px;
+    min-width: 14px;
+    margin: 5px 0px;
+    margin-top: 0px;
+    margin-bottom: 0px;
+    transition: all 0.1s cubic-bezier(0, 0, 0, 0);  /*Needed to remove short blink of inactive becoming workspace. */
+}
+
+#workspaces button:hover {
+    color: @tokio_night_green;
+    background-color: @surface0;
+    border: solid 1px;
+}
+
+#workspaces button.active {
+    animation: gradient_f 10s ease-in-out infinite;
+    color: @tokio_night_red;
+    border: solid 1px;
+    border-color: @tokio_night_black;
+    background: radial-gradient(circle,
+        @tokio_night_white 0%,
+        @tokio_night_black 50%,
+        @tokio_night_white 100%
+    );
+    background-size: 400% 400%;
+    transition: all 0.25s cubic-bezier(.55, -0.68, .48, 1.682);
+}
+
+#workspaces button.persistent {
+    color: @tokio_night_black;
+}
+
+#cpu {
+    border: solid 3px;
+    border-right: 0px;
+    border-color: @tokio_night_black;
+    border-top-right-radius: 0;
+    border-bottom-right-radius: 0;
+    color: @tokio_night_cyan;
+    margin-right: 0px;
+    padding-right: 5px;
+}
+
+#custom-temp {
+    border: solid 3px;
+    border-left: 0px;
+    border-right: 0px;
+    border-color: @tokio_night_black;
+    border-radius: 0px;
+    color: @tokio_night_cyan;
+    margin-right: 0px;
+    padding-left: 5px;
+    padding-right: 5px;
+}
+
+#custom-temp.load {
+    color: @tokio_night_yellow;
+}
+
+#custom-temp.critical {
+    color: @tokio_night_red;
+}
+
+#memory {
+    border: solid 3px;
+    border-left: 0px;
+    border-right: 0px;
+    border-color: @tokio_night_black;
+    border-radius: 0px;
+    color: @tokio_night_green;
+    margin-right: 0px;
+    padding-left: 5px;
+    padding-right: 5px;
+}
+
+#disk {
+    border: solid 3px;
+    border-left: 0px;
+    border-color: @tokio_night_black;
+    border-top-left-radius: 0;
+    border-bottom-left-radius: 0;
+    color: @tokio_night_white;
+
+    padding-left: 5px;
+    padding-right: 1rem;
+}
+
+#custom-system-updates {
+    /* background-color: @surface1; */
+    border: solid 2px;
+    border-color: @tokio_night_white;
+    color: @tokio_night_red;
+    padding-top: 0px;
+    padding-bottom: 0px;
+    padding-left: 15px;
+    padding-right: 10px;
+    margin-right: 0px;
+}
+
+#custom-system-updates.none {
+    color: @tokio_night_green;
+}
