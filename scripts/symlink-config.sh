@@ -27,7 +27,9 @@ LINKS=(
 
 mkdir -p ~/.local/share/icons
 
+cd "$(dirname "$0")" || exit
 REPO_DIR=$(git rev-parse --show-toplevel)
+
 source "$REPO_DIR/scripts/coloring.sh"
 
 function target_dir() { echo "/home/$USER/$1"; }
@@ -58,30 +60,31 @@ create_symlink() {
 while "true"; do
 	clear
 
-	COLORED_LINKS=("${LINKS[@]}")
-	for i in "${!COLORED_LINKS[@]}"; do
-		TARGET=$(target_dir "${COLORED_LINKS[$i]}")
-		SOURCE=$(source_dir "${COLORED_LINKS[$i]}")
+	C_LINKS=("${LINKS[@]}")
+	for i in "${!C_LINKS[@]}"; do
+		TARGET=$(target_dir "${C_LINKS[$i]}")
+		SOURCE=$(source_dir "${C_LINKS[$i]}")
 
 		[[ -L "$TARGET" ]] && [ "$(readlink -- "$TARGET")" = "$SOURCE" ] &&
-			# COLORED_LINKS[$i]=$(color "${COLORED_LINKS[$i]}" green) || COLORED_LINKS[$i]=$(color "${COLORED_LINKS[$i]}" white)
-			COLORED_LINKS[$i]=" ${COLORED_LINKS[$i]}" || COLORED_LINKS[$i]=" ${COLORED_LINKS[$i]}"
+			C_LINKS[i]=" ${C_LINKS[i]}" || C_LINKS[i]=" ${C_LINKS[i]}"
 	done
 
-	echo "Symlink which configuration?"
-	select opt in "󰩈 Quit" " All" "${COLORED_LINKS[@]}"; do
+	PS3="Symlink configuration: "
+	select opt in "󰩈 Exit" " Link all" "${C_LINKS[@]}"; do
 		case $opt in
-		*Quit*)
+		*Exit*)
 			exit
 			;;
-		*All*)
+		*Link*all*)
 			for key in "${!LINKS[@]}"; do
 				create_symlink "${LINKS[$key]}"
 			done
 			;;
 		*)
-			for key in "${!COLORED_LINKS[@]}"; do
-				if [ "${COLORED_LINKS[$key]}" = "$opt" ]; then
+			# Loop over all tasks and check if opt matches
+			# this makes sure, only valid inputs are used
+			for key in "${!C_LINKS[@]}"; do
+				if [ "${C_LINKS[$key]}" = "$opt" ]; then
 					create_symlink "${LINKS["$key"]}"
 				fi
 			done
