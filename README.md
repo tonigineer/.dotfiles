@@ -9,10 +9,8 @@
 
 ## 💭 Thoughts and prayers
 
-> [!IMPORTANT]
-> Currently, [spotify-blur-me-not](https://aur.archlinux.org/packages/spotify-blur-me-not) and the fix for [Visual Studio Code](#🛠️-fixes-settings-and-more) does not work.
-
-- [ ] lite-xl still blury, no plugins installed yet
+- [ ] *VS Code*, *Spotify*, *Lite-XL*, *Discord* are all blurred, because of fractional scaling (using 4K). But the previous [fix](https://github.com/signalapp/Signal-Desktop/issues/5869) does not work anymore. Also [spotify-blur-me-not](https://aur.archlinux.org/packages/spotify-blur-me-not) does not work anymore.
+- [ ] For changing wallpaper, [swww](https://github.com/Horus645/swww) is used which also does not work anymore
 
 ## 🎨 Impressions
 
@@ -44,6 +42,16 @@
 🔺 Cursor: [Volantes Cursors Light](https://github.com/varlesh/volantes-cursors)
 🔺 Icons: [Tokyonight-Moon](https://github.com/Fausto-Korpsvart/Tokyo-Night-GTK-Theme/tree/master/icons)
 </details>
+
+<details open><summary><b>📐 Configuration</b></summary>
+
+>
+<!-- Get some vertical space -->
+
+➖ Shell: [ZSH](https://github.com/tonigineer/zsh)
+🔺 Editor: [Neovim](https://github.com/tonigineer/nvim)
+</details>
+
 
 ## 🥼 Installation
 
@@ -95,47 +103,13 @@ Hyprland  # start Hpyrland from the tty
 Clone repository and run installation script
 
 ```sh
-git clone https://github.com/tonigineer/.dotfiles.git ~/Engineering/Hyprland-Rice
-~/Engineering/Hyprland-Rice/install.sh
+git clone --recurse-submodules https://github.com/tonigineer/.dotfiles.git ~/.dotfiles
+~/.dotfiles/scripts/install.sh
 ```
 
-## 🛠️ Fixes, settings and more
+## 🛠️ Miscellaneous
 
-Some applications need further fixes. Especially, `fractional scaling` on [Wayland](https://pointieststick.com/2022/12/16/this-week-in-kde-wayland-fractional-scaling-oh-and-we-also-fixed-multi-screen/) does not work for every application so well. An application looks kind of blurry and/or some does not apply a 4K resolution, e.g., not available in [Steam](https://wiki.archlinux.org/title/steam) games.
-
-> [!NOTE]
-> This section serves as kind of a wiki to myself.
-
-<details><summary><b>Appearance</b></summary>
-
->
-<!-- Get some vertical space -->
-
-Here are the steps to change the appearance accordingly. Application of the themes-stuff is done within [hyprland.conf](user-home-folder/.config/hypr/hyprland.conf), the rest is copying files.
-
-```sh
-cd ~/Downloads
-
-wget https://ppload-com.s3.eu-central-1.amazonaws.com/data/files/1580555858/volantes-light-cursors.tar.gz?response-content-disposition=attachment%3B%2520volantes-light-cursors.tar.gz&X-Amz-Content-Sha256=UNSIGNED-PAYLOAD&X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=AKIATLQUPBWASZL2ZPWI%2F20230510%2Feu-central-1%2Fs3%2Faws4_request&X-Amz-Date=20230510T195654Z&X-Amz-SignedHeaders=host&X-Amz-Expires=3600&X-Amz-Signature=05e90bdedabd8bcdfbe5616832d02c00183420b4739acb977a0ff24673bb9f49
-tar -zxvf volantes-light-cursors.tar.gz
-
-git clone https://github.com/Fausto-Korpsvart/Tokyo-Night-GTK-Theme
-
-# Cursor
-sudo cp -r ~/Downloads/volantes_light_cursors /usr/share/icons
-
-# Icons
-sudo cp -r Tokyo-Night-GTK-Theme/icons/Tokyonight-Moon /usr/share/icons
-
-# Theme
-sudo cp -r Tokyo-Night-GTK-Theme/themes/Tokyonight-Dark-BL-LB /usr/share/themes
-sudo cp -r Tokyo-Night-GTK-Theme/themes/Tokyonight-Dark-BL-LB/gtk-4.0 ~/.config
-
-# Post-install
-rm -rf volantes_light_cursors Tokyo-Night-GTK-Theme
-```
-
-</details>
+Just some stuff to remember.
 
 <details><summary><b>Bluetooth</b></summary>
 
@@ -176,37 +150,19 @@ vim /etc/bluetooth/main.conf
 
 </details>
 
-<details><summary><b>Discord</b></summary>
-
->
-<!-- Get some vertical space -->
-
-> **Note**: It's the same as with `Visual Studio Code` down below.
-
-To get rid blurred Discord on [Wayland](https://wayland.freedesktop.org/), start with following arguments:
-
-```sh
-discord --enable-features=UseOzonePlatform --ozone-platform=wayland
-```
-
-Here a command line to edit `/usr/share/applications/discord.desktop` accordingly:
-
-```sh
-sudo sed -i 's@Exec=/usr/bin/discord@Exec=/usr/bin/discord --enable-features=UseOzonePlatform --ozone-platform=wayland@g' /usr/share/applications/discord.desktop
-```
-
-</details>
-
 <details><summary><b>Fonts</b></summary>
 
 >
 <!-- Get some vertical space -->
 
-Fonts can be installed via [Yay](https://aur.archlinux.org/packages/yay) directly from the [AUR](https://aur.archlinux.org/). For example: [Split Package Details - nerd-fonts (any)](https://archlinux.org/packages/community/any/nerd-fonts/)
+There is a repo with a bash script to download and install Nerd Fonts directly.
 
 ```sh
-yay -Sy otf-cascadia-code-nerd
-fc-cache -v  # to update fonts.
+git clone https://github.com/ronniedroid/getnf
+sudo mv getnf/getnf /usr/bin/
+rm -rf getnf
+
+getnf
 ```
 
 Installed fonts can be found via:
@@ -217,35 +173,6 @@ Caskaydia Cove Nerd Font Complete Bold Italic.otf: CaskaydiaCove Nerd Font:style
 ```
 
 > **Note**: In the example above `CaskaydiaCove Nerd Font` is th name of the font, that needs to be used in configuration files.
-
-</details>
-
-<details><summary><b>Spotify</b></summary>
-
->
-<!-- Get some vertical space -->
-
-To get rid of a blurred [Spotify](https://aur.archlinux.org/packages/spotify) on [Wayland](https://wayland.freedesktop.org/), install the following:
-
-```sh
-yay -S spotify-blur-me-not
-```
-
-</details>
-
-<details><summary><b>Sound</b></summary>
-
->
-<!-- Get some vertical space -->
-
-Getting sound set up:
-
-```sh
-sudo pacman -Syu pulseaudio pulseaudio-bluetooth pavucontrol
-pulseaudio --start
-```
-
-> **Note:** Use `pavucontrol` to start PulseAudio GUI.
 
 </details>
 
@@ -297,26 +224,5 @@ systemctl enable cpupower.service
 ```
 
 > I didn't go for `performance`, because the cooling was working at max. I think, `ondemand` should suffice.
-
-</details>
-
-<details><summary><b>Visual Studio Code</b></summary>
-
->
-<!-- Get some vertical space -->
-
-To get rid of the [blurred Visual Studi Code](https://www.reddit.com/r/Fedora/comments/wpkws3/blurry_vscode_on_wayland_fractional_scaling/) on [Wayland](https://wayland.freedesktop.org/), start with the following arguments:
-
-```sh
-code --enable-features=UseOzonePlatform,WaylandWindowDecorations --ozone-platform=wayland
-```
-
-Here a command line to edit `/usr/share/applications/code.desktop` accordingly:
-
-```sh
-sudo sed -i 's/code --unity-launch %F/code --enable-features=UseOzonePlatform,WaylandWindowDecorations --ozone-platform=wayland/' /usr/share/applications/code.desktop
-```
-
-> **Note**: Changes to `code.desktop` are always reverted with updates.
 
 </details>
