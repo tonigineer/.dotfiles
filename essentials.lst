@@ -13,6 +13,7 @@ mpv
 networkmanager
 net-tools
 pamixer
+polkit-gnome
 slurp-git
 tree
 unzip

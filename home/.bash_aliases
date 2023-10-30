@@ -1,6 +1,8 @@
 #!/usr/bin/env bash
-
 # POSIX compliant aliases for bash and zsh
+
+# Defaults, kind of
+alias grep='grep --color=auto'
 
 # Listing stuff with exa
 if command -v exa &> /dev/null; then
@@ -45,3 +47,4 @@ fi
 if command -v cmatrix &> /dev/null;then
     alias matrix="cmatrix -ab -C red"
 fi
+

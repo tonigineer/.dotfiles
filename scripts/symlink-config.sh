@@ -18,6 +18,7 @@ LINKS=(
 	".local/share/icons/dunst"
 	".local/share/sounds"
 
+	".bashrc"
 	".bash_profile"
 	".bash_aliases"
 
