@@ -19,13 +19,14 @@ case $THEME in
 Tokyonight-Dark-BL-LB)
 	if [[ ! -d $THEME_DIR/$THEME ]]; then
 		git clone https://github.com/Fausto-Korpsvart/Tokyo-Night-GTK-Theme "$THEME_DIR/${THEME}_REPO"
-		mv "$THEME_DIR/${THEME}_REPO/themes/*" $THEME_DIR
+		mv "$THEME_DIR/${THEME}_REPO/themes/Tokyonight-Dark-BL-LB" "$THEME_DIR"
 		rm -rf "$THEME_DIR/${THEME}_REPO"
 	fi
 	cp -rf "$THEME_DIR/$THEME/gtk-4.0" ~/.config/
 	;;
 *)
 	dunstify -u critical -t 0 -i icons8-knowledge-64 "embrace-vanity.sh" "THEME: $THEME is not defined."
+	exit
 	;;
 esac
 
@@ -35,19 +36,21 @@ candy-icons)
 	;;
 *)
 	dunstify -u critical -t 0 -i icons8-knowledge-64 "embrace-vanity.sh" "ICONS: $ICONS is not defined."
+	exit
 	;;
 esac
 
 case $CURSOR in
 Bibata-Modern-*)
 	if [[ ! -d $ICONS_DIR/$CURSOR ]]; then
-		wget https://github.com/ful1e5/Bibata_Cursor/releases/download/v2.0.4/"${CURSOR}".tar.xz -P $ICONS_DIR
-		tar -xvf $ICONS_DIR/Bibata*.tar.xz
+		wget https://github.com/ful1e5/Bibata_Cursor/releases/download/v2.0.4/"${CURSOR}".tar.xz -P "$ICONS_DIR"
+		tar -xvf $ICONS_DIR/Bibata*.tar.xz -C "$ICONS_DIR"
 		rm $ICONS_DIR/Bibata*.tar.xz
 	fi
 	;;
 *)
 	dunstify -u critical -t 0 -i icons8-knowledge-64 "embrace-vanity.sh" "CURSOR: $CURSOR is not defined."
+	exit
 	;;
 esac
 
@@ -85,5 +88,5 @@ gsettings set org.gnome.desktop.interface font-name "$FONT"
 gsettings set org.gnome.desktop.interface color-scheme prefer-dark
 
 # Apply system wide
-ln -s "$HOME/.gtkrc-2.0" /etc/gtk-2.0/gtkrc
-ln -s "$HOME/.config/gtk-3.0/settings.ini" /etc/gtk-3.0/settings.ini
+# ln -s "$HOME/.gtkrc-2.0" /etc/gtk-2.0/gtkrc
+# ln -s "$HOME/.config/gtk-3.0/settings.ini" /etc/gtk-3.0/settings.ini
