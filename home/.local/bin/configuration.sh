@@ -9,15 +9,22 @@ function notification() {
 case $BOARD_NAME in
     "ROG STRIX Z790-E GAMING WIFI")
         notification icons8-asus-64 "$BOARD_NAME"
+
+        # NOTE: Default configuration, therefore no further changes necessary
     ;;
     "LENOVO")
+        notification icons8-lenovo-48 "$BOARD_NAME"
+
         # Change monitor settings
         hyprctl keyword monitor DP-1,disable
         hyprctl keyword monitor DP-2,disable
         hyprctl keyword monitor eDP-2,prefered@60,auto,1
-        # Use hyprpaper for static wallpaper
-        # pkill swww
-        notification icons8-lenovo-48 "$BOARD_NAME"
+
+        # Use hyprpaper for static wallpaper (save resources)
+        swww query && swww kill
+        sleep 0.5
+        hyprctl hyprpaper wallpaper "eDP-1,~/.local/share/backgrounds/regular/japanese-store.jpg"
+        hyprctl hyprpaper wallpaper "HDMI-A-2,~/.local/share/backgrounds/regular/japanese-store.jpg"
     ;;
     *)
         dunstify -i icons8-motherboard-64 "System detection failed" \
