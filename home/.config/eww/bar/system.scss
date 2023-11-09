@@ -1,0 +1,33 @@
+.system_widget {
+    margin-left: 20px;
+    margin-bottom: 1px;
+  }
+  
+  .system_container {
+    border-bottom: solid 2px $nuance-three;
+    border-radius: 3px;
+    padding-left: 5px;
+    padding-right: 5px;
+    margin-left: 5px;
+  }
+  
+  .system_label {
+    color: $foreground;
+    padding-left: 0px;
+    padding-right: 10px;
+  
+  }
+  
+  .system_circle {
+    background-color: $main-opace;
+    border: 2px solid $foreground;
+    border-radius: 100%;
+    color: $main;
+  }
+  
+  .system_circle-label {
+    background-color: $background;
+    font-size: 0px;
+    border-radius: 100%;
+    margin: 10px;
+  }

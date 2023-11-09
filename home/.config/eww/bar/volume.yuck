@@ -1,0 +1,48 @@
+(defvar volume_state false)
+
+(defpoll volume_level :interval "0.5s" "pamixer --get-volume")
+(defpoll volume_icon :interval "0.5s" "volume.sh icon")
+
+(defwidget volume []
+    (eventbox
+        :onhover "${eww} update volume_state=true"
+        :onhoverlost "${eww} update volume_state=false"
+        (box
+            :tooltip "Volume: ${volume_level}%"
+            :orientation "h"
+            :space-evenly "false"
+            (revealer
+                :transition "slideright"
+                :reveal volume_state
+                :duration "550ms"
+                (box
+                    :class "volume bar"
+                    :orientation "h"
+                    :space-evenly "false"
+                    :vexpand "false"
+                    :hexpand "false"
+                    (label 
+                        :class "volume value"
+                        :text "${volume_level}%")
+                    (scale
+                        :value volume_level
+                        :orientation "h"
+                        :flipped false
+                        :max 100
+                        :min 0
+                        :active "true"
+                        :marks "d"
+                        :onchange "pactl set-sink-volume @DEFAULT_SINK@ {}%"
+                    )
+                )
+            )
+            (button
+                :onclick "blueman-manager &"
+                ; :class "appicon"
+                ; :style "background-image: url('../icons/speaker.png');"
+                :class "volume icon"
+                "${volume_icon}"
+            )
+        )
+    )
+)

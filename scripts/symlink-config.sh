@@ -5,6 +5,7 @@ LINKS=(
 	".config/btop"
 	".config/cava"
 	".config/dunst"
+	".config/eww"
 	".config/hypr"
 	".config/mpv"
 	".config/neofetch"

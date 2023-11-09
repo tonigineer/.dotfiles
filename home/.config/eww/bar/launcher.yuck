@@ -1,0 +1,7 @@
+(defwidget launcher []
+    (box
+        (button :class "launcher" :halign "left"
+            :onclick "rofi -show drun &" ""
+        )
+    )
+)

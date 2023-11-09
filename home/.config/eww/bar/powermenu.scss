@@ -1,0 +1,31 @@
+.powermenu {
+  padding-left: 10px;
+  padding-right: 10px;
+  font-weight: bold;
+  border-bottom: solid 2px $background;
+}
+
+.powermenu.button-restart {
+  color: $nuance-two;
+}
+
+.powermenu.button-suspend {
+  color: $nuance-one;
+}
+
+.powermenu.button-logout {
+  color: $nuance-three;
+}
+
+.powermenu.button-lock {
+  color: $main;
+}
+
+.powermenu.button-shutdown {
+  color: $nuance-two;
+}
+
+.powermenu button:hover {
+  border-bottom: solid 2px $foreground;
+  border-radius: 3px;
+}

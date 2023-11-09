@@ -1,0 +1,17 @@
+.wallpaper.icon {
+  color: $nuance-one;
+  margin-right: 20px;
+  border-bottom: solid 2px $background-opace;
+}
+
+.wallpaper button {
+  padding-left: 10px;
+  padding-right: 10px;
+  border-bottom: solid 2px $background-opace;
+  color: $main;
+
+}
+.wallpaper button:hover {
+  border-bottom: solid 2px $foreground;
+  border-radius: 3px;
+}

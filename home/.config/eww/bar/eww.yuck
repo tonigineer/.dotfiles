@@ -1,0 +1,48 @@
+(defvar eww "eww -c $HOME/.config/eww/bar")
+
+(defwindow bar
+    :monitor 0
+    :windowtype "dock"
+    :geometry (geometry :width "100%" :anchor "top center" :height "1%")
+    :exclusive true
+    (box :class "entire-bar" :space-evenly "true"
+        (container_left)
+        (container_center)
+        (container_right)
+    )
+)
+
+(include "system.yuck")
+(include "launcher.yuck")
+
+(defwidget container_left []
+    (box :orientation "h" :halign "start" :space-evenly "false"
+        (launcher)
+        (system)
+    )
+)
+
+(include "workspaces.yuck")
+
+(defwidget container_center []
+    (box :orientation "h" :halign "center" :space-evenly "false"
+        (workspaces)
+    )
+)
+
+(include "powermenu.yuck")
+(include "datetime.yuck")
+(include "volume.yuck")
+(include "network.yuck")
+(include "wallpaper.yuck")
+
+(defwidget container_right []
+    (box :orientation "h" :halign "end" :space-evenly "false"
+        (network)
+        (wallpaper)
+        (volume)
+        (datetime)
+        (powermenu)
+    )
+)
+

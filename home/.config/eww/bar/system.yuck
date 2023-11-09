@@ -1,0 +1,31 @@
+(defwidget system []
+    (box :class "system_widget"
+        (box :class "system_container" :space-evenly "false"
+            :tooltip "CPU usage - ${round(EWW_CPU.avg, 1)}%"
+            (label :class "system_label" :text "󰻠")
+            (box
+                (circular-progress :class "system_circle" :value "${EWW_CPU.avg}" :thickness 4 :start-at 75
+                    (label :class "system_circle-label" :text "${EWW_CPU.avg}")
+                )
+            )
+        )
+        (box :class "system_container" :space-evenly "false"
+            :tooltip "RAM usage - ${round(EWW_RAM.used_mem / 1000000000, 2)}Gb/${round(EWW_RAM.total_mem / 1000000000, 2)}Gb"
+            (label :class "system_label" :text "󰍛")
+            (box
+                (circular-progress :class "system_circle" :value "${EWW_RAM.used_mem_perc}" :thickness 4 :start-at 75
+                    (label :class "system_circle-label" :text "${EWW_RAM.used_mem_perc}")
+                )
+            )
+        )
+        (box :class "system_container" :space-evenly "false"
+            :tooltip "Disc usage - ${round(EWW_DISK["/home"].used / 1000000000, 1)}Gb/${round(EWW_DISK["/home"].total / 1000000000, 1)}Gb"
+            (label :class "system_label" :text "󰨣")
+            (box
+                (circular-progress :class "system_circle" :value "${EWW_DISK["/home"].used_perc}" :thickness 4 :start-at 75
+                    (label :class "system_circle-label" :text "${EWW_DISK["/home"].used_perc}")
+                )
+            )
+        )
+    )
+)

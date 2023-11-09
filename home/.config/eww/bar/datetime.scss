@@ -1,0 +1,47 @@
+.clock {
+  font-weight: normal;
+  color: $foreground;
+  padding-left: 0px;
+  padding-right: 10px;
+  font-size: 1.25rem;
+  // border-bottom: solid 2px $background;
+}
+
+.calendar {
+  background-color: $background;
+  border: solid 1px $foreground;
+  border-radius: 10px;
+  padding: 5px 5px 5px 5px;
+}
+
+.calendar_widget {
+  padding-left: 5px;
+  padding-bottom: 2px;
+}
+
+.calendar_box {
+  font-weight: normal;
+}
+
+calendar:selected {
+  color: $nuance-three;
+  font-weight: bold;
+}
+
+calendar.header {
+  padding: 10px;
+  color: $foreground;
+}
+
+calendar.button {
+  color: $nuance-two;
+}
+
+calendar.highlight {
+  color: $main;
+
+}
+
+calendar:indeterminate {
+  padding: 10px;
+}

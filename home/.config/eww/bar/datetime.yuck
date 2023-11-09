@@ -1,0 +1,30 @@
+(defpoll time :interval "5s" `date +'{"hour":"%H","min":"%M","day":"%d","month":"%B","weekday":"%A","year":"%Y"}'`)
+
+; idea: hover to show date and weekday
+; click to open calendar and click again to clock
+; lock file needed
+(defwidget datetime []
+    (eventbox
+        :onhover "eww -c $HOME/.config/eww/bar open calendar --screen 0"
+        :onhoverlost "eww -c $HOME/.config/eww/bar close calendar"
+        (box :class "clock" :orientation "h"
+            ; :tooltip "${time.weekday}, ${time.day}. ${time.month} | ${time.hour}:${time.min}"
+            (button 
+                ; :onclick "eww -c $HOME/.config/eww/bar open calendar --screen 0"
+                ; :onrightclick "eww -c $HOME/.config/eww/bar close calendar"
+                "${time.hour}:${time.min}"
+            )
+        )
+    )
+)
+
+(defwindow calendar
+    :geometry (geometry :x "1%" :y "1%" :anchor "top right" :width "0px" :height "0px")
+    (box :class "calendar_box"
+        (calendar
+            :class "calendar_widget"
+            :day "${time.day}"
+            :year "${time.year}"
+        )
+    )
+)

@@ -1,0 +1,12 @@
+(defwidget network []
+    (box :class "network_box" :orientation "h" :halign "center" :valign "center"
+        :space-evenly "false"
+        ; Dont know why there values are double their actual value
+        ; - therefore /2 when converting from bytes to mega bytes
+        (label :text "󰦗" :class "network_down_icon")
+        (label :text "${round(EWW_NET["eno2"]["NET_DOWN"] / 1000000 / 2, 2)}" :class "network_down")
+        (label :text "|" :class "network_separator")
+        (label :text "${round(EWW_NET["eno2"]["NET_UP"] / 1000000 / 2, 2)}" :class "network_up")
+        (label :text "󰦘" :class "network_up_icon")
+    )
+)

@@ -1,0 +1,25 @@
+.workspaces {
+    font-weight: normal;
+}
+
+.workspace {
+    padding-left: 3px;
+    padding-right: 3px;
+    border-bottom: solid 2px $main-opace;
+    border-radius: 0px;
+    color: $main-opace;  // unoccupied
+}
+
+.workspace button:hover {
+    background-color: $main;
+}
+
+.workspace.occupied {
+    color: $foreground;
+}
+
+.workspace.focused {
+    border-bottom: solid 2px $nuance-three;
+    border-radius: 3px;
+    color: $main;
+}

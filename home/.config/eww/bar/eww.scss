@@ -1,0 +1,41 @@
+@import "colors.scss";
+
+*{
+  all: unset;
+}
+
+.entire-bar {
+  background: transparent;
+  background-color: $background;
+  font-family: 'JetBrains Mono Nerd Font';
+  font-size: 20px;
+  margin-top: 0px;
+  margin-bottom: 0px;
+  padding-top: 2px;
+}
+
+tooltip {
+  background: $background;
+  border: 1.5px solid $main;
+  border-radius: 5px;
+}
+
+tooltip label {
+  color: $foreground;
+}
+
+// Container left
+@import "launcher.scss";
+@import "system.scss";
+
+
+// Container center
+@import "workspaces.scss";
+
+
+// Container right
+@import "network.scss";
+@import "wallpaper.scss";
+@import "volume.scss";
+@import "datetime.scss";
+@import "powermenu.scss";

@@ -1,0 +1,42 @@
+
+(defvar wallpaper_state false)
+(defwidget wallpaper []
+    (eventbox
+        :onclick "${eww} update wallpaper_state=true"
+        :onrightclick "${eww} update wallpaper_state=false"
+        (box
+            :orientation "h"
+            :space-evenly "false"
+            (revealer
+                :transition "slideright"
+                :reveal wallpaper_state
+                :duration "550ms"
+                (box
+                    :class "wallpaper"
+                    (button
+                        :tooltip "Use mpvpaper"
+                        :onclick "../scripts/wallpaper.sh mpv &"
+                        :class "volume icon"
+                        ""
+                    )
+                    (eventbox
+                        :onscroll "../scripts/wallpaper.sh swww next &"
+                        (button
+                            :tooltip "Use swww"
+                            :onclick "../scripts/wallpaper.sh swww reset &"
+                            :class "volume icon"
+                            "󰵸"
+                        )
+                    )
+                )
+            )
+            (eventbox
+                :onscroll "dunstify dfasf &"
+                (label
+                    :tooltip "Select wallpaper daemon"
+                    :class "wallpaper icon"
+                    :text "󰸉")
+            )
+        )
+    )
+)

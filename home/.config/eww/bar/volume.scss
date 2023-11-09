@@ -1,0 +1,27 @@
+.volume {
+    font-weight: normal;
+    color: $main;
+    margin-right: 10px;
+  }
+  
+  .volume.icon {
+    color: $main;
+  }
+  
+  .volume.value {
+    font-size: 1.0rem;
+  }
+  
+  .volume.bar scale trough {
+    all: unset;
+    background-color: $foreground-opace;
+    border-top-left-radius: 15px;
+    border-bottom-right-radius: 15px;
+    min-height: 10px;
+    min-width: 100px;
+  }
+  
+  .volume.bar scale trough highlight {
+    background-color: $main;
+    border-top-left-radius: 10px;
+  }
