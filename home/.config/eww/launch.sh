@@ -4,14 +4,14 @@ pkill eww && eww daemon
 
 case $1 in
     bar)
-        config="$HOME/.config/eww/bar"
+        config="$HOME/.config/eww"
         dunstify -u critical -t 1000 -a Computer -i icons8-knowledge-64 "Hyprland" "EWW .. lauching top bar."
     ;;
     dash)
     ;;
 
     *)
-        exit
+        exit 1
     ;;
 
 esac

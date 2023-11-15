@@ -1,0 +1,53 @@
+(defwindow bar
+    :monitor 0
+    :windowtype "dock"
+    :geometry (geometry :width "100%" :anchor "top center" :height "1%")
+    :exclusive true
+    (box :class "entire-bar" :space-evenly "true"
+        (container_left)
+        (container_center)
+        (container_right)
+    )
+)
+
+; Left container
+(include "bar/system.yuck")
+(include "bar/launcher.yuck")
+(include "bar/updates.yuck")
+
+(defwidget container_left []
+    (box :orientation "h" :halign "start" :space-evenly "false"
+        (launcher)
+        (system)
+        (updates)
+    )
+)
+
+; Center container
+(include "bar/workspaces.yuck")
+
+(defwidget container_center []
+    (box :orientation "h" :halign "center" :space-evenly "false"
+        (workspaces)
+    )
+)
+
+; Right container
+(include "bar/datetime.yuck")
+(include "bar/network.yuck")
+(include "bar/powermenu.yuck")
+(include "bar/system-tray.yuck")
+(include "bar/volume.yuck")
+(include "bar/wallpaper.yuck")
+
+(defwidget container_right []
+    (box :orientation "h" :halign "end" :space-evenly "false"
+        (wallpaper)
+        (network)
+        (volume)
+        (datetime)
+        (system-tray)
+        (powermenu)
+    )
+)
+

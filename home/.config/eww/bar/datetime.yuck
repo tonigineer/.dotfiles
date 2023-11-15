@@ -1,18 +1,11 @@
-(defpoll time :interval "5s" `date +'{"hour":"%H","min":"%M","day":"%d","month":"%B","weekday":"%A","year":"%Y"}'`)
+(defvar timezone "Europe/Berlin")
 
-; idea: hover to show date and weekday
-; click to open calendar and click again to clock
-; lock file needed
 (defwidget datetime []
     (eventbox
-        :onhover "eww -c $HOME/.config/eww/bar open calendar --screen 0"
-        :onhoverlost "eww -c $HOME/.config/eww/bar close calendar"
-        (box :class "clock" :orientation "h"
-            ; :tooltip "${time.weekday}, ${time.day}. ${time.month} | ${time.hour}:${time.min}"
+        (box :class "clock"
             (button 
-                ; :onclick "eww -c $HOME/.config/eww/bar open calendar --screen 0"
-                ; :onrightclick "eww -c $HOME/.config/eww/bar close calendar"
-                "${time.hour}:${time.min}"
+                :onclick "scripts/datetime.sh --toogle-calendar"
+                "${formattime(EWW_TIME, "%H:%M", timezone)}"
             )
         )
     )
@@ -23,8 +16,8 @@
     (box :class "calendar_box"
         (calendar
             :class "calendar_widget"
-            :day "${time.day}"
-            :year "${time.year}"
+            :day "${formattime(EWW_TIME, "%D", timezone)}"
+            :year "${formattime(EWW_TIME, "%Y", timezone)}"
         )
     )
 )

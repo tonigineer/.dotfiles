@@ -14,7 +14,6 @@ LINKS=(
 	".config/waybar"
 	".config/wlogout"
 
-	".local/bin"
 	".local/share/backgrounds"
 	".local/share/icons/dunst"
 	".local/share/sounds"

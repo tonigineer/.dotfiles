@@ -1,9 +1,12 @@
+@import "../colors.scss";
+
 .clock {
   font-weight: normal;
   color: $foreground;
   padding-left: 0px;
-  padding-right: 10px;
+  padding-right: 0px;
   font-size: 1.25rem;
+  font-weight: bold;
   // border-bottom: solid 2px $background;
 }
 

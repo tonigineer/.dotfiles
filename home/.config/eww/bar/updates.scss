@@ -1,0 +1,20 @@
+@import "../colors.scss";
+
+.updates_container {
+  margin-left: 15px;
+  border-bottom: solid 2px $nuance-three;
+  border-radius: 3px;
+  padding-left: 5px;
+  padding-right: 5px;
+}
+
+.updates_number {
+  padding-left: 10px;
+  padding-top: 10px;
+  font-size: 10px;
+}
+
+.updates_icon {
+  color: $main;
+  font-size: 1.5rem;
+}

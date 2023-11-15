@@ -1,0 +1,18 @@
+(defpoll updates_available :interval "300.0s" "yay -Sy>/dev/null 2>&1 && yay -Qu | wc -l")
+
+(defwidget updates []
+    (box :class "updates_container" :orientation "h" :halign "center" :valign "center"
+        :space-evenly "false"
+        :tooltip {updates_available > 0 ? "Updates: ${updates_available}" : "System up-to-date"}
+        (button 
+            :onclick {updates_available > 0 ? "alacritty --title \"aur-updates float\" -e sh -c \"yay -Syu\" &" : ""}
+            :class "updates_icon"
+            {updates_available > 0 ? "󱧘" : "󰏗"}
+        )
+        (button
+            :onclick {updates_available > 0 ? "alacritty --title \"aur-updates float\" -e sh -c \"yay -Syu\" &" : ""}
+            :class "updates_number"
+            "${updates_available}"
+        )
+    )
+)

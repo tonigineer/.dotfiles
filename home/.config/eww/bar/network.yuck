@@ -1,12 +1,19 @@
+(defpoll interface :interval "1.0s" "ip -o -4 route show to default | awk '{print $5}'")
+(defpoll gateway :interval "60.0s" "ip -o -4 route show to default | awk '{print $3}'")
+(defpoll ip_address :interval "60.0s" "ip -o -4 route show to default | awk '{print $9}'")
+
+(defvar network_gui_cmd "alacritty --title \"float nwtui\" -e nmtui &")
+
 (defwidget network []
     (box :class "network_box" :orientation "h" :halign "center" :valign "center"
         :space-evenly "false"
+        :tooltip "${interface} ${ip_address} | ${gateway}"
         ; Dont know why there values are double their actual value
         ; - therefore /2 when converting from bytes to mega bytes
-        (label :text "󰦗" :class "network_down_icon")
-        (label :text "${round(EWW_NET["eno2"]["NET_DOWN"] / 1000000 / 2, 2)}" :class "network_down")
-        (label :text "|" :class "network_separator")
-        (label :text "${round(EWW_NET["eno2"]["NET_UP"] / 1000000 / 2, 2)}" :class "network_up")
-        (label :text "󰦘" :class "network_up_icon")
+        (button :onclick "${network_gui_cmd}" :class "network_down_icon" "󰦗")
+        (button :onclick "${network_gui_cmd}" :class "network_down" "${round(EWW_NET["eno2"]["NET_DOWN"] / 1000000 / 2, 2)}")
+        (button :onclick "${network_gui_cmd}" :class "network_separator" "|")
+        (button :onclick "${network_gui_cmd}" :class "network_up" "${round(EWW_NET["eno2"]["NET_UP"] / 1000000 / 2, 2)}" )
+        (button :onclick "${network_gui_cmd}" :class "network_up_icon""󰦘" )
     )
 )

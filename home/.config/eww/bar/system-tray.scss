@@ -1,0 +1,42 @@
+@import "../colors.scss";
+
+.system-tray {
+  border-radius: 3px;
+  // padding-left: 10px;
+  // border-bottom: solid 2px $nuance-one;
+}
+
+// .system-tray button {
+//   // border-bottom: solid 2px $transparent;
+//   font-size: 1.25rem;
+//   padding-left: 6px;
+//   // padding-right: 10px;
+// }
+
+// .system-tray button:hover {
+//   // border-radius: 3px;
+//   // border-bottom: solid 2px $foreground;
+
+
+
+.discord {
+  color: rgba(114 ,137, 218, 1.0);
+  padding-left: 12px;
+  padding-right: 6px;
+}
+
+.steam {
+  color: $foreground;
+  padding-left: 12px;
+  padding-right: 6px;
+}
+
+.spotify {
+  color: rgba(30, 215, 96, 1.0);
+  padding-left: 12px;
+  padding-right: 6px;
+}
+
+.hidden {
+  padding: 0px;
+}

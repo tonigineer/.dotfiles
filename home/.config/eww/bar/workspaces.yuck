@@ -1,4 +1,4 @@
-(deflisten workspaces `bash ../scripts/workspaces.sh`)
+(deflisten workspaces `bash scripts/workspaces.sh`)
 (defwidget workspaces []
     (box 
         :halign "center"

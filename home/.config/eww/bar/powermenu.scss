@@ -1,8 +1,10 @@
+@import "../colors.scss";
+
 .powermenu {
   padding-left: 10px;
   padding-right: 10px;
   font-weight: bold;
-  border-bottom: solid 2px $background;
+  border-bottom: solid 2px $transparent;
 }
 
 .powermenu.button-restart {

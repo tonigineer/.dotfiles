@@ -1,0 +1,27 @@
+(defpoll discord_running :interval "1.0s" "pgrep Discord | wc -l")
+(defpoll steam_running :interval "1.0s" "pgrep steam | wc -l")
+(defpoll spotify_running :interval "1.0s" "pgrep spotify | wc -l")
+
+(defwidget system-tray []
+    (box :orientation "h" :space-evenly "false"
+        :class "system-tray"
+        (button
+            :class {discord_running > 0 ? "discord" : "hidden"}
+            :onclick "hyprctl dispatch focuswindow discord"
+            :onrightclick "pkill Discord"
+            {discord_running > 0 ? "󰙯" : ""}
+        )
+        (button
+            :class {steam_running > 0 ? "steam" : "hidden"}
+            :onclick "hyprctl dispatch focuswindow steam"
+            :onrightclick "pkill steam"
+            {steam_running > 0 ? "󰓓" : ""}
+        )
+        (button
+            :class {steam_running > 0 ? "spotify" : "hidden"}
+            :onclick "hyprctl dispatch focuswindow steam"
+            :onrightclick "pkill spotify"
+            {steam_running > 0 ? "" : ""}
+        )
+    )
+)
