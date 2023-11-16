@@ -18,10 +18,10 @@
             {steam_running > 0 ? "󰓓" : ""}
         )
         (button
-            :class {steam_running > 0 ? "spotify" : "hidden"}
-            :onclick "hyprctl dispatch focuswindow steam"
+            :class {spotify_running > 0 ? "spotify" : "hidden"}
+            :onclick "hyprctl dispatch focuswindow Spotify"
             :onrightclick "pkill spotify"
-            {steam_running > 0 ? "" : ""}
+            {spotify_running > 0 ? "" : ""}
         )
     )
 )

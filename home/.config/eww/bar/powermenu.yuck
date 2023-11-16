@@ -17,26 +17,45 @@
                     (button
                         :class "powermenu button-suspend"
                         :tooltip "Suspend system"
-                        :onclick "systemctl suspend" "󱖐")
+                        :onclick "
+                            eww update confirm_dialog_prompt=\"Suspend computer?\";
+                            eww update confirm_dialog_command=\"systemctl suspend\";
+                            eww open confirm_dialog --screen 0
+                        " "󱖐")
                     (button
                         :class "powermenu button-restart"
                         :tooltip "Restart system"
-                        :onclick "systemctl reboot" "󰜉")
+                        :onclick "
+                            eww update confirm_dialog_prompt=\"Restart computer?\";
+                            eww update confirm_dialog_command=\"systemctl reboot\";
+                            eww open confirm_dialog --screen 0
+                        " "󰜉")
                     (button
                         :class "powermenu button-logout"
                         :tooltip "Logout"
-                        :onclick "hyprctl dispatch exit 0" "󰍃")
+                        :onclick "
+                            eww update confirm_dialog_prompt=\"Logout computer?\";
+                            eww update confirm_dialog_command=\"hyprctl dispatch exit 0\";
+                            eww open confirm_dialog --screen 0
+                        " "󰍃")
                     (button
                         :class "powermenu button-lock"
                         :tooltip "Lock Screen"
-                        :onclick "swaylock" "󱅞")
+                        :onclick "
+                            eww update confirm_dialog_prompt=\"Lock screen?\";
+                            eww update confirm_dialog_command=\"swaylock\";
+                            eww open confirm_dialog --screen 0
+                        " "󱅞")
                 )
             )
             (button
                 :class "powermenu button-shutdown"
                 :tooltip "Shutdown"
-                :onclick "systemctl poweroff" "󰐥"
-            )
+                :onclick "
+                    eww update confirm_dialog_prompt=\"Shutdown computer?\";
+                    eww update confirm_dialog_command=\"systemctl poweroff\";
+                    eww open confirm_dialog --screen 0
+                " "󰐥")
         )
     )
 )

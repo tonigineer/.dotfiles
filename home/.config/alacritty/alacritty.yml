@@ -193,57 +193,32 @@ schemes:
   #   https://github.com/ghifarit53/tokyonight-vim
   #   https://github.com/enkia/tokyo-night-vscode-theme
 
-  tokyo-night: &tokyo-night
+  hacker-room: &hacker-room
     primary:
-      background: '#1a1b26'
-      foreground: '#a9b1d6'
+      background: '#0B111B'
+      foreground: '#FAF7FE'
 
     normal:
-      black:   '#32344a'
-      red:     '#f7768e'
-      green:   '#9ece6a'
-      yellow:  '#e0af68'
-      blue:    '#7aa2f7'
-      magenta: '#ad8ee6'
-      cyan:    '#449dab'
-      white:   '#787c99'
+      black:   '#6190A9'
+      red:     '#FC6933'
+      green:   '#01FCFE'
+      yellow:  '#FBA852'
+      blue:    '#24708D'
+      magenta: '#6190A9'
+      cyan:    '#063587'
+      white:   '#FAF7FE'
 
     bright:
-      black:   '#444b6a'
-      red:     '#ff7a93'
-      green:   '#b9f27c'
-      yellow:  '#ff9e64'
-      blue:    '#7da6ff'
-      magenta: '#bb9af7'
-      cyan:    '#0db9d7'
-      white:   '#acb0d0'
+      black:   '#6190A9'
+      red:     '#FC6933'
+      green:   '#01FCFE'
+      yellow:  '#FBA852'
+      blue:    '#24708D'
+      magenta: '#6190A9'
+      cyan:    '#063587'
+      white:   '#FAF7FE'
 
-  tokyo-night-storm: &tokyo-night-storm
-    primary:
-      background: '#24283b'
-      foreground: '#a9b1d6'
-
-    normal:
-      black:   '#32344a'
-      red:     '#f7768e'
-      green:   '#9ece6a'
-      yellow:  '#e0af68'
-      blue:    '#7aa2f7'
-      magenta: '#ad8ee6'
-      cyan:    '#449dab'
-      white:   '#9699a8'
-
-    bright:
-      black:   '#444b6a'
-      red:     '#ff7a93'
-      green:   '#b9f27c'
-      yellow:  '#ff9e64'
-      blue:    '#7da6ff'
-      magenta: '#bb9af7'
-      cyan:    '#0db9d7'
-      white:   '#acb0d0'
-
-colors: *tokyo-night
+colors: *hacker-room
 
 # Visual Bell
 #
@@ -266,7 +241,7 @@ colors: *tokyo-night
 #   - Linear
 #
 # Specifying a `duration` of `0` will disable the visual bell.
-#visual_bell:
+# visual_bell:
 #  animation: EaseOutExpo
 #  duration: 0
 #  color: '#ffffff'
@@ -280,18 +255,18 @@ selection:
 # Allow terminal applications to change Alacritty's window title.
 #dynamic_title: true
 
-# cursor:
-#   # Cursor style
-#   #
-#   # Values for `style`:
-#   #   - ▇ Block
-#   #   - _ Underline
-#   #   - | Beam
-#   style: Underline
+cursor:
+  # Cursor style
+  #
+  # Values for `style`:
+  #   - ▇ Block
+  #   - _ Underline
+  #   - | Beam
+  style: Beam
 
-#   # If this is `true`, the cursor will be rendered as a hollow box when the
-#   # window is not focused.
-#   unfocused_hollow: true
+  # If this is `true`, the cursor will be rendered as a hollow box when the
+  # window is not focused.
+  unfocused_hollow: true
 
 # # Live config reload (changes require restart)
 live_config_reload: true

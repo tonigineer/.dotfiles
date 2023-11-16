@@ -3,15 +3,15 @@
 # Summary: Volume management with notifications
 
 function get_volume() {
-	echo "$(pamixer --get-volume)"
+	pamixer --get-volume
 }
 
 function is_muted() {
-	echo "$(pactl get-sink-mute @DEFAULT_SINK@ | grep "Mute: " | cut -d " " -f 2)"
+	pactl get-sink-mute @DEFAULT_SINK@ | grep "Mute: " | cut -d " " -f 2
 }
 
 function get_icon() {
-	if [ $(is_muted) = "yes" ]; then
+	if [ "$(is_muted)" = "yes" ]; then
 		echo "󰖁"
 	else
 		volume="$(get_volume)"
@@ -31,32 +31,32 @@ function send_notification() {
 }
 
 case $1 in
-	--get-volume)
-		get_volume
-		;;
-	--up)
-		pactl set-sink-volume @DEFAULT_SINK@ +2%
-		send_notification "$1"
-		;;
-	--down)
-		pactl set-sink-volume @DEFAULT_SINK@ -2%
-		send_notification "$1"
-		;;
-	--mute)
-		pactl set-sink-mute @DEFAULT_SINK@ toggle
-		if [ $(is_muted) = "yes" ]; then
-			dunstify -i icons8-mute-53 -a "changevolume" -t 2000 -r 9993 -u low "Muted"
-		else
-			send_notification up
-		fi
-		;;
-	--gui)
-		blueman-manager &
-		;;
-	--icon)
-		echo $(get_icon)
-		;;
-	*)
-		dunstify -i icons8-mute-53 -a "volume.sh" -t 2000 -r 9993 -u low "Argument wrong"
+--get-volume)
+	get_volume
+	;;
+--up)
+	pactl set-sink-volume @DEFAULT_SINK@ +2%
+	send_notification "$1"
+	;;
+--down)
+	pactl set-sink-volume @DEFAULT_SINK@ -2%
+	send_notification "$1"
+	;;
+--mute)
+	pactl set-sink-mute @DEFAULT_SINK@ toggle
+	if [ "$(is_muted)" = "yes" ]; then
+		dunstify -i icons8-mute-53 -a "changevolume" -t 2000 -r 9993 -u low "Muted"
+	else
+		send_notification up
+	fi
+	;;
+--gui)
+	blueman-manager &
+	;;
+--icon)
+	get_icon
+	;;
+*)
+	dunstify -i icons8-mute-53 -a "volume.sh" -t 2000 -r 9993 -u low "Argument wrong"
 	;;
 esac

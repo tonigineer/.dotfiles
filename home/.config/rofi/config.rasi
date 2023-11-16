@@ -1,13 +1,13 @@
 * {
     font:           "CaskaydiaCove Nerd Font SemiBold 13";
 
-    background:     #1a1b26CC;
-    background-alt: #32344aFF;
-    foreground:     #787c99;
-    selected:       #449dab;
-    active:         #ad8ee6;
-    urgent:         #e0af68;
-    text:           #f7768e;
+    background:     #080813;
+    background-alt: #111721;
+    foreground:     #449dab;
+    selected:       #01FCFE;
+    active:         #01FCFE;
+    urgent:         #C05737;
+    text:           #C05737;
 }
 
 configuration {

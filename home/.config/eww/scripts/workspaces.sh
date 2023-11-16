@@ -3,25 +3,23 @@
 S=(0 "" "󰘐" "" "󰙯" "" "󰓓" "󰗃" "" "󰷛")
 
 update() {
-    for i in "${!S[@]}"; do
-        C[$i]="workspace"
-    done
+	for i in "${!S[@]}"; do
+		C[i]="workspace"
+	done
 
-    monitor_info=$(hyprctl monitors -j)
-    i_focus_scr0=$(echo $monitor_info | jq '.[] | select(.id == 0).activeWorkspace.id')
-    C[i_focus_scr0]="${C[i_focus_scr0]} focused"
-    i_focus_scr0=$(echo $monitor_info | jq '.[] | select(.id == 1).activeWorkspace.id')
-    C[i_focus_scr0]="${C[i_focus_scr0]} focused"
+	monitor_info=$(hyprctl monitors -j)
+	i_focus_scr0=$(echo "$monitor_info" | jq '.[] | select(.id == 0).activeWorkspace.id')
+	C[i_focus_scr0]="${C[i_focus_scr0]} focused"
+	i_focus_scr0=$(echo "$monitor_info" | jq '.[] | select(.id == 1).activeWorkspace.id')
+	C[i_focus_scr0]="${C[i_focus_scr0]} focused"
 
-    # workspace_focused_monitor_1=$(echo $monitor_info | jq '.[] | select(.id == 1).activeWorkspace.id')
-    workspaces_occupied=$(hyprctl workspaces -j | jq '.[] | del(select(.id == -99)) | .id')
-    for i in $(hyprctl workspaces -j | jq '.[] | del(select(.id == -99)) | .id'); do
-        C[i]="${C[i]} occupied"
-    done
+	# workspace_focused_monitor_1=$(echo $monitor_info | jq '.[] | select(.id == 1).activeWorkspace.id')
+	for i in $(hyprctl workspaces -j | jq '.[] | del(select(.id == -99)) | .id'); do
+		C[i]="${C[i]} occupied"
+	done
 
-
-    echo \
-    "(eventbox :onscroll \"echo {} | sed -e 's/up/-1/g' -e 's/down/+1/g' | xargs hyprctl dispatch workspace\" \
+	echo \
+		"(eventbox :onscroll \"echo {} | sed -e 's/up/-1/g' -e 's/down/+1/g' | xargs hyprctl dispatch workspace\" \
         (box \
             :class \"workspaces\" \
             :spacing 2 \
@@ -49,5 +47,5 @@ update() {
 
 update
 socat -u UNIX-CONNECT:/tmp/hypr/"$HYPRLAND_INSTANCE_SIGNATURE"/.socket2.sock - | while read -r; do
-    update
+	update
 done
