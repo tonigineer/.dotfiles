@@ -2,7 +2,7 @@
 
 .updates_container {
   margin-left: 15px;
-  border-bottom: solid 2px $nuance-three;
+  border-bottom: solid 2px $main-opace;
   border-radius: 3px;
   padding-left: 5px;
   padding-right: 5px;
@@ -13,6 +13,19 @@
   padding-top: 10px;
   font-size: 10px;
 }
+
+.updates_number.low {
+  color: $nuance-one;
+}
+
+.updates_number.medium {
+  color: $nuance-three;
+}
+
+.updates_number.high {
+  color: $nuance-two;
+}
+
 
 .updates_icon {
   color: $main;

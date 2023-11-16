@@ -11,7 +11,7 @@
         )
         (button
             :onclick {updates_available > 0 ? "alacritty --title \"aur-updates float\" -e sh -c \"yay -Syu\" &" : ""}
-            :class "updates_number"
+            :class {updates_available == 0 ? "updates_number" : updates_available <= 10 ? "updates_number low" : updates_available <= 25 ? "updates_number medium" : "updates_number high"}
             "${updates_available}"
         )
     )
