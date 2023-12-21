@@ -42,7 +42,6 @@
                 )
             )
             (eventbox
-                :onscroll "dunstify dfasf &"
                 (label
                     :tooltip "Show wallpaper module"
                     :class "wallpaper icon"

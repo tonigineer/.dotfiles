@@ -13,9 +13,9 @@
     :wm-ignore true
     (box :orientation "v":class "confirm-dialog-box"
         (label :class "confirm-dialog-prompt" :text "${confirm_dialog_prompt}")
-        (box :class "confirm-dialog-buttons"
+        (box :class "confirm-dialog-buttonselkowar/yuck.vim"
             (button :class "confirm-dialog-yes"
-                :onclick "${confirm_dialog_command} ${eww} close confirm_dialog" "yes")
+                :onclick "${confirm_dialog_command}; ${eww} close confirm_dialog" "yes")
             (button :class "confirm-dialog-no"
                 :onclick "eww close confirm_dialog" "no")
         )

@@ -2,7 +2,7 @@
 
 .system_widget {
   margin-left: 20px;
-  margin-bottom: 1px;
+  margin-bottom: 2px;
 }
 
 .system_container {
@@ -37,11 +37,14 @@
 
 .system_cpu_temp {
   margin-left: 5px;
-  font-size: 14px;
+  padding-top: 6px;
+  font-size: 12px;
+  font-weight: bold;
 }
 
 .system_cpu_temp_high {
   color: $nuance-two;
   margin-left: 5px;
-  font-size: 14px;
+  padding-top: 6px;
+  font-size: 12px;
 }

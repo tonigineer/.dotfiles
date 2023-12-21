@@ -27,7 +27,13 @@ function get_icon() {
 
 function send_notification() {
 	volume=$(get_volume)
-	dunstify -u low -r "9993" -h int:value:"$volume" -i "volume-$1" "Volume: ${volume}%" -t 2000
+	dunstify \
+		-u low \
+		-a "pactl set-sink-volume @DEFAULT_SINK@" \
+		-r "9993" \
+		-h int:value:"$volume" \
+		-i "volume-$1" "Volume: ${volume}%" \
+		-t 2000
 }
 
 case $1 in
@@ -36,16 +42,21 @@ case $1 in
 	;;
 --up)
 	pactl set-sink-volume @DEFAULT_SINK@ +2%
-	send_notification "$1"
+	send_notification up
 	;;
 --down)
 	pactl set-sink-volume @DEFAULT_SINK@ -2%
-	send_notification "$1"
+	send_notification down
 	;;
 --mute)
 	pactl set-sink-mute @DEFAULT_SINK@ toggle
 	if [ "$(is_muted)" = "yes" ]; then
-		dunstify -i icons8-mute-53 -a "changevolume" -t 2000 -r 9993 -u low "Muted"
+		dunstify \
+			-i icons8-mute-53 \
+			-a "pactl set-sink-volume @DEFAULT_SINK@" \
+			-t 2000 \
+			-r 9993 \
+			-u low "Muted"
 	else
 		send_notification up
 	fi

@@ -1,32 +1,38 @@
-(defvar volume_state false)
+; (defvar volume_state false)
 
-(defpoll volume_level :interval "1.0s" "scripts/volume.sh --get-volume")
-(defpoll volume_icon :interval "1.0s" "scripts/volume.sh --icon")
+(defvar micro_found false)  ; TODO: scripts needed
+(defvar output_found true)
+
+(defvar device_name "SCHRAMMELBAND")
+
+(defpoll volume_level :interval "0.2s" "scripts/volume.sh --get-volume")
+(defpoll volume_icon :interval "1.0s" "scripts/speaker.sh --icon")
+
 
 (defwidget volume []
-    (eventbox
-        :onhover "${eww} update volume_state=true"
-        :onhoverlost "${eww} update volume_state=false"
-        (box :orientation "h" :space-evenly "false"
-            :tooltip "Volume: ${volume_level}%"
-            (revealer :transition "slideright" :reveal volume_state :duration "550ms"
-                (box :orientation "h" :space-evenly "false"
-                    :class "volume bar"
-                    (label :class "volume value" :text "${volume_level}%")
-                    (scale :orientation "h"
-                        :flipped false :max 100 :min 0
-                        :active "true" :marks "d"
-                        :value volume_level
-                        :onchange "pactl set-sink-volume @DEFAULT_SINK@ {}%"
-                    )
-                )
+    (box :orientation "h" :space-evenly "false"
+        :class "volume-box"
+        (eventbox
+            :onscroll ""
+            (box :orientation "h" :space-evenly "false" :class "device-box"
+                :tooltip "No micro yet"
+                (label :class {micro_found == true ? "value-show" : "value-hide"}
+                    :text {micro_found == true ? "${0}" : ""})
+                (label :class {micro_found == true ? "device-available" : "device-unavailable"}
+                    :text {micro_found == true ? "󰍮" : "󰍭"})
             )
-            (button
-                :onclick "scripts/volume.sh --gui"
-                ; :class "appicon"
-                ; :style "background-image: url('../icons/speaker.png');"
-                :class "volume icon"
-                "${volume_icon}"
+        )
+        (eventbox :class "device-box"
+            :onscroll "~/.config/eww/scripts/volume.sh --{}"
+            (box :orientation "h" :space-evenly "false" :class "device-box"
+            :tooltip "Device: ${volume_icon} ${device_name}"
+                (label
+                    :class {output_found == true ? "value-show" : "value-hide"}
+                    :text "${volume_level}")
+                (button :class {output_found == true ? "device-available" : "device-unavailable"}
+                    :onclick "~/.config/eww/scripts/speaker.sh --connect"  ; hardcoded for SCHRAMMELBAND
+                    :onrightclick "scripts/volume.sh --gui &"
+                    "${volume_icon}")
             )
         )
     )

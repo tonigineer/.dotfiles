@@ -1,30 +1,38 @@
 @import "../colors.scss";
 
-.volume {
-  font-weight: normal;
-  color: $main;
-  font-size: 1.65rem;
-  margin-right: 15px;
+.volume-box {
+    margin-left: 10px;
+    margin-right:10px;
+    border-bottom: solid 2px $main-opace;
 }
 
-.volume.icon {
-  color: $main;
+.device-box {
+    margin-left: 2px;
+    margin-right:2px;
 }
 
-.volume.value {
-  font-size: 1.0rem;
+.value-show {
+    color: $foreground;
+    font-size: 16px;
+    font-weight: bold;
 }
 
-.volume.bar scale trough {
-  all: unset;
-  background-color: $foreground-opace;
-  border-top-left-radius: 15px;
-  border-bottom-right-radius: 15px;
-  min-height: 10px;
-  min-width: 100px;
+.value-hide {
+    color: $foreground;
+    font-size: 1px;
+    font-weight: bold;
 }
 
-.volume.bar scale trough highlight {
-  background-color: $main;
-  border-top-left-radius: 10px;
+.device-available {
+    color: $main;
+    font-size: 20px;
+    margin-left: 5px;
+    margin-right: 5px;
+}
+
+.device-unavailable {
+    color: $main-opace;
+    font-size: 20px;
+    margin-left: 5px;
+    margin-right: 10px;
 }

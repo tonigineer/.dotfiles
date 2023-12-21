@@ -2,8 +2,8 @@
 
 (defwidget powermenu []
     (eventbox
-        :onhover "${eww} update powermenu_state=true"
-        :onhoverlost "${eww} update powermenu_state=false"
+        ; :onhover "${eww} update powermenu_state=true"
+        ; :onhoverlost "${eww} update powermenu_state=false"
         (box
             :orientation "h"
             :space-evenly "false"
@@ -15,13 +15,13 @@
                 (box
                     :orientation "h"
                     (button
-                        :class "powermenu button-suspend"
-                        :tooltip "Suspend system"
+                        :class "powermenu button-shutdown"
+                        :tooltip "Shutdown"
                         :onclick "
-                            eww update confirm_dialog_prompt=\"Suspend computer?\";
-                            eww update confirm_dialog_command=\"systemctl suspend\";
+                            eww update confirm_dialog_prompt=\"Shutdown computer?\";
+                            eww update confirm_dialog_command=\"systemctl poweroff\";
                             eww open confirm_dialog --screen 0
-                        " "󱖐")
+                        " "󰐥")
                     (button
                         :class "powermenu button-restart"
                         :tooltip "Restart system"
@@ -31,31 +31,37 @@
                             eww open confirm_dialog --screen 0
                         " "󰜉")
                     (button
-                        :class "powermenu button-logout"
-                        :tooltip "Logout"
+                        :class "powermenu button-suspend"
+                        :tooltip "Suspend system"
                         :onclick "
-                            eww update confirm_dialog_prompt=\"Logout computer?\";
-                            eww update confirm_dialog_command=\"hyprctl dispatch exit 0\";
+                            eww update confirm_dialog_prompt=\"Suspend computer?\";
+                            eww update confirm_dialog_command=\"systemctl suspend\";
                             eww open confirm_dialog --screen 0
-                        " "󰍃")
-                    (button
-                        :class "powermenu button-lock"
-                        :tooltip "Lock Screen"
-                        :onclick "
-                            eww update confirm_dialog_prompt=\"Lock screen?\";
-                            eww update confirm_dialog_command=\"swaylock\";
-                            eww open confirm_dialog --screen 0
-                        " "󱅞")
+                        " "󱖐")
+                    ; (button
+                    ;     :class "powermenu button-logout"
+                    ;     :tooltip "Logout"
+                    ;     :onclick "
+                    ;         eww update confirm_dialog_prompt=\"Logout computer?\";
+                    ;         eww update confirm_dialog_command=\"hyprctl dispatch exit 0\";
+                    ;         eww open confirm_dialog --screen 0
+                    ;     " "󰍃")
+                    ; (button
+                    ;     :class "powermenu button-lock"
+                    ;     :tooltip "Lock Screen"
+                    ;     :onclick "
+                    ;         eww update confirm_dialog_prompt=\"Lock screen?\";
+                    ;         eww update confirm_dialog_command=\"swaylock\";
+                    ;         eww open confirm_dialog --screen 0
+                    ;     " "󱅞")
                 )
             )
             (button
-                :class "powermenu button-shutdown"
-                :tooltip "Shutdown"
-                :onclick "
-                    eww update confirm_dialog_prompt=\"Shutdown computer?\";
-                    eww update confirm_dialog_command=\"systemctl poweroff\";
-                    eww open confirm_dialog --screen 0
-                " "󰐥")
+                :class {powermenu_state == true ? "powermenu button-close" : "powermenu button-open"}
+                :tooltip {powermenu_state == true ? "Close powermenu" : "Open powermenu"}
+                :onclick {powermenu_state == true ? "eww update powermenu_state=false" : "eww update powermenu_state=true"}
+                {powermenu_state == true ? "" : ""}
+            )
         )
     )
 )

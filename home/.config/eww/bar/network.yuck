@@ -12,8 +12,10 @@
         ; - therefore /2 when converting from bytes to mega bytes
         (button :onclick "${network_gui_cmd}" :class "network_down_icon" "󰦗")
         (button :onclick "${network_gui_cmd}" :class "network_down" "${round(EWW_NET["eno2"]["NET_DOWN"] / 1000000 / 2, 2)}")
+        (label :class "network_mbytes_per_second" :text "Mb/s")
         (button :onclick "${network_gui_cmd}" :class "network_separator" "|")
         (button :onclick "${network_gui_cmd}" :class "network_up" "${round(EWW_NET["eno2"]["NET_UP"] / 1000000 / 2, 2)}" )
+        (label :class "network_mbytes_per_second" :text "Mb/s")
         (button :onclick "${network_gui_cmd}" :class "network_up_icon""󰦘" )
     )
 )

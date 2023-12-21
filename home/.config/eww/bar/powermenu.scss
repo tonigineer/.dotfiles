@@ -4,30 +4,48 @@
   padding-left: 10px;
   padding-right: 10px;
   font-weight: bold;
-  border-bottom: solid 2px $transparent;
+}
+
+
+.powermenu.button-shutdown {
+  color: $nuance-two;
+  border-bottom: solid 2px $main-opace;
+  border-bottom-left-radius: 2px;
 }
 
 .powermenu.button-restart {
-  color: $nuance-two;
+  color: $nuance-three;
+  border-bottom: solid 2px $main-opace;
 }
 
 .powermenu.button-suspend {
   color: $nuance-one;
+  border-bottom: solid 2px $main-opace;
 }
 
 .powermenu.button-logout {
-  color: $nuance-three;
+  color: $foreground;
+  border-bottom: solid 2px $main-opace;
 }
 
 .powermenu.button-lock {
-  color: $main;
+  color: $main-opace;
+  border-bottom: solid 2px $main-opace;
+  border-bottom-right-radius: 2px;
 }
 
-.powermenu.button-shutdown {
+.powermenu.button-open {
   color: $nuance-two;
+  border-bottom: solid 2px $transparent;
 }
+
+.powermenu.button-close {
+  color: $main;
+  border-bottom: solid 2px $transparent;
+}
+
 
 .powermenu button:hover {
-  border-bottom: solid 2px $foreground;
+  border-bottom: solid 2px $nuance-three;
   border-radius: 3px;
 }
