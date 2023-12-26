@@ -10,9 +10,9 @@
 ## 🎨 Impressions
 
 <div align="center">
-<kbd><img alt="just-wallpaper-with-waybar" src="./assets/impressions-wallpaper.png" style="width: 600px;"/></kbd>
-<kbd><img alt="just-wallpaper-with-rofi" src="./assets/impressions-rofi.png" style="width: 600px;"/></kbd>
-<kbd><img alt="short-workflow" src="./assets/short-workflow.gif" style="width: 600px;"/></kbd>
+<kbd><img alt="just-wallpaper-with-waybar" src="./assets/impression-1.png" style="width: 600px;"/></kbd>
+<kbd><img alt="just-wallpaper-with-rofi" src="./assets/impression-2.png" style="width: 600px;"/></kbd>
+<kbd><img alt="short-workflow" src="./assets/impression-3.png" style="width: 600px;"/></kbd>
 </div>
 
 ## 📖 Overview
@@ -25,7 +25,7 @@
 
 ➖ Display Server: [Wayland](https://wiki.archlinux.org/title/Wayland)
 🔺 Compositor: [Hyprland](https://hyprland.org/)
-🔺 Bar: [Waybar](https://github.com/Alexays/Waybar)
+🔺 Bar: [EWW](https://github.com/elkowar/eww)
 </details>
 
 <details open><summary><b>🌈 Appearance</b></summary>
@@ -34,8 +34,8 @@
 <!-- Get some vertical space -->
 
 ➖ Color scheme: [Tokyonight-Dark-BL-LB](https://github.com/Fausto-Korpsvart/Tokyo-Night-GTK-Theme)
-🔺 Cursor: [Volantes Cursors Light](https://github.com/varlesh/volantes-cursors)
-🔺 Icons: [Tokyonight-Moon](https://github.com/Fausto-Korpsvart/Tokyo-Night-GTK-Theme/tree/master/icons)
+🔺 Cursor: [Bibata Cursor](https://github.com/ful1e5/Bibata_Cursor)
+🔺 Icons: [Candy Icons](https://github.com/EliverLara/candy-icons)
 </details>
 
 <details open><summary><b>📐 Configuration</b></summary>
@@ -44,7 +44,7 @@
 <!-- Get some vertical space -->
 
 ➖ Shell: [ZSH](https://github.com/tonigineer/zsh)
-🔺 Editor: [Neovim](https://github.com/tonigineer/nvim)
+🔺 Editor: [Neovim](https://github.com/tonigineer/nvim) | [Visual Studio Code](https://code.visualstudio.com/download) 
 </details>
 
 
