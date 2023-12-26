@@ -5,14 +5,17 @@ cargo
 curl
 dunst
 eza
+ffmpeg
 grim-git
 inetutils
 iwd
 mirage
 mpv
+mpvpaper
 networkmanager
 net-tools
 pamixer
+pavucontrol
 polkit-gnome
 slurp-git
 tree

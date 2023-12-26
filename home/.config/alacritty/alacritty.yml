@@ -218,7 +218,34 @@ schemes:
       cyan:    '#063587'
       white:   '#FAF7FE'
 
-colors: *hacker-room
+  hacker-room: &new
+    primary:
+      background: '#140e1a'
+      foreground: '#edecee'
+
+    normal:
+      black:   '#3d375e'
+      red:     '#ff6767'
+      green:   '#61ffca'
+      yellow:  '#ffca85'
+      blue:    '#f694ff'
+      magenta: '#a277ff'
+      cyan:    '#82e2ff'
+      white:   '#FFF4E5'
+
+    bright:
+      black:   '#3d375e'
+      red:     '#ff6767'
+      green:   '#61ffca'
+      yellow:  '#ffca85'
+      blue:    '#f694ff'
+      magenta: '#a277ff'
+      cyan:    '#82e2ff'
+      white:   '#FFF4E5'
+
+
+
+colors: *new
 
 # Visual Bell
 #

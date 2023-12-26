@@ -5,7 +5,7 @@
 .workspace {
     padding-left: 3px;
     padding-right: 3px;
-    border-bottom: solid 2px $main-opace;
+    border-bottom: solid 2px $transparent;
     border-radius: 0px;
     color: $main-opace;  // unoccupied
 }
@@ -15,7 +15,8 @@
 }
 
 .workspace.occupied {
-    color: $foreground;
+    color: $foreground-opace;
+    // border-bottom: solid 2px $main-opace;
 }
 
 .workspace.focused {

@@ -1,51 +1,14 @@
-(defvar wallpaper_state false)
 (defvar wallpaper_engine 0)
-
-(defvar mpvnext "scripts/wallpaper.sh --mpvpaper --next &")
-(defvar mpvprev "scripts/wallpaper.sh --mpvpaper --prev &")
-(defvar pngnext "scripts/wallpaper.sh --swww-regular --next &")
-(defvar pngprev "scripts/wallpaper.sh --swww-regular --prev &")
-(defvar gifnext "scripts/wallpaper.sh --swww-animation --next &")
-(defvar gifprev "scripts/wallpaper.sh --swww-animation --prev &")
-
-(defvar index 0)
-(defvar total 10)
 
 (defwidget wallpaper []
     (eventbox
-        :onhover "${eww} update wallpaper_state=true"
-        :onhoverlost "${eww} update wallpaper_state=false"
+        :onscroll {wallpaper_engine == 0 ? "scripts/wallpaper.sh --mpvpaper {}" : wallpaper_engine == 1 ? "scripts/wallpaper.sh --swww-animation {}" : "scripts/wallpaper.sh --swww-regular {}"}
         (box :orientation "h" :space-evenly "false" 
             :class "wallpaper"
-            (revealer
-                :transition "slideright"
-                :reveal wallpaper_state
-                :duration "450ms"
-                (box
-                    :orientation "h" :space-evenly "false"
-                    (button
-                        :tooltip "Select previous file"
-                        :onclick {wallpaper_engine == 0 ? mpvprev : wallpaper_engine == 1 ? gifprev : pngprev}
-                        ""
-                    )
-                    (button
-                        :class "wallpaper engine"
-                        :tooltip "Cycle between `mpvpaper` and swww with `gif's` or `png's"
-                        :onclick "${eww} update wallpaper_engine=${(wallpaper_engine+1) % 3}; scripts/wallpaper.sh --eww ${(wallpaper_engine+1) % 3} &"
-                        {wallpaper_engine == 0 ? "" : wallpaper_engine == 1 ? "󰤺" : ""}
-                    )
-                    (button
-                        :tooltip "Select next file"
-                        :onclick {wallpaper_engine == 0 ? mpvnext : wallpaper_engine == 1 ? gifnext : pngnext}
-                        ""
-                    )
-                )
-            )
-            (eventbox
-                (label
-                    :tooltip "Show wallpaper module"
-                    :class "wallpaper icon"
-                    :text "󰃣")
+            (button
+                :tooltip "Click to change engine | Scroll to change wallpaper"
+                :onclick "${eww} update wallpaper_engine=${(wallpaper_engine+1) % 3}; scripts/wallpaper.sh --eww ${(wallpaper_engine+1) % 3} &"
+                {wallpaper_engine == 0 ? "" : wallpaper_engine == 1 ? "󰤺" : ""}
             )
         )
     )

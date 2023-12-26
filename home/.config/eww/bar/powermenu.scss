@@ -3,18 +3,19 @@
 .powermenu {
   padding-left: 10px;
   padding-right: 10px;
+  margin-left: 2px;
   font-weight: bold;
 }
 
 
 .powermenu.button-shutdown {
-  color: $nuance-two;
+  color: $nuance-three;
   border-bottom: solid 2px $main-opace;
   border-bottom-left-radius: 2px;
 }
 
 .powermenu.button-restart {
-  color: $nuance-three;
+  color: $nuance-two;
   border-bottom: solid 2px $main-opace;
 }
 
@@ -35,7 +36,7 @@
 }
 
 .powermenu.button-open {
-  color: $nuance-two;
+  color: $nuance-three;
   border-bottom: solid 2px $transparent;
 }
 

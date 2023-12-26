@@ -34,8 +34,8 @@ function swww_apply() {
 }
 
 function get_random_animation() {
-	array[0]="--transition-fps 120 --transition-duration 1.75 --transition-type grow --transition-pos 0.925,0.975 --transition-bezier 0.4,1.1,0.4,0.2"
-	array[1]="--transition-fps 120 --transition-duration 1.75 --transition-type grow --transition-pos 0.075,0.975 --transition-bezier 0.4,1.1,0.4,0.2"
+	array[0]="--transition-fps 120 --transition-duration 0.75 --transition-type grow --transition-pos 0.925,0.975 --transition-bezier 0.4,1.1,0.4,0.2"
+	array[1]="--transition-fps 120 --transition-duration 0.75 --transition-type grow --transition-pos 0.075,0.975 --transition-bezier 0.4,1.1,0.4,0.2"
 
 	size=${#array[@]}
 	index=$((RANDOM % size))
@@ -61,10 +61,10 @@ case $1 in
 		file=$(cycle_files $GIF_DIR "0")
 		swww_reset
 		;;
-	--next)
+	--next|down)
 		file=$(cycle_files $GIF_DIR "1")
 		;;
-	--prev)
+	--prev|up)
 		file=$(cycle_files $GIF_DIR "-1")
 		;;
 	*)
@@ -81,11 +81,11 @@ case $1 in
 		file=$(cycle_files $REGULAR_DIR "0")
 		swww_reset
 		;;
-	--next)
+	--next|down)
 		file=$(cycle_files $REGULAR_DIR "1")
 		echo "next"
 		;;
-	--prev)
+	--prev|up)
 		file=$(cycle_files $REGULAR_DIR "-1")
 		;;
 	*)
@@ -101,10 +101,10 @@ case $1 in
 		file=$(cycle_files $LIVE_DIR "0")
 		mpvpaper_reset
 		;;
-	--next)
+	--next|down)
 		file=$(cycle_files $LIVE_DIR "1")
 		;;
-	--prev)
+	--prev|up)
 		file=$(cycle_files $LIVE_DIR "-1")
 		;;
 	*)

@@ -1,13 +1,13 @@
 * {
-    font:           "CaskaydiaCove Nerd Font SemiBold 13";
+    font:           "CaskaydiaCove Nerd Font 12";
 
-    background:     #080813;
-    background-alt: #111721;
-    foreground:     #449dab;
-    selected:       #01FCFE;
-    active:         #01FCFE;
-    urgent:         #C05737;
-    text:           #C05737;
+    background:     #140e1a;
+    background-alt: #3d375e22;
+    foreground:     #82e2ff77;
+    selected:       #61ffca;
+    active:         #61ffca;
+    urgent:         #ff6767;
+    text:           #f694ff;
 }
 
 configuration {
@@ -39,10 +39,10 @@ window {
     margin:                      0px;
     padding:                     0px;
     border:                      2px solid;
-    border-radius:               15px;
+    border-radius:               10px;
     border-color:                @foreground;
     cursor:                      "default";
-    background-color:            @background;
+    background-color:            @background-alt;
     // background-image:            url("~/.config/rofi/images/forest_sunset.jpg", width);
 }
 

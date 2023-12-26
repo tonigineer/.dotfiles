@@ -3,7 +3,7 @@
 # Summary: Volume management with notifications
 
 function get_volume() {
-	pamixer --get-volume
+	printf "%02d\n" $(pamixer --get-volume)
 }
 
 function is_muted() {
@@ -61,8 +61,11 @@ case $1 in
 		send_notification up
 	fi
 	;;
---gui)
+--bluetooth-gui)
 	blueman-manager &
+	;;
+--gui)
+	pavucontrol &
 	;;
 --icon)
 	get_icon

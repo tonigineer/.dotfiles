@@ -7,6 +7,7 @@ function kill_mpv() {
 case $1 in
 --music)
 	urls=(
+		"https://www.youtube.com/watch?v=jfKfPfyJRdk"
 		"https://www.youtube.com/watch?v=6UM5oAoK8L8&t=899s"
 		"https://www.youtube.com/watch?v=LxQWv-p5BMQ"
 		"https://www.youtube.com/watch?v=SFS5Z2UNMps"

@@ -2,6 +2,7 @@
 
 .wallpaper {
   border-bottom: solid 2px $transparent;
+  margin-right: 10px;
 }
 
 .wallpaper.icon {
@@ -26,13 +27,14 @@
 .wallpaper button {
   padding-left: 5px;
   padding-right: 10px;
-  color: $main;
-  border-bottom: solid 2px $background-opace;
+  color: $main-opace;
+  // border-bottom: solid 2px $background-opace;
 }
 
 .wallpaper button:hover {
   border-radius: 3px;
-  border-bottom: solid 2px $nuance-one;
+  color: $nuance-one;
+  // border-bottom: solid 2px $nuance-one;
 }
 
 .wallpaper.engine {
