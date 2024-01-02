@@ -1,6 +1,6 @@
-(defpoll discord_running :interval "1.0s" "pgrep Discord | wc -l")
-(defpoll steam_running :interval "1.0s" "pgrep steam | wc -l")
-(defpoll spotify_running :interval "1.0s" "pgrep spotify | wc -l")
+(defpoll discord_running :initial 0 :interval "1.0s" "pgrep Discord | wc -l")
+(defpoll steam_running :initial 0 :interval "1.0s" "pgrep steam | wc -l")
+(defpoll spotify_running :initial 0 :interval "1.0s" "pgrep spotify | wc -l")
 
 (defwidget system-tray []
     (box :orientation "h" :space-evenly "false"

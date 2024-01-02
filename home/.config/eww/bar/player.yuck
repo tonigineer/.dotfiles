@@ -1,0 +1,31 @@
+(deflisten player :initial ""
+  "playerctl -F metadata -f '{{ artist }} - {{ title }}' || true")
+
+(deflisten player_state :initial "Stopped"
+  "playerctl -F metadata -f '{{ status }}' || Stopped")
+
+(defwidget player []
+    (revealer
+        :reveal {player_state != "Stopped"}
+        :duration "1500ms"
+        :transition "slideleft"
+        (eventbox
+            :tooltip "${player_state} | ${player}"
+            (box :space-evenly false
+                :halign "end"
+                :class {player_state != "Stopped" ? "player-active" : "player-inactive"}
+                (button
+                    :class "player-icon"
+                    :onclick "playerctl play-pause"
+                    :onrightclick "playerctl stop"
+                    :onmiddleclick "hyprctl dispatch focuswindow Spotify"
+                    "${player_state == 'Playing' ? '' : ''}")
+                (label
+                    :class "player-text"
+                    :limit-width 30
+                    :show-truncated true
+                    :text "${player}")
+            )
+        )
+    )
+)

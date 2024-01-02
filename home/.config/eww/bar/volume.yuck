@@ -1,38 +1,35 @@
-; (defvar volume_state false)
+(defvar input_name "NA")
 
-(defvar micro_found false)  ; TODO: scripts needed
-(defvar output_found true)
 
-(defvar device_name "SCHRAMMELBAND")
-
-(defpoll volume_level :interval "0.2s" "scripts/volume.sh --get-volume")
-(defpoll volume_icon :interval "1.0s" "scripts/speaker.sh --icon")
-
+(defpoll volume_level :interval "100ms" "scripts/volume.sh --get-volume")
+(defpoll output_icon :interval "500ms" "scripts/volume.sh --output-icon")
+(defpoll output_name :interval "500ms" "scripts/volume.sh --output-name")
 
 (defwidget volume []
     (box :orientation "h" :space-evenly "false"
-        :class "volume-box"
+        :class "widget-volume"
+ 
         (eventbox
-            :onscroll ""
-            (box :orientation "h" :space-evenly "false" :class "device-box"
-                :tooltip "No micro yet"
-                (label :class {micro_found == true ? "value-show" : "value-hide"}
-                    :text {micro_found == true ? "${0}" : ""})
-                (label :class {micro_found == true ? "device-available" : "device-unavailable"}
-                    :text {micro_found == true ? "󰍮" : "󰍭"})
+            :class "output-value-box"
+            :onscroll "~/.config/eww/scripts/volume.sh --{}"
+            :tooltip "󱕒 Volume control"
+            (label
+                :class {output_name != "NA" ? "value-show" : "value-hide"}
+                :text "${volume_level}"
             )
         )
-        (eventbox :class "device-box"
-            :onscroll "~/.config/eww/scripts/volume.sh --{}"
-            (box :orientation "h" :space-evenly "false" :class "device-box"
-            :tooltip "Device: ${volume_icon} ${device_name}"
-                (label
-                    :class {output_found == true ? "value-show" : "value-hide"}
-                    :text "${volume_level}")
-                (button :class {output_found == true ? "device-available" : "device-unavailable"}
-                    :onclick "~/.config/eww/scripts/speaker.sh --connect"  ; hardcoded for SCHRAMMELBAND
-                    :onrightclick "scripts/volume.sh --gui &"
-                    "${volume_icon}")
+        (eventbox
+            :class {output_name != "NA" ? "device-available" : "device-unavailable"}
+            :tooltip "Output device: ${output_icon} ${output_name}
+
+󰍽  `blueman-manager`
+ 󰍽 `pactl`"
+            (button
+                :class "fat-nerdfont-icons"
+                :onclick "scripts/volume.sh --pavucontrol-gui &"
+                :onmiddleclick "scripts/volume.sh --toggle-output &"
+                :onrightclick "scripts/volume.sh --blueman-manager-gui &"
+                "${output_icon}"
             )
         )
     )

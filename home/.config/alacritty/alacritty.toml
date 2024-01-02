@@ -78,15 +78,15 @@ action = "Copy"
 key = "C"
 mods = "Control"
 
-[[keyboard.bindings]]
-action = "PasteSelection"
-key = "V"
-mods = "Control"
-
-[[keyboard.bindings]]
-action = "Copy"
-key = "C"
-mods = "Control"
+# [[keyboard.bindings]]
+# action = "PasteSelection"
+# key = "V"
+# mods = "Control"
+# 
+# [[keyboard.bindings]]
+# action = "Copy"
+# key = "C"
+# mods = "Control"
 
 [[keyboard.bindings]]
 action = "ResetFontSize"

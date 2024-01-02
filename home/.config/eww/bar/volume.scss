@@ -1,38 +1,46 @@
 @import "../colors.scss";
 
-.volume-box {
+.widget-volume {
     margin-left: 10px;
-    margin-right:10px;
+    margin-right: 10px;
     // border-bottom: solid 2px $main-opace;
 }
 
-.device-box {
-    margin-left: 2px;
-    margin-right:2px;
+.separator {
+    color: $nuance-three;
 }
 
 .value-show {
     color: $foreground;
     font-size: 16px;
     font-weight: bold;
+    padding-left: 5px;
+    padding-right: 5px;
 }
 
 .value-hide {
     color: $foreground;
     font-size: 1px;
     font-weight: bold;
+    padding-left: 0px;
+    padding-right: 0px;
 }
 
 .device-available {
     color: $main;
-    font-size: 20px;
+    // font-size: 20px;
     margin-left: 5px;
     margin-right: 5px;
 }
 
 .device-unavailable {
     color: $main-opace;
-    font-size: 20px;
+    // font-size: 20px;
     margin-left: 5px;
-    margin-right: 10px;
+    margin-right: 5px;
+}
+
+.fat-nerdfont-icons {
+    padding-right: 5px;
+    font-size: 16px;
 }
