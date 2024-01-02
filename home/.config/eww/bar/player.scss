@@ -8,11 +8,6 @@
     // background-color: rgba(97, 255, 202, 0.15);
 }
 
-.player-inactive {
-    margin: 0px;
-    padding: 0px;
-}
-
 .player-icon {
     font-weight: bold;
     font-size: 16px;
@@ -27,4 +22,11 @@
     font-size: 14px;
     color: $foreground;
     padding-right: 5px;
+}
+
+.player-inactive {
+    margin: 0px;
+    padding: 0px;
+    color: $transparent;
+    font-size: 0px;
 }
