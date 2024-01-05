@@ -55,11 +55,12 @@ function mpvpaper_apply() {
 }
 
 case $1 in
---swww-animation)
+--swww-gifs)
 	case $2 in
 	--reset)
 		file=$(cycle_files $GIF_DIR "0")
 		swww_reset
+		eww update wallpaper_engine=1
 		;;
 	--next|down)
 		file=$(cycle_files $GIF_DIR "1")
@@ -74,16 +75,17 @@ case $1 in
 	esac
 	swww_apply $file
 	;;
---swww-regular)
-	echo "regular"
+--swww-wallpaper)
+	# echo "regular"
 	case $2 in
 	--reset)
 		file=$(cycle_files $REGULAR_DIR "0")
 		swww_reset
+		eww update wallpaper_engine=2
 		;;
 	--next|down)
 		file=$(cycle_files $REGULAR_DIR "1")
-		echo "next"
+		# echo "next"
 		;;
 	--prev|up)
 		file=$(cycle_files $REGULAR_DIR "-1")
@@ -100,6 +102,7 @@ case $1 in
 	--reset)
 		file=$(cycle_files $LIVE_DIR "0")
 		mpvpaper_reset
+		eww update wallpaper_engine=0
 		;;
 	--next|down)
 		file=$(cycle_files $LIVE_DIR "1")
@@ -138,7 +141,7 @@ case $1 in
 	esac
 	;;
 *)
-	echo "First argument must be either \`--swww-animation\`, \`--swww-regular\` or \`--mpvpaper\`."
+	echo "First argument must be either \`--swww-gifs\`, \`--swww-wallpaper\` or \`--mpvpaper\`."
 	exit 1
 	;;
 esac

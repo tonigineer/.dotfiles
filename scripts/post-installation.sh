@@ -8,6 +8,7 @@ source "$REPO_DIR/scripts/coloring.sh"
 TASKS=(
 	"bluetooth"
 	"grub"
+	"hyprshade"
 	"nerdfonts"
 	"thunar"
 )
@@ -62,6 +63,18 @@ function fnc_nerdfonts() {
 		git clone https://github.com/ronniedroid/getnf /tmp/getnf
 		sudo mv /tmp/getnf/getnf /usr/bin/
 		rm -rf /tmp/getnf
+	fi
+}
+
+function fnc_hyprshade() {
+	if [[ "$1" = "status" ]]; then
+		[[ ! "$(yay -Qa | grep hyprshade)" = "" ]] && echo "" || echo ""
+	fi
+
+	if [[ "$1" = "install" ]]; then
+		yay -S hyprshade
+		hyprshade install
+		systemctl --user enable --now hyprshade.timer
 	fi
 }
 

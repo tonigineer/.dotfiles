@@ -15,6 +15,7 @@
 ; Left container
 (include "bar/system.yuck")
 (include "bar/launcher.yuck")
+(include "bar/player.yuck")
 (include "bar/updates.yuck")
 
 (defwidget container_left []
@@ -22,6 +23,7 @@
         (launcher)
         (system)
         (updates)
+        (player)
     )
 )
 

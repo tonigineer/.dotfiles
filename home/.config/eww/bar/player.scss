@@ -1,0 +1,32 @@
+@import "../colors.scss";
+
+.player-active {
+    margin-left: 50px;
+    padding: 0px;
+    border: solid 3px transparent;
+    border-radius: 7px;
+    // background-color: rgba(97, 255, 202, 0.15);
+}
+
+.player-icon {
+    font-weight: bold;
+    font-size: 16px;
+    color: $nuance-one;
+    // color: $nuance-three;
+    margin-right: 15px;
+    padding-left: 5px;
+}
+
+.player-text {
+    font-weight: bold;
+    font-size: 14px;
+    color: $foreground;
+    padding-right: 5px;
+}
+
+.player-inactive {
+    margin: 0px;
+    padding: 0px;
+    color: $transparent;
+    font-size: 0px;
+}

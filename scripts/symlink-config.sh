@@ -11,7 +11,6 @@ LINKS=(
 	".config/neofetch"
 	".config/rofi"
 	".config/swaylock"
-	".config/waybar"
 	".config/wlogout"
 
 	".local/share/backgrounds"

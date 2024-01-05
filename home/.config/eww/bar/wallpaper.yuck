@@ -2,7 +2,7 @@
 
 (defwidget wallpaper []
     (eventbox
-        :onscroll {wallpaper_engine == 0 ? "scripts/wallpaper.sh --mpvpaper {}" : wallpaper_engine == 1 ? "scripts/wallpaper.sh --swww-animation {}" : "scripts/wallpaper.sh --swww-regular {}"}
+        :onscroll {wallpaper_engine == 0 ? "scripts/wallpaper.sh --mpvpaper {} &" : wallpaper_engine == 1 ? "scripts/wallpaper.sh --swww-gifs {} &" : "scripts/wallpaper.sh --swww-wallpaper {} &"}
         (box :orientation "h" :space-evenly "false" 
             :class "wallpaper"
             (button
