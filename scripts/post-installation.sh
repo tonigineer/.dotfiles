@@ -11,6 +11,7 @@ TASKS=(
 	"hyprshade"
 	"nerdfonts"
 	"thunar"
+	"zsh"
 )
 
 function fnc_bluetooth() {
@@ -45,7 +46,7 @@ function fnc_grub() {
 		sudo sed -i 's\GRUB_GFXMODE=auto\GRUB_GFXMODE=800x600\g' /etc/default/grub
 		sudo sed -i 's\#GRUB_THEME="/path/to/gfxtheme"\GRUB_THEME="/boot/grub/themes/CyberEXS/theme.txt"\g' /etc/default/grub
 
-		[[ ! -d "/boot/grub/themes/CyberEXS" ]] && \
+		[[ ! -d "/boot/grub/themes/CyberEXS" ]] &&
 			sudo git clone https://github.com/HenriqueLopes42/themeGrub.CyberEXS /boot/grub/themes/CyberEXS
 
 		sudo grub-mkconfig -o /boot/grub/grub.cfg
@@ -87,6 +88,17 @@ function fnc_thunar() {
 	if [[ "$1" = "install" ]]; then
 		yay -S thunar thunar-volman gvfs-git xdg-user-dirs tumbler
 		xdg-user-dirs-update
+	fi
+}
+
+function fnc_zsh() {
+	if [[ "$1" = "status" ]]; then
+		[[ -L "$HOME/.zshrc" ]] && echo "" || echo ""
+		return
+	fi
+
+	if [[ "$1" = "install" ]]; then
+		ln -s ~/.config/zsh/.zshrc ~/.zshrc
 	fi
 }
 

@@ -1,7 +1,6 @@
 alacritty
 bluez
 bluez-utils
-cargo
 curl
 dunst
 eza
@@ -9,14 +8,18 @@ ffmpeg
 grim-git
 inetutils
 iwd
+luarocks
 mirage
 mpv
 mpvpaper
+neovim
 networkmanager
 net-tools
+npm
 pamixer
 pavucontrol
 polkit-gnome
+rustup
 slurp-git
 tree
 unzip

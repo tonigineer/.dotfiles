@@ -28,14 +28,14 @@
             )
         )
         (box :class "system_container" :space-evenly "false"
-            :tooltip "Disc usage - ${round(EWW_DISK["/home"].used / 1000000000, 1)}Gb/${round(EWW_DISK["/home"].total / 1000000000, 1)}Gb"
+            :tooltip "Disc usage - ${round(EWW_DISK["/"].used / 1000000000, 1)}Gb/${round(EWW_DISK["/"].total / 1000000000, 1)}Gb"
             (eventbox
                 :onclick "thunar /$HOME &"
                 (label :class "system_label" :text "󰨣")
             )
             (box
-                (circular-progress :class "system_circle" :value "${EWW_DISK["/home"].used_perc}" :thickness 3 :start-at 75
-                    (label :class "system_circle-label" :text "${EWW_DISK["/home"].used_perc}")
+                (circular-progress :class "system_circle" :value "${EWW_DISK["/"].used_perc}" :thickness 3 :start-at 75
+                    (label :class "system_circle-label" :text "${EWW_DISK["/"].used_perc}")
                 )
             )
         )
