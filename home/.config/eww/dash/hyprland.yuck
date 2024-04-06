@@ -1,0 +1,128 @@
+(deflisten hypr_border_size :initial 0
+  `hyprctl getoption general:border_size | grep int: | cut -d " " -f 2`)
+(deflisten hypr_opacity_active :initial 0
+    `bc<<<$(hyprctl getoption decoration:active_opacity | grep float: | cut -d " " -f 2)*100`)
+; (defvar hypr_opacity_active 0)
+
+(defwidget hyprland_visual []
+    (box
+        :orientation "v"
+        :space-evenly "false"
+        :spacing 10
+        :class "module-2" 
+        (label
+            :class "header"
+            :halign "start"
+            :text "Hyprland"
+        )
+        ; Border size
+        (box :orientation "v" :class "container"
+            (box
+                (box :orientation "h" :halign "start" :space-evenly "false"
+                    (label :class "hyprland-setting-label" :text "Border size"))
+                (box :orientation "h" :halign "end" :space-evenly "false"
+                    (label :class "hyprland-setting-value" :text hypr_border_size))
+            )
+            (scale
+                :class "volbar"
+                :value hypr_border_size
+                :orientation "h"
+                :tooltip "Change the window border size"
+                :max 15
+                :min 0
+                :onchange "eww update hypr_border_size={}; hyprctl keyword general:border_size {}"
+            )
+        )
+        ; Opacity active
+        (box :orientation "v" :class "container"
+        (box
+            (box :orientation "h" :halign "start" :space-evenly "false"
+                (label :class "hyprland-setting-label" :text "Opacity active"))
+            (box :orientation "h" :halign "end" :space-evenly "false"
+                (label :class "hyprland-setting-value" :text "${round(hypr_opacity_active,0)}"))
+        )
+        (scale
+            :class "volbar"
+            :value "${hypr_opacity_active}"
+            :orientation "h"
+            :tooltip "Change the opacity of active windows (keep in mind that specific window rule may apply)"
+            :max 101
+            :min 80
+            :onchange " \
+                eww update hypr_opacity_active={}; \
+                hyprctl keyword decoration:active_opacity ${round((hypr_opacity_active)/100, 2)} \
+            "
+        )
+    )
+        ; (scale
+        ;     :class "volbar"
+        ;     :value hypr_opacity_active
+        ;     :orientation "h"
+        ;     :tooltip "$1%"
+        ;     :max 100
+        ;     :min 60
+        ;     :onchange "\
+        ;         eww update hypr_opacity_active={}; \
+        ;         hyprctl keyword decoration:active_opacity ${round(hypr_opacity_active / 100, 2) + 1}}"
+        ; )
+        ; (scale
+        ;     :class "volbar"
+        ;     :value hypr_opacity_inactive
+        ;     :orientation "h"
+        ;     :tooltip "$1%"
+        ;     :max 100
+        ;     :min 60
+        ;     :onchange "\
+        ;         eww update hypr_opacity_inactive={}; \
+        ;         hyprctl keyword decoration:inactive_opacity ${round(hypr_opacity_inactive / 100, 2) + 1}}"
+        ; )
+        ; (scale
+        ;     :class "volbar"
+        ;     :value hypr_opacity_fullscreen
+        ;     :orientation "h"
+        ;     :tooltip "$1%"
+        ;     :max 100
+        ;     :min 60
+        ;     :onchange "\
+        ;         eww update hypr_opacity_fullscreen={}; \
+        ;         hyprctl keyword decoration:fullscreen_opacity ${round(hypr_opacity_fullscreen / 100, 2) + 1}}"
+        ; )
+
+        ; (box :orientation "h" :spacing 0 :space-evenly "true"
+        ;     :class "wallpaper-engine-box"
+        ;     (box
+        ;         :style "background-image: url('dash/images/jpg-svgrepo-com.svg');"
+        ;         :class {wallpaper_engine == 0 ? "wallpaper-engine-button active" : "wallpaper-engine-button"}
+        ;         (eventbox
+        ;             :onscroll {wallpaper_engine == 0 ? "scripts/wallpaper.sh --swww-wallpaper {} &" : ""}
+        ;             (button
+        ;                 :onclick "${eww} update wallpaper_engine=0; scripts/wallpaper.sh --swww-wallpaper --reset &"
+        ;                 ""
+        ;             )
+        ;         )
+        ;     )
+        ;     (box
+        ;         :style "background-image: url('dash/images/gif-svgrepo-com.svg');"
+        ;         :class {wallpaper_engine == 1 ? "wallpaper-engine-button active" : "wallpaper-engine-button"}
+        ;         (eventbox
+        ;             :onscroll {wallpaper_engine == 1 ? "scripts/wallpaper.sh --swww-gifs {} &" : ""}
+        ;             (button
+        ;                 :onclick "${eww} update wallpaper_engine=1; scripts/wallpaper.sh --swww-gifs --reset &"
+        ;                 ""
+        ;             )
+        ;         )
+        ;     )
+        ;     (box
+        ;         :style "background-image: url('dash/images/mpg-svgrepo-com.svg');"
+        ;         :class {wallpaper_engine == 2 ? "wallpaper-engine-button active" : "wallpaper-engine-button"}
+        ;         (eventbox
+        ;             :onscroll {wallpaper_engine == 2 ? "scripts/wallpaper.sh --mpvpaper {} &" : ""}
+        ;             (button
+        ;                 :onclick "${eww} update wallpaper_engine=2; scripts/wallpaper.sh --mpvpaper --reset &"
+        ;                 ""
+        ;             )
+        ;         )
+        ;     )
+        ; )
+    )
+)

@@ -1,3 +1,4 @@
 (defvar eww "eww -c $HOME/.config/eww")
 
 (include "bar/bar.yuck")
+(include "dash/dash.yuck")

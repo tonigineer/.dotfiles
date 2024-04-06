@@ -1,0 +1,13 @@
+(defvar dash_open 0)
+
+(defwidget buttons []
+    (box :orientation "h" :space-evenly "false" 
+        :class "buttons"
+        (button
+            :class {dash_open == 0 ? "buttons" : "buttons active"}
+            :tooltip "Open settings"
+            :onclick {dash_open == 0 ? "${eww} update dash_open=1; eww open dash &" : "${eww} update dash_open=0; eww close dash &"}
+            ""
+        )
+    )
+)

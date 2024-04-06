@@ -4,25 +4,28 @@
   border-radius: 3px;
   margin-left: 5px;
   margin-right: -7px;
-  // border-bottom: solid 0px $transparent;
+  border-bottom: solid 0px $transparent;
 }
 
 .discord {
   color: rgba(114 ,137, 218, 1.0);
   padding-left: 12px;
   padding-right: 6px;
+  border-bottom: solid 2px $transparent;
 }
 
 .steam {
   color: $foreground;
   padding-left: 12px;
   padding-right: 6px;
+  border-bottom: solid 2px $transparent;
 }
 
 .spotify {
   color: rgba(30, 215, 96, 1.0);
   padding-left: 12px;
   padding-right: 6px;
+  border-bottom: solid 2px $transparent;
 }
 
 .hidden {

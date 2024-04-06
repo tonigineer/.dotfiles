@@ -37,20 +37,21 @@
 )
 
 ; Right container
+(include "bar/buttons.yuck")
 (include "bar/datetime.yuck")
 (include "bar/network.yuck")
 (include "bar/powermenu.yuck")
 (include "bar/system-tray.yuck")
 (include "bar/volume.yuck")
-(include "bar/wallpaper.yuck")
 
 (defwidget container_right []
     (box :orientation "h" :halign "end" :space-evenly "false"
-        (wallpaper)
+        ; (wallpaper)
         (network)
         (volume)
         (datetime)
         (system-tray)
+        (buttons)
         (powermenu)
     )
 )

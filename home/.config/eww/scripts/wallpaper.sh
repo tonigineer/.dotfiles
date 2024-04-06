@@ -23,10 +23,8 @@ function cycle_files() {
 }
 
 function swww_reset() {
-	pkill hyprpaper
 	pkill mpvpaper
-	swww kill
-	swww init
+	swww query || swww init
 }
 
 function swww_apply() {
@@ -43,8 +41,7 @@ function get_random_animation() {
 }
 
 function mpvpaper_reset() {
-	pkill hyprpaper
-	pkill swww
+	swww query && swww clear
 	pkill mpvpaper
 }
 
@@ -60,7 +57,6 @@ case $1 in
 	--reset)
 		file=$(cycle_files $GIF_DIR "0")
 		swww_reset
-		eww update wallpaper_engine=1
 		;;
 	--next|down)
 		file=$(cycle_files $GIF_DIR "1")
@@ -81,7 +77,6 @@ case $1 in
 	--reset)
 		file=$(cycle_files $REGULAR_DIR "0")
 		swww_reset
-		eww update wallpaper_engine=2
 		;;
 	--next|down)
 		file=$(cycle_files $REGULAR_DIR "1")
@@ -102,7 +97,6 @@ case $1 in
 	--reset)
 		file=$(cycle_files $LIVE_DIR "0")
 		mpvpaper_reset
-		eww update wallpaper_engine=0
 		;;
 	--next|down)
 		file=$(cycle_files $LIVE_DIR "1")
@@ -116,29 +110,6 @@ case $1 in
 		;;
 	esac
 	mpvpaper_apply $file
-	;;
---eww)
-	case $2 in
-	0)
-		mpvpaper_reset
-		file=$(cycle_files $LIVE_DIR "0")
-		mpvpaper_apply $file
-		;;
-	1)
-		swww_reset
-		file=$(cycle_files $GIF_DIR "0")
-		swww_apply $file
-		;;
-	2)
-		swww_reset
-		file=$(cycle_files $REGULAR_DIR "0")
-		swww_apply $file
-		;;
-	*)
-		echo "Second argument must be either \`--reset\`, \`--next\` or \`--prev\`."
-		exit 1
-		;;
-	esac
 	;;
 *)
 	echo "First argument must be either \`--swww-gifs\`, \`--swww-wallpaper\` or \`--mpvpaper\`."

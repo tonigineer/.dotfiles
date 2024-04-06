@@ -1,0 +1,45 @@
+@import "../colors.scss";
+
+.header {
+    color: $foreground;
+    font-size: 16px;
+    font-weight: bold;
+    margin-left: 15px;
+    margin-top: 10px;
+    border-bottom: solid 2px $nuance-three;
+    padding-left: 5px;
+    padding-right: 5px;
+    border-bottom-left-radius: 3px;
+    border-bottom-right-radius: 3px;
+}
+
+.wallpaper-engine-box {
+    margin: 15px;
+    margin-top: 10px;
+    margin-bottom: 5px;
+}
+
+.wallpaper-engine-button {
+    background-size: 70%;
+    background-position: center;
+    min-height: 80px;
+    min-width: 80px;
+    background-repeat: no-repeat;
+    color: $nuance-three;
+    // margin-left: 10px;
+}
+
+.wallpaper-engine-button.active{
+    background-color: $main-opace;
+    border-color: $nuance-three;
+    // border-bottom: solid 2px;
+    border-radius: 7px;
+    border-bottom-left-radius: 7px;
+    border-bottom-right-radius: 7px;
+    // padding-left: 0px;
+}
+
+.wallpaper-engine-button.inactive{
+    // border-radius: 100%;
+    border-color: $transparent;
+}

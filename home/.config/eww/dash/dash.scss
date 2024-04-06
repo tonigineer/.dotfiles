@@ -1,0 +1,45 @@
+@import "../colors.scss";
+// @import "dialogs.scss";
+
+*{
+  all: unset;
+}
+
+.entire-dash {
+  background: $main;
+  background-color: $background;
+  font-family: 'JetBrains Mono Nerd Font';
+  border: solid 2px $background;
+  border-radius: 5px;
+}
+
+tooltip {
+  background: $background;
+  border: 1.5px solid $main;
+  border-radius: 5px;
+}
+
+tooltip label {
+  color: $foreground;
+}
+
+// Container left
+// @import "launcher.scss";
+// @import "system.scss";
+// @import "updates.scss";
+// @import "player.scss";
+@import "hyprland.scss";
+@import "wallpaper.scss";
+
+
+// Container center
+// @import "workspaces.scss";
+
+
+// Container right
+// @import "network.scss";
+// @import "wallpaper.scss";
+// @import "volume.scss";
+// @import "datetime.scss";
+// @import "system-tray.scss";
+// @import "powermenu.scss";

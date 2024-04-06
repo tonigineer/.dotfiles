@@ -1,0 +1,45 @@
+(defvar wallpaper_engine 0)
+
+(defwidget wallpaper []
+    (box :orientation "v" :space-evenly "false" :spacing 10
+        (label :class "header" :halign "start"
+            :text "Wallpaper"
+        )
+        (box :orientation "h" :spacing 0 :space-evenly "true"
+            :class "wallpaper-engine-box"
+            (box
+                :style "background-image: url('dash/images/jpg-svgrepo-com.svg');"
+                :class {wallpaper_engine == 0 ? "wallpaper-engine-button active" : "wallpaper-engine-button"}
+                (eventbox
+                    :onscroll {wallpaper_engine == 0 ? "scripts/wallpaper.sh --swww-wallpaper {} &" : ""}
+                    (button
+                        :onclick "${eww} update wallpaper_engine=0; scripts/wallpaper.sh --swww-wallpaper --reset &"
+                        ""
+                    )
+                )
+            )
+            (box
+                :style "background-image: url('dash/images/gif-svgrepo-com.svg');"
+                :class {wallpaper_engine == 1 ? "wallpaper-engine-button active" : "wallpaper-engine-button"}
+                (eventbox
+                    :onscroll {wallpaper_engine == 1 ? "scripts/wallpaper.sh --swww-gifs {} &" : ""}
+                    (button
+                        :onclick "${eww} update wallpaper_engine=1; scripts/wallpaper.sh --swww-gifs --reset &"
+                        ""
+                    )
+                )
+            )
+            (box
+                :style "background-image: url('dash/images/mpg-svgrepo-com.svg');"
+                :class {wallpaper_engine == 2 ? "wallpaper-engine-button active" : "wallpaper-engine-button"}
+                (eventbox
+                    :onscroll {wallpaper_engine == 2 ? "scripts/wallpaper.sh --mpvpaper {} &" : ""}
+                    (button
+                        :onclick "${eww} update wallpaper_engine=2; scripts/wallpaper.sh --mpvpaper --reset &"
+                        ""
+                    )
+                )
+            )
+        )
+    )
+)
