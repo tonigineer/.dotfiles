@@ -3,7 +3,7 @@
 (defwidget powermenu []
     (eventbox
         ; :onhover "${eww} update powermenu_state=true"
-        ; :onhoverlost "${eww} update powermenu_state=false"
+        :onhoverlost "${eww} update powermenu_state=false"
         (box
             :orientation "h"
             :space-evenly "false"
@@ -20,7 +20,7 @@
                         :onclick "
                             eww update confirm_dialog_prompt=\"Shutdown computer?\";
                             eww update confirm_dialog_command=\"systemctl poweroff\";
-                            eww open confirm_dialog --screen 0
+                            eww open confirm_dialog --screen 1
                         " "󰐥")
                     (button
                         :class "powermenu button-restart"
@@ -28,7 +28,7 @@
                         :onclick "
                             eww update confirm_dialog_prompt=\"Restart computer?\";
                             eww update confirm_dialog_command=\"systemctl reboot\";
-                            eww open confirm_dialog --screen 0
+                            eww open confirm_dialog --screen 1
                         " "󰜉")
                     (button
                         :class "powermenu button-suspend"
@@ -36,7 +36,7 @@
                         :onclick "
                             eww update confirm_dialog_prompt=\"Suspend computer?\";
                             eww update confirm_dialog_command=\"systemctl suspend\";
-                            eww open confirm_dialog --screen 0
+                            eww open confirm_dialog --screen 1
                         " "󱖐")
                     ; (button
                     ;     :class "powermenu button-logout"
@@ -60,7 +60,8 @@
                 :class {powermenu_state == true ? "powermenu button-close" : "powermenu button-open"}
                 :tooltip {powermenu_state == true ? "Close powermenu" : "Open powermenu"}
                 :onclick {powermenu_state == true ? "eww update powermenu_state=false" : "eww update powermenu_state=true"}
-                {powermenu_state == true ? "" : ""}
+                ;; {powermenu_state == true ? "" : ""}
+                {powermenu_state == true ? "󰤁" : "󰤂"}
             )
         )
     )

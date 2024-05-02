@@ -1,15 +1,20 @@
 $transparent:         rgba(255, 255, 255, 0);
 
-$foreground:          rgba(250, 247, 254, 1.0);
-$foreground-opace:    rgba(250, 247, 254, 0.75);
-$background:          rgba(0, 0, 0, 0.85);
-$background-opace:    rgba(11, 17, 27, 0.5);
+$white:          rgba(250, 247, 254, 1.0);
+$white-opace:    rgba(250, 247, 254, 0.75);
+$black:          rgba(0, 0, 0, 1.0);
+$black-opace:    rgba(0, 0, 0, 0.15);;
 
-$main:                #61ffca;
-$main-opace:          rgba(97, 255, 202, 0.25);
-$nuance-one:          #ffca85;
-$nuance-one-opace:    rgba(255, 202, 133, 0.5);
-$nuance-two:          #8F5BFF;
-$nuance-two-opace:    rgba(143, 91, 255, 0.5);
-$nuance-three:        #ff6767;
-$nuance-three-opace:  rgba(255, 103, 103, 0.5);
+
+$green:           #61ffca;
+$green-opace:     rgba(97, 255, 202, 0.25);
+$blue:            rgb(37, 201, 243);
+$blue-opace:      rgba(37, 201, 243, 0.25);
+$red:             #ff6767;
+$red-opace:       rgba(255, 103, 103, 0.5);
+$yellow:          rgba(241, 192, 125, 1.0);
+$yellow-opace:    rgba(241, 192, 125, 0.5);
+$magenta:         #61023C;
+$magenta-opace:   rgba(75, 2, 54, 0.5);
+
+

@@ -5,15 +5,15 @@
     (box :class "updates_container" :orientation "h" :halign "center" :valign "center"
         :space-evenly "false"
         :tooltip {updates_available > 0 ? "Updates: ${updates_available}" : "System up-to-date |  ${packages_installed}"}
-        (button 
+        (button
             :onclick {updates_available >= 0 ? "alacritty --title \"aur-updates float\" -e sh -c \"yay -Syu\" && eww update updates_available=0 &" : ""}
             :class "updates_icon"
             {updates_available > 0 ? "󱧘" : "󰏗"}
         )
         (button
             :onclick {updates_available > 0 ? "alacritty --title \"aur-updates float\" -e sh -c \"yay -Syu\" && eww update updates_available=0 &" : ""}
-            :class {updates_available == 0 ? "updates_number" : updates_available <= 10 ? "updates_number low" : updates_available <= 25 ? "updates_number medium" : "updates_number high"}
-            "${updates_available}"
+            :class {updates_available == 0 ? "updates_number" : updates_available <= 10 ? "updates_number low" : updates_available <= 40 ? "updates_number medium" : "updates_number high"}
+            {updates_available == 0 ? "󰘾" : updates_available}
         )
     )
 )

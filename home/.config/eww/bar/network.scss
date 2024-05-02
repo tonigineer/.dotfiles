@@ -3,10 +3,11 @@
 .network_box {
     margin-right: 0px;
     border-bottom: solid 2px $transparent;
+    margin-right: 20px;
 }
 
 .network_down_icon {
-    color: $main;
+    color: $blue;
     padding-left: 5px;
     padding-right: 5px;
 }
@@ -15,24 +16,24 @@
     padding-top: 2px;
     padding-left: 5px;
     padding-right: 5px;
-    font-size: 16px;
+    font-size: 15px;
     font-weight: bold;
 }
 
 .network_separator {
-    color: $nuance-three;
+    color: $red;
 }
 
 .network_up {
     padding-top: 2px;
     padding-left: 5px;
     padding-right: 5px;
-    font-size: 16px;
+    font-size: 15px;
     font-weight: bold;
 }
 
 .network_up_icon {
-    color: $main;
+    color: $blue;
     padding-left: 5px;
     padding-right: 5px;
 }

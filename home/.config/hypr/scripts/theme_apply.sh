@@ -1,12 +1,12 @@
 #!/usr/bin/env bash
 
+# https://wiki.archlinux.org/title/GTK
+
 THEME=$1
 ICONS=$2
 CURSOR=$3
 CURSOR_SIZE=$4
 FONT=$5
-
-# https://wiki.archlinux.org/title/GTK
 
 # GTK 2
 echo \

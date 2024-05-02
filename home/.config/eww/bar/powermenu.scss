@@ -9,44 +9,44 @@
 
 
 .powermenu.button-shutdown {
-  color: $nuance-three;
-  border-bottom: solid 2px $main-opace;
+  color: $red;
+  // border-bottom: solid 2px $blue;
   border-bottom-left-radius: 2px;
 }
 
 .powermenu.button-restart {
-  color: $nuance-two;
-  border-bottom: solid 2px $main-opace;
+  color: $yellow;
+  // border-bottom: solid 2px $blue;
 }
 
 .powermenu.button-suspend {
-  color: $nuance-one;
-  border-bottom: solid 2px $main-opace;
+  color: $green;
+  // border-bottom: solid 2px $blue;
 }
 
 .powermenu.button-logout {
-  color: $foreground;
-  border-bottom: solid 2px $main-opace;
+  color: $white;
+  // border-bottom: solid 2px $blue;
 }
 
 .powermenu.button-lock {
-  color: $main-opace;
-  border-bottom: solid 2px $main-opace;
+  color: $blue;
+  // border-bottom: solid 2px $blue;
   border-bottom-right-radius: 2px;
 }
 
 .powermenu.button-open {
-  color: $nuance-three;
-  border-bottom: solid 2px $transparent;
+  color: $blue;
+  // border-bottom: solid 2px $transparent;
 }
 
 .powermenu.button-close {
-  color: $main;
-  border-bottom: solid 2px $transparent;
+  color: $blue;
+  // border-bottom: solid 2px $transparent;
 }
 
 
 .powermenu button:hover {
-  border-bottom: solid 2px $nuance-three;
+  // border-bottom: solid 2px $red;
   border-radius: 3px;
 }

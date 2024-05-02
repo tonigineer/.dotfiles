@@ -1,3 +1,9 @@
 (defvar eww "eww -c $HOME/.config/eww")
 
 (include "bar/bar.yuck")
+
+(include "windows/dialogs.yuck")
+
+(include "notify/volume.yuck")
+(include "notify/generic.yuck")
+

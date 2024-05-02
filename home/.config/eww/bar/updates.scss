@@ -2,8 +2,8 @@
 
 .updates_container {
   margin-left: 15px;
-  border-bottom: solid 2px $main;
-  border-radius: 3px;
+  // border-bottom: solid 2px $blue;
+  // border-radius: 3px;
   padding-left: 5px;
   padding-right: 5px;
 }
@@ -16,19 +16,21 @@
 }
 
 .updates_number.low {
-  color: $nuance-one;
+  color: $green;
 }
 
 .updates_number.medium {
-  color: $nuance-three;
+  color: $yellow;
 }
 
 .updates_number.high {
-  color: $nuance-two;
+  color: $red;
 }
 
 
 .updates_icon {
-  color: $main;
-  font-size: 1.5rem;
+  color: $blue;
+  font-size: 1.4rem;
+  font-weight: bold;
 }
+

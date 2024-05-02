@@ -1,13 +1,21 @@
 * {
     font:           "CaskaydiaCove Nerd Font 12";
 
+    // background:     #140e1a;
+    // background-alt: #3d375e22;
+    // foreground:     #82e2ff77;
+    // selected:       #61ffca;
+    // active:         #61ffca;
+    // urgent:         #ff6767;
+    // text:           #f694ff;
+
     background:     #140e1a;
     background-alt: #3d375e22;
-    foreground:     #82e2ff77;
-    selected:       #61ffca;
-    active:         #61ffca;
+    foreground:     #25c9f3;
+    selected:       #f1c07d;
+    active:         #f1c07d;
     urgent:         #ff6767;
-    text:           #f694ff;
+    text:           #ffffff;
 }
 
 configuration {
@@ -129,7 +137,7 @@ listview {
     reverse:                     false;
     fixed-height:                true;
     fixed-columns:               true;
-    
+
     spacing:                     5px;
     margin:                      0px;
     padding:                     10px;

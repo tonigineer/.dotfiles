@@ -1,0 +1,40 @@
+@import "../colors.scss";
+
+.confirm-dialog-box {
+    background-color: rgba(11, 17, 27, 0.65);
+    // background-color: $blue-opace;
+    border: 0.25px solid $blue;
+    border-radius: 15px;
+    padding: 2px;
+    font-size: 1.5rem;
+}
+
+.confirm-dialog-prompt {
+    // border-bottom: 1px dotted $blue;
+    color: $yellow;
+    padding-bottom: 5px;
+}
+
+.confirm-dialog-buttons {
+    background-color: $transparent;
+    padding-top: 5px;
+}
+
+.confirm-dialog-box button {
+    // border-bottom: 1px solid $transparent;
+    border-radius: 3px;
+    padding-bottom: 5px;
+}
+
+.confirm-dialog-box button:hover {
+    // border-bottom: 1px solid $red;
+    color: $blue;
+}
+
+.confirm-dialog-no {
+    color: $white;
+}
+
+.confirm-dialog-yes {
+    color: $green;
+}

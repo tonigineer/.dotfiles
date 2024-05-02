@@ -1,0 +1,31 @@
+
+(defpoll volume :interval "0.05s"
+              :initial 0  ; optional, defaults to poll at startup
+  `~/.config/hypr/scripts/soundctl.sh --volume`)
+
+(defpoll mute :interval "0.05s"
+              :intiial false
+              `~/.config/hypr/scripts/soundctl.sh --is-muted`)
+
+(defwindow notify-volume []
+    :monitor '["ROG XG27UQR"]'
+    :geometry (geometry :x "0%"
+                        :y "10%"
+                        :width "40%"
+                        :height "2%"
+                        :anchor "bottom center")
+    :stacking "fg"
+    :exclusive false
+    :focusable false
+    :namespace "volume_indicator"
+    (box :orientation "v"
+        (scale :class { mute == "no" ? "volume-bar" : "volume-bar mute"}
+               :value volume
+               :orientation "h"
+               :flipped false
+               :max 100
+               :min 0
+        )
+
+      )
+)

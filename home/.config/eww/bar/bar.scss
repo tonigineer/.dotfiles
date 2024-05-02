@@ -1,5 +1,5 @@
 @import "../colors.scss";
-@import "dialogs.scss";
+
 
 *{
   all: unset;
@@ -7,39 +7,83 @@
 
 .entire-bar {
   background: transparent;
-  background-color: $background-opace;
+  background-color: $black-opace;
   font-family: 'JetBrains Mono Nerd Font';
   font-size: 20px;
   margin-top: 0px;
   margin-bottom: 0px;
   padding-top: 2px;
+  border-bottom-left-radius: 20px;
+  border-bottom-right-radius: 20px;
 }
 
 tooltip {
-  background: $background;
-  border: 1.5px solid $main;
+  background: $black-opace;
+  border: 1.5px solid $blue;
   border-radius: 5px;
 }
 
 tooltip label {
-  color: $foreground;
+  color: $white;
 }
 
-// Container left
-@import "launcher.scss";
-@import "system.scss";
+
+// ------ Left ------ //
+.launcher {
+  color: $blue;
+  margin-left: 15px;
+  margin-bottom: 2px;
+}
+
 @import "updates.scss";
-@import "player.scss";
+@import "system.scss";
+
+// ------ Center ------ //
+.workspaces {
+  font-weight: normal;
+  font-size: 18px;
+}
+
+.workspace {
+  padding-left: 3px;
+  padding-right: 3px;
+  border-bottom: solid 1.0px $transparent;
+  // border-bottom: solid 1.25px $transparent;
+  border-radius: 0px;
+  color: $blue-opace;  // unoccupied
+}
+
+.workspace button:hover {
+  background-color: $blue;
+}
+
+.workspace.occupied {
+  color: $white-opace;
+  // border-top: solid 0.5px $yellow-opace;
+  // border-bottom: solid 1.25px $yellow-opace;
+  border-radius: 3px;
+}
+
+.workspace.focused {
+  // border-top: solid 0.5px $yellow;
+  // border-left: solid 1.25px $yellow;
+  border-radius: 0px;
+  color: $blue;
+}
+
+.left {
+  // border-left: solid 0.5 $yellow;
+  border-bottom: solid 1.25px $yellow;
+}
+
+.right {
+  // border-right: solid 0.5 $yellow;
+  border-bottom: solid 1.25px $green;
+}
 
 
-// Container center
-@import "workspaces.scss";
-
-
-// Container right
-@import "network.scss";
-@import "wallpaper.scss";
-@import "volume.scss";
-@import "datetime.scss";
-@import "system-tray.scss";
+// ------ Right ------ //
 @import "powermenu.scss";
+@import "datetime.scss";
+@import "network.scss";
+

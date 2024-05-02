@@ -2,18 +2,18 @@
 
 .clock {
   font-weight: normal;
-  color: $foreground;
+  color: $white;
   padding-left: 0px;
   padding-right: 0px;
   padding-top: 0px;
-  font-size: 1.25rem;
+  font-size: 1.1rem;
   font-weight: bold;
   // border-bottom: solid 2px $background;
 }
 
 .calendar {
-  background-color: $background;
-  border: solid 1px $foreground;
+  background-color: $black-opace;
+  border: solid 2px $blue;
   border-radius: 10px;
   padding: 5px 5px 5px 5px;
 }
@@ -28,21 +28,21 @@
 }
 
 calendar:selected {
-  color: $nuance-three;
+  color: $red;
   font-weight: bold;
 }
 
 calendar.header {
   padding: 10px;
-  color: $foreground;
+  color: $white;
 }
 
 calendar.button {
-  color: $nuance-two;
+  color: $yellow;
 }
 
 calendar.highlight {
-  color: $main;
+  color: $green;
 
 }
 

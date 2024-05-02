@@ -2,7 +2,7 @@
 
 yay -S alacritty neovim-git vim zsh \
     curl eza unzip tar wget zip \
-    btop cava cmatrix neofetch\
+    btop-git cava-git cmatrix-git neofetch tty-clock-git \
     ttf-jetbrains-mono-nerd ttf-cascadia-code-nerd
 
 # Link all configs
@@ -12,6 +12,8 @@ source $SCRIPT_DIR/utils.sh
 create_symlink .bashrc
 create_symlink .bash_profile
 create_symlink .bash_aliases
+
+create_symlink .local/bin
 
 create_symlink .config/btop
 create_symlink .config/cava
