@@ -109,6 +109,9 @@ export EDITOR=vim; visudo
 su - toni
 ```
 
+> [!TIP]
+> Corresponding script for the remaining steps in this section `curl -L https://github.com/tonigineer/.dotfiles/blob/main/scripts/arch_init.sh | bash`
+
 Set timezone and locale.
 
 ```bash
@@ -117,17 +120,17 @@ hwclock --systohc
 
 sed -i 's/#en_US.UTF-8/en_US.UTF-8/g' /etc/locale.gen  # or use vim
 locale-gen
-echo "LANG=en_US.UTF-8 > /etc/locale.conf
+echo "LANG=en_US.UTF-8" > /etc/locale.conf
 ```
 
 Set hostname and hosts.
 
 ```bash
-echo "Z790" > /etc/hostname
+echo "Z790E" > /etc/hostname
 echo "
 127.0.0.1 localhost
 ::1 localhost
-127.0.0.1 Z790.localadmin Z790" >> /etc/hosts
+127.0.0.1 Z790E.localadmin Z790E" >> /etc/hosts
 ```
 
 ## Install Grub
