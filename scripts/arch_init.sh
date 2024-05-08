@@ -2,10 +2,6 @@
 
 echo "Initial settings for Arch Linux"
 
-echo -n ">> Enable NetworkManager "
-systemctl enable NetworkManager
-# [[ $? -eq 0 ]] && echo "✓" || echo "✕" 
-
 echo -n ">> Setting timezone "
 ln -sf /usr/share/zoneinfo/Europe/Berlin /etc/localtime
 
@@ -23,3 +19,7 @@ echo "
 127.0.0.1 localhost
 ::1 localhost
 127.0.0.1 Z790E.localadmin Z790E" >> /etc/hosts
+
+echo -n ">> Enable NetworkManager "
+systemctl enable NetworkManager
+# [[ $? -eq 0 ]] && echo "✓" || echo "✕" 

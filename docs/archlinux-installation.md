@@ -109,9 +109,6 @@ export EDITOR=vim; visudo
 su - toni
 ```
 
-> [!TIP]
-> Corresponding script for the remaining steps in this section `bash <(curl -Ls https://raw.githubusercontent.com/tonigineer/.dotfiles/main/scripts/arch_init.sh)`
-
 Set timezone and locale.
 
 ```bash
@@ -133,6 +130,9 @@ echo "
 127.0.0.1 Z790E.localadmin Z790E" >> /etc/hosts
 ```
 
+> [!TIP] Corresponding script
+> `bash <(curl -Ls https://raw.githubusercontent.com/tonigineer/.dotfiles/main/scripts/arch_init.sh)`
+
 ## Install Grub
 
 Install packages and grub:
@@ -144,8 +144,8 @@ grub-install --target=x86_64-efi --efi-directory=/boot --bootloader-id=GRUB
 grub-mkconfig -o /boot/grub/grub.cfg 
 ```
 
-> [!TIP]
-> Corresponding script `bash <(curl -Ls https://raw.githubusercontent.com/tonigineer/.dotfiles/main/scripts/arch_grub.sh)`
+> [!TIP] Corresponding script
+> `bash <(curl -Ls https://raw.githubusercontent.com/tonigineer/.dotfiles/main/scripts/arch_grub.sh)`
 
 
 ## Finalize

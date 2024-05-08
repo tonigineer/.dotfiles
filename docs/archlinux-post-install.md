@@ -26,8 +26,24 @@ Color
 ILoveCandy
 ```
 
-Some miscellaneous:
+Some quality of life changes for Vim
 
 ```bash
-echo "set noswapfile" > ~/.vimrc
+echo "syntax on
+filetype on
+set noswapfile
+set cursorcolumn
+set number
+set expandtab
+set tabstop=4
+set softtabstop=4
+set shiftwidth=4
+set autoindent
+set textwidth=80
+set nobackup
+set hlsearch
+set showmatch" > ~/.vimrc
 ```
+
+> [!TIP] Corresponding script
+> `bash <(curl -Ls https://raw.githubusercontent.com/tonigineer/.dotfiles/main/scripts/arch_mandatory.sh)`
