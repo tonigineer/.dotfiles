@@ -110,7 +110,7 @@ su - toni
 ```
 
 > [!TIP]
-> Corresponding script for the remaining steps in this section `curl -L https://github.com/tonigineer/.dotfiles/blob/main/scripts/arch_init.sh | bash`
+> Corresponding script for the remaining steps in this section `bash <(curl -Ls https://raw.githubusercontent.com/tonigineer/.dotfiles/main/scripts/arch_init.sh)`
 
 Set timezone and locale.
 
@@ -143,6 +143,10 @@ pacman -S grub efibootmgr dosfstools mtools os-prober
 grub-install --target=x86_64-efi --efi-directory=/boot --bootloader-id=GRUB
 grub-mkconfig -o /boot/grub/grub.cfg 
 ```
+
+> [!TIP]
+> Corresponding script `bash <(curl -Ls https://raw.githubusercontent.com/tonigineer/.dotfiles/main/scripts/arch_grub.sh)`
+
 
 ## Finalize
 
