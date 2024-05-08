@@ -7,7 +7,7 @@ echo ">> Configure pacman"
 sudo sed -i 's\#Color\Color\g' /etc/pacman.conf
 sudo sed -i 's/#ParallelDownloads = 5/ILoveCandy\nParallelDownloads = 10/g' /etc/pacman.conf
 
-sudo sed -i 's/#[multilib]\n#Include = /etc/pacman.d/mirrorlist/[multilib]\nInclude = /etc/pacman.d/mirrorlist/g' /etc/pacman.conf
+sudo sed -i 's%#[multilib]\n#Include = /etc/pacman.d/mirrorlist%[multilib]\nInclude = /etc/pacman.d/mirrorlist%g' /etc/pacman.conf
 
 
 echo ">> Configure VIM"
