@@ -7,8 +7,6 @@
 cd "$(dirname "$0")" || exit
 REPO_DIR=$(git rev-parse --show-toplevel)
 
-source "$REPO_DIR/scripts/coloring.sh"
-
 function target_dir() { echo "/home/$USER/$1"; }
 function source_dir() { echo "$REPO_DIR/home/$1"; }
 

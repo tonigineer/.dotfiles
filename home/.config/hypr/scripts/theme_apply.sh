@@ -8,6 +8,8 @@ CURSOR=$3
 CURSOR_SIZE=$4
 FONT=$5
 
+[ ! -d ~/.config/gtk-3.0 ] && mkdir ~/.config/gtk-3.0
+
 # GTK 2
 echo \
 	"gtk-icon-theme-name = \"${ICONS}\"

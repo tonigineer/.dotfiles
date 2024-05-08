@@ -25,3 +25,5 @@ function custom_prompt {
 }
 
 PROMPT_COMMAND="custom_prompt; ${PROMPT_COMMAND}"
+
+[[ $(tty) == '/dev/tty1' && ! $DISPLAY ]] && echo laeuft
