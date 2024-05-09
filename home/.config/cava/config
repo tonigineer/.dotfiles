@@ -4,16 +4,16 @@
 [general]
 
 # Smoothing mode. Can be 'normal', 'scientific' or 'waves'. DEPRECATED as of 0.6.0
-; mode = normal
+mode = normal
 
 # Accepts only non-negative values.
-; framerate = 144
+framerate = 14
 
 # 'autosens' will attempt to decrease sensitivity if the bars peak. 1 = on, 0 = off
 # new as of 0.6.0 autosens of low values (dynamic range)
 # 'overshoot' allows bars to overshoot (in % of terminal height) without initiating autosens. DEPRECATED as of 0.6.0
-; autosens = 1
-; overshoot = 20
+autosens = 1
+overshoot = 0
 
 # Manual sensitivity in %. Autosens must be turned off for this to take effect.
 # 200 means double height. Accepts only non-negative values.
@@ -22,8 +22,8 @@
 # The number of bars (0-200). 0 sets it to auto (fill up console).
 # Bars' width and space between bars in number of characters.
 ; bars = 0
-bar_width = 2
-bar_spacing = 1
+bar_width = 1.5
+bar_spacing = 0.1
 
 
 # Lower and higher cutoff frequencies for lowest and highest bars
@@ -153,12 +153,13 @@ gradient_color_4 = '#ea9a97'
 gradient_color_5 = '#f6c177'
 gradient_color_6 = '#eb6f92'
 
-
-#gradient_color_1 = '#7575a3'
-#gradient_color_2 = '#66d9ff'
-#gradient_color_3 = '#99ffeb'
-#gradient_color_4 = '#b3ecff'
-#gradient_color_5 = '#ccfff5'
+gradient = 1
+gradient_count = 5
+gradient_color_2 = '#66d9ff'
+gradient_color_1 = '#7575a3'
+gradient_color_3 = '#99ffeb'
+gradient_color_4 = '#b3ecff'
+gradient_color_5 = '#ccfff5'
 
 [smoothing]
 

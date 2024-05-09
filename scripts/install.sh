@@ -6,12 +6,13 @@ source "$SCRIPT_DIR/utils.sh"
 setup=$1
 
 install_base() {
-    yay -S hyprland hyprpicker-git hyprlock-git hyprpaper-git \
+    yay -S hyprland hyprpicker hyprlock hyprpaper hypridle \
         firefox discord_arch_electron \
         mpvpaper-git yt-dlp \
         rofi-lbonn-wayland-only-git \
         eww-git socat net-tools inetutils iwd jq \
-        grim-git slurp-git vlc wf-recorder
+        grim-git slurp-git vlc wf-recorder swappy wl-clipboard imagemagick \
+        polkit-gnome
 
     create_symlink .config/eww
     create_symlink .config/hypr
@@ -26,11 +27,15 @@ install_base() {
 }
 
 install_audio() {
-    yay -S pavucontrol pipewire-pulse pipewire-alsa pipewire-audio playerctl pamixer \
-        bluez bluez-utils
+    # https://wiki.archlinux.org/title/bluetooth
+    yay -S bluez bluez-utils
 
     sudo systemctl enable bluetooth.service
     sudo systemctl start bluetooth.service
+
+    # https://wiki.archlinux.org/title/PipeWire
+    yay -S pipewire wireplumber pipewire-audio pipewire-alsa pipewire-pulse \
+        pipewire-jack pipewire-audio pavucontrol playerctl
 }
 
 install_theme() {
@@ -101,11 +106,11 @@ case $setup in
     ;;
 
     audio)
-    install_terminal
+    install_audio
     ;;
 
     theme)
-    install_terminal
+    install_theme
     ;;
 
     *)

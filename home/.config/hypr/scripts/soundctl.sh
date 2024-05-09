@@ -24,8 +24,9 @@ is_muted() {
 # }
 
 volume() {
-	printf "%02d\n" $(pamixer --get-volume)
+	pactl get-sink-volume @DEFAULT_SINK@ | grep -o -P '[0-9]*(\.[0-9]*)?(?=%)' | head -1
 
+	# printf "%02d\n" $(pamixer --get-volume)
 	# pactl list sink-inputs |
 	# 	grep Volume |
 	# 	cut -d '/' -f2 |

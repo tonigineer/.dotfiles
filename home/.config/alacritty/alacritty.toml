@@ -46,7 +46,7 @@ blinking = "On"
 TERM = "xterm-256color"
 
 [font]
-size = 13.0
+size = 12.0
 
 [font.bold]
 family = "JetBrainsMono Nerd Font Mono"
