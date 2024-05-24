@@ -2,21 +2,21 @@
 (defvar confirm_dialog_prompt "")
 
 (defwindow confirm_dialog
-    :monitor 1
-    :geometry (geometry :x "0%"
-                        :y "7.5%"
-                        :width "15%"
-                        :height "75px"
-                        :anchor "center top")
-    :stacking "overlay"
-    :wm-ignore true
-    (box :orientation "v":class "confirm-dialog-box"
-        (label :class "confirm-dialog-prompt" :text "${confirm_dialog_prompt}")
-        (box :class "confirm-dialog-buttonselkowar/yuck.vim"
-            (button :class "confirm-dialog-yes"
-                :onclick "${confirm_dialog_command}; ${eww} close confirm_dialog" "")
-            (button :class "confirm-dialog-no"
-                :onclick "eww close confirm_dialog" "")
-        )
+  :monitor 0
+  :geometry (geometry :x "0%"
+    :y "7.5%"
+    :width "15%"
+    :height "75px"
+  :anchor "center top")
+  :stacking "overlay"
+  :wm-ignore true
+  (box :orientation "v":class "confirm-dialog-box"
+    (label :class "confirm-dialog-prompt" :text "${confirm_dialog_prompt}")
+    (box :class "confirm-dialog-buttonselkowar/yuck.vim"
+      (button :class "confirm-dialog-yes"
+      :onclick "${confirm_dialog_command}; ${eww} close confirm_dialog" "")
+      (button :class "confirm-dialog-no"
+      :onclick "eww close confirm_dialog" "")
     )
+  )
 )

@@ -47,3 +47,12 @@ fi
 if command -v cmatrix &>/dev/null; then
 	alias matrix="cmatrix -ab -C yellow"
 fi
+
+# Directories
+alias ..='cd ..'
+alias ...='cd ../..'
+alias .3='cd ../../..'
+alias .4='cd ../../../..'
+alias .5='cd ../../../../..'
+
+alias mkdir='mkdir -p'

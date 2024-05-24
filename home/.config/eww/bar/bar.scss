@@ -1,7 +1,7 @@
 @import "../colors.scss";
 
 
-*{
+* {
   all: unset;
 }
 
@@ -50,7 +50,7 @@ tooltip label {
   border-bottom: solid 1.0px $transparent;
   // border-bottom: solid 1.25px $transparent;
   border-radius: 0px;
-  color: $blue-opace;  // unoccupied
+  color: $blue-opace; // unoccupied
 }
 
 .workspace button:hover {
@@ -83,7 +83,7 @@ tooltip label {
 
 
 // ------ Right ------ //
+@import "misc.scss";
 @import "powermenu.scss";
 @import "datetime.scss";
 @import "network.scss";
-

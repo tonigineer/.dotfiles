@@ -1,13 +1,13 @@
 (defwindow bar
-    :monitor 1
-    :windowtype "dock"
-    :geometry (geometry :width "100%" :anchor "top center" :height "3%")
-    :exclusive true
-    (box :class "entire-bar" :space-evenly "true"
-        (container_left)
-        (container_center)
-        (container_right)
-    )
+  :monitor 0
+  :windowtype "dock"
+  :geometry (geometry :width "100%" :anchor "top center" :height "3%")
+  :exclusive true
+  (box :class "entire-bar" :space-evenly "true"
+    (container_left)
+    (container_center)
+    (container_right)
+  )
 )
 
 ;; ------ Left ------ ;;
@@ -15,12 +15,12 @@
 (include "bar/updates.yuck")
 
 (defwidget container_left []
-    (box :orientation "h" :halign "start" :space-evenly "false"
-        (launcher)
-        (system)
-        (updates)
-        ;; (player)
-    )
+  (box :orientation "h" :halign "start" :space-evenly "false"
+    (launcher)
+    (system)
+    (updates)
+    ;; (player)
+  )
 )
 
 (defwidget launcher [] (box :orientation "h" :space-evenly "false" (button :class "launcher" :onclick "rofi -show drun &" "") ) )
@@ -30,21 +30,22 @@
 (deflisten workspaces `bash bar/scripts/workspaces.sh`)
 
 (defwidget container_center []
-    (box :orientation "h" :halign "center" :space-evenly "false" (literal :content workspaces ) )
+  (box :orientation "h" :halign "center" :space-evenly "false" (literal :content workspaces ) )
 )
 
 ;; ------ Right ------ ;;
 (include "bar/datetime.yuck")
 (include "bar/powermenu.yuck")
 (include "bar/network.yuck")
+(include "bar/misc.yuck")
 
 (defwidget container_right []
-    (box :orientation "h" :halign "end" :space-evenly "false"
-        ;; (wallpaper)
-        (network)
-        ;; (volume)
-        (datetime)
-        ;; (system-tray)
-        (powermenu)
-    )
+  (box :orientation "h" :halign "end" :space-evenly "false"
+    ;; (wallpaper)
+    (misc)
+    (network)
+    ;; (volume)
+    (datetime)
+    (powermenu)
+  )
 )
