@@ -1,19 +1,26 @@
 (defpoll updates_available :initial 0 :interval "60.0s" "yay -Sy>/dev/null 2>&1 && yay -Qu | wc -l")
-(defpoll packages_installed :initial 0 :interval "30000.0s" "yay -Qa | wc -l")
+(defpoll packages_installed :initial 0 :interval "300.0s" "yay -Qa | wc -l")
+
+(defpoll nvidia_driver_version :initial 0 :interval "300.0s" "nvidia-smi | grep -oP '(?<=Driver Version: )[-+]?[0-9]*\.?[0-9]+'")
 
 (defwidget updates []
-    (box :class "updates_container" :orientation "h" :halign "center" :valign "center"
-        :space-evenly "false"
-        :tooltip {updates_available > 0 ? "Updates: ${updates_available}" : "System up-to-date |  ${packages_installed}"}
-        (button
-            :onclick {updates_available >= 0 ? "alacritty --title \"aur-updates float\" -e sh -c \"yay -Syu\" && eww update updates_available=0 &" : ""}
-            :class "updates_icon"
-            {updates_available > 0 ? "󱧘" : "󰏗"}
-        )
-        (button
-            :onclick {updates_available > 0 ? "alacritty --title \"aur-updates float\" -e sh -c \"yay -Syu\" && eww update updates_available=0 &" : ""}
-            :class {updates_available == 0 ? "updates_number" : updates_available <= 10 ? "updates_number low" : updates_available <= 40 ? "updates_number medium" : "updates_number high"}
-            {updates_available == 0 ? "󰘾" : updates_available}
-        )
+  (box :class "updates container" :orientation "h" :halign "center" :valign "center"
+    :space-evenly "false"
+    :tooltip {updates_available > 0 ? "Updates: ${updates_available}" : "System up-to-date |  ${packages_installed}"}
+    (label :class "updates installed" :text packages_installed)
+    (button
+      :onclick {updates_available >= 0 ? "alacritty --title \"aur-updates float\" -e sh -c \"yay -Syu\" && eww update updates_available=0 &" : ""}
+      :class "updates icon"
+      {updates_available > 0 ? "󱧘" : "󰏗"}
     )
+    (button
+      :onclick {updates_available > 0 ? "alacritty --title \"aur-updates float\" -e sh -c \"yay -Syu\" && eww update updates_available=0 &" : ""}
+      :class {updates_available == 0 ? "updates pending" : updates_available <= 10 ? "updates pending": "updates pending high"}
+      {updates_available == 0 ? "󰘾" : updates_available}
+    )
+    (box :class "gpu box" :orientation "h"
+      (label :class "gpu icon" :text "󱙅")
+      (label :class "gpu version" :text nvidia_driver_version)
+    )
+  )
 )

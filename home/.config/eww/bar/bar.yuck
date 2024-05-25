@@ -37,12 +37,14 @@
 (include "bar/datetime.yuck")
 (include "bar/powermenu.yuck")
 (include "bar/network.yuck")
-(include "bar/misc.yuck")
+(include "bar/tray.yuck")
+(include "bar/monitor.yuck")
 
 (defwidget container_right []
   (box :orientation "h" :halign "end" :space-evenly "false"
     ;; (wallpaper)
-    (misc)
+    (tray)
+    (monitor)
     (network)
     ;; (volume)
     (datetime)

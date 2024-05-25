@@ -2,21 +2,18 @@
 (defpoll steam_running :initial 0 :interval "1.0s" "pgrep steam | wc -l")
 (defpoll spotify_running :initial 0 :interval "1.0s" "pgrep spotify | wc -l")
 
-(defpoll num_monitors :initial 1 :interval "1.0s" "hyprctl monitors | grep Monitor | wc -l")
-; Note, escape backslashes here!
-(defpoll refresh_primary :initial 144 :interval "10.0s" "hyprctl monitors | grep -oP '3840x2160@\\K[0-9]+(\\.[0-9]+)?' | head -n 1")
-(defpoll refresh_secondary :initial 60 :interval "10.0s" "hyprctl monitors | grep -oP '3840x2160@\\K[0-9]+(\\.[0-9]+)?' | head -n 2 | tail -n 1")
-
 (defvar steammenu_state false)
 (defpoll controller_connected :initial false :interval "1.0s" "~/.config/eww/bar/scripts/controller.sh check")
 
 (defvar spotifymenu_state false)
 (defpoll speaker_connected :initial false :interval "1.0s" "~/.config/eww/bar/scripts/speaker.sh check")
-(defpoll spotify_state :initial "Paused" :interval "1.0s" "playerctl status -p spotify")
+(defpoll spotify_state :initial "Paused" :interval "1.0s" "playerctl status -p spotify || echo \"Pause\"")
 
-(defwidget misc []
+(defvar discordmenu_state false)
+
+(defwidget tray []
   (box :orientation "h" :space-evenly "false"
-    :class "system-tray"
+    :class "tray-box"
     ; ----- Spotify -----
     (revealer :transition "slideright"
       :reveal spotifymenu_state
@@ -27,8 +24,8 @@
           :class "button close"
           :onclick "
           eww update confirm_dialog_prompt=\"Close Spotify?\";
-          eww update confirm_dialog_command=\"pkill spotify\";
-          eww open confirm_dialog --screen 1"
+          eww update confirm_dialog_command=\"pkill spotify;eww update spotifymenu_state=false\";
+          eww open confirm_dialog --screen 0"
           :tooltip "Close Spotify"
           {"󱄊"}
         )
@@ -62,13 +59,39 @@
       :tooltip "Open menu | Goto Spotify"
       {spotify_running > 0 ? "" : ""}
     )
+    
+    
     ; ------ Disord ------
+    (revealer :transition "slideright"
+      :reveal discordmenu_state
+      :duration "500ms"
+      (box
+        :orientation "h"
+        (button
+          :class "button close"
+          :onclick "
+          eww update confirm_dialog_prompt=\"Close Discord?\";
+          eww update confirm_dialog_command=\"pkill Discord;eww update discordmenu_state=false\";
+          eww open confirm_dialog --screen 0"
+          :tooltip "Close Discord"
+          {"󱄊"}
+        )
+        (button
+          :class "button move"
+          :onclick "eww update discordmenu_state=false; hyprctl dispatch focuswindow discord"
+          :tooltip "Close Discord"
+          {""}
+        )
+      )
+    )
     (button
       :class {discord_running > 0 ? "app open discord" : "hidden"}
-      :onclick "hyprctl dispatch focuswindow discord"
-      :onrightclick "pkill Discord"
+      :onclick {discordmenu_state == true ? "eww update discordmenu_state=false" : "eww update discordmenu_state=true"}
+      :onrightclick "hyprctl dispatch focuswindow discord"
       {discord_running > 0 ? "󰙯" : ""}
     )
+    
+    
     ; ------ Steam ------
     (revealer :transition "slideright"
       :reveal steammenu_state
@@ -79,8 +102,8 @@
           :class "button close"
           :onclick "
           eww update confirm_dialog_prompt=\"Close steam?\";
-          eww update confirm_dialog_command=\"pkill steam\";
-          eww open confirm_dialog --screen 1"
+          eww update confirm_dialog_command=\"pkill steam;eww update steammenu_state=false\";
+          eww open confirm_dialog --screen 0"
           :tooltip "Close Steam"
           {"󱄊"}
         )
@@ -98,23 +121,6 @@
       :onclick {steammenu_state == true ? "eww update steammenu_state=false" : "eww update steammenu_state=true"}
       :tooltip "Open menu | Goto Steam"
       {steam_running > 0 ? "󰓓" : ""}
-    )
-    (box :orientation "h" :class "separator")
-    ; ------ Monitors ------
-    (button
-      :class "monitor framerate secondary"
-      :onclick "[[ $(hyprctl monitors | grep Monitor | wc -l) == 2 ]] && hyprctl keyword monitor DP-1,disable || hyprctl keyword monitor DP-1,3840x2160@60,3840x0,2.0"
-      {num_monitors == 2 ? round(refresh_secondary, 0) : ""}
-    )
-    (button
-      :class "monitor"
-      :onclick "[[ $(hyprctl monitors | grep Monitor | wc -l) == 2 ]] && hyprctl keyword monitor DP-1,disable || hyprctl keyword monitor DP-1,3840x2160@60,3840x0,2.0"
-      {num_monitors == 1 ? "󰍹" : "󰍺"}
-    )
-    (button
-      :class "monitor framerate primary"
-      :onclick "[[ $(hyprctl monitors | grep Monitor | wc -l) == 2 ]] && hyprctl keyword monitor DP-1,disable || hyprctl keyword monitor DP-1,3840x2160@60,3840x0,2.0"
-      {round(refresh_primary, 0)}
     )
   )
 )

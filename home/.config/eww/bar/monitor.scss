@@ -1,0 +1,27 @@
+@import "../colors.scss";
+
+.monitor-box {
+    padding-right: 10px;
+    margin-left: -5px;
+}
+
+.monitor {
+    font-size: 18px;
+    font-weight: bold;
+}
+
+.framerate {
+    font-size: 10px;
+    font-weight: bold;
+    padding-top: 12px;
+}
+
+.framerate.primary {
+    margin-left: 4px;
+    color: $green;
+}
+
+.framerate.secondary {
+    margin-right: -15px;
+    color: $yellow;
+}

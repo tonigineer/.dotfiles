@@ -1,14 +1,7 @@
 @import "../colors.scss";
 
-.system-tray {
-    border-radius: 3px;
-    margin-left: 5px;
-    margin-right: 15px;
+.tray-box {
     border-bottom: solid 2px $transparent;
-}
-
-.separator {
-    padding-right: 15px;
 }
 
 .app.hidden {
@@ -23,6 +16,10 @@
     color: $white;
 }
 
+.discord {
+    padding-top: 2px;
+}
+
 .app.hidden {
     padding-left: 0px;
     padding-right: 0px;
@@ -30,10 +27,15 @@
 
 .button {
     font-size: 16px;
-    padding-top: 2px;
+    padding-top: 1px;
     padding-right: 6px;
     padding-left: 6px;
 }
+
+.button.move {
+    color: $white;
+}
+
 
 .button.close {
     color: $red;
@@ -45,25 +47,4 @@
 
 .button.disconnected {
     color: $blue;
-}
-
-.monitor {
-    font-size: 18px;
-    font-weight: bold;
-}
-
-.monitor.framerate {
-    font-size: 10px;
-    font-weight: bold;
-    padding-top: 12px;
-}
-
-.monitor.framerate.primary {
-    padding-left: 8px;
-    color: $green;
-}
-
-.monitor.framerate.secondary {
-    padding-right: 0px;
-    color: $yellow;
 }
