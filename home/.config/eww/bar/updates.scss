@@ -1,54 +1,56 @@
 @import "../colors.scss";
 
-.updates.container {
-  // border-bottom: solid 2px $blue;
-  // border-radius: 3px;
-  padding-left: 15px;
-  padding-top: 2px;
+.container {
+  font-size: 10px;
+  font-weight: bold;
+  padding-top: 1px;
 }
+
+.container.updates {
+  padding-left: 10px;
+}
+
+.container.gpu {}
+
+.updates {}
 
 .updates.installed {
-  color: $white;
-  font-size: 10px;
-  font-weight: bold;
-  padding-top: 10px;
-  padding-right: 3px;
+  padding-top: 7px;
 }
 
-.updates.pending {
-  padding-left: 10px;
-  padding-top: 10px;
-  font-size: 10px;
+.updates.done {
+  padding-top: 7px;
   color: $green;
-  font-weight: bold;
+  font-size: 11px;
 }
 
 .updates.pending {
+  padding-top: 7px;
   color: $yellow;
 }
 
 .updates.pending.high {
+  padding-top: 7px;
   color: $red;
 }
 
 .updates.icon {
-  color: $blue;
+  padding-top: 0px;
   font-size: 18px;
-  font-weight: bold;
+  color: $blue;
 }
 
-.gpu.box {
-  padding-left: 10px;
-  color: $blue;
-}
+.gpu {}
 
 .gpu.icon {
   font-size: 18px;
+  color: $blue;
 }
 
 .gpu.version {
-  color: $white;
+  color: $yellow;
   font-weight: bold;
   font-size: 10px;
-  padding-top: 10px;
+  padding-top: 7px;
+  margin-left: -3px;
 }

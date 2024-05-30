@@ -35,12 +35,6 @@ update() {
                     :class \"${C[5]}\" \"${S[5]} ₅\") \
             (button :onclick \"bar/scripts/dispatch.sh 6 --focus-workspace\" :onrightclick \"bar/scripts/dispatch.sh 6 --move-workspace\" \
                     :class \"${C[6]}\" \"${S[6]} ₆\") \
-            (button :onclick \"bar/scripts/dispatch.sh 7 --focus-workspace\" :onrightclick \"bar/scripts/dispatch.sh 7 --move-workspace\" \
-                    :class \"${C[7]}\" \"${S[7]} ₇\") \
-            (button :onclick \"bar/scripts/dispatch.sh 8 --focus-workspace\" :onrightclick \"bar/scripts/dispatch.sh 8 --move-workspace\" \
-                    :class \"${C[8]}\" \"${S[8]} ₈\") \
-            (button :onclick \"bar/scripts/dispatch.sh 9 --focus-workspace\" :onrightclick \"bar/scripts/dispatch.sh 9 --move-workspace\" \
-                    :class \"${C[9]}\" \"${S[9]} ₉\") \
         )\
     )"
 }
