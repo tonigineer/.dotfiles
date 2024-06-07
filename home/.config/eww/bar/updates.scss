@@ -43,14 +43,15 @@
 .gpu {}
 
 .gpu.icon {
-  font-size: 18px;
-  color: $blue;
+  font-size: 14px;
+  margin-top: 2px;
+  // color: $blue;
 }
 
 .gpu.version {
-  color: $yellow;
+  color: $green;
   font-weight: bold;
   font-size: 10px;
   padding-top: 7px;
-  margin-left: -3px;
+  margin-left: -6px;
 }

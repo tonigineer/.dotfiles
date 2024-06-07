@@ -6,39 +6,38 @@
     margin-right: 20px;
 }
 
-.network_down_icon {
-    color: $blue;
-    padding-left: 5px;
-    padding-right: 5px;
-}
-
-.network_down {
-    padding-top: 2px;
-    padding-left: 5px;
-    padding-right: 5px;
-    font-size: 15px;
+.network {
+    font-size: 11px;
     font-weight: bold;
 }
 
-.network_separator {
-    color: $red;
+
+.network.up {
+    margin-top: -8px;
+    min-width: 30px;
+    // font-size: 12px;
+    // font-weight: bold;
 }
 
-.network_up {
-    padding-top: 2px;
-    padding-left: 5px;
-    padding-right: 5px;
-    font-size: 15px;
-    font-weight: bold;
+.network.down {
+    margin-top: 12px;
+    margin-left: -31px;
+    min-width: 30px;
+    // font-size: 12px;
+    // font-weight: bold;
 }
 
-.network_up_icon {
-    color: $blue;
-    padding-left: 5px;
-    padding-right: 5px;
+.network.up_icon {
+    color: $yellow;
+    margin-top: -8px;
 }
 
-.network_mbytes_per_second {
-    font-size: 10px;
-    padding-top: 5px;
+.network.down_icon {
+    color: $green;
+    margin-top: 12px;
+    margin-left: -7px;
+}
+
+.network.off {
+    color: $white-opace;
 }

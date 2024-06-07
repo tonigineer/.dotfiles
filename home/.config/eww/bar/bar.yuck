@@ -23,7 +23,15 @@
   )
 )
 
-(defwidget launcher [] (box :orientation "h" :space-evenly "false" (button :class "launcher" :onclick "rofi -show drun &" "") ) )
+(defwidget launcher [] (box :orientation "h" :space-evenly "false" (
+      button :class "launcher"
+      :tooltip "Open ChatGPT (LMB) or Rofi (RMB)"
+      :onrightclick "rofi -show drun &"
+      :onclick "chromium --app=https://chat.openai.com &"
+      ""
+    )
+  )
+)
 
 
 ;; ------ Center ------ ;;

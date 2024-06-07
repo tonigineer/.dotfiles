@@ -5,17 +5,14 @@
 (defvar network_gui_cmd "alacritty --title \"float nwtui\" -e nmtui &")
 
 (defwidget network []
-    (box :class "network_box" :orientation "h" :halign "center" :valign "center"
-        :space-evenly "false"
-        :tooltip "${interface} ${ip_address} | ${gateway}"
-        ; Dont know why there values are double their actual value
-        ; - therefore /2 when converting from bytes to mega bytes
-        (button :onclick "${network_gui_cmd}" :class "network_down_icon" "󰦗")
-        (button :onclick "${network_gui_cmd}" :class "network_down" "${round(EWW_NET["eno2"]["NET_DOWN"] / 1000000 / 2, 2)}")
-        (label :class "network_mbytes_per_second" :text "Mb/s")
-        (button :onclick "${network_gui_cmd}" :class "network_separator" "|")
-        (button :onclick "${network_gui_cmd}" :class "network_up" "${round(EWW_NET["eno2"]["NET_UP"] / 1000000 / 2, 2)}" )
-        (label :class "network_mbytes_per_second" :text "Mb/s")
-        (button :onclick "${network_gui_cmd}" :class "network_up_icon""󰦘" )
-    )
+  (box :class "network_box" :orientation "h" :halign "center" :valign "center"
+    :space-evenly "false"
+    :tooltip "${interface} ${ip_address} | ${gateway}"
+    ; Dont know why there values are double their actual value
+    ; - therefore /2 when converting from bytes to mega bytes
+    (button :onclick "${network_gui_cmd}" :class "network up" "${round(EWW_NET["eno2"]["NET_UP"] / 1000000 / 2, 1)}" )
+    (button :onclick "${network_gui_cmd}" :class "network down" "${round(EWW_NET["eno2"]["NET_DOWN"] / 1000000 / 2, 1)}")
+    (button :onclick "${network_gui_cmd}" :class {EWW_NET["eno2"]["NET_UP"] / 1000000 / 2 > 0.5 ? "network up_icon" : "network up_icon off"} "󰦘" )
+    (button :onclick "${network_gui_cmd}" :class {EWW_NET["eno2"]["NET_DOWN"] / 1000000 / 2 > 0.5 ? "network down_icon" : "network down_icon off"} "󰦗")
+  )
 )

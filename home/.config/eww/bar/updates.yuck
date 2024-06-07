@@ -25,8 +25,14 @@
       )
     )
     (box :class "container gpu" :orientation "h"
-      (label :class "gpu icon" :text "󱙅")
+      ; (image
+        ;   :path "/home/toni/Downloads/nvidia(2).svg"
+        ;   :image-width 20
+        ;   :image-height 20
+      ; )
+      (label :class "gpu icon" :text "💻")
       (label :class "gpu version" :text nvidia_driver_version)
     )
+    
   )
 )
