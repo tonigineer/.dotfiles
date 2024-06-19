@@ -5,26 +5,24 @@
 }
 
 .system_container {
-  // border-bottom: solid 2px $transparent;
+  // border-bottom: solid 2px $green;
   border-radius: 3px;
-  padding-left: 5px;
   padding-right: 5px;
   margin-left: 5px;
 }
 
 .system_label {
   color: $white;
-  padding-left: 0px;
-  padding-right: 10px;
-  font-size: 1.4rem;
+  padding-right: 4px;
+  font-size: 12px;
+  font-weight: bold;
 
 }
 
 .system_circle {
-  background-color: $blue-opace;
-  // border: 2px solid $white;
+  background-color: $green-opace;
   border-radius: 100%;
-  color: $blue;
+  color: $green;
 }
 
 .system_circle-label {
@@ -35,7 +33,7 @@
 }
 
 .system_cpu_temp {
-  margin-left: 5px;
+  // margin-left: 5px;
   padding-top: 7px;
   font-size: 10px;
   font-weight: bold;
@@ -43,7 +41,23 @@
 
 .system_cpu_temp_high {
   color: $red;
-  margin-left: 5px;
+  // margin-left: 5px;
   padding-top: 7px;
   font-size: 10px;
+}
+
+// .gpu {}
+
+.gpu.icon {
+  font-size: 12px;
+  margin-top: 0px;
+  // color: $blue;
+}
+
+.gpu.version {
+  color: $green;
+  font-weight: bold;
+  font-size: 10px;
+  padding-top: 7px;
+  margin-left: -4px;
 }

@@ -10,48 +10,39 @@
   padding-left: 10px;
 }
 
-.container.gpu {}
+// .container.gpu {}
 
-.updates {}
+.updates {
+  margin-left: -10px;
+}
 
 .updates.installed {
   padding-top: 7px;
+  margin-left: -10px;
 }
 
 .updates.done {
   padding-top: 7px;
   color: $green;
   font-size: 11px;
+  margin-left: 0px;
 }
 
 .updates.pending {
   padding-top: 7px;
   color: $yellow;
+  margin-left: 0px;
 }
 
 .updates.pending.high {
   padding-top: 7px;
   color: $red;
+  margin-left: 0px;
 }
 
 .updates.icon {
   padding-top: 0px;
+  padding-left: 30px;
   font-size: 18px;
   color: $blue;
-}
-
-.gpu {}
-
-.gpu.icon {
-  font-size: 14px;
-  margin-top: 2px;
-  // color: $blue;
-}
-
-.gpu.version {
-  color: $green;
-  font-weight: bold;
-  font-size: 10px;
-  padding-top: 7px;
-  margin-left: -6px;
 }

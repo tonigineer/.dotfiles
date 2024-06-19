@@ -1,25 +1,27 @@
+(defpoll nvidia_driver_version :initial 0 :interval "300.0s" "nvidia-smi | grep -oP '(?<=Driver Version: )[-+]?[0-9]*\.?[0-9]+'")
+
 (defwidget system []
   (box :class "system_widget"  :space-evenly "false"
     (box :class "system_container" :space-evenly "false"
       :tooltip "CPU usage - ${round(EWW_CPU.avg, 1)}%"
       (eventbox
         :onclick "alacritty --title \"float\" -e sh -c \"btop\" &"
-        (label :class "system_label" :text "󰻠")
+        (label :class "system_label" :text "CPU")  ;󰻠
       )
       (box
         (circular-progress :class "system_circle" :value "${EWW_CPU.avg}" :thickness 3 :start-at 75
           (label :class "system_circle-label" :text "${EWW_CPU.avg}")
         )
       )
-      (label
-        :class {"${EWW_TEMPS["CORETEMP_PACKAGE_ID_0"]}" > 65 ? "system_cpu_temp_high" : "system_cpu_temp"}
-      :text "${EWW_TEMPS["CORETEMP_PACKAGE_ID_0"]}󰔄")
+      ; (label
+        ;   :class {"${EWW_TEMPS["CORETEMP_PACKAGE_ID_0"]}" > 65 ? "system_cpu_temp_high" : "system_cpu_temp"}
+      ; :text "${EWW_TEMPS["CORETEMP_PACKAGE_ID_0"]}󰔄")
     )
     (box :class "system_container" :space-evenly "false"
       :tooltip "RAM usage - ${round(EWW_RAM.used_mem / 1000000000, 2)}Gb/${round(EWW_RAM.total_mem / 1000000000, 2)}Gb"
       (eventbox
         :onclick "alacritty --title \"float\" -e sh -c \"btop\" &"
-        (label :class "system_label" :text "󰍛")
+        (label :class "system_label" :text "MEM")  ;󰍛
       )
       (box
         (circular-progress :class "system_circle" :value "${EWW_RAM.used_mem_perc}" :thickness 3 :start-at 75
@@ -31,13 +33,17 @@
       :tooltip "Disc usage - ${round(EWW_DISK["/"].used / 1000000000, 1)}Gb/${round(EWW_DISK["/"].total / 1000000000, 1)}Gb"
       (eventbox
         :onclick "thunar /$HOME &"
-        (label :class "system_label" :text "󱛟")
+        (label :class "system_label" :text "HD")  ;󱛟
       )
       (box
         (circular-progress :class "system_circle" :value "${EWW_DISK["/"].used_perc}" :thickness 3 :start-at 75
           (label :class "system_circle-label" :text "${EWW_DISK["/"].used_perc}")
         )
       )
+    )
+    (box :class "container gpu" :orientation "h"
+      (label :class "gpu icon" :text "GPU")
+      (label :class "gpu version" :text nvidia_driver_version)
     )
   )
 )

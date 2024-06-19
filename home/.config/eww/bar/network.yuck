@@ -10,9 +10,21 @@
     :tooltip "${interface} ${ip_address} | ${gateway}"
     ; Dont know why there values are double their actual value
     ; - therefore /2 when converting from bytes to mega bytes
-    (button :onclick "${network_gui_cmd}" :class "network up" "${round(EWW_NET["eno2"]["NET_UP"] / 1000000 / 2, 1)}" )
-    (button :onclick "${network_gui_cmd}" :class "network down" "${round(EWW_NET["eno2"]["NET_DOWN"] / 1000000 / 2, 1)}")
-    (button :onclick "${network_gui_cmd}" :class {EWW_NET["eno2"]["NET_UP"] / 1000000 / 2 > 0.5 ? "network up_icon" : "network up_icon off"} "󰦘" )
-    (button :onclick "${network_gui_cmd}" :class {EWW_NET["eno2"]["NET_DOWN"] / 1000000 / 2 > 0.5 ? "network down_icon" : "network down_icon off"} "󰦗")
+    (button
+      :onclick "${network_gui_cmd}" :class "network up"
+      "${round(EWW_NET["eno2"]["NET_UP"] / 1000000 / 2, 1)}" )
+    (button
+      :onclick "${network_gui_cmd}" :class "network down"
+      "${round(EWW_NET["eno2"]["NET_DOWN"] / 1000000 / 2, 1)}")
+    (button
+      :onclick "${network_gui_cmd}"
+      :class {EWW_NET["eno2"]["NET_UP"] / 1000000 / 2 > 0.5 ? "network up_icon" : "network up_icon off"}
+      "󰦘"
+    )
+    (button
+      :onclick "${network_gui_cmd}"
+      :class {EWW_NET["eno2"]["NET_DOWN"] / 1000000 / 2 > 0.5 ? "network down_icon" : "network down_icon off"}
+      "󰦗"
+    )
   )
 )
