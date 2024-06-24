@@ -94,6 +94,10 @@ cat /mnt/etc/fstab
 
 ## Chroot into Arch
 
+```bash
+arch-chroot /mnt
+```
+
 Create `root password` and `user` with privilegdes.
 
 ```bash
