@@ -2,6 +2,9 @@
 
 Things to do after the installation process for [Arch Linux](https://archlinux.org/).
 
+> [!IMPORTANT]
+> Use `nmtui` to set up network connections from [tty](https://wiki.archlinux.org/title/Linux_console).
+
 > [!TIP]
 > `bash <(curl -Ls https://raw.githubusercontent.com/tonigineer/dotfiles/main/scripts/arch_mandatory.sh)`
 
