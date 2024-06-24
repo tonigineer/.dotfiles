@@ -2,6 +2,9 @@
 
 Things to do after the installation process for [Arch Linux](https://archlinux.org/).
 
+> [!TIP]
+> `bash <(curl -Ls https://raw.githubusercontent.com/tonigineer/dotfiles/main/scripts/arch_mandatory.sh)`
+
 ## Mandatory
 
 Installation of [yay](https://github.com/Jguer/yay) for the [Arch User Repository (AUR)](https://wiki.archlinux.org/title/Arch_User_Repository).
@@ -44,6 +47,3 @@ set nobackup
 set hlsearch
 set showmatch" > ~/.vimrc
 ```
-
-> [!TIP] Corresponding script
-> `bash <(curl -Ls https://raw.githubusercontent.com/tonigineer/.dotfiles/main/scripts/arch_mandatory.sh)`
