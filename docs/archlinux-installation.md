@@ -142,6 +142,9 @@ echo "
 
 ## Install Grub
 
+> [!TIP]
+> `bash <(curl -Ls https://raw.githubusercontent.com/tonigineer/dotfiles/main/scripts/arch_grub.sh)`
+
 Install packages and grub:
 
 ```bash
@@ -150,9 +153,6 @@ pacman -S grub efibootmgr dosfstools mtools os-prober
 grub-install --target=x86_64-efi --efi-directory=/boot --bootloader-id=GRUB
 grub-mkconfig -o /boot/grub/grub.cfg 
 ```
-
-> [!TIP]
-> `bash <(curl -Ls https://raw.githubusercontent.com/tonigineer/dotfiles/main/scripts/arch_grub.sh)`
 
 ## Finalize
 
